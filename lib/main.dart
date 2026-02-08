@@ -96,6 +96,8 @@ class MyApp extends StatelessWidget {
                   FlutterNativeSplash.remove();
                 });
 
+                ///
+
                 return MediaQuery(
                   data: MediaQuery.of(
                     context,
