@@ -969,28 +969,28 @@ class AppLocalizationsAr extends AppLocalizations {
   String get categoryPlaceholder => 'فئة';
 
   @override
-  String get testimonialAdded => 'تم إضافة الشهادة بنجاح';
+  String get testimonialAdded => 'تم إضافة التقييم بنجاح';
 
   @override
-  String get failedToAddTestimonial => 'فشل في إضافة الشهادة';
+  String get failedToAddTestimonial => 'فشل في إضافة التقييم';
 
   @override
-  String get testimonialUpdated => 'تم تحديث الشهادة بنجاح';
+  String get testimonialUpdated => 'تم تحديث التقييم بنجاح';
 
   @override
-  String get failedToUpdateTestimonial => 'فشل في تحديث الشهادة';
+  String get failedToUpdateTestimonial => 'فشل في تحديث التقييم';
 
   @override
-  String get testimonialDeleted => 'تم حذف الشهادة بنجاح';
+  String get testimonialDeleted => 'تم حذف التقييم بنجاح';
 
   @override
-  String get failedToDeleteTestimonial => 'فشل في حذف الشهادة';
+  String get failedToDeleteTestimonial => 'فشل في حذف التقييم';
 
   @override
-  String get editTestimonial => 'تعديل الشهادة';
+  String get editTestimonial => 'تعديل التقييم';
 
   @override
-  String get addTestimonial => 'إضافة شهادة';
+  String get addTestimonial => 'إضافة تقييم';
 
   @override
   String get shareThoughts => 'شاركنا رأيك...';
@@ -1026,16 +1026,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get faqAnswerPlaceholder => 'هذه إجابة مفصلة للسؤال لضمان مظهر واقعي للقالب.';
 
   @override
-  String get testimonials => 'الشهادات';
+  String get testimonials => 'تقييمات العملاء';
 
   @override
-  String get myTestimonials => 'شهادتي';
+  String get myTestimonials => 'التقييمات';
 
   @override
   String get loadingContent => 'جاري تحميل المحتوى...';
 
   @override
-  String get noTestimonialsYet => 'لا توجد شهادات بعد.';
+  String get noTestimonialsYet => 'لا توجد تقييمات بعد.';
 
   @override
   String get guestUser => 'مستخدم زائر';

@@ -49,7 +49,7 @@ class _ProfileViewContent extends StatelessWidget {
                   const ProfileSliverAppBar(),
                   SliverPadding(
                     padding: EdgeInsets.symmetric(
-                      vertical: 10.h,
+                      vertical: 4.h,
                       horizontal: 6.w,
                     ),
                     sliver: SliverList(

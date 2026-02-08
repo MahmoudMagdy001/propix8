@@ -2,8 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
+import '../../../../core/router/app_routes.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../../models/banner_model.dart';
 import '../../viewmodels/home_cubit.dart';
@@ -11,6 +13,27 @@ import '../../viewmodels/home_state.dart';
 
 class HomeBannerSection extends StatelessWidget {
   const HomeBannerSection({super.key});
+
+  /// Handles banner tap and navigates to the appropriate screen based on URL.
+  void _handleBannerTap(BuildContext context, String url) {
+    switch (url) {
+      case '/units':
+        context.goNamed(AppRoutes.layout);
+      case '/about':
+        context.pushNamed(AppRoutes.aboutUs);
+      case '/services':
+        context.pushNamed(AppRoutes.ourServices);
+      case '/contact':
+        // Contact form is inside About Us screen
+        context.pushNamed(AppRoutes.aboutUs);
+      case '/faq':
+        // FAQs section is inside Our Services screen
+        context.pushNamed(AppRoutes.ourServices);
+      default:
+        // Handle unknown or empty URLs gracefully
+        break;
+    }
+  }
 
   @override
   Widget build(BuildContext context) => SliverToBoxAdapter(
@@ -50,15 +73,20 @@ class HomeBannerSection extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(16.r),
                           ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(16.r),
-                            child: CachedNetworkImage(
-                              imageUrl: banner.image,
-                              width: double.infinity,
-                              fit: BoxFit.cover,
-                              memCacheHeight: 160 * 3,
-                              errorWidget: (context, url, error) =>
-                                  const Icon(Icons.broken_image),
+                          child: GestureDetector(
+                            onTap: isLoading
+                                ? null
+                                : () => _handleBannerTap(context, banner.url),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(16.r),
+                              child: CachedNetworkImage(
+                                imageUrl: banner.image,
+                                width: double.infinity,
+                                fit: BoxFit.cover,
+                                memCacheHeight: 160 * 3,
+                                errorWidget: (context, url, error) =>
+                                    const Icon(Icons.broken_image),
+                              ),
                             ),
                           ),
                         ),

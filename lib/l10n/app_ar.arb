@@ -109,6 +109,9 @@
         "description": "Label for the full name input field"
     },
     "phone": "رقم الهاتف",
+    "@phone": {
+        "description": "Label for the phone number input field"
+    },
     "address": "العنوان",
     "@address": {
         "description": "Label for the address input field"
@@ -680,6 +683,9 @@
         }
     },
     "bookingSuccess": "تم طلب الحجز بنجاح!",
+    "@bookingSuccess": {
+        "description": "Success message after successful booking"
+    },
     "myBookings": "حجوزات العقارات",
     "@myBookings": {
         "description": "Title for the bookings screen"
@@ -693,7 +699,13 @@
         "description": "Subtitle shown when there are no bookings"
     },
     "reviews": "المراجعات",
+    "@reviews": {
+        "description": "Label for reviews section"
+    },
     "rating": "التقييم",
+    "@rating": {
+        "description": "Label for rating"
+    },
     "submitReview": "إرسال التقييم",
     "@submitReview": {
         "description": "Label for submit review button"
@@ -820,18 +832,57 @@
         "description": "Title for settings group in profile"
     },
     "homeMaintenanceServices": "خدمات التشغيل المنزلي",
+    "@homeMaintenanceServices": {
+        "description": "Title for home maintenance services section"
+    },
     "technicalMaintenanceServices": "خدمات الصيانة الفنية",
+    "@technicalMaintenanceServices": {
+        "description": "Title for technical maintenance services section"
+    },
     "bookNow": "أحجز الآن",
+    "@bookNow": {
+        "description": "Label for book now button"
+    },
     "phoneRequired": "رقم الهاتف مطلوب",
+    "@phoneRequired": {
+        "description": "Error message when phone is missing"
+    },
     "invalidPhoneNumber": "رقم الهاتف غير صحيح",
+    "@invalidPhoneNumber": {
+        "description": "Error message for invalid phone"
+    },
     "addressRequired": "العنوان مطلوب",
+    "@addressRequired": {
+        "description": "Error message when address is missing"
+    },
     "bookingFor": "طلب حجز لـ",
+    "@bookingFor": {
+        "description": "Title for booking form"
+    },
     "success": "تم بنجاح",
+    "@success": {
+        "description": "Success message"
+    },
     "errorOccurred": "حدث خطأ ما",
+    "@errorOccurred": {
+        "description": "Error message"
+    },
     "pressAgainToExit": "اضغط مرة أخرى للخروج",
+    "@pressAgainToExit": {
+        "description": "Message to prompt user to press again to exit"
+    },
     "exitAppConfirmationTitle": "خروج من التطبيق",
+    "@exitAppConfirmationTitle": {
+        "description": "Title for exit app confirmation dialog"
+    },
     "exitAppConfirmationMessage": "هل أنت متأكد أنك تريد الخروج من التطبيق؟",
+    "@exitAppConfirmationMessage": {
+        "description": "Content for exit app confirmation dialog"
+    },
     "exit": "خروج",
+    "@exit": {
+        "description": "Label for exit button"
+    },
     "propertyType": "نوع العقار",
     "@propertyType": {
         "description": "Label for property type section"
@@ -845,6 +896,9 @@
         "description": "Label for primary development status"
     },
     "resale": "اعادة بيع",
+    "@resale": {
+        "description": "Label for resale development status"
+    },
     "maintenanceBookings": "حجوزات الخدمات",
     "@maintenanceBookings": {
         "description": "Title for the maintenance bookings section"
@@ -1249,35 +1303,35 @@
     "@categoryPlaceholder": {
         "description": "Placeholder for category"
     },
-    "testimonialAdded": "تم إضافة الشهادة بنجاح",
+    "testimonialAdded": "تم إضافة التقييم بنجاح",
     "@testimonialAdded": {
         "description": "Success message when testimonial is added"
     },
-    "failedToAddTestimonial": "فشل في إضافة الشهادة",
+    "failedToAddTestimonial": "فشل في إضافة التقييم",
     "@failedToAddTestimonial": {
         "description": "Error message when testimonial addition fails"
     },
-    "testimonialUpdated": "تم تحديث الشهادة بنجاح",
+    "testimonialUpdated": "تم تحديث التقييم بنجاح",
     "@testimonialUpdated": {
         "description": "Success message when testimonial is updated"
     },
-    "failedToUpdateTestimonial": "فشل في تحديث الشهادة",
+    "failedToUpdateTestimonial": "فشل في تحديث التقييم",
     "@failedToUpdateTestimonial": {
         "description": "Error message when testimonial update fails"
     },
-    "testimonialDeleted": "تم حذف الشهادة بنجاح",
+    "testimonialDeleted": "تم حذف التقييم بنجاح",
     "@testimonialDeleted": {
         "description": "Success message when testimonial is deleted"
     },
-    "failedToDeleteTestimonial": "فشل في حذف الشهادة",
+    "failedToDeleteTestimonial": "فشل في حذف التقييم",
     "@failedToDeleteTestimonial": {
         "description": "Error message when testimonial deletion fails"
     },
-    "editTestimonial": "تعديل الشهادة",
+    "editTestimonial": "تعديل التقييم",
     "@editTestimonial": {
         "description": "Title for edit testimonial sheet"
     },
-    "addTestimonial": "إضافة شهادة",
+    "addTestimonial": "إضافة تقييم",
     "@addTestimonial": {
         "description": "Title for add testimonial sheet"
     },
@@ -1325,11 +1379,11 @@
     "@faqAnswerPlaceholder": {
         "description": "Placeholder for faq answer"
     },
-    "testimonials": "الشهادات",
+    "testimonials": "تقييمات العملاء",
     "@testimonials": {
         "description": "Title for testimonials section"
     },
-    "myTestimonials": "شهادتي",
+    "myTestimonials": "التقييمات",
     "@myTestimonials": {
         "description": "Title for my testimonials view"
     },
@@ -1337,7 +1391,7 @@
     "@loadingContent": {
         "description": "Loading content text for skeletons"
     },
-    "noTestimonialsYet": "لا توجد شهادات بعد.",
+    "noTestimonialsYet": "لا توجد تقييمات بعد.",
     "@noTestimonialsYet": {
         "description": "Empty state message for testimonials"
     },
@@ -1350,6 +1404,9 @@
         "description": "Placeholder email for unauthenticated users"
     },
     "saveChanges": "حفظ التغييرات",
+    "@saveChanges": {
+        "description": "Label for the save changes button"
+    },
     "no_results": "لم يتم العثور على نتائج",
     "@no_results": {
         "description": "Message shown when no search results are found"
