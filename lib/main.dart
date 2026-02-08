@@ -95,9 +95,6 @@ class MyApp extends StatelessWidget {
                 WidgetsBinding.instance.addPostFrameCallback((_) {
                   FlutterNativeSplash.remove();
                 });
-
-                ///
-
                 return MediaQuery(
                   data: MediaQuery.of(
                     context,
