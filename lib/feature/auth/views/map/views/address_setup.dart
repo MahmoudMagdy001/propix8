@@ -46,9 +46,42 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
             context.showSuccessSnackbar(l10n.profileUpdateSuccess);
             context.goNamed(AppRoutes.layout);
           } else if (state.status == ProfileStatus.failure) {
-            context.showErrorSnackbar(
-              state.errorMessage ?? l10n.profileUpdateError,
-            );
+            if (state.errorMessage == 'LOCATION_SERVICE_DISABLED') {
+              context.showErrorSnackbar(
+                l10n.locationServiceDisabled,
+                action: SnackBarAction(
+                  label: l10n.enableLocation,
+                  onPressed: () =>
+                      context.read<AddressSetupCubit>().openLocationSettings(),
+                  textColor: Colors.white,
+                ),
+              );
+            } else if (state.errorMessage == 'LOCATION_PERMISSION_DENIED') {
+              context.showErrorSnackbar(
+                l10n.locationPermissionDenied,
+                action: SnackBarAction(
+                  label: l10n.openSettings,
+                  onPressed: () =>
+                      context.read<AddressSetupCubit>().openAppSettings(),
+                  textColor: Colors.white,
+                ),
+              );
+            } else if (state.errorMessage ==
+                'LOCATION_PERMISSION_DENIED_FOREVER') {
+              context.showErrorSnackbar(
+                l10n.locationPermissionDeniedForever,
+                action: SnackBarAction(
+                  label: l10n.openSettings,
+                  onPressed: () =>
+                      context.read<AddressSetupCubit>().openAppSettings(),
+                  textColor: Colors.white,
+                ),
+              );
+            } else {
+              context.showErrorSnackbar(
+                state.errorMessage ?? l10n.profileUpdateError,
+              );
+            }
           }
         },
         builder: (context, state) => Scaffold(
@@ -65,6 +98,20 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
                       left: 16.w,
                       right: 16.w,
                       child: _buildCityDropdown(context, state, l10n),
+                    ),
+
+                    Positioned(
+                      bottom: state.address.isNotEmpty ? 90.h : 26.h,
+                      right: 16.w,
+                      child: FloatingActionButton(
+                        mini: true,
+                        backgroundColor: colors.primary,
+                        foregroundColor: colors.onPrimary,
+                        onPressed: () => context
+                            .read<AddressSetupCubit>()
+                            .detectCurrentLocation(),
+                        child: const Icon(Icons.my_location),
+                      ),
                     ),
 
                     if (state.address.isNotEmpty)

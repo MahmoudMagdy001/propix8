@@ -74,7 +74,7 @@ class UnitReviews extends StatelessWidget {
                               ),
                               SizedBox(width: 4.w),
                               Text(
-                                unit.averageRating.toString(),
+                                unit.averageRating.toStringAsFixed(1),
                                 style: context.textTheme.titleSmall?.copyWith(
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -286,7 +286,10 @@ class _ReviewItem extends StatelessWidget {
                 alpha: .1,
               ),
               backgroundImage: review.user.avatar != null
-                  ? CachedNetworkImageProvider(review.user.avatar!)
+                  ? CachedNetworkImageProvider(
+                      review.user.avatar!,
+                      maxHeight: 150,
+                    )
                   : null,
               child: review.user.avatar == null
                   ? Text(

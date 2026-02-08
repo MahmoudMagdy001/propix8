@@ -1443,5 +1443,29 @@
     "@removedFromFavorites": {
         "description": "Success message when a unit is removed from favorites"
     },
-    "failedToUpdateFavorite": "فشل تحديث المفضلة"
+    "failedToUpdateFavorite": "فشل تحديث المفضلة",
+    "locationServiceDisabled": "خدمات الموقع متوقفة. يرجى تفعيلها لتحديد موقعك.",
+    "@locationServiceDisabled": {
+        "description": "Error message when location service is disabled"
+    },
+    "locationPermissionDenied": "تم رفض إذن الوصول للموقع. يرجى منح الإذن لتحديد موقعك.",
+    "@locationPermissionDenied": {
+        "description": "Error message when location permission is denied"
+    },
+    "locationPermissionDeniedForever": "أذونات الموقع مرفوضة بشكل دائم. يرجى تفعيلها من الإعدادات.",
+    "@locationPermissionDeniedForever": {
+        "description": "Error message when location permission is permanently denied"
+    },
+    "enableLocation": "تفعيل",
+    "@enableLocation": {
+        "description": "Label for enable action"
+    },
+    "openSettings": "فتح الإعدادات",
+    "@openSettings": {
+        "description": "Label for opening settings"
+    },
+    "currentLocation": "موقعي الحالي",
+    "@currentLocation": {
+        "description": "Label for current location button"
+    }
 }

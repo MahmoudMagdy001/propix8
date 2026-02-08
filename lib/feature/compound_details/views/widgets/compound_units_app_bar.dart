@@ -30,21 +30,33 @@ class CompoundUnitsAppBar extends StatelessWidget {
           final description = data.description;
           final propertiesCount = data.propertiesCount;
 
-          var expandedHeight = 70.h;
+          final statusBarHeight = MediaQuery.paddingOf(context).top;
+          final screenWidth = MediaQuery.sizeOf(context).width;
+
+          // Measure Name Height
+          final namePainter = TextPainter(
+            text: TextSpan(
+              text: name,
+              style: context.textTheme.headlineSmall?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            textDirection: Directionality.of(context),
+          )..layout(maxWidth: screenWidth - 40.w);
+
+          // Base Height: Status Bar + Name + Properties Row (30.h) + Spacings (40.h)
+          var expandedHeight = statusBarHeight + namePainter.height + 70.h;
 
           if (description.isNotEmpty) {
-            final textStyle = context.textTheme.bodyMedium?.copyWith(
-              color: context.colorScheme.onSurfaceVariant,
-              height: 1.4,
-            );
-            final textPainter = TextPainter(
-              text: TextSpan(text: description, style: textStyle),
-              textDirection: TextDirection.rtl,
-            )..layout(maxWidth: MediaQuery.of(context).size.width - 40.w);
+            final descriptionPainter = TextPainter(
+              text: TextSpan(
+                text: description,
+                style: context.textTheme.bodyMedium?.copyWith(height: 1.4),
+              ),
+              textDirection: Directionality.of(context),
+            )..layout(maxWidth: screenWidth - 40.w);
 
-            final numberOfLines = textPainter.computeLineMetrics().length;
-            final descriptionHeight = (numberOfLines * 18.h) + 6.h;
-            expandedHeight += descriptionHeight;
+            expandedHeight += descriptionPainter.height + 5.h; // Spacing
           }
 
           return SliverAppBar(
@@ -59,11 +71,12 @@ class CompoundUnitsAppBar extends StatelessWidget {
                 final top = constraints.biggest.height;
                 final statusBarHeight = MediaQuery.of(context).padding.top;
                 final collapsedHeight = kToolbarHeight + statusBarHeight;
-                final isCollapsed = top <= collapsedHeight + 5;
+                final isCollapsed = top <= collapsedHeight + 5.h;
 
                 return FlexibleSpaceBar(
                   centerTitle: true,
                   titlePadding: EdgeInsets.zero,
+                  expandedTitleScale: 1.0,
                   title: AnimatedOpacity(
                     duration: const Duration(milliseconds: 200),
                     opacity: isCollapsed ? 1.0 : 0.0,
@@ -71,6 +84,8 @@ class CompoundUnitsAppBar extends StatelessWidget {
                       padding: EdgeInsets.only(bottom: 12.h),
                       child: Text(
                         name,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                         style: context.textTheme.titleMedium?.copyWith(
                           fontWeight: FontWeight.bold,
                           color: context.colorScheme.onSurface,
@@ -82,8 +97,12 @@ class CompoundUnitsAppBar extends StatelessWidget {
                     duration: const Duration(milliseconds: 200),
                     opacity: isCollapsed ? 0.0 : 1.0,
                     child: Padding(
-                      padding: EdgeInsets.only(top: statusBarHeight + 20.h),
+                      padding: EdgeInsets.only(
+                        top: statusBarHeight + 10.h,
+                        bottom: 10.h,
+                      ),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
                             name,
@@ -107,15 +126,16 @@ class CompoundUnitsAppBar extends StatelessWidget {
                               ),
                             ),
                           ],
-                          SizedBox(height: 9.h),
+                          SizedBox(height: 12.h),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Icon(
                                 Icons.business_rounded,
                                 color: context.colorScheme.primary,
+                                size: 20.w,
                               ),
-                              SizedBox(width: 4.w),
+                              SizedBox(width: 6.w),
                               Text(
                                 context.l10n.propertiesCount(propertiesCount),
                                 style: context.textTheme.labelMedium?.copyWith(

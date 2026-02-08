@@ -1087,4 +1087,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get failedToUpdateFavorite => 'Failed to update favorite';
+
+  @override
+  String get locationServiceDisabled => 'Location services are disabled. Please enable them to detect your location.';
+
+  @override
+  String get locationPermissionDenied => 'Location permission denied. Please grant permission to detect your location.';
+
+  @override
+  String get locationPermissionDeniedForever => 'Location permissions are permanently denied. Please enable them in settings.';
+
+  @override
+  String get enableLocation => 'Enable';
+
+  @override
+  String get openSettings => 'Open Settings';
+
+  @override
+  String get currentLocation => 'Current Location';
 }

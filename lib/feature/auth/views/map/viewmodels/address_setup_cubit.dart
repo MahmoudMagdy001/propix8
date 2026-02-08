@@ -31,20 +31,52 @@ class AddressSetupCubit extends Cubit<ProfileState> {
     LocationPermission permission;
 
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) return;
+    if (!serviceEnabled) {
+      emit(
+        state.copyWith(
+          status: ProfileStatus.failure,
+          errorMessage: 'LOCATION_SERVICE_DISABLED',
+        ),
+      );
+      return;
+    }
 
     permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) return;
+      if (permission == LocationPermission.denied) {
+        emit(
+          state.copyWith(
+            status: ProfileStatus.failure,
+            errorMessage: 'LOCATION_PERMISSION_DENIED',
+          ),
+        );
+        return;
+      }
     }
 
-    if (permission == LocationPermission.deniedForever) return;
+    if (permission == LocationPermission.deniedForever) {
+      emit(
+        state.copyWith(
+          status: ProfileStatus.failure,
+          errorMessage: 'LOCATION_PERMISSION_DENIED_FOREVER',
+        ),
+      );
+      return;
+    }
 
     final position = await Geolocator.getCurrentPosition();
     if (isClosed) return;
 
     updateLocation(LatLng(position.latitude, position.longitude));
+  }
+
+  Future<void> openLocationSettings() async {
+    await Geolocator.openLocationSettings();
+  }
+
+  Future<void> openAppSettings() async {
+    await Geolocator.openAppSettings();
   }
 
   void selectCity(int cityId) {

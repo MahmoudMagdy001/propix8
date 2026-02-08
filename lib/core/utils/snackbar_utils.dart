@@ -10,6 +10,7 @@ class SnackbarUtils {
     BuildContext context, {
     required String message,
     required SnackbarType type,
+    SnackBarAction? action,
   }) {
     final scaffoldMessenger = ScaffoldMessenger.of(context);
 
@@ -33,28 +34,63 @@ class SnackbarUtils {
             ),
           ],
         ),
+        action: action,
         backgroundColor: _getBackgroundColor(type),
         behavior: SnackBarBehavior.floating,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.r),
         ),
         margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
-        duration: const Duration(seconds: 3),
+        duration: action != null
+            ? const Duration(seconds: 5)
+            : const Duration(seconds: 3),
       ),
     );
   }
 
-  static void showSuccess(BuildContext context, String message) =>
-      showSnackbar(context, message: message, type: SnackbarType.success);
+  static void showSuccess(
+    BuildContext context,
+    String message, {
+    SnackBarAction? action,
+  }) => showSnackbar(
+    context,
+    message: message,
+    type: SnackbarType.success,
+    action: action,
+  );
 
-  static void showError(BuildContext context, String message) =>
-      showSnackbar(context, message: message, type: SnackbarType.error);
+  static void showError(
+    BuildContext context,
+    String message, {
+    SnackBarAction? action,
+  }) => showSnackbar(
+    context,
+    message: message,
+    type: SnackbarType.error,
+    action: action,
+  );
 
-  static void showInfo(BuildContext context, String message) =>
-      showSnackbar(context, message: message, type: SnackbarType.info);
+  static void showInfo(
+    BuildContext context,
+    String message, {
+    SnackBarAction? action,
+  }) => showSnackbar(
+    context,
+    message: message,
+    type: SnackbarType.info,
+    action: action,
+  );
 
-  static void showWarning(BuildContext context, String message) =>
-      showSnackbar(context, message: message, type: SnackbarType.warning);
+  static void showWarning(
+    BuildContext context,
+    String message, {
+    SnackBarAction? action,
+  }) => showSnackbar(
+    context,
+    message: message,
+    type: SnackbarType.warning,
+    action: action,
+  );
 
   static IconData _getIcon(SnackbarType type) {
     switch (type) {
@@ -84,15 +120,15 @@ class SnackbarUtils {
 }
 
 extension SnackbarExtension on BuildContext {
-  void showSuccessSnackbar(String message) =>
-      SnackbarUtils.showSuccess(this, message);
+  void showSuccessSnackbar(String message, {SnackBarAction? action}) =>
+      SnackbarUtils.showSuccess(this, message, action: action);
 
-  void showErrorSnackbar(String message) =>
-      SnackbarUtils.showError(this, message);
+  void showErrorSnackbar(String message, {SnackBarAction? action}) =>
+      SnackbarUtils.showError(this, message, action: action);
 
-  void showInfoSnackbar(String message) =>
-      SnackbarUtils.showInfo(this, message);
+  void showInfoSnackbar(String message, {SnackBarAction? action}) =>
+      SnackbarUtils.showInfo(this, message, action: action);
 
-  void showWarningSnackbar(String message) =>
-      SnackbarUtils.showWarning(this, message);
+  void showWarningSnackbar(String message, {SnackBarAction? action}) =>
+      SnackbarUtils.showWarning(this, message, action: action);
 }

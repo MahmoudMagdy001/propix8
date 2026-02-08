@@ -1443,5 +1443,29 @@
   "@removedFromFavorites": {
     "description": "Success message when a unit is removed from favorites"
   },
-  "failedToUpdateFavorite": "Failed to update favorite"
+  "failedToUpdateFavorite": "Failed to update favorite",
+  "locationServiceDisabled": "Location services are disabled. Please enable them to detect your location.",
+  "@locationServiceDisabled": {
+    "description": "Error message when location service is disabled"
+  },
+  "locationPermissionDenied": "Location permission denied. Please grant permission to detect your location.",
+  "@locationPermissionDenied": {
+    "description": "Error message when location permission is denied"
+  },
+  "locationPermissionDeniedForever": "Location permissions are permanently denied. Please enable them in settings.",
+  "@locationPermissionDeniedForever": {
+    "description": "Error message when location permission is permanently denied"
+  },
+  "enableLocation": "Enable",
+  "@enableLocation": {
+    "description": "Label for enable action"
+  },
+  "openSettings": "Open Settings",
+  "@openSettings": {
+    "description": "Label for opening settings"
+  },
+  "currentLocation": "Current Location",
+  "@currentLocation": {
+    "description": "Label for current location button"
+  }
 }

@@ -83,7 +83,7 @@ class HomeBannerSection extends StatelessWidget {
                                 imageUrl: banner.image,
                                 width: double.infinity,
                                 fit: BoxFit.cover,
-                                memCacheHeight: 160 * 3,
+                                memCacheHeight: 160 * 2,
                                 errorWidget: (context, url, error) =>
                                     const Icon(Icons.broken_image),
                               ),

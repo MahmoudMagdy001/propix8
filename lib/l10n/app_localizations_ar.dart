@@ -1087,4 +1087,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get failedToUpdateFavorite => 'فشل تحديث المفضلة';
+
+  @override
+  String get locationServiceDisabled => 'خدمات الموقع متوقفة. يرجى تفعيلها لتحديد موقعك.';
+
+  @override
+  String get locationPermissionDenied => 'تم رفض إذن الوصول للموقع. يرجى منح الإذن لتحديد موقعك.';
+
+  @override
+  String get locationPermissionDeniedForever => 'أذونات الموقع مرفوضة بشكل دائم. يرجى تفعيلها من الإعدادات.';
+
+  @override
+  String get enableLocation => 'تفعيل';
+
+  @override
+  String get openSettings => 'فتح الإعدادات';
+
+  @override
+  String get currentLocation => 'موقعي الحالي';
 }

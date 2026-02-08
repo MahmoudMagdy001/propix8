@@ -56,8 +56,38 @@ class DeveloperUnitsAppBar extends StatelessWidget {
             );
           }
 
+          final statusBarHeight = MediaQuery.paddingOf(context).top;
+          final screenWidth = MediaQuery.sizeOf(context).width;
+
+          // Measure Name Height
+          final namePainter = TextPainter(
+            text: TextSpan(
+              text: name,
+              style: context.textTheme.headlineSmall?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            textDirection: Directionality.of(context),
+          )..layout(maxWidth: screenWidth - 40.w);
+
+          // Base Height: Status Bar + Logo (100.w) + Name + Property Row (24.h) + Buttons Row (48.h) + Spacings
+          var expandedHeight =
+              statusBarHeight + 100.w + namePainter.height + 100.h;
+
+          if (address.isNotEmpty) {
+            final addressPainter = TextPainter(
+              text: TextSpan(
+                text: address,
+                style: context.textTheme.labelMedium,
+              ),
+              textDirection: Directionality.of(context),
+            )..layout(maxWidth: screenWidth - 64.w);
+
+            expandedHeight += addressPainter.height + 6.h;
+          }
+
           return SliverAppBar(
-            expandedHeight: 230.h,
+            expandedHeight: expandedHeight,
             pinned: true,
             elevation: 0,
             backgroundColor: context.colorScheme.surface,
@@ -68,11 +98,12 @@ class DeveloperUnitsAppBar extends StatelessWidget {
                 final top = constraints.biggest.height;
                 final statusBarHeight = MediaQuery.of(context).padding.top;
                 final collapsedHeight = kToolbarHeight + statusBarHeight;
-                final isCollapsed = top <= collapsedHeight + 5;
+                final isCollapsed = top <= collapsedHeight + 5.h;
 
                 return FlexibleSpaceBar(
                   centerTitle: true,
                   titlePadding: EdgeInsets.zero,
+                  expandedTitleScale: 1.0,
                   title: AnimatedOpacity(
                     duration: const Duration(milliseconds: 200),
                     opacity: isCollapsed ? 1.0 : 0.0,
@@ -102,11 +133,15 @@ class DeveloperUnitsAppBar extends StatelessWidget {
                             ),
                           ),
                           SizedBox(width: 8.w),
-                          Text(
-                            name,
-                            style: context.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: context.colorScheme.onSurface,
+                          Flexible(
+                            child: Text(
+                              name,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: context.textTheme.titleMedium?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: context.colorScheme.onSurface,
+                              ),
                             ),
                           ),
                         ],
@@ -117,8 +152,12 @@ class DeveloperUnitsAppBar extends StatelessWidget {
                     duration: const Duration(milliseconds: 200),
                     opacity: isCollapsed ? 0.0 : 1.0,
                     child: Padding(
-                      padding: EdgeInsets.only(top: statusBarHeight + 10.h),
+                      padding: EdgeInsets.only(
+                        top: statusBarHeight + 10.h,
+                        bottom: 10.h,
+                      ),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           // Expanded Logo
                           SizedBox(

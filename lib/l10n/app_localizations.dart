@@ -2242,6 +2242,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Failed to update favorite'**
   String get failedToUpdateFavorite;
+
+  /// Error message when location service is disabled
+  ///
+  /// In en, this message translates to:
+  /// **'Location services are disabled. Please enable them to detect your location.'**
+  String get locationServiceDisabled;
+
+  /// Error message when location permission is denied
+  ///
+  /// In en, this message translates to:
+  /// **'Location permission denied. Please grant permission to detect your location.'**
+  String get locationPermissionDenied;
+
+  /// Error message when location permission is permanently denied
+  ///
+  /// In en, this message translates to:
+  /// **'Location permissions are permanently denied. Please enable them in settings.'**
+  String get locationPermissionDeniedForever;
+
+  /// Label for enable action
+  ///
+  /// In en, this message translates to:
+  /// **'Enable'**
+  String get enableLocation;
+
+  /// Label for opening settings
+  ///
+  /// In en, this message translates to:
+  /// **'Open Settings'**
+  String get openSettings;
+
+  /// Label for current location button
+  ///
+  /// In en, this message translates to:
+  /// **'Current Location'**
+  String get currentLocation;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
