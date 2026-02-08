@@ -8,6 +8,7 @@ import '../../../../core/router/app_routes.dart';
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/utils/snackbar_utils.dart';
+import '../../../../core/widgets/app_elevated_button.dart';
 import '../../../../core/widgets/app_modal_sheet.dart';
 import '../../../../core/widgets/custom_back_button.dart';
 import '../../auth/viewmodels/auth_cubit.dart';
@@ -120,45 +121,21 @@ class EditAccountView extends StatelessWidget {
                   final isLoading = status == UserProfileStatus.loading;
                   return Column(
                     children: [
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: isLoading
-                              ? null
-                              : () {
-                                  context.pop(); // Close modal
-                                  context
-                                      .read<UserProfileCubit>()
-                                      .deleteProfile();
-                                },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: context.colorScheme.error,
-                            foregroundColor: Colors.white,
-                            padding: EdgeInsets.symmetric(vertical: 14.h),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12.r),
-                            ),
-                          ),
-                          child: isLoading
-                              ? SizedBox(
-                                  height: 20.h,
-                                  width: 20.w,
-                                  child: const CircularProgressIndicator(
-                                    strokeWidth: 2,
-                                    valueColor: AlwaysStoppedAnimation<Color>(
-                                      Colors.white,
-                                    ),
-                                  ),
-                                )
-                              : Text(
-                                  context.l10n.confirmDeleteAccount,
-                                  style: context.textTheme.titleMedium
-                                      ?.copyWith(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                      ),
-                                ),
+                      AppElevatedButton(
+                        onPressed: () {
+                          context.pop(); // Close modal
+                          context.read<UserProfileCubit>().deleteProfile();
+                        },
+                        isLoading: isLoading,
+                        backgroundColor: context.colorScheme.error,
+                        foregroundColor: Colors.white,
+                        padding: EdgeInsets.symmetric(vertical: 14.h),
+                        text: context.l10n.confirmDeleteAccount,
+                        textStyle: context.textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
                         ),
+                        width: double.infinity,
                       ),
                       SizedBox(height: 12.h),
                       SizedBox(

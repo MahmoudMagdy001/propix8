@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/utils/snackbar_utils.dart';
+import '../../../../core/widgets/app_elevated_button.dart';
 import '../../models/review_model.dart';
 import '../../viewmodels/unit_details_cubit.dart';
 import '../../viewmodels/unit_details_state.dart';
@@ -106,50 +107,33 @@ class _ReviewSheetState extends State<ReviewSheet> {
                   ),
                 ),
                 SizedBox(height: 24.h),
-                ElevatedButton(
-                  onPressed: isLoading || _rating == 0
-                      ? null
-                      : () {
-                          if (widget.review != null) {
-                            context.read<UnitDetailsCubit>().updateReview(
-                              widget.review!.id,
-                              _rating,
-                              _commentController.text,
-                            );
-                          } else {
-                            context.read<UnitDetailsCubit>().submitReview(
-                              _rating,
-                              _commentController.text,
-                            );
-                          }
-                        },
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(vertical: 16.h),
-                    backgroundColor: context.colorScheme.primary,
-                    foregroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.r),
-                    ),
-                    minimumSize: Size(double.infinity, 50.h),
+                AppElevatedButton(
+                  onPressed: () {
+                    if (widget.review != null) {
+                      context.read<UnitDetailsCubit>().updateReview(
+                        widget.review!.id,
+                        _rating,
+                        _commentController.text,
+                      );
+                    } else {
+                      context.read<UnitDetailsCubit>().submitReview(
+                        _rating,
+                        _commentController.text,
+                      );
+                    }
+                  },
+                  isLoading: isLoading,
+                  enabled: _rating != 0,
+                  text: widget.review != null
+                      ? context.l10n.updateReview
+                      : context.l10n.submitReview,
+                  textStyle: context.textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
-                  child: isLoading
-                      ? SizedBox(
-                          height: 20.h,
-                          width: 20.h,
-                          child: const CircularProgressIndicator(
-                            strokeWidth: 2,
-                            color: Colors.white,
-                          ),
-                        )
-                      : Text(
-                          widget.review != null
-                              ? context.l10n.updateReview
-                              : context.l10n.submitReview,
-                          style: context.textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
+                  height: 50.h,
+                  width: double.infinity,
+                  padding: EdgeInsets.symmetric(vertical: 16.h),
                 ),
               ],
             ),

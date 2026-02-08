@@ -41,7 +41,7 @@ class _FilterCounterState extends State<FilterCounter> {
                 }
               },
               isActive: _activeAction == _CounterAction.decrement,
-              isEnabled: widget.value > 0,
+              enabled: widget.value > 0,
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -70,12 +70,12 @@ class _FilterCounterState extends State<FilterCounter> {
     required IconData icon,
     required VoidCallback onPressed,
     required bool isActive,
-    bool isEnabled = true,
+    bool enabled = true,
   }) {
     final Color backgroundColor;
     final Color iconColor;
 
-    if (!isEnabled) {
+    if (!enabled) {
       backgroundColor = context.colorScheme.onSurface.withValues(alpha: 0.12);
       iconColor = context.colorScheme.onSurface.withValues(alpha: 0.38);
     } else {
@@ -86,16 +86,14 @@ class _FilterCounterState extends State<FilterCounter> {
     }
 
     return InkWell(
-      onTap: isEnabled ? onPressed : null,
+      onTap: enabled ? onPressed : null,
       borderRadius: BorderRadius.circular(8.r),
       child: AnimatedScale(
-        scale: (isEnabled && isActive) ? 1.0 : 0.95,
-        duration: isEnabled ? const Duration(milliseconds: 150) : Duration.zero,
+        scale: (enabled && isActive) ? 1.0 : 0.95,
+        duration: enabled ? const Duration(milliseconds: 150) : Duration.zero,
         curve: Curves.easeOut,
         child: AnimatedContainer(
-          duration: isEnabled
-              ? const Duration(milliseconds: 150)
-              : Duration.zero,
+          duration: enabled ? const Duration(milliseconds: 150) : Duration.zero,
           curve: Curves.easeOut,
           padding: EdgeInsets.all(8.r),
           decoration: BoxDecoration(

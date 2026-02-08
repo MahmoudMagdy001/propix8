@@ -6,6 +6,8 @@ import '../../../../core/public_feature/services/storage_service.dart';
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/utils/snackbar_utils.dart';
+import '../../../../core/widgets/app_elevated_button.dart';
+import '../../../../core/widgets/app_text_form_field.dart';
 import '../../../auth/models/auth_model.dart';
 import '../../viewmodels/maintenance_booking_cubit.dart';
 
@@ -80,10 +82,10 @@ class _MaintenanceBookingFormState extends State<MaintenanceBookingForm> {
                 ),
               ),
               SizedBox(height: 20.h),
-              _buildTextField(
+              AppTextFormField(
                 controller: _phoneController,
                 label: context.l10n.phone,
-                icon: Icons.phone_outlined,
+                prefixIcon: const Icon(Icons.phone_outlined),
                 keyboardType: TextInputType.phone,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -96,10 +98,10 @@ class _MaintenanceBookingFormState extends State<MaintenanceBookingForm> {
                 },
               ),
               SizedBox(height: 12.h),
-              _buildTextField(
+              AppTextFormField(
                 controller: _addressController,
                 label: context.l10n.location,
-                icon: Icons.location_on_outlined,
+                prefixIcon: const Icon(Icons.location_on_outlined),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return context.l10n.addressRequired;
@@ -108,10 +110,10 @@ class _MaintenanceBookingFormState extends State<MaintenanceBookingForm> {
                 },
               ),
               SizedBox(height: 12.h),
-              _buildTextField(
+              AppTextFormField(
                 controller: _messageController,
                 label: context.l10n.message,
-                icon: Icons.notes_rounded,
+                prefixIcon: const Icon(Icons.notes_rounded),
                 maxLines: 3,
               ),
               SizedBox(height: 16.h),
@@ -123,36 +125,20 @@ class _MaintenanceBookingFormState extends State<MaintenanceBookingForm> {
                 selector: (state) => state.status,
                 builder: (context, status) {
                   final isLoading = status == BookingStatus.loading;
-                  return ElevatedButton(
-                    onPressed: isLoading
-                        ? null
-                        : () {
-                            if (_formKey.currentState!.validate()) {
-                              context
-                                  .read<MaintenanceBookingCubit>()
-                                  .bookMaintenance(
-                                    maintenanceServiceId: widget.serviceId,
-                                    phone: _phoneController.text,
-                                    address: _addressController.text,
-                                    message: _messageController.text,
-                                  );
-                            }
-                          },
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(vertical: 16.h),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.r),
-                      ),
-                    ),
-                    child: isLoading
-                        ? SizedBox(
-                            height: 20.h,
-                            width: 20.h,
-                            child: const CircularProgressIndicator(
-                              strokeWidth: 2,
-                            ),
-                          )
-                        : Text(context.l10n.bookNow),
+                  return AppElevatedButton(
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        context.read<MaintenanceBookingCubit>().bookMaintenance(
+                          maintenanceServiceId: widget.serviceId,
+                          phone: _phoneController.text,
+                          address: _addressController.text,
+                          message: _messageController.text,
+                        );
+                      }
+                    },
+                    isLoading: isLoading,
+                    padding: EdgeInsets.symmetric(vertical: 16.h),
+                    text: context.l10n.bookNow,
                   );
                 },
               ),
@@ -160,27 +146,6 @@ class _MaintenanceBookingFormState extends State<MaintenanceBookingForm> {
           ),
         ),
       ),
-    ),
-  );
-  Widget _buildTextField({
-    required TextEditingController controller,
-    required String label,
-    required IconData icon,
-    TextInputType? keyboardType,
-    String? Function(String?)? validator,
-    bool readOnly = false,
-    VoidCallback? onTap,
-    int maxLines = 1,
-  }) => TextFormField(
-    controller: controller,
-    keyboardType: keyboardType,
-    validator: validator,
-    readOnly: readOnly,
-    onTap: onTap,
-    maxLines: maxLines,
-    decoration: InputDecoration(
-      labelText: label,
-      prefixIcon: Icon(icon, size: 20.w),
     ),
   );
 }

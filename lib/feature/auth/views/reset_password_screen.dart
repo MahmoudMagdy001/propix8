@@ -8,10 +8,11 @@ import '../../../../core/widgets/custom_back_button.dart';
 import '../../../core/di/locator.dart';
 import '../../../core/router/app_routes.dart';
 import '../../../core/utils/context_extensions.dart';
+import '../../../core/widgets/app_elevated_button.dart';
+import '../../../core/widgets/app_text_form_field.dart';
 import '../models/auth_model.dart';
 import '../viewmodels/reset_password_cubit.dart';
 import '../viewmodels/reset_password_state.dart';
-import 'widgets/auth_widgets.dart';
 
 class ResetPasswordScreen extends StatefulWidget {
   const ResetPasswordScreen({
@@ -89,7 +90,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   ),
                   SizedBox(height: 32.h),
 
-                  AppTextField(
+                  AppTextFormField(
                     controller: _passwordController,
                     label: l10n.password,
                     isPassword: true,
@@ -101,7 +102,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     },
                   ),
                   SizedBox(height: 16.h),
-                  AppTextField(
+                  AppTextFormField(
                     controller: _confirmPasswordController,
                     label: l10n.confirmPassword,
                     isPassword: true,
@@ -123,27 +124,22 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     selector: (state) => state.status,
                     builder: (context, status) {
                       final isLoading = status == ResetPasswordStatus.loading;
-                      return ElevatedButton(
-                        onPressed: isLoading
-                            ? null
-                            : () {
-                                if (_formKey.currentState!.validate()) {
-                                  context
-                                      .read<ResetPasswordCubit>()
-                                      .resetPassword(
-                                        ResetPasswordRequest(
-                                          token: _tokenController.text,
-                                          email: widget.email,
-                                          password: _passwordController.text,
-                                          passwordConfirmation:
-                                              _confirmPasswordController.text,
-                                        ),
-                                      );
-                                }
-                              },
-                        child: isLoading
-                            ? const CircularProgressIndicator()
-                            : Text(l10n.changePassword),
+                      return AppElevatedButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            context.read<ResetPasswordCubit>().resetPassword(
+                              ResetPasswordRequest(
+                                token: _tokenController.text,
+                                email: widget.email,
+                                password: _passwordController.text,
+                                passwordConfirmation:
+                                    _confirmPasswordController.text,
+                              ),
+                            );
+                          }
+                        },
+                        isLoading: isLoading,
+                        text: l10n.changePassword,
                       );
                     },
                   ),

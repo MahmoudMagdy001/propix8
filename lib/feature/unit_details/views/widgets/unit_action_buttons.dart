@@ -4,6 +4,7 @@ import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/widgets/app_elevated_button.dart';
 import '../../viewmodels/unit_details_cubit.dart';
 import '../../viewmodels/unit_details_state.dart';
 import 'booking_sheet.dart';
@@ -33,19 +34,18 @@ class UnitActionButtons extends StatelessWidget {
               children: [
                 Expanded(
                   flex: 2,
-                  child: ElevatedButton(
-                    onPressed: isActionDisabled
-                        ? null
-                        : () {
-                            if (unit != null) {
-                              BookingSheet.show(context, unit.id);
-                            }
-                          },
-                    child: Text(
-                      state.isBookedByUser
-                          ? context.l10n.alreadyBooked
-                          : context.l10n.reserveNow,
-                    ),
+                  child: AppElevatedButton(
+                    onPressed: () {
+                      if (unit != null) {
+                        BookingSheet.show(context, unit.id);
+                      }
+                    },
+                    enabled: !isActionDisabled,
+                    text: state.isBookedByUser
+                        ? context.l10n.alreadyBooked
+                        : (state.cancelledBookingId != null
+                              ? context.l10n.rebook
+                              : context.l10n.reserveNow),
                   ),
                 ),
                 SizedBox(width: 12.w),

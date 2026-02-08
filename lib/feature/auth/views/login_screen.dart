@@ -10,9 +10,10 @@ import '../../../core/di/locator.dart';
 import '../../../core/router/app_routes.dart';
 import '../../../core/utils/auth_constants.dart';
 import '../../../core/utils/context_extensions.dart';
+import '../../../core/widgets/app_elevated_button.dart';
+import '../../../core/widgets/app_text_form_field.dart';
 import '../viewmodels/auth_cubit.dart';
 import '../viewmodels/auth_state.dart';
-import 'widgets/auth_widgets.dart';
 
 /// Login screen for user authentication.
 ///
@@ -150,7 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     color: context.colorScheme.primary,
                   ),
                   SizedBox(height: 40.h),
-                  AppTextField(
+                  AppTextFormField(
                     focusNode: _emailFocusNode,
                     controller: _emailController,
                     label: l10n.email,
@@ -169,7 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                   ),
                   SizedBox(height: 20.h),
-                  AppTextField(
+                  AppTextFormField(
                     focusNode: _passwordFocusNode,
                     controller: _passwordController,
                     label: l10n.password,
@@ -195,14 +196,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     selector: (state) => state.status,
                     builder: (context, status) {
                       final isLoading = status == AuthRequestStatus.loading;
-                      return ElevatedButton(
-                        // DEBOUNCING: Disable during loading OR during submit debounce
-                        onPressed: isLoading || _isSubmitting
-                            ? null
-                            : () => _handleLogin(context),
-                        child: isLoading
-                            ? const CircularProgressIndicator()
-                            : Text(l10n.login),
+                      return AppElevatedButton(
+                        onPressed: () => _handleLogin(context),
+                        isLoading: isLoading,
+                        enabled: !_isSubmitting,
+                        text: l10n.login,
                       );
                     },
                   ),

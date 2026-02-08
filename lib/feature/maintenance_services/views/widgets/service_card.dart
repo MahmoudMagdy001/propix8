@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/widgets/app_elevated_button.dart';
 import '../../../../core/widgets/app_modal_sheet.dart';
 import '../../models/maintenance_service_model.dart';
 import 'maintenance_booking_form.dart';
@@ -53,32 +54,26 @@ class ServiceCard extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
               SizedBox(height: 8.h),
-              SizedBox(
+              AppElevatedButton(
+                onPressed: isBooked
+                    ? null
+                    : () {
+                        showAppModalSheet(
+                          context: context,
+                          title: context.l10n.bookNow,
+                          child: MaintenanceBookingForm(
+                            serviceId: service.id,
+                            serviceName: service.title,
+                            onBookingSuccess: onBooked,
+                          ),
+                        );
+                      },
+                padding: EdgeInsets.symmetric(vertical: 8.h),
+                text: isBooked
+                    ? context.l10n.serviceBooked
+                    : context.l10n.bookNow,
                 width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: isBooked
-                      ? null
-                      : () {
-                          showAppModalSheet(
-                            context: context,
-                            title: context.l10n.bookNow,
-                            child: MaintenanceBookingForm(
-                              serviceId: service.id,
-                              serviceName: service.title,
-                              onBookingSuccess: onBooked,
-                            ),
-                          );
-                        },
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(vertical: 8.h),
-                  ),
-                  child: Text(
-                    isBooked
-                        ? context.l10n.serviceBooked
-                        : context.l10n.bookNow,
-                    style: TextStyle(fontSize: 12.sp),
-                  ),
-                ),
+                textStyle: TextStyle(fontSize: 12.sp),
               ),
             ],
           ),

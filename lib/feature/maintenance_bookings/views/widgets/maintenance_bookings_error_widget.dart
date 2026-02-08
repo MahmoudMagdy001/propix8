@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/widgets/app_elevated_button.dart';
 import '../../models/maintenance_booking_model.dart';
 import '../../viewmodels/maintenance_bookings_cubit.dart';
 import '../../viewmodels/maintenance_bookings_state.dart';
@@ -47,11 +48,11 @@ class MaintenanceBookingsErrorWidget extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 16.h),
-                  ElevatedButton(
+                  AppElevatedButton(
                     onPressed: () => context
                         .read<MaintenanceBookingsCubit>()
                         .getMaintenanceBookings(),
-                    child: Text(context.l10n.retry),
+                    text: context.l10n.retry,
                   ),
                 ],
               ),

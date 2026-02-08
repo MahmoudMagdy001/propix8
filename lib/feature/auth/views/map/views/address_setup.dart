@@ -9,6 +9,7 @@ import '../../../../../core/router/app_routes.dart';
 import '../../../../../core/utils/context_extensions.dart';
 import '../../../../../core/utils/responsive_helper.dart';
 import '../../../../../core/utils/snackbar_utils.dart';
+import '../../../../../core/widgets/app_elevated_button.dart';
 import '../../../../../l10n/app_localizations.dart';
 import '../models/city_model.dart';
 import '../viewmodels/address_setup_cubit.dart';
@@ -177,26 +178,16 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
                     ),
                   ],
                 ),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: Size(double.infinity, 54.h),
-                  ),
-                  onPressed:
-                      state.status == ProfileStatus.submitting ||
-                          state.selectedCityId == null ||
-                          state.selectedLocation == null
-                      ? null
-                      : () => context.read<AddressSetupCubit>().submitProfile(),
-                  child: state.status == ProfileStatus.submitting
-                      ? SizedBox(
-                          height: 20,
-                          width: 20,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2,
-                            color: colors.onPrimary,
-                          ),
-                        )
-                      : Text(l10n.submitProfile),
+                child: AppElevatedButton(
+                  height: 54.h,
+                  width: double.infinity,
+                  onPressed: () =>
+                      context.read<AddressSetupCubit>().submitProfile(),
+                  isLoading: state.status == ProfileStatus.submitting,
+                  enabled:
+                      state.selectedCityId != null &&
+                      state.selectedLocation != null,
+                  text: l10n.submitProfile,
                 ),
               ),
             ],

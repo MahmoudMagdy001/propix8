@@ -8,6 +8,7 @@ import '../../../../core/di/locator.dart';
 import '../../../../core/router/app_routes.dart';
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/widgets/app_elevated_button.dart';
 import '../../../../core/widgets/custom_back_button.dart';
 import '../models/compound_model.dart';
 import '../viewmodels/compound_cubit.dart';
@@ -115,9 +116,9 @@ class _CompoundsViewContent extends StatelessWidget {
                 Text(message ?? context.l10n.errorOccurred),
           ),
           SizedBox(height: 16.h),
-          ElevatedButton(
+          AppElevatedButton(
             onPressed: () => context.read<CompoundsCubit>().fetchCompounds(),
-            child: Text(context.l10n.retry),
+            text: context.l10n.retry,
           ),
         ],
       ),

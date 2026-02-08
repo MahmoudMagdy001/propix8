@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/utils/snackbar_utils.dart';
+import '../../../../core/widgets/app_elevated_button.dart';
 import '../../../../core/widgets/app_modal_sheet.dart';
 import '../../models/maintenance_booking_model.dart';
 import '../../viewmodels/maintenance_bookings_cubit.dart';
@@ -76,13 +77,11 @@ class MaintenanceBookingCard extends StatelessWidget {
                             onPressed: () => Navigator.pop(context, false),
                             child: Text(context.l10n.cancel),
                           ),
-                          ElevatedButton(
+                          AppElevatedButton(
                             onPressed: () => Navigator.pop(context, true),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: context.colorScheme.error,
-                              foregroundColor: Colors.white,
-                            ),
-                            child: Text(context.l10n.delete),
+                            backgroundColor: context.colorScheme.error,
+                            foregroundColor: Colors.white,
+                            text: context.l10n.delete,
                           ),
                         ],
                       ),

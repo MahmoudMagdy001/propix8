@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/router/app_routes.dart';
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/widgets/app_elevated_button.dart';
 
 class PasswordSuccessScreen extends StatelessWidget {
   const PasswordSuccessScreen({super.key});
@@ -40,14 +41,12 @@ class PasswordSuccessScreen extends StatelessWidget {
                 height: 250.h,
                 fit: BoxFit.contain,
               ),
-              SizedBox(
+              AppElevatedButton(
+                onPressed: () {
+                  context.goNamed(AppRoutes.login);
+                },
+                text: l10n.login,
                 width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    context.goNamed(AppRoutes.login);
-                  },
-                  child: Text(l10n.login),
-                ),
               ),
             ],
           ),

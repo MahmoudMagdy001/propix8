@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/widgets/app_elevated_button.dart';
 import '../../../../core/widgets/app_modal_sheet.dart';
+import '../../../../core/widgets/app_text_form_field.dart';
 import '../../models/testimonial_model.dart';
 import '../../viewmodels/our_services_cubit.dart';
 import '../../viewmodels/our_services_state.dart';
@@ -78,56 +80,36 @@ class _AddTestimonialSheetState extends State<AddTestimonialSheet> {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    _buildTextField(
+                    AppTextFormField(
                       controller: _contentController,
                       label: context.l10n.shareThoughts,
-                      icon: Icons.notes_rounded,
+                      prefixIcon: Icon(Icons.notes_rounded, size: 20.w),
                       maxLines: 4,
                       validator: (value) => value?.trim().isEmpty ?? true
                           ? context.l10n.fieldRequired
                           : null,
                     ),
                     SizedBox(height: 24.h),
-                    ElevatedButton(
-                      onPressed: isLoading
-                          ? null
-                          : () {
-                              if (_formKey.currentState!.validate()) {
-                                if (widget.testimonial != null) {
-                                  context
-                                      .read<OurServicesCubit>()
-                                      .updateTestimonial(
-                                        widget.testimonial!.id,
-                                        _contentController.text.trim(),
-                                      );
-                                } else {
-                                  context
-                                      .read<OurServicesCubit>()
-                                      .addTestimonial(
-                                        _contentController.text.trim(),
-                                      );
-                                }
-                              }
-                            },
-                      style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 16.h),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12.r),
-                        ),
-                      ),
-                      child: isLoading
-                          ? SizedBox(
-                              height: 20.h,
-                              width: 20.h,
-                              child: const CircularProgressIndicator(
-                                strokeWidth: 2,
-                              ),
-                            )
-                          : Text(
-                              widget.testimonial != null
-                                  ? context.l10n.update
-                                  : context.l10n.submit,
-                            ),
+                    AppElevatedButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          if (widget.testimonial != null) {
+                            context.read<OurServicesCubit>().updateTestimonial(
+                              widget.testimonial!.id,
+                              _contentController.text.trim(),
+                            );
+                          } else {
+                            context.read<OurServicesCubit>().addTestimonial(
+                              _contentController.text.trim(),
+                            );
+                          }
+                        }
+                      },
+                      isLoading: isLoading,
+                      padding: EdgeInsets.symmetric(vertical: 16.h),
+                      text: widget.testimonial != null
+                          ? context.l10n.update
+                          : context.l10n.submit,
                     ),
                   ],
                 ),
@@ -136,26 +118,4 @@ class _AddTestimonialSheetState extends State<AddTestimonialSheet> {
           ),
         ),
       );
-
-  Widget _buildTextField({
-    required TextEditingController controller,
-    required String label,
-    required IconData icon,
-    TextInputType? keyboardType,
-    String? Function(String?)? validator,
-    bool readOnly = false,
-    VoidCallback? onTap,
-    int maxLines = 1,
-  }) => TextFormField(
-    controller: controller,
-    keyboardType: keyboardType,
-    validator: validator,
-    readOnly: readOnly,
-    onTap: onTap,
-    maxLines: maxLines,
-    decoration: InputDecoration(
-      labelText: label,
-      prefixIcon: Icon(icon, size: 20.w),
-    ),
-  );
 }

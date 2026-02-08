@@ -657,6 +657,10 @@
   "@reserveNow": {
     "description": "Label for reserve now button"
   },
+  "rebook": "Re-book",
+  "@rebook": {
+    "description": "Label for re-booking a previously cancelled unit"
+  },
   "alreadyBooked": "You have already booked this unit",
   "@alreadyBooked": {
     "description": "Label for already booked status"
@@ -1444,6 +1448,9 @@
     "description": "Success message when a unit is removed from favorites"
   },
   "failedToUpdateFavorite": "Failed to update favorite",
+  "@failedToUpdateFavorite": {
+    "description": "Error message when favorite update fails"
+  },
   "locationServiceDisabled": "Location services are disabled. Please enable them to detect your location.",
   "@locationServiceDisabled": {
     "description": "Error message when location service is disabled"

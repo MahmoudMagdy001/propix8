@@ -500,6 +500,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get reserveNow => 'Reserve Now';
 
   @override
+  String get rebook => 'Re-book';
+
+  @override
   String get alreadyBooked => 'You have already booked this unit';
 
   @override

@@ -5,6 +5,8 @@ import 'package:internet_state_manager/internet_state_manager.dart';
 
 import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/utils/snackbar_utils.dart';
+import '../../../../core/widgets/app_elevated_button.dart';
+import '../../../../core/widgets/app_text_form_field.dart';
 import '../../../core/utils/context_extensions.dart';
 import '../../../core/widgets/custom_back_button.dart';
 import '../viewmodels/user_profile_cubit.dart';
@@ -22,10 +24,6 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
   final _currentPasswordController = TextEditingController();
   final _newPasswordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
-
-  bool _obscureCurrent = true;
-  bool _obscureNew = true;
-  bool _obscureConfirm = true;
 
   @override
   void dispose() {
@@ -82,26 +80,18 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                     key: _formKey,
                     child: Column(
                       children: [
-                        _buildPasswordField(
+                        AppTextFormField(
                           controller: _currentPasswordController,
                           label: context.l10n.currentPassword,
-                          obscureText: _obscureCurrent,
-                          onToggleVisibility: () {
-                            setState(() {
-                              _obscureCurrent = !_obscureCurrent;
-                            });
-                          },
+                          isPassword: true,
+                          prefixIcon: const Icon(Icons.lock_outline),
                         ),
                         SizedBox(height: 16.h),
-                        _buildPasswordField(
+                        AppTextFormField(
                           controller: _newPasswordController,
                           label: context.l10n.newPassword,
-                          obscureText: _obscureNew,
-                          onToggleVisibility: () {
-                            setState(() {
-                              _obscureNew = !_obscureNew;
-                            });
-                          },
+                          isPassword: true,
+                          prefixIcon: const Icon(Icons.lock_outline),
                           validator: (v) {
                             if (v == null || v.isEmpty) {
                               return context.l10n.requiredField;
@@ -113,15 +103,11 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                           },
                         ),
                         SizedBox(height: 16.h),
-                        _buildPasswordField(
+                        AppTextFormField(
                           controller: _confirmPasswordController,
                           label: context.l10n.confirmNewPassword,
-                          obscureText: _obscureConfirm,
-                          onToggleVisibility: () {
-                            setState(() {
-                              _obscureConfirm = !_obscureConfirm;
-                            });
-                          },
+                          isPassword: true,
+                          prefixIcon: const Icon(Icons.lock_outline),
                           validator: (v) {
                             if (v != _newPasswordController.text) {
                               return context.l10n.passwordsDoNotMatch;
@@ -130,20 +116,12 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                           },
                         ),
                         SizedBox(height: 32.h),
-                        SizedBox(
+                        AppElevatedButton(
+                          onPressed: _submit,
+                          isLoading: isLoading,
+                          text: context.l10n.saveChanges,
                           width: double.infinity,
                           height: 50.h,
-                          child: ElevatedButton(
-                            onPressed: isLoading ? null : _submit,
-                            style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12.r),
-                              ),
-                            ),
-                            child: isLoading
-                                ? const CircularProgressIndicator.adaptive()
-                                : Text(context.l10n.saveChanges),
-                          ),
                         ),
                       ],
                     ),
@@ -152,31 +130,6 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
               );
             },
           ),
-    ),
-  );
-
-  Widget _buildPasswordField({
-    required TextEditingController controller,
-    required String label,
-    required bool obscureText,
-    required VoidCallback onToggleVisibility,
-    String? Function(String?)? validator,
-  }) => TextFormField(
-    controller: controller,
-    obscureText: obscureText,
-    validator: validator,
-    decoration: InputDecoration(
-      labelText: label,
-      prefixIcon: const Icon(Icons.lock_outline),
-      suffixIcon: IconButton(
-        icon: Icon(
-          obscureText
-              ? Icons.visibility_outlined
-              : Icons.visibility_off_outlined,
-        ),
-        onPressed: onToggleVisibility,
-      ),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.r)),
     ),
   );
 }

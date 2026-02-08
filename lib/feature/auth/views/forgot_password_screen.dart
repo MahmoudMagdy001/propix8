@@ -8,10 +8,11 @@ import '../../../../core/utils/snackbar_utils.dart';
 import '../../../../core/widgets/custom_back_button.dart';
 import '../../../core/di/locator.dart';
 import '../../../core/utils/context_extensions.dart';
+import '../../../core/widgets/app_elevated_button.dart';
+import '../../../core/widgets/app_text_form_field.dart';
 import '../../../l10n/app_localizations.dart';
 import '../viewmodels/reset_password_cubit.dart';
 import '../viewmodels/reset_password_state.dart';
-import 'widgets/auth_widgets.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
@@ -90,7 +91,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       textAlign: TextAlign.start,
                     ),
                     SizedBox(height: 32.h),
-                    AppTextField(
+                    AppTextFormField(
                       focusNode: _emailFocusNode,
                       controller: _emailController,
                       label: l10n.email,
@@ -117,19 +118,16 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       selector: (state) => state.status,
                       builder: (context, status) {
                         final isLoading = status == ResetPasswordStatus.loading;
-                        return ElevatedButton(
-                          onPressed: isLoading
-                              ? null
-                              : () {
-                                  if (_formKey.currentState!.validate()) {
-                                    context
-                                        .read<ResetPasswordCubit>()
-                                        .forgotPassword(_emailController.text);
-                                  }
-                                },
-                          child: isLoading
-                              ? const CircularProgressIndicator()
-                              : Text(l10n.sendResetLink),
+                        return AppElevatedButton(
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {
+                              context.read<ResetPasswordCubit>().forgotPassword(
+                                _emailController.text,
+                              );
+                            }
+                          },
+                          isLoading: isLoading,
+                          text: l10n.sendResetLink,
                         );
                       },
                     ),

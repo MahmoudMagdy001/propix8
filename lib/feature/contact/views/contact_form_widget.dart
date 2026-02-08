@@ -5,6 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/di/locator.dart';
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/snackbar_utils.dart';
+import '../../../../core/widgets/app_elevated_button.dart';
+import '../../../../core/widgets/app_text_form_field.dart';
 import '../../../core/public_feature/services/storage_service.dart';
 import '../../auth/models/auth_model.dart';
 import '../models/contact_request_model.dart';
@@ -82,14 +84,14 @@ class _ContactFormWidgetState extends State<ContactFormWidget> {
                 ),
               ),
               SizedBox(height: 16.h),
-              _buildTextField(
+              AppTextFormField(
                 controller: _nameController,
                 label: context.l10n.name,
                 validator: (value) =>
                     value?.isEmpty ?? true ? context.l10n.fieldRequired : null,
               ),
               SizedBox(height: 12.h),
-              _buildTextField(
+              AppTextFormField(
                 controller: _emailController,
                 label: context.l10n.email,
                 keyboardType: TextInputType.emailAddress,
@@ -104,7 +106,7 @@ class _ContactFormWidgetState extends State<ContactFormWidget> {
                 },
               ),
               SizedBox(height: 12.h),
-              _buildTextField(
+              AppTextFormField(
                 controller: _phoneController,
                 label: context.l10n.phone,
                 keyboardType: TextInputType.phone,
@@ -112,14 +114,14 @@ class _ContactFormWidgetState extends State<ContactFormWidget> {
                     value?.isEmpty ?? true ? context.l10n.fieldRequired : null,
               ),
               SizedBox(height: 12.h),
-              _buildTextField(
+              AppTextFormField(
                 controller: _addressController,
                 label: context.l10n.address,
                 validator: (value) =>
                     value?.isEmpty ?? true ? context.l10n.fieldRequired : null,
               ),
               SizedBox(height: 12.h),
-              _buildTextField(
+              AppTextFormField(
                 controller: _messageController,
                 label: context.l10n.yourMessage,
                 maxLines: 4,
@@ -128,39 +130,23 @@ class _ContactFormWidgetState extends State<ContactFormWidget> {
               ),
               SizedBox(height: 24.h),
               BlocBuilder<ContactCubit, ContactState>(
-                builder: (context, state) => ElevatedButton(
-                  onPressed: state.status == ContactStatus.loading
-                      ? null
-                      : () {
-                          if (_formKey.currentState?.validate() ?? false) {
-                            final request = ContactRequestModel(
-                              name: _nameController.text,
-                              email: _emailController.text,
-                              phone: _phoneController.text,
-                              address: _addressController.text,
-                              message: _messageController.text,
-                            );
-                            context.read<ContactCubit>().sendContactRequest(
-                              request,
-                            );
-                          }
-                        },
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(vertical: 12.h),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.r),
-                    ),
-                  ),
-                  child: state.status == ContactStatus.loading
-                      ? SizedBox(
-                          height: 20.h,
-                          width: 20.h,
-                          child: const CircularProgressIndicator(
-                            strokeWidth: 2,
-                            color: Colors.white,
-                          ),
-                        )
-                      : Text(context.l10n.sendMessage),
+                builder: (context, state) => AppElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState?.validate() ?? false) {
+                      final request = ContactRequestModel(
+                        name: _nameController.text,
+                        email: _emailController.text,
+                        phone: _phoneController.text,
+                        address: _addressController.text,
+                        message: _messageController.text,
+                      );
+                      context.read<ContactCubit>().sendContactRequest(request);
+                    }
+                  },
+                  isLoading: state.status == ContactStatus.loading,
+                  padding: EdgeInsets.symmetric(vertical: 12.h),
+                  borderRadius: 8.r,
+                  text: context.l10n.sendMessage,
                 ),
               ),
             ],
@@ -168,23 +154,5 @@ class _ContactFormWidgetState extends State<ContactFormWidget> {
         ),
       ),
     ),
-  );
-
-  Widget _buildTextField({
-    required TextEditingController controller,
-    required String label,
-    int maxLines = 1,
-    TextInputType? keyboardType,
-    String? Function(String?)? validator,
-  }) => TextFormField(
-    controller: controller,
-    decoration: InputDecoration(
-      labelText: label,
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.r)),
-      contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-    ),
-    maxLines: maxLines,
-    keyboardType: keyboardType,
-    validator: validator,
   );
 }

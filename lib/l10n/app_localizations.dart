@@ -1073,6 +1073,12 @@ abstract class AppLocalizations {
   /// **'Reserve Now'**
   String get reserveNow;
 
+  /// Label for re-booking a previously cancelled unit
+  ///
+  /// In en, this message translates to:
+  /// **'Re-book'**
+  String get rebook;
+
   /// Label for already booked status
   ///
   /// In en, this message translates to:
@@ -2237,7 +2243,7 @@ abstract class AppLocalizations {
   /// **'Removed from favorites'**
   String get removedFromFavorites;
 
-  /// No description provided for @failedToUpdateFavorite.
+  /// Error message when favorite update fails
   ///
   /// In en, this message translates to:
   /// **'Failed to update favorite'**

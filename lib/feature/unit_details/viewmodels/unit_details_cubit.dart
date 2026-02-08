@@ -1,7 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/models/pagination_model.dart';
-import '../../bookings/models/booking_model.dart' show BookingResponse;
+import '../../bookings/models/booking_model.dart'
+    show BookingResponse, BookingModel;
 import '../../bookings/repositories/booking_repository.dart';
 import '../../home/models/unit_model.dart';
 import '../models/booking_request_model.dart';
@@ -36,7 +37,16 @@ class UnitDetailsCubit extends Cubit<UnitDetailsState> {
       if (isClosed) return;
 
       final bookingsResponse = results[3] as BookingResponse;
-      final isBooked = bookingsResponse.data.any((b) => b.unit.id == unitId);
+
+      // Let's just find the cancelled one specifically if no active one exists
+      final isBooked = bookingsResponse.data.any(
+        (b) => b.unit.id == unitId && b.status.toLowerCase() != 'cancelled',
+      );
+
+      final cancelledBooking = bookingsResponse.data.firstWhere(
+        (b) => b.unit.id == unitId && b.status.toLowerCase() == 'cancelled',
+        orElse: () => BookingModel.fromJson({}),
+      );
 
       emit(
         state.copyWith(
@@ -48,6 +58,9 @@ class UnitDetailsCubit extends Cubit<UnitDetailsState> {
           reviews: (results[2] as PaginatedResponse).data as List<ReviewModel>,
           reviewsPagination: (results[2] as PaginatedResponse).pagination,
           isBookedByUser: isBooked,
+          cancelledBookingId: cancelledBooking.id != 0
+              ? cancelledBooking.id
+              : null,
         ),
       );
     } catch (e) {
@@ -199,6 +212,11 @@ class UnitDetailsCubit extends Cubit<UnitDetailsState> {
   Future<void> createBooking(BookingRequest request) async {
     emit(state.copyWith(bookingStatus: RequestStatus.loading));
     try {
+      // If there's an existing cancelled booking, delete it first
+      if (state.cancelledBookingId != null) {
+        await _bookingRepository.deleteBooking(state.cancelledBookingId!);
+      }
+
       final response = await _unitDetailsRepository.createBooking(request);
       if (isClosed) return;
       if (response.status) {
@@ -207,6 +225,7 @@ class UnitDetailsCubit extends Cubit<UnitDetailsState> {
             bookingStatus: RequestStatus.success,
             bookingSuccessMessage: response.message,
             isBookedByUser: true,
+            cancelledBookingId: null,
           ),
         );
       } else {

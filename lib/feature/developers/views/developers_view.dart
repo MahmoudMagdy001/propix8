@@ -8,6 +8,7 @@ import '../../../../core/di/locator.dart';
 import '../../../../core/router/app_routes.dart';
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/widgets/app_elevated_button.dart';
 import '../../../../core/widgets/custom_back_button.dart';
 import '../models/developer_model.dart';
 import '../viewmodels/developer_cubit.dart';
@@ -119,9 +120,9 @@ class _DevelopersViewContent extends StatelessWidget {
             builder: (context, message) => Text(message ?? context.l10n.error),
           ),
           SizedBox(height: 16.h),
-          ElevatedButton(
+          AppElevatedButton(
             onPressed: () => context.read<DevelopersCubit>().fetchDevelopers(),
-            child: Text(context.l10n.retry),
+            text: context.l10n.retry,
           ),
         ],
       ),

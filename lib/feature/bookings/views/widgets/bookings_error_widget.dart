@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/widgets/app_elevated_button.dart';
 import '../../models/booking_model.dart';
 import '../../viewmodels/booking_cubit.dart';
 import '../../viewmodels/booking_state.dart';
@@ -47,10 +48,10 @@ class BookingsErrorWidget extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 16.h),
-                  ElevatedButton(
+                  AppElevatedButton(
                     onPressed: () =>
                         context.read<BookingCubit>().fetchBookings(),
-                    child: Text(context.l10n.retry),
+                    text: context.l10n.retry,
                   ),
                 ],
               ),

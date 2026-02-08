@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/theme/app_colors.dart';
 import '../../../../../../core/utils/context_extensions.dart';
+import '../../../../../../core/widgets/app_elevated_button.dart';
 import '../../../../../core/utils/responsive_helper.dart';
 import '../../../../auth/views/map/models/city_model.dart';
 import '../viewmodels/filter_cubit.dart';
@@ -76,21 +77,17 @@ class FilterSheetContent extends StatelessWidget {
               onChanged: cubit.updateAreaRange,
             ),
             SizedBox(height: 16.h),
-            SizedBox(
+            AppElevatedButton(
+              onPressed: () {
+                // Apply filters and close
+                Navigator.pop(context, state);
+              },
+              text: l10n.apply,
               width: double.infinity,
               height: 48.h,
-              child: ElevatedButton(
-                onPressed: () {
-                  // Apply filters and close
-                  Navigator.pop(context, state);
-                },
-                child: Text(
-                  l10n.apply,
-                  style: context.textTheme.titleMedium?.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+              textStyle: context.textTheme.titleMedium?.copyWith(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ],

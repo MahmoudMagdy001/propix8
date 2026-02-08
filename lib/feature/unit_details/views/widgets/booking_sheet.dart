@@ -7,7 +7,9 @@ import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/date_time_utils.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/utils/snackbar_utils.dart';
+import '../../../../core/widgets/app_elevated_button.dart';
 import '../../../../core/widgets/app_modal_sheet.dart';
+import '../../../../core/widgets/app_text_form_field.dart';
 import '../../../../core/widgets/terms_checkbox.dart';
 import '../../../auth/models/auth_model.dart';
 import '../../models/booking_request_model.dart';
@@ -137,27 +139,27 @@ class _BookingSheetState extends State<BookingSheet> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            _buildTextField(
+            AppTextFormField(
               controller: _nameController,
               label: context.l10n.name,
-              icon: Icons.person_outline_rounded,
+              prefixIcon: Icon(Icons.person_outline_rounded, size: 20.w),
               validator: (v) =>
                   v?.isEmpty ?? true ? context.l10n.fieldRequired : null,
             ),
             SizedBox(height: 12.h),
-            _buildTextField(
+            AppTextFormField(
               controller: _emailController,
               label: context.l10n.email,
-              icon: Icons.email_outlined,
+              prefixIcon: Icon(Icons.email_outlined, size: 20.w),
               keyboardType: TextInputType.emailAddress,
               validator: (v) =>
                   v?.isEmpty ?? true ? context.l10n.fieldRequired : null,
             ),
             SizedBox(height: 12.h),
-            _buildTextField(
+            AppTextFormField(
               controller: _phoneController,
               label: context.l10n.phone,
-              icon: Icons.phone_outlined,
+              prefixIcon: Icon(Icons.phone_outlined, size: 20.w),
               keyboardType: TextInputType.phone,
               validator: (v) =>
                   v?.isEmpty ?? true ? context.l10n.fieldRequired : null,
@@ -166,10 +168,10 @@ class _BookingSheetState extends State<BookingSheet> {
             Row(
               children: [
                 Expanded(
-                  child: _buildTextField(
+                  child: AppTextFormField(
                     controller: _dateController,
                     label: context.l10n.unit_details_booking_date,
-                    icon: Icons.calendar_today_outlined,
+                    prefixIcon: Icon(Icons.calendar_today_outlined, size: 20.w),
                     readOnly: true,
                     onTap: _selectDate,
                     validator: (v) =>
@@ -178,10 +180,10 @@ class _BookingSheetState extends State<BookingSheet> {
                 ),
                 SizedBox(width: 12.w),
                 Expanded(
-                  child: _buildTextField(
+                  child: AppTextFormField(
                     controller: _timeController,
                     label: context.l10n.unit_details_booking_time,
-                    icon: Icons.access_time_rounded,
+                    prefixIcon: Icon(Icons.access_time_rounded, size: 20.w),
                     readOnly: true,
                     onTap: _selectTime,
                     validator: (v) =>
@@ -191,10 +193,10 @@ class _BookingSheetState extends State<BookingSheet> {
               ],
             ),
             SizedBox(height: 12.h),
-            _buildTextField(
+            AppTextFormField(
               controller: _notesController,
               label: context.l10n.unit_details_booking_notes,
-              icon: Icons.notes_rounded,
+              prefixIcon: Icon(Icons.notes_rounded, size: 20.w),
               maxLines: 3,
             ),
             BlocSelector<
@@ -251,30 +253,13 @@ class _BookingSheetState extends State<BookingSheet> {
                         setState(() => _agreedToTerms = v ?? false),
                   ),
                   SizedBox(height: 4.h),
-                  SizedBox(
+                  AppElevatedButton(
+                    onPressed: _submit,
+                    isLoading: result.status == RequestStatus.loading,
+                    enabled: _agreedToTerms,
+                    text: context.l10n.reserveNow,
                     width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed:
-                          result.status == RequestStatus.loading ||
-                              !_agreedToTerms
-                          ? null
-                          : _submit,
-                      style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 16.h),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12.r),
-                        ),
-                      ),
-                      child: result.status == RequestStatus.loading
-                          ? SizedBox(
-                              height: 20.h,
-                              width: 20.h,
-                              child: const CircularProgressIndicator(
-                                strokeWidth: 2,
-                              ),
-                            )
-                          : Text(context.l10n.reserveNow),
-                    ),
+                    padding: EdgeInsets.symmetric(vertical: 16.h),
                   ),
                 ],
               ),
@@ -282,28 +267,6 @@ class _BookingSheetState extends State<BookingSheet> {
           ],
         ),
       ),
-    ),
-  );
-
-  Widget _buildTextField({
-    required TextEditingController controller,
-    required String label,
-    required IconData icon,
-    TextInputType? keyboardType,
-    String? Function(String?)? validator,
-    bool readOnly = false,
-    VoidCallback? onTap,
-    int maxLines = 1,
-  }) => TextFormField(
-    controller: controller,
-    keyboardType: keyboardType,
-    validator: validator,
-    readOnly: readOnly,
-    onTap: onTap,
-    maxLines: maxLines,
-    decoration: InputDecoration(
-      labelText: label,
-      prefixIcon: Icon(icon, size: 20.w),
     ),
   );
 }

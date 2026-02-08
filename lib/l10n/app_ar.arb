@@ -657,6 +657,10 @@
     "@reserveNow": {
         "description": "Label for reserve now button"
     },
+    "rebook": "إعادة حجز",
+    "@rebook": {
+        "description": "Label for re-booking a previously cancelled unit"
+    },
     "alreadyBooked": "لقد حجزت هذا العقار",
     "@alreadyBooked": {
         "description": "Label for already booked button"
@@ -1444,6 +1448,9 @@
         "description": "Success message when a unit is removed from favorites"
     },
     "failedToUpdateFavorite": "فشل تحديث المفضلة",
+    "@failedToUpdateFavorite": {
+        "description": "Error message when favorite update fails"
+    },
     "locationServiceDisabled": "خدمات الموقع متوقفة. يرجى تفعيلها لتحديد موقعك.",
     "@locationServiceDisabled": {
         "description": "Error message when location service is disabled"

@@ -10,6 +10,8 @@ import 'package:internet_state_manager/internet_state_manager.dart';
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/utils/snackbar_utils.dart';
+import '../../../../core/widgets/app_elevated_button.dart';
+import '../../../../core/widgets/app_text_form_field.dart';
 import '../../../../core/widgets/custom_back_button.dart';
 import '../../auth/models/auth_model.dart';
 import '../../auth/views/map/models/city_model.dart';
@@ -212,27 +214,27 @@ class _EditProfileDataViewState extends State<EditProfileDataView> {
                           ),
                         ),
                         SizedBox(height: 32.h),
-                        _buildTextField(
+                        AppTextFormField(
                           controller: _nameController,
                           label: context.l10n.name,
-                          icon: Icons.person_outline,
+                          prefixIcon: Icon(Icons.person_outline),
                           validator: (v) =>
                               v!.isEmpty ? context.l10n.requiredField : null,
                         ),
                         SizedBox(height: 16.h),
-                        _buildTextField(
+                        AppTextFormField(
                           controller: _phoneController,
                           label: context.l10n.phone,
-                          icon: Icons.phone_outlined,
+                          prefixIcon: Icon(Icons.phone_outlined),
                           keyboardType: TextInputType.phone,
                           validator: (v) =>
                               v!.isEmpty ? context.l10n.requiredField : null,
                         ),
                         SizedBox(height: 16.h),
-                        _buildTextField(
+                        AppTextFormField(
                           controller: _addressController,
                           label: context.l10n.address,
-                          icon: Icons.location_on_outlined,
+                          prefixIcon: Icon(Icons.location_on_outlined),
                         ),
                         SizedBox(height: 16.h),
                         DropdownButtonFormField<int>(
@@ -265,22 +267,13 @@ class _EditProfileDataViewState extends State<EditProfileDataView> {
                               value == null ? context.l10n.requiredField : null,
                         ),
                         SizedBox(height: 32.h),
-                        SizedBox(
+                        AppElevatedButton(
+                          onPressed: _submit,
+                          isLoading: isLoading,
+                          enabled: _hasDataChanged(),
+                          text: context.l10n.saveChanges,
                           width: double.infinity,
                           height: 50.h,
-                          child: ElevatedButton(
-                            onPressed: isLoading || !_hasDataChanged()
-                                ? null
-                                : _submit,
-                            style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12.r),
-                              ),
-                            ),
-                            child: isLoading
-                                ? const CircularProgressIndicator.adaptive()
-                                : Text(context.l10n.saveChanges),
-                          ),
                         ),
                       ],
                     ),
@@ -290,19 +283,5 @@ class _EditProfileDataViewState extends State<EditProfileDataView> {
             },
           ),
     ),
-  );
-
-  Widget _buildTextField({
-    required TextEditingController controller,
-    required String label,
-    required IconData icon,
-    TextInputType? keyboardType,
-    String? Function(String?)? validator,
-  }) => TextFormField(
-    onTapOutside: (event) => FocusScope.of(context).unfocus(),
-    controller: controller,
-    keyboardType: keyboardType,
-    validator: validator,
-    decoration: InputDecoration(labelText: label, prefixIcon: Icon(icon)),
   );
 }

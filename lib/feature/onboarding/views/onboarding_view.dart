@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/di/locator.dart';
 import '../../../../core/router/app_routes.dart';
+import '../../../../core/widgets/app_elevated_button.dart';
 import '../../../core/public_feature/services/storage_service.dart';
 import '../../../core/utils/context_extensions.dart';
 import '../../../core/utils/responsive_helper.dart';
@@ -165,9 +166,9 @@ class _OnboardingViewBodyState extends State<_OnboardingViewBody> {
                       // Last Page: Start Now
                       SizedBox(
                         width: double.infinity,
-                        child: ElevatedButton(
+                        child: AppElevatedButton(
                           onPressed: _completeOnboarding,
-                          child: Text(l10n.startNow),
+                          text: l10n.startNow,
                         ),
                       )
                     else
@@ -175,19 +176,19 @@ class _OnboardingViewBodyState extends State<_OnboardingViewBody> {
                       Row(
                         children: [
                           Expanded(
-                            child: ElevatedButton(
+                            child: AppElevatedButton(
                               onPressed: () {
                                 _pageController.nextPage(
                                   duration: const Duration(milliseconds: 300),
                                   curve: Curves.easeInOut,
                                 );
                               },
-                              child: Text(l10n.next),
+                              text: l10n.next,
                             ),
                           ),
                           SizedBox(width: 16.w),
                           Expanded(
-                            child: ElevatedButton(
+                            child: AppElevatedButton(
                               onPressed: () {
                                 if (state.pageIndex > 0) {
                                   _pageController.previousPage(
@@ -198,14 +199,11 @@ class _OnboardingViewBodyState extends State<_OnboardingViewBody> {
                                   _completeOnboarding();
                                 }
                               },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: context.colorScheme.secondary,
-                                foregroundColor:
-                                    context.colorScheme.onSecondary,
-                              ),
-                              child: Text(
-                                state.pageIndex == 0 ? l10n.skip : l10n.back,
-                              ),
+                              backgroundColor: context.colorScheme.secondary,
+                              foregroundColor: context.colorScheme.onSecondary,
+                              text: state.pageIndex == 0
+                                  ? l10n.skip
+                                  : l10n.back,
                             ),
                           ),
                         ],

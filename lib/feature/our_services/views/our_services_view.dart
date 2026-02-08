@@ -8,6 +8,7 @@ import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/mixins/scroll_pagination_mixin.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/utils/snackbar_utils.dart';
+import '../../../../core/widgets/app_elevated_button.dart';
 import '../../../../core/widgets/custom_back_button.dart';
 import '../../settings/models/site_settings_model.dart';
 import '../../settings/viewmodels/settings_cubit.dart';
@@ -156,10 +157,10 @@ class _OurServicesContentState extends State<OurServicesContent>
                               Text(errorMessage ?? context.l10n.errorOccurred),
                         ),
                         SizedBox(height: 16.h),
-                        ElevatedButton(
+                        AppElevatedButton(
                           onPressed: () =>
                               context.read<OurServicesCubit>().loadData(),
-                          child: Text(context.l10n.retry),
+                          text: context.l10n.retry,
                         ),
                       ],
                     ),

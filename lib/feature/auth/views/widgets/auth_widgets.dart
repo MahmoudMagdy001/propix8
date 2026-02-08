@@ -1,67 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/theme/app_colors.dart';
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
-
-class AppTextField extends StatefulWidget {
-  const AppTextField({
-    required this.controller,
-    required this.label,
-    super.key,
-    this.isPassword = false,
-    this.keyboardType = TextInputType.text,
-    this.validator,
-    this.prefixIcon,
-    this.focusNode,
-    this.onFieldSubmitted,
-  });
-  final TextEditingController controller;
-  final String label;
-  final bool isPassword;
-  final TextInputType keyboardType;
-  final String? Function(String?)? validator;
-  final Widget? prefixIcon;
-  final FocusNode? focusNode;
-  final Function(String)? onFieldSubmitted;
-
-  @override
-  State<AppTextField> createState() => _AppTextFieldState();
-}
-
-class _AppTextFieldState extends State<AppTextField> {
-  bool _obscureText = true;
-
-  @override
-  Widget build(BuildContext context) => TextFormField(
-    controller: widget.controller,
-    obscureText: widget.isPassword ? _obscureText : false,
-    keyboardType: widget.keyboardType,
-    validator: widget.validator,
-    focusNode: widget.focusNode,
-    onFieldSubmitted: widget.onFieldSubmitted,
-    onTapOutside: (event) => widget.focusNode?.unfocus(),
-
-    decoration: InputDecoration(
-      label: Text(widget.label),
-      prefixIcon: widget.prefixIcon,
-      prefixIconColor: context.colorScheme.primary,
-      suffixIcon: widget.isPassword
-          ? IconButton(
-              icon: Icon(
-                _obscureText ? Icons.visibility_off : Icons.visibility,
-                color: AppColors.outline,
-              ),
-              onPressed: () {
-                setState(() {
-                  _obscureText = !_obscureText;
-                });
-              },
-            )
-          : null,
-    ),
-  );
-}
 
 class PasswordStrengthIndicator extends StatelessWidget {
   const PasswordStrengthIndicator({required this.password, super.key});

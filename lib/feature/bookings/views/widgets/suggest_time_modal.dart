@@ -5,6 +5,8 @@ import 'package:propix8/core/utils/snackbar_utils.dart';
 import '../../../../../core/utils/context_extensions.dart';
 import '../../../../../core/utils/date_time_utils.dart';
 import '../../../../../core/utils/responsive_helper.dart';
+import '../../../../../core/widgets/app_elevated_button.dart';
+import '../../../../../core/widgets/app_text_form_field.dart';
 
 class SuggestTimeModal extends StatefulWidget {
   const SuggestTimeModal({super.key});
@@ -98,77 +100,44 @@ class _SuggestTimeModalState extends State<SuggestTimeModal> {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        _buildPickerField(
+        AppTextFormField(
           label: context.l10n.date,
-          icon: Icons.calendar_today_outlined,
-          value: _selectedDate != null
-              ? DateFormat('yyyy/MM/dd').format(_selectedDate!)
-              : context.l10n.selectDate,
+          prefixIcon: Icon(Icons.calendar_today_outlined, size: 20.w),
+          controller: TextEditingController(
+            text: _selectedDate != null
+                ? DateFormat('yyyy/MM/dd').format(_selectedDate!)
+                : context.l10n.selectDate,
+          ),
+          readOnly: true,
           onTap: _selectDate,
         ),
         SizedBox(height: 12.h),
-        _buildPickerField(
+        AppTextFormField(
           label: context.l10n.time,
-          icon: Icons.access_time_rounded,
-          value: _selectedTime != null
-              ? _selectedTime!.format(context)
-              : context.l10n.selectTime,
+          prefixIcon: Icon(Icons.access_time_rounded, size: 20.w),
+          controller: TextEditingController(
+            text: _selectedTime != null
+                ? _selectedTime!.format(context)
+                : context.l10n.selectTime,
+          ),
+          readOnly: true,
           onTap: _selectTime,
         ),
         SizedBox(height: 12.h),
-        _buildTextField(
+        AppTextFormField(
           controller: _messageController,
           label: context.l10n.messageOptional,
-          icon: Icons.notes_rounded,
+          prefixIcon: const Icon(Icons.notes_rounded),
           maxLines: 3,
         ),
         SizedBox(height: 16.h),
-        ElevatedButton(
+        AppElevatedButton(
           onPressed: _submit,
-          style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.symmetric(vertical: 16.h),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12.r),
-            ),
-          ),
-          child: Text(context.l10n.sendSuggestion),
+          padding: EdgeInsets.symmetric(vertical: 16.h),
+          text: context.l10n.sendSuggestion,
+          width: double.infinity,
         ),
       ],
-    ),
-  );
-
-  Widget _buildPickerField({
-    required String label,
-    required IconData icon,
-    required String value,
-    required VoidCallback onTap,
-  }) => _buildTextField(
-    controller: TextEditingController(text: value),
-    label: label,
-    icon: icon,
-    readOnly: true,
-    onTap: onTap,
-  );
-
-  Widget _buildTextField({
-    required TextEditingController controller,
-    required String label,
-    required IconData icon,
-    TextInputType? keyboardType,
-    String? Function(String?)? validator,
-    bool readOnly = false,
-    VoidCallback? onTap,
-    int maxLines = 1,
-  }) => TextFormField(
-    controller: controller,
-    keyboardType: keyboardType,
-    validator: validator,
-    readOnly: readOnly,
-    onTap: onTap,
-    maxLines: maxLines,
-    decoration: InputDecoration(
-      labelText: label,
-      prefixIcon: Icon(icon, size: 20.w),
     ),
   );
 }

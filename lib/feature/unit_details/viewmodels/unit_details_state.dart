@@ -32,6 +32,7 @@ class UnitDetailsState extends Equatable {
     this.bookingSuccessMessage,
     this.bookingErrorMessage,
     this.isBookedByUser = false,
+    this.cancelledBookingId,
   });
   final RequestStatus status;
   final UnitDetailsModel? unit;
@@ -51,6 +52,7 @@ class UnitDetailsState extends Equatable {
   final String? bookingSuccessMessage;
   final String? bookingErrorMessage;
   final bool isBookedByUser;
+  final int? cancelledBookingId;
 
   UnitDetailsState copyWith({
     RequestStatus? status,
@@ -71,6 +73,7 @@ class UnitDetailsState extends Equatable {
     String? bookingSuccessMessage,
     String? bookingErrorMessage,
     bool? isBookedByUser,
+    int? cancelledBookingId,
   }) => UnitDetailsState(
     status: status ?? this.status,
     unit: unit ?? this.unit,
@@ -90,6 +93,7 @@ class UnitDetailsState extends Equatable {
     bookingSuccessMessage: bookingSuccessMessage ?? this.bookingSuccessMessage,
     bookingErrorMessage: bookingErrorMessage ?? this.bookingErrorMessage,
     isBookedByUser: isBookedByUser ?? this.isBookedByUser,
+    cancelledBookingId: cancelledBookingId ?? this.cancelledBookingId,
   );
 
   @override
@@ -112,5 +116,6 @@ class UnitDetailsState extends Equatable {
     bookingSuccessMessage,
     bookingErrorMessage,
     isBookedByUser,
+    cancelledBookingId,
   ];
 }

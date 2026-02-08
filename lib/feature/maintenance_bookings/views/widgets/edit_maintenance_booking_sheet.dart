@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/widgets/app_elevated_button.dart';
+import '../../../../core/widgets/app_text_form_field.dart';
 import '../../models/maintenance_booking_model.dart';
 
 class EditMaintenanceBookingSheet extends StatefulWidget {
@@ -46,10 +48,10 @@ class _EditMaintenanceBookingSheetState
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisSize: MainAxisSize.min,
         children: [
-          _buildTextField(
+          AppTextFormField(
             controller: _phoneController,
             label: context.l10n.phone,
-            icon: Icons.phone_outlined,
+            prefixIcon: const Icon(Icons.phone_outlined),
             keyboardType: TextInputType.phone,
             validator: (value) {
               if (value == null || value.isEmpty) {
@@ -59,10 +61,10 @@ class _EditMaintenanceBookingSheetState
             },
           ),
           SizedBox(height: 12.h),
-          _buildTextField(
+          AppTextFormField(
             controller: _addressController,
             label: context.l10n.address,
-            icon: Icons.location_on_outlined,
+            prefixIcon: const Icon(Icons.location_on_outlined),
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return context.l10n.addressRequired;
@@ -71,14 +73,14 @@ class _EditMaintenanceBookingSheetState
             },
           ),
           SizedBox(height: 12.h),
-          _buildTextField(
+          AppTextFormField(
             controller: _messageController,
             label: context.l10n.messageOptional,
-            icon: Icons.notes_rounded,
+            prefixIcon: const Icon(Icons.notes_rounded),
             maxLines: 3,
           ),
           SizedBox(height: 16.h),
-          ElevatedButton(
+          AppElevatedButton(
             onPressed: () {
               if (_formKey.currentState!.validate()) {
                 Navigator.pop(context, {
@@ -88,38 +90,11 @@ class _EditMaintenanceBookingSheetState
                 });
               }
             },
-            style: ElevatedButton.styleFrom(
-              padding: EdgeInsets.symmetric(vertical: 16.h),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12.r),
-              ),
-            ),
-            child: Text(context.l10n.saveChanges),
+            padding: EdgeInsets.symmetric(vertical: 16.h),
+            text: context.l10n.saveChanges,
           ),
         ],
       ),
-    ),
-  );
-
-  Widget _buildTextField({
-    required TextEditingController controller,
-    required String label,
-    required IconData icon,
-    TextInputType? keyboardType,
-    String? Function(String?)? validator,
-    bool readOnly = false,
-    VoidCallback? onTap,
-    int maxLines = 1,
-  }) => TextFormField(
-    controller: controller,
-    keyboardType: keyboardType,
-    validator: validator,
-    readOnly: readOnly,
-    onTap: onTap,
-    maxLines: maxLines,
-    decoration: InputDecoration(
-      labelText: label,
-      prefixIcon: Icon(icon, size: 20.w),
     ),
   );
 }

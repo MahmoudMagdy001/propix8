@@ -7,6 +7,7 @@ import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/mixins/scroll_pagination_mixin.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/utils/snackbar_utils.dart';
+import '../../../../core/widgets/app_elevated_button.dart';
 import '../../../../core/widgets/custom_back_button.dart';
 import '../../auth/viewmodels/auth_cubit.dart';
 import '../../auth/viewmodels/auth_state.dart';
@@ -120,12 +121,12 @@ class _MyTestimonialsContentState extends State<_MyTestimonialsContent>
                 children: [
                   Text(state.errorMessage ?? context.l10n.errorOccurred),
                   SizedBox(height: 16.h),
-                  ElevatedButton(
+                  AppElevatedButton(
                     onPressed: () => context.read<OurServicesCubit>().loadData(
                       loadServices: false,
                       loadFaqs: false,
                     ),
-                    child: Text(context.l10n.retry),
+                    text: context.l10n.retry,
                   ),
                 ],
               ),
@@ -161,10 +162,10 @@ class _MyTestimonialsContentState extends State<_MyTestimonialsContent>
                       ),
                       SizedBox(height: 24.h),
                       if (!hasUserTestimonial)
-                        ElevatedButton.icon(
+                        AppElevatedButton(
                           onPressed: () => AddTestimonialSheet.show(context),
                           icon: const Icon(Icons.add),
-                          label: Text(context.l10n.addTestimonial),
+                          text: context.l10n.addTestimonial,
                         ),
                     ],
                   ),

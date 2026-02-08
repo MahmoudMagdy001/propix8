@@ -7,6 +7,8 @@ import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/utils/snackbar_utils.dart';
 import '../../../core/di/locator.dart';
 import '../../../core/utils/context_extensions.dart';
+import '../../../core/widgets/app_elevated_button.dart';
+import '../../../core/widgets/app_text_form_field.dart';
 import '../../../core/widgets/terms_checkbox.dart';
 import '../../../l10n/app_localizations.dart';
 import '../models/auth_model.dart';
@@ -85,7 +87,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 32.h),
-                  AppTextField(
+                  AppTextFormField(
                     focusNode: _nameFocusNode,
                     controller: _nameController,
                     label: l10n.name,
@@ -94,7 +96,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         value?.isEmpty ?? true ? l10n.fieldRequired : null,
                   ),
                   SizedBox(height: 16.h),
-                  AppTextField(
+                  AppTextFormField(
                     focusNode: _emailFocusNode,
                     controller: _emailController,
                     label: l10n.email,
@@ -111,7 +113,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     },
                   ),
                   SizedBox(height: 16.h),
-                  AppTextField(
+                  AppTextFormField(
                     focusNode: _phoneFocusNode,
                     controller: _phoneController,
                     label: l10n.phone,
@@ -121,7 +123,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         value?.isEmpty ?? true ? l10n.fieldRequired : null,
                   ),
                   SizedBox(height: 16.h),
-                  AppTextField(
+                  AppTextFormField(
                     focusNode: _passwordFocusNode,
                     controller: _passwordController,
                     label: l10n.password,
@@ -147,7 +149,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     },
                   ),
                   SizedBox(height: 16.h),
-                  AppTextField(
+                  AppTextFormField(
                     focusNode: _confirmPasswordFocusNode,
                     controller: _confirmPasswordController,
                     label: l10n.confirmPassword,
@@ -175,26 +177,24 @@ class _SignupScreenState extends State<SignupScreen> {
                     selector: (state) => state.status,
                     builder: (context, status) {
                       final isLoading = status == AuthRequestStatus.loading;
-                      return ElevatedButton(
-                        onPressed: (isLoading || !_agreedToTerms)
-                            ? null
-                            : () {
-                                if (_formKey.currentState!.validate()) {
-                                  context.read<AuthCubit>().register(
-                                    RegisterRequest(
-                                      name: _nameController.text,
-                                      email: _emailController.text,
-                                      phone: _phoneController.text,
-                                      password: _passwordController.text,
-                                      passwordConfirmation:
-                                          _confirmPasswordController.text,
-                                    ),
-                                  );
-                                }
-                              },
-                        child: isLoading
-                            ? const CircularProgressIndicator()
-                            : Text(l10n.signup_Button),
+                      return AppElevatedButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            context.read<AuthCubit>().register(
+                              RegisterRequest(
+                                name: _nameController.text,
+                                email: _emailController.text,
+                                phone: _phoneController.text,
+                                password: _passwordController.text,
+                                passwordConfirmation:
+                                    _confirmPasswordController.text,
+                              ),
+                            );
+                          }
+                        },
+                        isLoading: isLoading,
+                        enabled: _agreedToTerms,
+                        text: l10n.signup_Button,
                       );
                     },
                   ),

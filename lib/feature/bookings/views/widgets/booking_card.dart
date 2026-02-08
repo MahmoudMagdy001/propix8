@@ -8,6 +8,7 @@ import '../../../../../core/utils/date_time_utils.dart';
 import '../../../../../core/utils/responsive_helper.dart';
 import '../../../../../core/utils/snackbar_utils.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/widgets/app_elevated_button.dart';
 import '../../../../core/widgets/app_modal_sheet.dart';
 import '../../models/booking_model.dart';
 import '../../viewmodels/booking_cubit.dart';
@@ -63,13 +64,11 @@ class BookingCard extends StatelessWidget {
                               onPressed: () => Navigator.pop(context, false),
                               child: Text(context.l10n.cancel),
                             ),
-                            ElevatedButton(
+                            AppElevatedButton(
                               onPressed: () => Navigator.pop(context, true),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: context.colorScheme.error,
-                                foregroundColor: Colors.white,
-                              ),
-                              child: Text(context.l10n.delete),
+                              backgroundColor: context.colorScheme.error,
+                              foregroundColor: Colors.white,
+                              text: context.l10n.delete,
                             ),
                           ],
                         ),
@@ -330,7 +329,7 @@ class BookingCard extends StatelessWidget {
       if (status == 'reschedule_admin') ...[
         SizedBox(
           width: double.infinity,
-          child: ElevatedButton.icon(
+          child: AppElevatedButton(
             onPressed: () async {
               final confirmed = await showDialog<bool>(
                 context: context,
@@ -342,9 +341,9 @@ class BookingCard extends StatelessWidget {
                       onPressed: () => Navigator.pop(context, false),
                       child: Text(context.l10n.cancel),
                     ),
-                    ElevatedButton(
+                    AppElevatedButton(
                       onPressed: () => Navigator.pop(context, true),
-                      child: Text(context.l10n.approve),
+                      text: context.l10n.approve,
                     ),
                   ],
                 ),
@@ -360,15 +359,11 @@ class BookingCard extends StatelessWidget {
               }
             },
             icon: Icon(Icons.check_circle, size: 20.sp),
-            label: Text(context.l10n.approveSuggestedTime),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.success,
-              foregroundColor: Colors.white,
-              padding: EdgeInsets.symmetric(vertical: 12.h),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.r),
-              ),
-            ),
+            text: context.l10n.approveSuggestedTime,
+            backgroundColor: AppColors.success,
+            foregroundColor: Colors.white,
+            padding: EdgeInsets.symmetric(vertical: 12.h),
+            borderRadius: 8.r,
           ),
         ),
         SizedBox(height: 8.h),
@@ -433,12 +428,10 @@ class BookingCard extends StatelessWidget {
                     onPressed: () => Navigator.pop(context, false),
                     child: Text(context.l10n.back),
                   ),
-                  ElevatedButton(
+                  AppElevatedButton(
                     onPressed: () => Navigator.pop(context, true),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: context.colorScheme.error,
-                    ),
-                    child: Text(context.l10n.cancelBooking),
+                    backgroundColor: context.colorScheme.error,
+                    text: context.l10n.cancelBooking,
                   ),
                 ],
               ),

@@ -500,6 +500,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get reserveNow => 'أحجز الآن';
 
   @override
+  String get rebook => 'إعادة حجز';
+
+  @override
   String get alreadyBooked => 'لقد حجزت هذا العقار';
 
   @override
