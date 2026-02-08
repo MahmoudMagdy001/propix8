@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/di/locator.dart';
-import '../../../../core/services/storage_service.dart';
+import '../../../../core/public_feature/services/storage_service.dart';
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/utils/snackbar_utils.dart';
 import '../../../auth/models/auth_model.dart';
 import '../../viewmodels/maintenance_booking_cubit.dart';
 
@@ -12,11 +13,13 @@ class MaintenanceBookingForm extends StatefulWidget {
   const MaintenanceBookingForm({
     required this.serviceId,
     required this.serviceName,
+    this.onBookingSuccess,
     super.key,
   });
 
   final int serviceId;
   final String serviceName;
+  final VoidCallback? onBookingSuccess;
 
   @override
   State<MaintenanceBookingForm> createState() => _MaintenanceBookingFormState();
@@ -51,19 +54,15 @@ class _MaintenanceBookingFormState extends State<MaintenanceBookingForm> {
     child: BlocConsumer<MaintenanceBookingCubit, MaintenanceBookingState>(
       listener: (context, state) {
         if (state.status == BookingStatus.success) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.response?.message ?? context.l10n.success),
-              backgroundColor: Colors.green,
-            ),
+          // Notify parent about successful booking for reactive UI update
+          widget.onBookingSuccess?.call();
+          context.showSuccessSnackbar(
+            state.response?.message ?? context.l10n.success,
           );
           Navigator.pop(context);
         } else if (state.status == BookingStatus.failure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.errorMessage ?? context.l10n.errorOccurred),
-              backgroundColor: Colors.red,
-            ),
+          context.showErrorSnackbar(
+            state.errorMessage ?? context.l10n.errorOccurred,
           );
         }
       },

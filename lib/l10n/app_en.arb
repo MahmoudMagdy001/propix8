@@ -1415,6 +1415,10 @@
   "@search_results": {
     "description": "Label for search results section"
   },
+  "serviceBooked": "Already Booked",
+  "@serviceBooked": {
+    "description": "Label for already booked service"
+  },
   "profileGroupBookings": "Bookings",
   "@profileGroupBookings": {
     "description": "Title for bookings group in profile"
@@ -1430,5 +1434,14 @@
   "profileGroupSettings": "Settings",
   "@profileGroupSettings": {
     "description": "Title for settings group in profile"
-  }
+  },
+  "addedToFavorites": "Added to favorites",
+  "@addedToFavorites": {
+    "description": "Success message when a unit is added to favorites"
+  },
+  "removedFromFavorites": "Removed from favorites",
+  "@removedFromFavorites": {
+    "description": "Success message when a unit is removed from favorites"
+  },
+  "failedToUpdateFavorite": "Failed to update favorite"
 }

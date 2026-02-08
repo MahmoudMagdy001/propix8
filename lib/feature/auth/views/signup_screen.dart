@@ -4,8 +4,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/router/app_routes.dart';
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/utils/snackbar_utils.dart';
 import '../../../core/di/locator.dart';
-import '../../../core/theme/app_colors.dart';
 import '../../../core/utils/context_extensions.dart';
 import '../../../core/widgets/terms_checkbox.dart';
 import '../../../l10n/app_localizations.dart';
@@ -60,19 +60,12 @@ class _SignupScreenState extends State<SignupScreen> {
         body: BlocListener<AuthCubit, AuthState>(
           listener: (context, state) {
             if (state.status == AuthRequestStatus.success) {
-              ScaffoldMessenger.of(
-                context,
-              ).showSnackBar(SnackBar(content: Text(l10n.signupSuccess)));
+              context.showSuccessSnackbar(l10n.signupSuccess);
               if (mounted) {
                 context.goNamed(AppRoutes.login);
               }
             } else if (state.status == AuthRequestStatus.failure) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(state.errorMessage ?? l10n.error),
-                  backgroundColor: AppColors.errorLight,
-                ),
-              );
+              context.showErrorSnackbar(state.errorMessage ?? l10n.error);
             }
           },
           child: SingleChildScrollView(

@@ -7,6 +7,7 @@ import '../../../../core/di/locator.dart';
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/mixins/scroll_pagination_mixin.dart';
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/utils/snackbar_utils.dart';
 import '../../../../core/widgets/custom_back_button.dart';
 import '../../settings/models/site_settings_model.dart';
 import '../../settings/viewmodels/settings_cubit.dart';
@@ -80,22 +81,12 @@ class _OurServicesContentState extends State<OurServicesContent>
                 p.addTestimonialStatus != c.addTestimonialStatus,
             listener: (context, state) {
               if (state.addTestimonialStatus == OurServicesStatus.success) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(context.l10n.testimonialAdded),
-                    backgroundColor: Colors.green,
-                  ),
-                );
+                context.showSuccessSnackbar(context.l10n.testimonialAdded);
               } else if (state.addTestimonialStatus ==
                   OurServicesStatus.failure) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(
-                      state.addTestimonialError ??
-                          context.l10n.failedToAddTestimonial,
-                    ),
-                    backgroundColor: Colors.red,
-                  ),
+                context.showErrorSnackbar(
+                  state.addTestimonialError ??
+                      context.l10n.failedToAddTestimonial,
                 );
               }
             },
@@ -105,19 +96,11 @@ class _OurServicesContentState extends State<OurServicesContent>
                 p.updateTestimonialStatus != c.updateTestimonialStatus,
             listener: (context, state) {
               if (state.updateTestimonialStatus == OurServicesStatus.success) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(context.l10n.testimonialUpdated),
-                    backgroundColor: Colors.green,
-                  ),
-                );
+                context.showSuccessSnackbar(context.l10n.testimonialUpdated);
               } else if (state.updateTestimonialStatus ==
                   OurServicesStatus.failure) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(context.l10n.failedToUpdateTestimonial),
-                    backgroundColor: Colors.red,
-                  ),
+                context.showErrorSnackbar(
+                  context.l10n.failedToUpdateTestimonial,
                 );
               }
             },
@@ -127,19 +110,11 @@ class _OurServicesContentState extends State<OurServicesContent>
                 p.deleteTestimonialStatus != c.deleteTestimonialStatus,
             listener: (context, state) {
               if (state.deleteTestimonialStatus == OurServicesStatus.success) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(context.l10n.testimonialDeleted),
-                    backgroundColor: Colors.green,
-                  ),
-                );
+                context.showSuccessSnackbar(context.l10n.testimonialDeleted);
               } else if (state.deleteTestimonialStatus ==
                   OurServicesStatus.failure) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(context.l10n.failedToDeleteTestimonial),
-                    backgroundColor: Colors.red,
-                  ),
+                context.showErrorSnackbar(
+                  context.l10n.failedToDeleteTestimonial,
                 );
               }
             },

@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../models/page_model.dart';
-import '../models/stat_model.dart';
+import '../../models/page_model.dart';
+import '../../models/stat_model.dart';
 import '../repositories/pages_repository.dart';
 
 enum PagesStatus { initial, loading, success, failure }

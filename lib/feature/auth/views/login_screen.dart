@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/utils/snackbar_utils.dart';
 import '../../../core/di/locator.dart';
 import '../../../core/router/app_routes.dart';
 import '../../../core/utils/auth_constants.dart';
@@ -116,17 +117,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   previous.status != current.status,
               listener: (context, state) {
                 if (state.status == AuthRequestStatus.success) {
-                  ScaffoldMessenger.of(
-                    context,
-                  ).showSnackBar(SnackBar(content: Text(l10n.loginSuccess)));
+                  context.showSuccessSnackbar(l10n.loginSuccess);
                   // Navigation handled by Router Redirect
                 } else if (state.status == AuthRequestStatus.failure) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(state.errorMessage ?? l10n.error),
-                      backgroundColor: context.colorScheme.error,
-                    ),
-                  );
+                  context.showErrorSnackbar(state.errorMessage ?? l10n.error);
                 }
               },
             ),
@@ -136,19 +130,9 @@ class _LoginScreenState extends State<LoginScreen> {
               listener: (context, state) {
                 if (state.resendStatus == AuthRequestStatus.success) {
                   _startResendTimer();
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(l10n.verificationEmailSent),
-                      backgroundColor: Colors.green,
-                    ),
-                  );
+                  context.showSuccessSnackbar(l10n.verificationEmailSent);
                 } else if (state.resendStatus == AuthRequestStatus.failure) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(state.resendMessage ?? l10n.error),
-                      backgroundColor: context.colorScheme.error,
-                    ),
-                  );
+                  context.showErrorSnackbar(state.resendMessage ?? l10n.error);
                 }
               },
             ),

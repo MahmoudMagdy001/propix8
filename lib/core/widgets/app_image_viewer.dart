@@ -66,7 +66,7 @@ class _AppImageViewerState extends State<AppImageViewer> {
             maxScale: 4.0,
             child: Center(
               child: CachedNetworkImage(
-                memCacheHeight: 200 * 3,
+                memCacheHeight: 200 * 10,
                 imageUrl: widget.images[index],
                 fit: BoxFit.contain,
                 placeholder: (context, url) =>

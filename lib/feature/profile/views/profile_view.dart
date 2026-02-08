@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/router/app_routes.dart';
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/utils/snackbar_utils.dart';
 import '../../auth/models/auth_model.dart';
 import '../../auth/viewmodels/auth_cubit.dart';
 import '../viewmodels/user_profile_cubit.dart';
@@ -32,9 +33,7 @@ class _ProfileViewContent extends StatelessWidget {
           if (state.status == UserProfileStatus.accountDeleted) {
             context.goNamed(AppRoutes.login);
           } else if (state.status == UserProfileStatus.failure) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(state.errorMessage ?? context.l10n.error)),
-            );
+            context.showErrorSnackbar(state.errorMessage ?? context.l10n.error);
           }
         },
         child:

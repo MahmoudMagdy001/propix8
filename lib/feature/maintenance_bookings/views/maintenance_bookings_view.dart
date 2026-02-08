@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
+import 'package:propix8/core/utils/snackbar_utils.dart';
 
 import '../../../../core/di/locator.dart';
 import '../../../../core/utils/context_extensions.dart';
@@ -8,6 +9,7 @@ import '../../../../core/utils/mixins/connectivity_mixin.dart';
 import '../../../../core/utils/mixins/scroll_pagination_mixin.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/widgets/custom_back_button.dart';
+import '../../maintenance_services/viewmodels/maintenance_services_cubit.dart';
 import '../viewmodels/maintenance_bookings_cubit.dart';
 import '../viewmodels/maintenance_bookings_state.dart';
 import 'widgets/maintenance_bookings_empty_widget.dart';
@@ -67,9 +69,7 @@ class _MaintenanceBookingsViewContentState
       if (state.bookings.isNotEmpty &&
           state.errorMessage != null &&
           state.errorMessage != 'Network Error') {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text(state.errorMessage!)));
+        context.showErrorSnackbar(state.errorMessage!);
       }
     },
     child: Scaffold(
@@ -90,7 +90,12 @@ class _MaintenanceBookingsViewContentState
                 floating: true,
                 snap: true,
               ),
-              const MaintenanceBookingsSliverList(),
+              MaintenanceBookingsSliverList(
+                onBookingDeleted: (serviceId) =>
+                    locator<MaintenanceServicesCubit>().unmarkServiceAsBooked(
+                      serviceId,
+                    ),
+              ),
               const MaintenanceBookingsErrorWidget(),
               const MaintenanceBookingsEmptyWidget(),
               BlocBuilder<MaintenanceBookingsCubit, MaintenanceBookingsState>(

@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/utils/snackbar_utils.dart';
 import '../../../../core/widgets/app_modal_sheet.dart';
 import '../../../auth/viewmodels/auth_cubit.dart';
 import '../../../auth/viewmodels/auth_state.dart';
@@ -25,20 +26,10 @@ class UnitReviews extends StatelessWidget {
         previous.deleteReviewStatus != current.deleteReviewStatus,
     listener: (context, state) {
       if (state.deleteReviewStatus == RequestStatus.success) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(context.l10n.reviewDeletedSuccess),
-            backgroundColor: Colors.green,
-          ),
-        );
+        context.showSuccessSnackbar(context.l10n.reviewDeletedSuccess);
         context.read<UnitDetailsCubit>().resetDeleteReviewStatus();
       } else if (state.deleteReviewStatus == RequestStatus.failure) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(context.l10n.reviewSubmissionError),
-            backgroundColor: Colors.red,
-          ),
-        );
+        context.showErrorSnackbar(context.l10n.reviewSubmissionError);
         context.read<UnitDetailsCubit>().resetDeleteReviewStatus();
       }
     },

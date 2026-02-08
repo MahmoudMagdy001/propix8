@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:app_links/app_links.dart';
 import 'package:flutter/widgets.dart';
 
-import '../router/app_router.dart';
-import '../utils/auth_logger.dart';
+import '../../router/app_router.dart';
+import '../../utils/auth_logger.dart';
 
 /// Service to handle deep linking.
 ///

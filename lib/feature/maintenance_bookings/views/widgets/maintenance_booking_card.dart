@@ -5,15 +5,21 @@ import 'package:intl/intl.dart';
 
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/utils/snackbar_utils.dart';
 import '../../../../core/widgets/app_modal_sheet.dart';
 import '../../models/maintenance_booking_model.dart';
 import '../../viewmodels/maintenance_bookings_cubit.dart';
 import 'edit_maintenance_booking_sheet.dart';
 
 class MaintenanceBookingCard extends StatelessWidget {
-  const MaintenanceBookingCard({required this.booking, super.key});
+  const MaintenanceBookingCard({
+    required this.booking,
+    this.onDeleted,
+    super.key,
+  });
 
   final MaintenanceBookingModel booking;
+  final void Function(int serviceId)? onDeleted;
 
   @override
   Widget build(BuildContext context) => Container(
@@ -83,18 +89,17 @@ class MaintenanceBookingCard extends StatelessWidget {
                     );
 
                     if (confirmed == true && context.mounted) {
+                      final serviceId = booking.service?.id;
                       await context
                           .read<MaintenanceBookingsCubit>()
                           .deleteMaintenanceBooking(booking.id);
                       if (context.mounted) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                              context
-                                  .l10n
-                                  .maintenance_bookings_card_deleteSuccess,
-                            ),
-                          ),
+                        // Notify parent to update the services UI
+                        if (serviceId != null) {
+                          onDeleted?.call(serviceId);
+                        }
+                        context.showInfoSnackbar(
+                          context.l10n.maintenance_bookings_card_deleteSuccess,
                         );
                       }
                     }
@@ -182,14 +187,8 @@ class MaintenanceBookingCard extends StatelessWidget {
                               message: result['message']!,
                             );
                         if (context.mounted) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                context
-                                    .l10n
-                                    .maintenance_bookings_card_editSuccess,
-                              ),
-                            ),
+                          context.showSuccessSnackbar(
+                            context.l10n.maintenance_bookings_card_editSuccess,
                           );
                         }
                       }

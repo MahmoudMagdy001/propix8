@@ -4,8 +4,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/di/locator.dart';
 import '../../../core/router/app_routes.dart';
-import '../../../core/theme/app_colors.dart';
 import '../../../core/utils/responsive_helper.dart';
+import '../../../core/utils/snackbar_utils.dart';
 import '../../../l10n/app_localizations.dart';
 import '../viewmodels/auth_cubit.dart';
 import '../viewmodels/auth_state.dart';
@@ -60,20 +60,13 @@ class _EmailVerificationHandlerState extends State<EmailVerificationHandler> {
           previous.verificationStatus != current.verificationStatus,
       listener: (context, state) {
         if (state.verificationStatus == AuthRequestStatus.success) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(AppLocalizations.of(context)!.emailVerified),
-            ),
+          context.showSuccessSnackbar(
+            AppLocalizations.of(context)!.emailVerified,
           );
           context.goNamed(AppRoutes.login);
         } else if (state.verificationStatus == AuthRequestStatus.failure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(
-                state.errorMessage ?? AppLocalizations.of(context)!.error,
-              ),
-              backgroundColor: AppColors.errorLight,
-            ),
+          context.showErrorSnackbar(
+            state.errorMessage ?? AppLocalizations.of(context)!.error,
           );
           context.goNamed(AppRoutes.login);
         }

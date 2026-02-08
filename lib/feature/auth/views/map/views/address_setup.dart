@@ -8,6 +8,7 @@ import '../../../../../core/di/locator.dart';
 import '../../../../../core/router/app_routes.dart';
 import '../../../../../core/utils/context_extensions.dart';
 import '../../../../../core/utils/responsive_helper.dart';
+import '../../../../../core/utils/snackbar_utils.dart';
 import '../../../../../l10n/app_localizations.dart';
 import '../models/city_model.dart';
 import '../viewmodels/address_setup_cubit.dart';
@@ -42,30 +43,11 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
           }
 
           if (state.status == ProfileStatus.success) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                backgroundColor: colors.surface,
-                content: Text(
-                  l10n.profileUpdateSuccess,
-                  style: context.textTheme.bodyMedium?.copyWith(
-                    color: colors.onSurface,
-                  ),
-                ),
-              ),
-            );
-
+            context.showSuccessSnackbar(l10n.profileUpdateSuccess);
             context.goNamed(AppRoutes.layout);
           } else if (state.status == ProfileStatus.failure) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                backgroundColor: colors.error,
-                content: Text(
-                  state.errorMessage ?? l10n.profileUpdateError,
-                  style: context.textTheme.bodyMedium?.copyWith(
-                    color: colors.onError,
-                  ),
-                ),
-              ),
+            context.showErrorSnackbar(
+              state.errorMessage ?? l10n.profileUpdateError,
             );
           }
         },

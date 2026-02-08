@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-import '../../../core/services/storage_service.dart';
+import '../../../core/public_feature/services/storage_service.dart';
 import '../../auth/models/auth_model.dart';
 import '../../auth/views/map/models/city_model.dart';
 import '../services/user_profile_service.dart';

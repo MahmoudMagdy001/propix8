@@ -11,7 +11,10 @@ import '../../viewmodels/maintenance_bookings_state.dart';
 import 'maintenance_booking_card.dart';
 
 class MaintenanceBookingsSliverList extends StatelessWidget {
-  const MaintenanceBookingsSliverList({super.key});
+  const MaintenanceBookingsSliverList({this.onBookingDeleted, super.key});
+
+  /// Called when a booking is deleted, with the service ID of the deleted booking.
+  final void Function(int serviceId)? onBookingDeleted;
 
   @override
   Widget build(BuildContext context) =>
@@ -37,7 +40,10 @@ class MaintenanceBookingsSliverList extends StatelessWidget {
             ),
             itemBuilder: (context, booking) => Padding(
               padding: EdgeInsets.only(bottom: 6.h),
-              child: MaintenanceBookingCard(booking: booking),
+              child: MaintenanceBookingCard(
+                booking: booking,
+                onDeleted: onBookingDeleted,
+              ),
             ),
           );
         },

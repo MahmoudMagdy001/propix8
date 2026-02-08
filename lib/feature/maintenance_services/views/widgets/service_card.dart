@@ -8,8 +8,15 @@ import '../../models/maintenance_service_model.dart';
 import 'maintenance_booking_form.dart';
 
 class ServiceCard extends StatelessWidget {
-  const ServiceCard({required this.service, super.key});
+  const ServiceCard({
+    required this.service,
+    this.isBooked = false,
+    this.onBooked,
+    super.key,
+  });
   final MaintenanceServiceModel service;
+  final bool isBooked;
+  final VoidCallback? onBooked;
 
   @override
   Widget build(BuildContext context) => Container(
@@ -49,21 +56,26 @@ class ServiceCard extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {
-                    showAppModalSheet(
-                      context: context,
-                      title: context.l10n.bookNow,
-                      child: MaintenanceBookingForm(
-                        serviceId: service.id,
-                        serviceName: service.title,
-                      ),
-                    );
-                  },
+                  onPressed: isBooked
+                      ? null
+                      : () {
+                          showAppModalSheet(
+                            context: context,
+                            title: context.l10n.bookNow,
+                            child: MaintenanceBookingForm(
+                              serviceId: service.id,
+                              serviceName: service.title,
+                              onBookingSuccess: onBooked,
+                            ),
+                          );
+                        },
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(vertical: 8.h),
                   ),
                   child: Text(
-                    context.l10n.bookNow,
+                    isBooked
+                        ? context.l10n.serviceBooked
+                        : context.l10n.bookNow,
                     style: TextStyle(fontSize: 12.sp),
                   ),
                 ),

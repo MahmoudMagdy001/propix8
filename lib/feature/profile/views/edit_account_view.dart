@@ -7,6 +7,7 @@ import '../../../../core/di/locator.dart';
 import '../../../../core/router/app_routes.dart';
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/utils/snackbar_utils.dart';
 import '../../../../core/widgets/app_modal_sheet.dart';
 import '../../../../core/widgets/custom_back_button.dart';
 import '../../auth/viewmodels/auth_cubit.dart';
@@ -21,17 +22,12 @@ class EditAccountView extends StatelessWidget {
       BlocListener<UserProfileCubit, UserProfileState>(
         listener: (context, state) {
           if (state.status == UserProfileStatus.accountDeleted) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(context.l10n.accountDeletedSuccess)),
-            );
+            context.showSuccessSnackbar(context.l10n.accountDeletedSuccess);
             // Logout to clear token and trigger router redirect
             locator<AuthCubit>().logout();
           } else if (state.status == UserProfileStatus.failure) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(state.errorMessage ?? context.l10n.errorOccurred),
-                backgroundColor: context.colorScheme.error,
-              ),
+            context.showErrorSnackbar(
+              state.errorMessage ?? context.l10n.errorOccurred,
             );
           }
         },

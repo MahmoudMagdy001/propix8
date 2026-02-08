@@ -60,11 +60,11 @@ import '../../feature/unit_details/services/unit_details_service.dart';
 import '../../feature/unit_details/viewmodels/unit_details_cubit.dart';
 import '../network/auth_interceptor.dart';
 import '../network/dio_client.dart';
-import '../repositories/pages_repository.dart';
-import '../services/deep_link_service.dart';
-import '../services/pages_service.dart';
-import '../services/storage_service.dart';
-import '../viewmodels/pages_cubit.dart';
+import '../public_feature/repositories/pages_repository.dart';
+import '../public_feature/services/deep_link_service.dart';
+import '../public_feature/services/pages_service.dart';
+import '../public_feature/services/storage_service.dart';
+import '../public_feature/viewmodels/pages_cubit.dart';
 
 final locator = GetIt.instance;
 
@@ -190,8 +190,11 @@ Future<void> setupLocator() async {
       () => AddressSetupCubit(locator<AddressSetupRepository>()),
     )
     ..registerLazySingleton(() => FavoriteCubit(locator<FavoriteRepository>()))
-    ..registerFactory(
-      () => MaintenanceServicesCubit(locator<MaintenanceServiceRepository>()),
+    ..registerLazySingleton(
+      () => MaintenanceServicesCubit(
+        locator<MaintenanceServiceRepository>(),
+        locator<MaintenanceBookingRepository>(),
+      ),
     )
     ..registerFactory(
       () => MaintenanceBookingCubit(locator<MaintenanceServiceRepository>()),

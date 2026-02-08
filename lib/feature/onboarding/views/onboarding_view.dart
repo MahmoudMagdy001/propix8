@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/di/locator.dart';
 import '../../../../core/router/app_routes.dart';
-import '../../../../core/services/storage_service.dart';
+import '../../../core/public_feature/services/storage_service.dart';
 import '../../../core/utils/context_extensions.dart';
 import '../../../core/utils/responsive_helper.dart';
 import '../../settings/viewmodels/settings_cubit.dart';

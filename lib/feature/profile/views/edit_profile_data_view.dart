@@ -9,6 +9,7 @@ import 'package:internet_state_manager/internet_state_manager.dart';
 
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/utils/snackbar_utils.dart';
 import '../../../../core/widgets/custom_back_button.dart';
 import '../../auth/models/auth_model.dart';
 import '../../auth/views/map/models/city_model.dart';
@@ -127,14 +128,10 @@ class _EditProfileDataViewState extends State<EditProfileDataView> {
     body: BlocConsumer<UserProfileCubit, UserProfileState>(
       listener: (context, state) {
         if (state.status == UserProfileStatus.updated) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(context.l10n.profileUpdateSuccess)),
-          );
+          context.showSuccessSnackbar(context.l10n.profileUpdateSuccess);
         } else if (state.status == UserProfileStatus.failure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.errorMessage ?? context.l10n.errorOccurred),
-            ),
+          context.showErrorSnackbar(
+            state.errorMessage ?? context.l10n.errorOccurred,
           );
         }
       },

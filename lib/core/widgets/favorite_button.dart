@@ -6,6 +6,7 @@ import '../../feature/favorites/viewmodels/favorite_cubit.dart';
 import '../../feature/favorites/viewmodels/favorite_state.dart';
 import '../../feature/home/models/unit_model.dart';
 import '../utils/context_extensions.dart';
+import '../utils/snackbar_utils.dart';
 
 class FavoriteButton extends StatefulWidget {
   const FavoriteButton({
@@ -58,8 +59,28 @@ class _FavoriteButtonState extends State<FavoriteButton> {
             currentFavorite = widget.isFavorite;
           }
           return IconButton(
-            onPressed: () =>
-                context.read<FavoriteCubit>().toggleFavorite(widget.unit),
+            onPressed: () async {
+              final cubit = context.read<FavoriteCubit>();
+              final isCurrentlyFavorite =
+                  cubit.state.favorites[widget.unit.id] ?? widget.isFavorite;
+
+              // Show snackbar immediately (optimistic)
+              if (context.mounted) {
+                context.showSuccessSnackbar(
+                  !isCurrentlyFavorite
+                      ? context.l10n.addedToFavorites
+                      : context.l10n.removedFromFavorites,
+                );
+              }
+
+              await cubit.toggleFavorite(widget.unit);
+
+              // If the operation fails, show an error snackbar
+              if (context.mounted &&
+                  cubit.state.status == FavoriteStatus.failure) {
+                context.showErrorSnackbar(context.l10n.failedToUpdateFavorite);
+              }
+            },
             icon: AnimatedSwitcher(
               duration: const Duration(milliseconds: 300),
               transitionBuilder: (Widget child, Animation<double> animation) =>

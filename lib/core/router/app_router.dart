@@ -5,9 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/di/locator.dart';
-import '../../core/services/storage_service.dart';
-import '../../core/widgets/privacy_policy_screen.dart';
-import '../../core/widgets/terms_and_conditions_screen.dart';
+import '../public_feature/services/storage_service.dart';
+import '../public_feature/privacy_policy_screen.dart';
+import '../public_feature/terms_and_conditions_screen.dart';
 import '../../feature/auth/models/auth_model.dart';
 import '../../feature/auth/viewmodels/auth_cubit.dart';
 import '../../feature/auth/viewmodels/auth_state.dart';
@@ -43,7 +43,7 @@ import '../../feature/settings/viewmodels/settings_state.dart';
 import '../../feature/settings/views/settings_view.dart';
 import '../../feature/unit_details/views/unit_details_view.dart';
 import '../../feature/unit_details/views/unit_map_view.dart';
-import '../widgets/about_us/about_us_screen.dart';
+import '../public_feature/about_us/about_us_screen.dart';
 import 'app_routes.dart';
 
 final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>();

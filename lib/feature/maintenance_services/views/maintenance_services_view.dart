@@ -120,10 +120,13 @@ class _SliverMaintenanceServicesList extends StatelessWidget {
       BlocSelector<
         MaintenanceServicesCubit,
         MaintenanceServicesState,
-        MaintenanceData?
+        ({MaintenanceData? data, Set<int> bookedIds})
       >(
-        selector: (state) => state.data,
-        builder: (context, data) {
+        selector: (state) =>
+            (data: state.data, bookedIds: state.bookedServiceIds),
+        builder: (context, state) {
+          final data = state.data;
+          final bookedIds = state.bookedIds;
           final maintenanceData =
               data ??
               MaintenanceData(
@@ -182,8 +185,13 @@ class _SliverMaintenanceServicesList extends StatelessWidget {
                 AppSliverGrid<MaintenanceServiceModel>(
                   items: maintenanceData.home,
                   padding: EdgeInsets.symmetric(horizontal: 6.w),
-                  itemBuilder: (context, service) =>
-                      ServiceCard(service: service),
+                  itemBuilder: (context, service) => ServiceCard(
+                    service: service,
+                    isBooked: bookedIds.contains(service.id),
+                    onBooked: () => context
+                        .read<MaintenanceServicesCubit>()
+                        .markServiceAsBooked(service.id),
+                  ),
                 ),
               ],
               if (maintenanceData.technical.isNotEmpty) ...[
@@ -205,8 +213,13 @@ class _SliverMaintenanceServicesList extends StatelessWidget {
                 AppSliverGrid<MaintenanceServiceModel>(
                   items: maintenanceData.technical,
                   padding: EdgeInsets.symmetric(horizontal: 6.w),
-                  itemBuilder: (context, service) =>
-                      ServiceCard(service: service),
+                  itemBuilder: (context, service) => ServiceCard(
+                    service: service,
+                    isBooked: bookedIds.contains(service.id),
+                    onBooked: () => context
+                        .read<MaintenanceServicesCubit>()
+                        .markServiceAsBooked(service.id),
+                  ),
                 ),
               ],
             ],

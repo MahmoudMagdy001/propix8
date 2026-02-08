@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:propix8/core/utils/snackbar_utils.dart';
 
 import '../../../../../core/utils/context_extensions.dart';
 import '../../../../../core/utils/date_time_utils.dart';
@@ -49,16 +50,12 @@ class _SuggestTimeModalState extends State<SuggestTimeModal> {
 
   void _submit() {
     if (_selectedDate == null) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(context.l10n.pleaseSelectDate)));
+      context.showInfoSnackbar(context.l10n.pleaseSelectDate);
       return;
     }
 
     if (_selectedTime == null) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(context.l10n.pleaseSelectTime)));
+      context.showInfoSnackbar(context.l10n.pleaseSelectTime);
       return;
     }
 
@@ -79,9 +76,7 @@ class _SuggestTimeModalState extends State<SuggestTimeModal> {
       );
 
       if (selectedDateTime.isBefore(now)) {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text(context.l10n.pastTimeError)));
+        context.showErrorSnackbar(context.l10n.pastTimeError);
         return;
       }
     }

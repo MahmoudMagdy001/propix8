@@ -1,6 +1,6 @@
-import '../models/page_model.dart';
-import '../models/stat_model.dart';
-import '../network/dio_client.dart';
+import '../../models/page_model.dart';
+import '../../models/stat_model.dart';
+import '../../network/dio_client.dart';
 
 class PagesService {
   PagesService(this._dioClient);

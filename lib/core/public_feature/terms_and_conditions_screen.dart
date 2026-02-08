@@ -6,7 +6,7 @@ import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../di/locator.dart';
 import '../utils/context_extensions.dart';
-import '../viewmodels/pages_cubit.dart';
+import 'viewmodels/pages_cubit.dart';
 import '../widgets/custom_back_button.dart';
 
 class TermsAndConditionsScreen extends StatelessWidget {

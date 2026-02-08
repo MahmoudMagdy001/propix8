@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-import '../models/page_model.dart';
-import '../models/stat_model.dart';
+import '../../models/page_model.dart';
+import '../../models/stat_model.dart';
 import '../services/pages_service.dart';
 
 abstract class PagesRepository {

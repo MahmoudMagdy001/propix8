@@ -1065,6 +1065,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get search_results => 'Search Results';
 
   @override
+  String get serviceBooked => 'Already Booked';
+
+  @override
   String get profileGroupBookings => 'Bookings';
 
   @override
@@ -1075,4 +1078,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get profileGroupSettings => 'Settings';
+
+  @override
+  String get addedToFavorites => 'Added to favorites';
+
+  @override
+  String get removedFromFavorites => 'Removed from favorites';
+
+  @override
+  String get failedToUpdateFavorite => 'Failed to update favorite';
 }

@@ -2195,6 +2195,12 @@ abstract class AppLocalizations {
   /// **'Search Results'**
   String get search_results;
 
+  /// Label for already booked service
+  ///
+  /// In en, this message translates to:
+  /// **'Already Booked'**
+  String get serviceBooked;
+
   /// Title for bookings group in profile
   ///
   /// In en, this message translates to:
@@ -2218,6 +2224,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Settings'**
   String get profileGroupSettings;
+
+  /// Success message when a unit is added to favorites
+  ///
+  /// In en, this message translates to:
+  /// **'Added to favorites'**
+  String get addedToFavorites;
+
+  /// Success message when a unit is removed from favorites
+  ///
+  /// In en, this message translates to:
+  /// **'Removed from favorites'**
+  String get removedFromFavorites;
+
+  /// No description provided for @failedToUpdateFavorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to update favorite'**
+  String get failedToUpdateFavorite;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

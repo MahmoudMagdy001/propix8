@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/di/locator.dart';
-import '../../../../core/services/storage_service.dart';
+import '../../../../core/public_feature/services/storage_service.dart';
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/date_time_utils.dart';
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/utils/snackbar_utils.dart';
 import '../../../../core/widgets/app_modal_sheet.dart';
 import '../../../../core/widgets/terms_checkbox.dart';
 import '../../../auth/models/auth_model.dart';
@@ -119,21 +120,13 @@ class _BookingSheetState extends State<BookingSheet> {
       listener: (context, state) {
         if (state.bookingStatus == RequestStatus.success) {
           Navigator.pop(context);
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(
-                state.bookingSuccessMessage ?? context.l10n.bookingSuccess,
-              ),
-              backgroundColor: Colors.green,
-            ),
+          context.showSuccessSnackbar(
+            state.bookingSuccessMessage ?? context.l10n.bookingSuccess,
           );
           context.read<UnitDetailsCubit>().resetBookingStatus();
         } else if (state.bookingStatus == RequestStatus.failure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.bookingErrorMessage ?? context.l10n.error),
-              backgroundColor: Colors.red,
-            ),
+          context.showErrorSnackbar(
+            state.bookingErrorMessage ?? context.l10n.error,
           );
           context.read<UnitDetailsCubit>().resetBookingStatus();
         }

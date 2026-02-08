@@ -4,9 +4,9 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/router/app_routes.dart';
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/utils/snackbar_utils.dart';
 import '../../../../core/widgets/custom_back_button.dart';
 import '../../../core/di/locator.dart';
-import '../../../core/theme/app_colors.dart';
 import '../../../core/utils/context_extensions.dart';
 import '../../../l10n/app_localizations.dart';
 import '../viewmodels/reset_password_cubit.dart';
@@ -49,12 +49,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             if (!ModalRoute.of(context)!.isCurrent) return;
 
             if (state.status == ResetPasswordStatus.emailSent) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    state.successMessage ?? l10n.passwordResetConfirmation,
-                  ),
-                ),
+              context.showInfoSnackbar(
+                state.successMessage ?? l10n.passwordResetConfirmation,
               );
               context.pushNamed(
                 AppRoutes.resetPasswordVerification,
@@ -62,12 +58,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 queryParameters: {'email': _emailController.text},
               );
             } else if (state.status == ResetPasswordStatus.failure) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(state.errorMessage ?? l10n.error),
-                  backgroundColor: AppColors.errorLight,
-                ),
-              );
+              context.showErrorSnackbar(state.errorMessage ?? l10n.error);
             }
           },
           child: SingleChildScrollView(

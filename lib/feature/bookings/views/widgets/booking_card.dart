@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import '../../../../../core/utils/context_extensions.dart';
 import '../../../../../core/utils/date_time_utils.dart';
 import '../../../../../core/utils/responsive_helper.dart';
+import '../../../../../core/utils/snackbar_utils.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/widgets/app_modal_sheet.dart';
 import '../../models/booking_model.dart';
@@ -79,10 +80,8 @@ class BookingCard extends StatelessWidget {
                           booking.id,
                         );
                         if (context.mounted) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(context.l10n.bookingDeletedSuccess),
-                            ),
+                          context.showInfoSnackbar(
+                            context.l10n.bookingDeletedSuccess,
                           );
                         }
                       }
@@ -354,8 +353,8 @@ class BookingCard extends StatelessWidget {
               if (confirmed == true && context.mounted) {
                 await context.read<BookingCubit>().acceptBooking(booking.id);
                 if (context.mounted) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text(context.l10n.suggestedTimeAccepted)),
+                  context.showSuccessSnackbar(
+                    context.l10n.suggestedTimeAccepted,
                   );
                 }
               }
@@ -397,9 +396,7 @@ class BookingCard extends StatelessWidget {
                 userMessage: result['message'] ?? '',
               );
               if (context.mounted) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(context.l10n.newTimeSuggestionSent)),
-                );
+                context.showSuccessSnackbar(context.l10n.newTimeSuggestionSent);
               }
             }
           },
@@ -450,9 +447,7 @@ class BookingCard extends StatelessWidget {
             if (confirmed == true && context.mounted) {
               await context.read<BookingCubit>().cancelBooking(booking.id);
               if (context.mounted) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(context.l10n.bookingCancelled)),
-                );
+                context.showSuccessSnackbar(context.l10n.bookingCancelled);
               }
             }
           },

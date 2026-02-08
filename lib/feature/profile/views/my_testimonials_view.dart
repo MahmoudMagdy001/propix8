@@ -6,6 +6,7 @@ import '../../../../core/di/locator.dart';
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/mixins/scroll_pagination_mixin.dart';
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/utils/snackbar_utils.dart';
 import '../../../../core/widgets/custom_back_button.dart';
 import '../../auth/viewmodels/auth_cubit.dart';
 import '../../auth/viewmodels/auth_state.dart';
@@ -52,18 +53,12 @@ class _MyTestimonialsContentState extends State<_MyTestimonialsContent>
               p.addTestimonialStatus != c.addTestimonialStatus,
           listener: (context, state) {
             if (state.addTestimonialStatus == OurServicesStatus.success) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(context.l10n.testimonialAdded)),
-              );
+              context.showSuccessSnackbar(context.l10n.testimonialAdded);
             } else if (state.addTestimonialStatus ==
                 OurServicesStatus.failure) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    state.addTestimonialError ??
-                        context.l10n.failedToAddTestimonial,
-                  ),
-                ),
+              context.showErrorSnackbar(
+                state.addTestimonialError ??
+                    context.l10n.failedToAddTestimonial,
               );
             }
           },
@@ -73,14 +68,10 @@ class _MyTestimonialsContentState extends State<_MyTestimonialsContent>
               p.updateTestimonialStatus != c.updateTestimonialStatus,
           listener: (context, state) {
             if (state.updateTestimonialStatus == OurServicesStatus.success) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(context.l10n.testimonialUpdated)),
-              );
+              context.showSuccessSnackbar(context.l10n.testimonialUpdated);
             } else if (state.updateTestimonialStatus ==
                 OurServicesStatus.failure) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(context.l10n.failedToUpdateTestimonial)),
-              );
+              context.showErrorSnackbar(context.l10n.failedToUpdateTestimonial);
             }
           },
         ),
@@ -89,14 +80,10 @@ class _MyTestimonialsContentState extends State<_MyTestimonialsContent>
               p.deleteTestimonialStatus != c.deleteTestimonialStatus,
           listener: (context, state) {
             if (state.deleteTestimonialStatus == OurServicesStatus.success) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(context.l10n.testimonialDeleted)),
-              );
+              context.showSuccessSnackbar(context.l10n.testimonialDeleted);
             } else if (state.deleteTestimonialStatus ==
                 OurServicesStatus.failure) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(context.l10n.failedToDeleteTestimonial)),
-              );
+              context.showErrorSnackbar(context.l10n.failedToDeleteTestimonial);
             }
           },
         ),

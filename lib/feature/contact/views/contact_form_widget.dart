@@ -3,8 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/di/locator.dart';
-import '../../../../core/services/storage_service.dart';
 import '../../../../core/utils/context_extensions.dart';
+import '../../../../core/utils/snackbar_utils.dart';
+import '../../../core/public_feature/services/storage_service.dart';
 import '../../auth/models/auth_model.dart';
 import '../models/contact_request_model.dart';
 import '../viewmodels/contact_cubit.dart';
@@ -53,12 +54,7 @@ class _ContactFormWidgetState extends State<ContactFormWidget> {
     child: BlocListener<ContactCubit, ContactState>(
       listener: (context, state) {
         if (state.status == ContactStatus.success) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(context.l10n.contactUsSuccess),
-              backgroundColor: Colors.green,
-            ),
-          );
+          context.showSuccessSnackbar(context.l10n.contactUsSuccess);
           _formKey.currentState?.reset();
           _nameController.clear();
           _emailController.clear();
@@ -66,12 +62,7 @@ class _ContactFormWidgetState extends State<ContactFormWidget> {
           _addressController.clear();
           _messageController.clear();
         } else if (state.status == ContactStatus.failure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.errorMessage ?? context.l10n.error),
-              backgroundColor: Colors.red,
-            ),
-          );
+          context.showErrorSnackbar(state.errorMessage ?? context.l10n.error);
         }
       },
       child: Padding(

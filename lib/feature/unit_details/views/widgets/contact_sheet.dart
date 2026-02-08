@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/di/locator.dart';
-import '../../../../core/services/storage_service.dart';
+import '../../../../core/public_feature/services/storage_service.dart';
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/utils/snackbar_utils.dart';
 import '../../../../core/widgets/app_modal_sheet.dart';
 import '../../../auth/models/auth_model.dart';
 import '../../viewmodels/unit_details_cubit.dart';
@@ -62,21 +63,11 @@ class _ContactSheetState extends State<ContactSheet> {
     listener: (context, state) {
       if (state.contactStatus == RequestStatus.success) {
         Navigator.of(context).pop();
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(context.l10n.messageSuccess),
-            backgroundColor: Colors.green,
-          ),
-        );
+        context.showSuccessSnackbar(context.l10n.messageSuccess);
         context.read<UnitDetailsCubit>().resetContactStatus();
       } else if (state.contactStatus == RequestStatus.failure) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              state.contactErrorMessage ?? context.l10n.messageFailure,
-            ),
-            backgroundColor: Colors.red,
-          ),
+        context.showErrorSnackbar(
+          state.contactErrorMessage ?? context.l10n.messageFailure,
         );
         context.read<UnitDetailsCubit>().resetContactStatus();
       }

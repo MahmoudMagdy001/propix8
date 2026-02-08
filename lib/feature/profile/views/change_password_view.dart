@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
 
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/utils/snackbar_utils.dart';
 import '../../../core/utils/context_extensions.dart';
 import '../../../core/widgets/custom_back_button.dart';
 import '../viewmodels/user_profile_cubit.dart';
@@ -56,15 +57,11 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
     body: BlocConsumer<UserProfileCubit, UserProfileState>(
       listener: (context, state) {
         if (state.status == UserProfileStatus.updated) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(context.l10n.updatePasswordSuccess)),
-          );
+          context.showSuccessSnackbar(context.l10n.updatePasswordSuccess);
           context.pop();
         } else if (state.status == UserProfileStatus.failure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.errorMessage ?? context.l10n.errorOccurred),
-            ),
+          context.showErrorSnackbar(
+            state.errorMessage ?? context.l10n.errorOccurred,
           );
         }
       },

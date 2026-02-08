@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
+import 'package:propix8/core/utils/snackbar_utils.dart';
 
 import '../../../../core/di/locator.dart';
 import '../../../../core/utils/context_extensions.dart';
@@ -63,9 +64,7 @@ class _BookingsViewContentState extends State<_BookingsViewContent>
           if (state.bookings.isNotEmpty &&
               state.errorMessage != null &&
               state.errorMessage != 'Network Error') {
-            ScaffoldMessenger.of(
-              context,
-            ).showSnackBar(SnackBar(content: Text(state.errorMessage!)));
+            context.showErrorSnackbar(state.errorMessage!);
           }
         },
         child: Scaffold(

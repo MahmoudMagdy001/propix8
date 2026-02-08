@@ -661,6 +661,10 @@
     "@alreadyBooked": {
         "description": "Label for already booked button"
     },
+    "serviceBooked": "محجوز بالفعل",
+    "@serviceBooked": {
+        "description": "Label for already booked service"
+    },
     "sendMessage": "أرسل رسالة",
     "@sendMessage": {
         "description": "Label for send message button"
@@ -1430,5 +1434,14 @@
     "search_results": "نتائج البحث",
     "@search_results": {
         "description": "Label for search results section"
-    }
+    },
+    "addedToFavorites": "تمت الإضافة للمفضلة",
+    "@addedToFavorites": {
+        "description": "Success message when a unit is added to favorites"
+    },
+    "removedFromFavorites": "تمت الإزالة من المفضلة",
+    "@removedFromFavorites": {
+        "description": "Success message when a unit is removed from favorites"
+    },
+    "failedToUpdateFavorite": "فشل تحديث المفضلة"
 }

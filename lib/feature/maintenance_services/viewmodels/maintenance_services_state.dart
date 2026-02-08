@@ -9,20 +9,24 @@ class MaintenanceServicesState extends Equatable {
     this.status = MaintenanceRequestStatus.initial,
     this.data,
     this.errorMessage,
+    this.bookedServiceIds = const {},
   });
   final MaintenanceRequestStatus status;
   final MaintenanceData? data;
   final String? errorMessage;
+  final Set<int> bookedServiceIds;
 
   MaintenanceServicesState copyWith({
     MaintenanceRequestStatus? status,
     MaintenanceData? data,
     String? errorMessage,
+    Set<int>? bookedServiceIds,
     bool clearData = false,
   }) => MaintenanceServicesState(
     status: status ?? this.status,
     data: clearData ? null : (data ?? this.data),
     errorMessage: errorMessage ?? this.errorMessage,
+    bookedServiceIds: bookedServiceIds ?? this.bookedServiceIds,
   );
 
   bool get isLoading => status == MaintenanceRequestStatus.loading;
@@ -38,5 +42,5 @@ class MaintenanceServicesState extends Equatable {
   bool get shouldShowLoading => isLoading && (data == null || isEmpty);
 
   @override
-  List<Object?> get props => [status, data, errorMessage];
+  List<Object?> get props => [status, data, errorMessage, bookedServiceIds];
 }
