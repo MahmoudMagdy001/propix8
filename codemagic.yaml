@@ -1,10 +1,11 @@
 workflows:
-  ios-workflow:
-    name: iOS Workflow
-    instance_type: mac_mini_m2
+  ios-simulator:
+    name: iOS Simulator Build
+    environment:
+      flutter: stable
     scripts:
-      - name: Flutter build iOS simulator
-        script: |
-          flutter build ios --debug --simulator
-    artifacts:
-      - build/ios/iphoneos/*.app
+      - name: Flutter pub get
+        script: flutter pub get
+
+      - name: Build iOS Simulator
+        script: flutter build ios --debug --simulator
