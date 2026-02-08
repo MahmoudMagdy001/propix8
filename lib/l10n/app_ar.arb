@@ -1,0 +1,1377 @@
+{
+    "@@locale": "ar",
+    "appTitle": "ProPix8",
+    "@appTitle": {
+        "description": "The title of the application"
+    },
+    "posts": "المنشورات",
+    "@posts": {
+        "description": "Label for the posts section"
+    },
+    "noInternetTitle": "لا يوجد اتصال بالإنترنت",
+    "@noInternetTitle": {
+        "description": "Title shown when there is no internet connection"
+    },
+    "noInternetSubtitle": "يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.",
+    "@noInternetSubtitle": {
+        "description": "Subtitle shown when there is no internet connection"
+    },
+    "tryAgainText": "حاول مرة أخرى",
+    "@tryAgainText": {
+        "description": "Label for the try again button"
+    },
+    "startNow": "ابدأ الآن",
+    "@startNow": {
+        "description": "Button text to start the onboarding flow"
+    },
+    "next": "التالي",
+    "@next": {
+        "description": "Label for the next button"
+    },
+    "back": "رجوع",
+    "@back": {
+        "description": "Label for the back button"
+    },
+    "skip": "تخطي",
+    "@skip": {
+        "description": "Label for the skip button in onboarding"
+    },
+    "onboardingTitle1": "ابدأ الآن واكتشف وحدتك المثالية",
+    "@onboardingTitle1": {
+        "description": "Title for the first onboarding screen"
+    },
+    "onboardingSubtitle1": "تصفح الوحدات بسهولة واحفظ المفضلة لديك",
+    "@onboardingSubtitle1": {
+        "description": "Subtitle for the first onboarding screen"
+    },
+    "onboardingTitle2": "استعرض وحدات للبيع أو للإيجار بسرعة وسهولة",
+    "@onboardingTitle2": {
+        "description": "Title for the second onboarding screen"
+    },
+    "onboardingSubtitle2": "ابحث بسهولة، اختر بسرعة",
+    "@onboardingSubtitle2": {
+        "description": "Subtitle for the second onboarding screen"
+    },
+    "onboardingTitle3": "اكتشف أفضل العقارات في منطقتك بسهولة وسرعة",
+    "@onboardingTitle3": {
+        "description": "Title for the third onboarding screen"
+    },
+    "onboardingSubtitle3": "كل الخيارات في مكان واحد",
+    "@onboardingSubtitle3": {
+        "description": "Subtitle for the third onboarding screen"
+    },
+    "loading": "جاري التحميل...",
+    "@loading": {
+        "description": "Loading indicator text"
+    },
+    "error": "حدث خطأ ما",
+    "@error": {
+        "description": "Generic error message"
+    },
+    "noData": "لا توجد بيانات متاحة",
+    "@noData": {
+        "description": "Message shown when no data is available"
+    },
+    "login": "تسجيل الدخول",
+    "@login": {
+        "description": "Title for the login screen and label for the login button"
+    },
+    "signup": "أنشئ حسابك الآن",
+    "@signup": {
+        "description": "Title for the signup screen"
+    },
+    "contactUsSection": "تواصل معنا",
+    "@contactUsSection": {
+        "description": "Label for the contact us section"
+    },
+    "contactUsSuccess": "تم إرسال طلبك بنجاح",
+    "@contactUsSuccess": {
+        "description": "Success message after sending contact request"
+    },
+    "sendRequest": "إرسال الطلب",
+    "@sendRequest": {
+        "description": "Label for the send request button"
+    },
+    "signup_Button": "انشاء حساب",
+    "@signup_Button": {
+        "description": "Label for the signup button"
+    },
+    "email": "البريد الإلكتروني",
+    "@email": {
+        "description": "Label for the email input field"
+    },
+    "password": "كلمة المرور",
+    "@password": {
+        "description": "Label for the password input field"
+    },
+    "name": "الاسم الكامل",
+    "@name": {
+        "description": "Label for the full name input field"
+    },
+    "phone": "رقم الهاتف",
+    "address": "العنوان",
+    "@address": {
+        "description": "Label for the address input field"
+    },
+    "city": "المدينة",
+    "@city": {
+        "description": "Label for the city input field"
+    },
+    "date": "التاريخ",
+    "@date": {
+        "description": "Label for the date selection"
+    },
+    "time": "الوقت",
+    "@time": {
+        "description": "Label for the time selection"
+    },
+    "delete": "حذف",
+    "@delete": {
+        "description": "Label for the delete button"
+    },
+    "approve": "موافق",
+    "@approve": {
+        "description": "Label for the approval button"
+    },
+    "deleteBooking": "حذف الحجز",
+    "@deleteBooking": {
+        "description": "Title for the delete booking confirmation"
+    },
+    "deleteBookingConfirmation": "هل أنت متأكد من حذف هذا الحجز نهائياً؟",
+    "@deleteBookingConfirmation": {
+        "description": "Message for the delete booking confirmation"
+    },
+    "bookingDeletedSuccess": "تم حذف الحجز بنجاح",
+    "@bookingDeletedSuccess": {
+        "description": "Success message after deleting a booking"
+    },
+    "suggestedDate": "التاريخ المقترح",
+    "@suggestedDate": {
+        "description": "Label for the suggested date"
+    },
+    "suggestedTime": "الوقت المقترح",
+    "@suggestedTime": {
+        "description": "Label for the suggested time"
+    },
+    "adminNotes": "ملاحظات الإدارة",
+    "@adminNotes": {
+        "description": "Label for the admin notes section"
+    },
+    "yourMessage": "رسالتك",
+    "@yourMessage": {
+        "description": "Label for the user message"
+    },
+    "statusPending": "في انتظار التأكيد",
+    "@statusPending": {
+        "description": "Status label for pending booking"
+    },
+    "statusConfirmed": "تم التأكيد",
+    "@statusConfirmed": {
+        "description": "Status label for confirmed booking"
+    },
+    "statusRescheduleAdmin": "الأدمن عرض ميعاد جديد",
+    "@statusRescheduleAdmin": {
+        "description": "Status label when admin suggests a new time"
+    },
+    "statusCancelled": "تم الالغاء",
+    "@statusCancelled": {
+        "description": "Status label for cancelled booking"
+    },
+    "confirmSuggestedTime": "هل أنت متأكد من الموافقة على الميعاد المقترح؟",
+    "@confirmSuggestedTime": {
+        "description": "Confirmation message for suggested time"
+    },
+    "approveSuggestedTime": "موافقة على الميعاد المقترح",
+    "@approveSuggestedTime": {
+        "description": "Button label to approve suggested time"
+    },
+    "suggestedTimeAccepted": "تم قبول الميعاد المقترح بنجاح",
+    "@suggestedTimeAccepted": {
+        "description": "Success message after accepting suggested time"
+    },
+    "suggestAnotherTime": "اقتراح موعد آخر",
+    "@suggestAnotherTime": {
+        "description": "Button label to suggest another time"
+    },
+    "editBookingTime": "تعديل الموعد",
+    "@editBookingTime": {
+        "description": "Button label to edit booking time"
+    },
+    "newTimeSuggestionSent": "تم إرسال اقتراح الموعد الجديد",
+    "@newTimeSuggestionSent": {
+        "description": "Success message after sending new time suggestion"
+    },
+    "confirmCancellation": "تأكيد الإلغاء",
+    "@confirmCancellation": {
+        "description": "Title for cancellation confirmation"
+    },
+    "cancelBookingConfirmation": "هل أنت متأكد من إلغاء هذا الحجز؟ لا يمكن التراجع عن هذا الإجراء.",
+    "@cancelBookingConfirmation": {
+        "description": "Message for cancellation confirmation"
+    },
+    "cancelBooking": "إلغاء الحجز",
+    "@cancelBooking": {
+        "description": "Button label to cancel booking"
+    },
+    "bookingCancelled": "تم إلغاء الحجز",
+    "@bookingCancelled": {
+        "description": "Success message after cancelling a booking"
+    },
+    "selectDate": "اختر التاريخ",
+    "@selectDate": {
+        "description": "Button label or prompt to select a date"
+    },
+    "selectTime": "اختر الوقت",
+    "@selectTime": {
+        "description": "Button label or prompt to select a time"
+    },
+    "pleaseSelectDate": "يرجى اختيار التاريخ",
+    "@pleaseSelectDate": {
+        "description": "Validation error message for missing date"
+    },
+    "pleaseSelectTime": "يرجى اختيار الوقت",
+    "@pleaseSelectTime": {
+        "description": "Validation error message for missing time"
+    },
+    "pastTimeError": "الوقت المختار قد مضى، يرجى اختيار وقت مستقبلي",
+    "@pastTimeError": {
+        "description": "Validation error message for past time selection"
+    },
+    "messageOptional": "رسالة (اختياري)",
+    "@messageOptional": {
+        "description": "Label for optional message field"
+    },
+    "messagePlaceholder": "اكتب رسالتك هنا...",
+    "@messagePlaceholder": {
+        "description": "Placeholder for message input field"
+    },
+    "sendSuggestion": "إرسال الاقتراح",
+    "@sendSuggestion": {
+        "description": "Button label to send a suggestion"
+    },
+    "confirmPassword": "تأكيد كلمة المرور",
+    "@confirmPassword": {
+        "description": "Label for the confirm password input field"
+    },
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "@forgotPassword": {
+        "description": "Label for the forgot password link"
+    },
+    "dontHaveAccount": "ليس لديك حساب؟",
+    "@dontHaveAccount": {
+        "description": "Label for the registration prompt"
+    },
+    "alreadyHaveAccount": "لديك حساب بالفعل؟",
+    "@alreadyHaveAccount": {
+        "description": "Label for the login prompt"
+    },
+    "sendResetLink": "إرسال رابط إعادة التعيين",
+    "@sendResetLink": {
+        "description": "Label for the send reset email button"
+    },
+    "passwordResetConfirmation": "تم إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني",
+    "@passwordResetConfirmation": {
+        "description": "Message shown after sending reset link"
+    },
+    "passwordStrength": "قوة كلمة المرور",
+    "@passwordStrength": {
+        "description": "Label for password strength indicator"
+    },
+    "weak": "ضعيفة",
+    "@weak": {
+        "description": "Label for weak password strength"
+    },
+    "fair": "متوسطة",
+    "@fair": {
+        "description": "Label for fair password strength"
+    },
+    "good": "جيدة",
+    "@good": {
+        "description": "Label for good password strength"
+    },
+    "strong": "قوية",
+    "@strong": {
+        "description": "Label for strong password strength"
+    },
+    "agreeToTerms": "أوافق على الشروط والأحكام",
+    "@agreeToTerms": {
+        "description": "Label for terms and conditions checkbox"
+    },
+    "fieldRequired": "هذا الحقل مطلوب",
+    "@fieldRequired": {
+        "description": "Validation error for required fields"
+    },
+    "invalidEmail": "صيغة البريد الإلكتروني غير صحيحة",
+    "@invalidEmail": {
+        "description": "Validation error for invalid email format"
+    },
+    "passwordTooShort": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
+    "passwordMinLength6": "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
+    "@passwordMinLength6": {
+        "description": "Validation error for password less than 6 characters"
+    },
+    "@passwordTooShort": {
+        "description": "Validation error for short password"
+    },
+    "passwordsDoNotMatch": "كلمات المرور غير متطابقة",
+    "@passwordsDoNotMatch": {
+        "description": "Validation error for mismatched passwords"
+    },
+    "loginSuccess": "تم تسجيل الدخول بنجاح",
+    "@loginSuccess": {
+        "description": "Success message after login"
+    },
+    "signupSuccess": "تم إنشاء الحساب بنجاح من فضلك قم بتفعيل الحساب من خلال البريد الإلكتروني",
+    "@signupSuccess": {
+        "description": "Success message after signup with activation instruction"
+    },
+    "resetSuccess": "تم إعادة تعيين كلمة المرور بنجاح",
+    "@resetSuccess": {
+        "description": "Success message after password reset"
+    },
+    "enterNewPassword": "أدخل كلمة المرور الجديدة أدناه",
+    "@enterNewPassword": {
+        "description": "Instruction to enter new password"
+    },
+    "token": "رمز إعادة التعيين",
+    "@token": {
+        "description": "Label for reset token input"
+    },
+    "termsAndConditions": "الشروط والأحكام",
+    "@termsAndConditions": {
+        "description": "Title for terms and conditions screen"
+    },
+    "paymentSchedule": "1. جدول الدفع",
+    "@paymentSchedule": {
+        "description": "Section title for payment schedule"
+    },
+    "paymentScheduleContent": "- يجب دفع 100% من المبلغ الإجمالي في وقت الحجز\n- الرصيد المتبقي: مستحق لاحقا",
+    "@paymentScheduleContent": {
+        "description": "Content for payment schedule section"
+    },
+    "cancellationPolicy": "2. سياسة الإلغاء",
+    "@cancellationPolicy": {
+        "description": "Section title for cancellation policy"
+    },
+    "cancellationPolicyContent": "- 75% من الدفعات المسبقة المدفوعة قابلة للاسترداد عند الإلغاء قبل 41 يوما من الوصول أو قبل ذلك\n- 50% من الدفعات المقدمة المدفوعة قابلة للاسترداد عند الإلغاء قبل 21 يوما من الوصول أو قبل ذلك\n- 0% قابلة للاسترداد في حالة الإلغاء بعد ذلك",
+    "@cancellationPolicyContent": {
+        "description": "Content for cancellation policy section"
+    },
+    "securityDeposit": "3. وديعة الضمان",
+    "@securityDeposit": {
+        "description": "Section title for security deposit"
+    },
+    "securityDepositContent": "- يجب دفع وديعة تأمين قابلة للاسترداد بنسبة 25%",
+    "@securityDepositContent": {
+        "description": "Content for security deposit section"
+    },
+    "notes": "4. ملحوظات",
+    "@notes": {
+        "description": "Section title for additional notes"
+    },
+    "notesContent": "- خصم 5% علي الإقامة لمدة 14 ليلة أو أكثر\n- خصم 10% علي الإقامة لمدة 30 ليلة أو أكثر",
+    "@notesContent": {
+        "description": "Content for additional notes section"
+    },
+    "agreeToTermsPart1": "أوافق على ",
+    "@agreeToTermsPart1": {
+        "description": "First part of the terms agreement text"
+    },
+    "agreeToTermsPart2": "الشروط والأحكام",
+    "@agreeToTermsPart2": {
+        "description": "Second part of the terms agreement text (linked)"
+    },
+    "resetPasswordSuccessTitle": "تم تغيير كلمة المرور",
+    "@resetPasswordSuccessTitle": {
+        "description": "Title for the password reset success screen"
+    },
+    "resetPasswordSuccessSubtitle": "تم تغيير كلمة المرور الخاصة بك بنجاح",
+    "@resetPasswordSuccessSubtitle": {
+        "description": "Subtitle for the password reset success screen"
+    },
+    "forgotPasswordSubtitle": "أدخل بريدك الإلكتروني وسنرسل لك رابط لإعادة تعيين كلمة المرور",
+    "@forgotPasswordSubtitle": {
+        "description": "Instructional text on the forgot password screen"
+    },
+    "resetPassword": "إعادة تعيين كلمة المرور",
+    "@resetPassword": {
+        "description": "Title for the reset password screen"
+    },
+    "resetPasswordSubtitle": "من فضلك اكتب كلمة مرور يمكنك تذكرها بسهولة",
+    "@resetPasswordSubtitle": {
+        "description": "Instructional text on the reset password screen"
+    },
+    "changePassword": "تغيير كلمة المرور",
+    "@changePassword": {
+        "description": "Label for the change password button"
+    },
+    "completeProfile": "إكمال الملف الشخصي",
+    "@completeProfile": {
+        "description": "Title for the complete profile screen"
+    },
+    "selectCity": "اختر المدينة",
+    "@selectCity": {
+        "description": "Label for city selection dropdown"
+    },
+    "selectedAddress": "العنوان المختار: {address}",
+    "@selectedAddress": {
+        "description": "Label for displaying the selected address",
+        "placeholders": {
+            "address": {
+                "type": "String"
+            }
+        }
+    },
+    "submitProfile": "حفظ الملف الشخصي",
+    "@submitProfile": {
+        "description": "Label for the submit profile button"
+    },
+    "profileUpdateSuccess": "تم تحديث الملف الشخصي بنجاح!",
+    "@profileUpdateSuccess": {
+        "description": "Success message after updating profile"
+    },
+    "profileUpdateError": "حدث خطأ أثناء تحديث الملف الشخصي",
+    "@profileUpdateError": {
+        "description": "Error message when profile update fails"
+    },
+    "selectLocationError": "يرجى اختيار مدينة وموقع على الخريطة.",
+    "@selectLocationError": {
+        "description": "Error message when city or location is not selected"
+    },
+    "startExploring": "ابدأ الاستكشاف الآن",
+    "@startExploring": {
+        "description": "Button text to start exploring"
+    },
+    "buy": "بيع",
+    "@buy": {
+        "description": "Label for buy option"
+    },
+    "rent": "للإيجار",
+    "@rent": {
+        "description": "Label for rent option"
+    },
+    "locationDetails": "تفاصيل الموقع",
+    "@locationDetails": {
+        "description": "Title for location details section"
+    },
+    "all": "الكل",
+    "@all": {
+        "description": "Label for all categories option"
+    },
+    "apartments": "شقق",
+    "@apartments": {
+        "description": "Label for apartments category"
+    },
+    "villas": "فلل",
+    "@villas": {
+        "description": "Label for villas category"
+    },
+    "houses": "منازل",
+    "@houses": {
+        "description": "Label for houses category"
+    },
+    "nearbyProperties": "عقارات بالقرب منك",
+    "@nearbyProperties": {
+        "description": "Title for nearby properties section on home screen"
+    },
+    "latestProperties": "أحدث العقارات",
+    "@latestProperties": {
+        "description": "Title for latest properties section on home screen"
+    },
+    "allProperties": "كل العقارات",
+    "@allProperties": {
+        "description": "Title for all properties section on home screen"
+    },
+    "seeAll": "عرض الكل",
+    "@seeAll": {
+        "description": "Label for 'See All' button"
+    },
+    "noPropertiesFound": "لم يتم العثور على عقارات",
+    "@noPropertiesFound": {
+        "description": "Message shown when no properties are found"
+    },
+    "resendVerification": "إعادة إرسال رمز التفعيل",
+    "@resendVerification": {
+        "description": "Label for resend verification button"
+    },
+    "verificationEmailSent": "تم إرسال رابط التفعيل إلى بريدك الإلكتروني",
+    "@verificationEmailSent": {
+        "description": "Message shown when verification email is sent"
+    },
+    "verificationSuccess": "تم التحقق من البريد الإلكتروني بنجاح",
+    "@verificationSuccess": {
+        "description": "Message shown when email is verified successfully"
+    },
+    "accountNotVerified": "حسابك غير مفعل. يرجى تفعيل حسابك من خلال البريد الإلكتروني.",
+    "@accountNotVerified": {
+        "description": "Error message for unverified account login attempt"
+    },
+    "verifyingEmail": "جارٍ التحقق من البريد الإلكتروني...",
+    "@verifyingEmail": {
+        "description": "Loading text for email verification"
+    },
+    "emailVerified": "تم التحقق من البريد الإلكتروني بنجاح",
+    "@emailVerified": {
+        "description": "Success text for email verification"
+    },
+    "navHome": "الرئيسية",
+    "@navHome": {
+        "description": "Label for home navigation item"
+    },
+    "navServices": "خدماتنا",
+    "@navServices": {
+        "description": "Label for services navigation item"
+    },
+    "navFavorites": "المفضلة",
+    "@navFavorites": {
+        "description": "Label for favorites navigation item"
+    },
+    "noFavoritesTitle": "لا توجد مفضلات بعد",
+    "@noFavoritesTitle": {
+        "description": "Title shown when there are no favorite properties"
+    },
+    "noFavoritesSubtitle": "ابدأ بإضافة العقارات إلى مفضلتك لرؤيتها هنا.",
+    "@noFavoritesSubtitle": {
+        "description": "Subtitle shown when there are no favorite properties"
+    },
+    "navProfile": "الملف الشخصي",
+    "@navProfile": {
+        "description": "Label for profile navigation item"
+    },
+    "filter": "الفلتر",
+    "@filter": {
+        "description": "Title for filter screen"
+    },
+    "reset": "إعادة التعيين",
+    "@reset": {
+        "description": "Label for reset button"
+    },
+    "location": "الموقع",
+    "@location": {
+        "description": "Label for location section"
+    },
+    "searchLocationPlaceholder": "ابحث عن شقة, بيت ,........",
+    "@searchLocationPlaceholder": {
+        "description": "Placeholder text for location search input"
+    },
+    "priceRange": "نطاق السعر",
+    "@priceRange": {
+        "description": "Label for price range section"
+    },
+    "propertySpecs": "مواصفات العقار",
+    "@propertySpecs": {
+        "description": "Label for property specifications section"
+    },
+    "bedrooms": "غرف النوم",
+    "@bedrooms": {
+        "description": "Label for bedrooms counter"
+    },
+    "bathrooms": "الحمامات",
+    "@bathrooms": {
+        "description": "Label for bathrooms counter"
+    },
+    "rooms": "الغرف",
+    "@rooms": {
+        "description": "Label for rooms counter"
+    },
+    "unitArea": "مساحة الوحدة",
+    "@unitArea": {
+        "description": "Label for unit area section"
+    },
+    "apply": "تطبيق",
+    "@apply": {
+        "description": "Label for apply button"
+    },
+    "from": "من",
+    "@from": {
+        "description": "Label for 'from' range"
+    },
+    "to": "إلى",
+    "@to": {
+        "description": "Label for 'to' range"
+    },
+    "unitDetails": "تفاصيل",
+    "@unitDetails": {
+        "description": "Title for unit details section"
+    },
+    "description": "وصف",
+    "@description": {
+        "description": "Title for description section"
+    },
+    "mapLocation": "موقع الخريطة",
+    "@mapLocation": {
+        "description": "Title for map location section"
+    },
+    "virtualTour": "جولة داخل العقار",
+    "@virtualTour": {
+        "description": "Title for virtual tour section"
+    },
+    "compound": "الكومباوند",
+    "@compound": {
+        "description": "Label for compound field"
+    },
+    "developer": "المطور",
+    "@developer": {
+        "description": "Label for developer field"
+    },
+    "floorPlan": "مسقط أفقي",
+    "@floorPlan": {
+        "description": "Title for floor plan section"
+    },
+    "amenities": "المرافق",
+    "@amenities": {
+        "description": "Title for amenities section"
+    },
+    "garages": "الجراجات",
+    "@garages": {
+        "description": "Label for garages field"
+    },
+    "landArea": "مساحة الأرض",
+    "@landArea": {
+        "description": "Label for land area field"
+    },
+    "internalArea": "المساحة الداخلية",
+    "@internalArea": {
+        "description": "Label for internal area field"
+    },
+    "saleStatusLabel": "نوع العرض: ",
+    "@saleStatusLabel": {
+        "description": "Label for the unit sale status"
+    },
+    "sale": "للبيع",
+    "@sale": {
+        "description": "Label for sale offer type"
+    },
+    "meterSquared": "م²",
+    "@meterSquared": {
+        "description": "Symbol for square meters"
+    },
+    "buildYear": "سنة البناء",
+    "@buildYear": {
+        "description": "Label for build year field"
+    },
+    "reserveNow": "أحجز الآن",
+    "@reserveNow": {
+        "description": "Label for reserve now button"
+    },
+    "alreadyBooked": "لقد حجزت هذا العقار",
+    "@alreadyBooked": {
+        "description": "Label for already booked button"
+    },
+    "sendMessage": "أرسل رسالة",
+    "@sendMessage": {
+        "description": "Label for send message button"
+    },
+    "tapToInteract": "اضغط للتفاعل مع الخريطة",
+    "@tapToInteract": {
+        "description": "Hint text to tap map to interact"
+    },
+    "relatedUnits": "الوحدات المماثلة",
+    "@relatedUnits": {
+        "description": "Label for related units section"
+    },
+    "propertiesCount": "عدد العقارات: {count}",
+    "@propertiesCount": {
+        "description": "Label for properties count",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "bookingSuccess": "تم طلب الحجز بنجاح!",
+    "myBookings": "حجوزات العقارات",
+    "@myBookings": {
+        "description": "Title for the bookings screen"
+    },
+    "noBookingsTitle": "لا توجد حجوزات بعد",
+    "@noBookingsTitle": {
+        "description": "Title shown when there are no bookings"
+    },
+    "noBookingsSubtitle": "لم تقم بإجراء أي حجوزات للعقارات. استكشف العقارات وابدأ الحجز اليوم!",
+    "@noBookingsSubtitle": {
+        "description": "Subtitle shown when there are no bookings"
+    },
+    "reviews": "المراجعات",
+    "rating": "التقييم",
+    "submitReview": "إرسال التقييم",
+    "@submitReview": {
+        "description": "Label for submit review button"
+    },
+    "writeComment": "اكتب تعليقك هنا...",
+    "@writeComment": {
+        "description": "Placeholder for review comment"
+    },
+    "reviewSubmittedSuccess": "تم إرسال المراجعة بنجاح",
+    "@reviewSubmittedSuccess": {
+        "description": "Success message for review submission"
+    },
+    "reviewUpdatedSuccess": "تم تحديث المراجعة بنجاح",
+    "@reviewUpdatedSuccess": {
+        "description": "Success message for review update"
+    },
+    "reviewDeletedSuccess": "تم حذف المراجعة بنجاح",
+    "@reviewDeletedSuccess": {
+        "description": "Success message for review deletion"
+    },
+    "reviewSubmissionError": "فشل إرسال المراجعة",
+    "@reviewSubmissionError": {
+        "description": "Error message for review submission"
+    },
+    "editReview": "تعديل المراجعة",
+    "@editReview": {
+        "description": "Label for edit review option"
+    },
+    "updateReview": "تحديث المراجعة",
+    "@updateReview": {
+        "description": "Label for update review button"
+    },
+    "addReview": "أضف مراجعة",
+    "@addReview": {
+        "description": "Label for add review button"
+    },
+    "viewAllReviews": "عرض كل المراجعات",
+    "@viewAllReviews": {
+        "description": "Label for view all reviews button"
+    },
+    "contactOwner": "تواصل مع المالك",
+    "@contactOwner": {
+        "description": "Label for contact owner button"
+    },
+    "message": "الرسالة",
+    "@message": {
+        "description": "Label for message input"
+    },
+    "messageSuccess": "تم إرسال الرسالة بنجاح",
+    "@messageSuccess": {
+        "description": "Success message for sending message"
+    },
+    "messageFailure": "فشل إرسال الرسالة",
+    "@messageFailure": {
+        "description": "Error message for sending message"
+    },
+    "contactOwnerTitle": "تواصل مع مالك الوحدة",
+    "@contactOwnerTitle": {
+        "description": "Title for contact owner dialog"
+    },
+    "send": "إرسال",
+    "@send": {
+        "description": "Label for send button"
+    },
+    "deleteReviewConfirmationTitle": "حذف المراجعة",
+    "@deleteReviewConfirmationTitle": {
+        "description": "Title for delete review confirmation"
+    },
+    "deleteReviewConfirmationContent": "هل أنت متأكد أنك تريد حذف هذه المراجعة؟",
+    "@deleteReviewConfirmationContent": {
+        "description": "Content for delete review confirmation"
+    },
+    "confirm": "تأكيد",
+    "@confirm": {
+        "description": "Label for confirm button"
+    },
+    "cancel": "إلغاء",
+    "@cancel": {
+        "description": "Label for cancel button"
+    },
+    "review": "مراجعة",
+    "@review": {
+        "description": "Label for review text"
+    },
+    "requiredField": "هذا الحقل مطلوب",
+    "@requiredField": {
+        "description": "Error message for a required field"
+    },
+    "ourServices": "خدماتنا",
+    "faqs": "الأسئلة الشائعة",
+    "@faqs": {
+        "description": "Label for the FAQs section"
+    },
+    "@ourServices": {
+        "description": "Title for Our Services screen"
+    },
+    "ourProfile": "ملفنا الشخصي",
+    "@ourProfile": {
+        "description": "Title for Our Profile screen"
+    },
+    "comingSoon": "قريباً: {title}",
+    "@comingSoon": {
+        "description": "Placeholder text for coming soon screens",
+        "placeholders": {
+            "title": {
+                "type": "String"
+            }
+        }
+    },
+    "profileGroupBookings": "الحجوزات",
+    "@profileGroupBookings": {
+        "description": "Title for bookings group in profile"
+    },
+    "profileGroupDiscover": "اكتشف",
+    "@profileGroupDiscover": {
+        "description": "Title for discover group in profile"
+    },
+    "profileGroupGeneral": "عام",
+    "@profileGroupGeneral": {
+        "description": "Title for general group in profile"
+    },
+    "profileGroupSettings": "الإعدادات",
+    "@profileGroupSettings": {
+        "description": "Title for settings group in profile"
+    },
+    "homeMaintenanceServices": "خدمات التشغيل المنزلي",
+    "technicalMaintenanceServices": "خدمات الصيانة الفنية",
+    "bookNow": "أحجز الآن",
+    "phoneRequired": "رقم الهاتف مطلوب",
+    "invalidPhoneNumber": "رقم الهاتف غير صحيح",
+    "addressRequired": "العنوان مطلوب",
+    "bookingFor": "طلب حجز لـ",
+    "success": "تم بنجاح",
+    "errorOccurred": "حدث خطأ ما",
+    "pressAgainToExit": "اضغط مرة أخرى للخروج",
+    "exitAppConfirmationTitle": "خروج من التطبيق",
+    "exitAppConfirmationMessage": "هل أنت متأكد أنك تريد الخروج من التطبيق؟",
+    "exit": "خروج",
+    "propertyType": "نوع العقار",
+    "@propertyType": {
+        "description": "Label for property type section"
+    },
+    "developmentStatus": "حالة التطوير",
+    "@developmentStatus": {
+        "description": "Label for development status section"
+    },
+    "primary": "أولي",
+    "@primary": {
+        "description": "Label for primary development status"
+    },
+    "resale": "اعادة بيع",
+    "maintenanceBookings": "حجوزات الخدمات",
+    "@maintenanceBookings": {
+        "description": "Title for the maintenance bookings section"
+    },
+    "noMaintenanceBookingsTitle": "لا توجد حجوزات خدمات بعد",
+    "@noMaintenanceBookingsTitle": {
+        "description": "Title shown when there are no maintenance bookings"
+    },
+    "noMaintenanceBookingsSubtitle": "لم تقم بإجراء أي حجوزات لخدمات الصيانة. استكشف خدماتنا وابدأ الحجز اليوم!",
+    "@noMaintenanceBookingsSubtitle": {
+        "description": "Subtitle shown when there are no maintenance bookings"
+    },
+    "privacyPolicy": "سياسة الخصوصية",
+    "@privacyPolicy": {
+        "description": "Title for privacy policy screen"
+    },
+    "privacyPolicyIntro": "مرحباً بكم في Propix Eight Group for Real Estate Marketing & Property Solutions. نحن نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية.",
+    "@privacyPolicyIntro": {
+        "description": "Introduction text for privacy policy"
+    },
+    "dataCollection": "1. جمع البيانات",
+    "@dataCollection": {
+        "description": "Title for data collection section"
+    },
+    "dataCollectionContent": "نقوم بجمع المعلومات التي تقدمها لنا مباشرة، مثل عند إنشاء حساب، أو تحديث ملفك الشخصي، أو إجراء حجز، أو التواصل معنا. قد يشمل ذلك اسمك، بريدك الإلكتروني، رقم هاتفك، ومعلومات الدفع.",
+    "@dataCollectionContent": {
+        "description": "Content for data collection section"
+    },
+    "useOfData": "2. استخدام البيانات",
+    "@useOfData": {
+        "description": "Title for use of data section"
+    },
+    "useOfDataContent": "نستخدم بياناتك لتقديم خدماتنا وتحسينها، ومعالجة المعاملات، وإرسال الإشعارات لك، والتواصل معك بشأن التحديثات والعروض.",
+    "@useOfDataContent": {
+        "description": "Content for use of data section"
+    },
+    "dataRetention": "3. الاحتفاظ بالبيانات",
+    "@dataRetention": {
+        "description": "Title for data retention section"
+    },
+    "dataRetentionContent": "نحتفظ ببياناتك الشخصية فقط طالما كان ذلك ضرورياً لتزويدك بخدماتنا ولأغراض تجارية مشروعة.",
+    "@dataRetentionContent": {
+        "description": "Content for data retention section"
+    },
+    "dataDeletion": "4. حذف البيانات",
+    "@dataDeletion": {
+        "description": "Title for data deletion section"
+    },
+    "dataDeletionContent": "يمكنك طلب حذف حسابك وبياناتك الشخصية في أي وقت عن طريق الاتصال بنا أو استخدام خيار حذف الحساب في إعدادات ملفك الشخصي.",
+    "@dataDeletionContent": {
+        "description": "Content for data deletion section"
+    },
+    "security": "5. الأمان",
+    "@security": {
+        "description": "Title for security section"
+    },
+    "securityContent": "نحن نطبق تدابير فنية وتنظيمية مناسبة لحماية بياناتك الشخصية ضد الوصول غير المصرح به أو الفقدان أو سوء الاستخدام.",
+    "@securityContent": {
+        "description": "Content for security section"
+    },
+    "locationInformation": "6. معلومات الموقع",
+    "@locationInformation": {
+        "description": "Title for location information section"
+    },
+    "locationInformationContent": "قد نستخدم بيانات موقعك لمساعدتك في العثور على العقارات والخدمات القريبة. تُستخدم هذه البيانات لتحسين تجربة البحث الخاصة بك ولا تتم مشاركتها مع جهات خارجية دون موافقتك.",
+    "@locationInformationContent": {
+        "description": "Content for location information section"
+    },
+    "changesToPolicy": "7. تغييرات السياسة",
+    "@changesToPolicy": {
+        "description": "Title for changes to policy section"
+    },
+    "changesToPolicyContent": "قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. سنقوم بإعلامك بأي تغييرات عن طريق نشر السياسة الجديدة على هذه الصفحة.",
+    "@changesToPolicyContent": {
+        "description": "Content for changes to policy section"
+    },
+    "contactUs": "اتصل بنا",
+    "@contactUs": {
+        "description": "Title for contact us section"
+    },
+    "contactUsContent": "إذا كان لديك أي أسئلة حول سياسة الخصوصية هذه، يرجى الاتصال بنا على support@propix8.com.",
+    "@contactUsContent": {
+        "description": "Content for contact us section"
+    },
+    "settings": "الإعدادات",
+    "@settings": {
+        "description": "Title for the settings screen"
+    },
+    "appearance": "المظهر",
+    "@appearance": {
+        "description": "Label for the appearance section in settings"
+    },
+    "language": "اللغة",
+    "@language": {
+        "description": "Label for the language selection in settings"
+    },
+    "system": "النظام",
+    "@system": {
+        "description": "Label for the system theme option"
+    },
+    "light": "نهاري",
+    "@light": {
+        "description": "Label for the light theme option"
+    },
+    "dark": "ليلي",
+    "@dark": {
+        "description": "Label for the dark theme option"
+    },
+    "english": "English",
+    "@english": {
+        "description": "Label for English language option"
+    },
+    "arabic": "العربية",
+    "@arabic": {
+        "description": "Label for Arabic language option"
+    },
+    "chooseTheme": "اختر المظهر",
+    "@chooseTheme": {
+        "description": "Label for the theme selection dialog"
+    },
+    "chooseLanguage": "اختر اللغة",
+    "@chooseLanguage": {
+        "description": "Label for the language selection dialog"
+    },
+    "restartRequired": "يتطلب إعادة تشغيل",
+    "@restartRequired": {
+        "description": "Title for restart required dialog"
+    },
+    "restartRequiredMessage": "سيتم إعادة تشغيل التطبيق لتطبيق اللغة الجديدة. هل تريد المتابعة؟",
+    "@restartRequiredMessage": {
+        "description": "Message for restart required dialog"
+    },
+    "restart": "إعادة التشغيل",
+    "@restart": {
+        "description": "Label for the restart button"
+    },
+    "developers": "المطورين",
+    "@developers": {
+        "description": "Title for the developers section"
+    },
+    "noDevelopers": "لا يوجد مطورين حاليا",
+    "@noDevelopers": {
+        "description": "Message shown when no developers are found"
+    },
+    "retry": "إعادة المحاولة",
+    "@retry": {
+        "description": "Label for the retry button"
+    },
+    "editProfile": "تعديل الحساب الشخصي",
+    "@editProfile": {
+        "description": "Title for edit profile screen"
+    },
+    "propertyBookings": "حجوزات العقارات",
+    "@propertyBookings": {
+        "description": "Label for property bookings section"
+    },
+    "serviceBookings": "حجوزات الخدمات",
+    "@serviceBookings": {
+        "description": "Label for service bookings section"
+    },
+    "compounds": "الكومباوندات",
+    "@compounds": {
+        "description": "Title for the compounds section"
+    },
+    "aboutUs": "من نحن",
+    "@aboutUs": {
+        "description": "Label for the about us section"
+    },
+    "logout": "تسجيل الخروج",
+    "@logout": {
+        "description": "Label for the logout button"
+    },
+    "logoutConfirmationMessage": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+    "@logoutConfirmationMessage": {
+        "description": "Message for the logout confirmation dialog"
+    },
+    "editPassword": "تعديل كلمة المرور",
+    "@editPassword": {
+        "description": "Title for edit password screen"
+    },
+    "updatePasswordSuccess": "تم تحديث كلمة المرور بنجاح",
+    "@updatePasswordSuccess": {
+        "description": "Success message after updating password"
+    },
+    "currentPassword": "كلمة المرور الحالية",
+    "@currentPassword": {
+        "description": "Label for current password input field"
+    },
+    "newPassword": "كلمة المرور الجديدة",
+    "@newPassword": {
+        "description": "Label for new password input field"
+    },
+    "confirmNewPassword": "تأكيد كلمة المرور الجديدة",
+    "@confirmNewPassword": {
+        "description": "Label for confirm new password input field"
+    },
+    "editAccount": "تعديل الحساب",
+    "@editAccount": {
+        "description": "Title for edit account screen"
+    },
+    "editData": "تعديل البيانات",
+    "@editData": {
+        "description": "Label for edit data section"
+    },
+    "deleteAccount": "حذف الحساب",
+    "@deleteAccount": {
+        "description": "Label for the delete account button"
+    },
+    "deleteAccountConfirmationMessage": "هل أنت متأكد من حذف حسابك؟",
+    "@deleteAccountConfirmationMessage": {
+        "description": "Message for the delete account confirmation dialog"
+    },
+    "deleteAccountWarning": "سيتم حذف جميع بياناتك بشكل نهائي ولن تتمكن من استرجاعها",
+    "@deleteAccountWarning": {
+        "description": "Warning message for delete account action"
+    },
+    "confirmDeleteAccount": "نعم، احذف حسابي",
+    "@confirmDeleteAccount": {
+        "description": "Button label to confirm account deletion"
+    },
+    "compounds_view_empty": "لا يوجد كومباوندات حاليا",
+    "@compounds_view_empty": {
+        "description": "Message shown when the compounds view is empty"
+    },
+    "maintenance_bookings_card_deleteTitle": "حذف الحجز",
+    "@maintenance_bookings_card_deleteTitle": {
+        "description": "Title for delete maintenance booking dialog"
+    },
+    "maintenance_bookings_card_deleteConfirmation": "هل أنت متأكد من حذف هذا الحجز؟",
+    "@maintenance_bookings_card_deleteConfirmation": {
+        "description": "Confirmation message for deleting maintenance booking"
+    },
+    "maintenance_bookings_card_deleteSuccess": "تم حذف الحجز بنجاح",
+    "@maintenance_bookings_card_deleteSuccess": {
+        "description": "Success message after deleting a maintenance booking"
+    },
+    "maintenance_bookings_card_editTitle": "تعديل الحجز",
+    "@maintenance_bookings_card_editTitle": {
+        "description": "Title for edit maintenance booking dialog"
+    },
+    "maintenance_bookings_card_editSuccess": "تم تعديل الحجز بنجاح",
+    "@maintenance_bookings_card_editSuccess": {
+        "description": "Success message after editing a maintenance booking"
+    },
+    "maintenance_bookings_card_editButton": "تعديل بيانات الحجز",
+    "@maintenance_bookings_card_editButton": {
+        "description": "Button label to edit maintenance booking"
+    },
+    "maintenance_bookings_card_messageLabel": "الرسالة:",
+    "@maintenance_bookings_card_messageLabel": {
+        "description": "Label for the message in maintenance booking card"
+    },
+    "maintenance_bookings_status_pending": "قيد الانتظار",
+    "@maintenance_bookings_status_pending": {
+        "description": "Status label for pending maintenance booking"
+    },
+    "maintenance_bookings_status_contacted": "تم التواصل",
+    "@maintenance_bookings_status_contacted": {
+        "description": "Status label for contacted maintenance booking"
+    },
+    "maintenance_bookings_status_done": "تم التنفيذ",
+    "@maintenance_bookings_status_done": {
+        "description": "Status label for completed maintenance booking"
+    },
+    "unit_specs_area_unit": "م²",
+    "@unit_specs_area_unit": {
+        "description": "Unit label for area"
+    },
+    "unit_specs_rooms": "غرف",
+    "@unit_specs_rooms": {
+        "description": "Label for rooms count in unit specs"
+    },
+    "unit_specs_bathrooms": "حمامات",
+    "@unit_specs_bathrooms": {
+        "description": "Label for bathrooms count in unit specs"
+    },
+    "unit_type_primary": "أولي",
+    "@unit_type_primary": {
+        "description": "Label for primary unit type"
+    },
+    "unit_type_resale": "إعادة بيع",
+    "@unit_type_resale": {
+        "description": "Label for resale unit type"
+    },
+    "currency_egp": "ج.م",
+    "@currency_egp": {
+        "description": "Label for EGP currency"
+    },
+    "maintenance_banner_title": "خدمات متكاملة لإدارة وصيانة العقارات",
+    "@maintenance_banner_title": {
+        "description": "Title for the maintenance services banner"
+    },
+    "maintenance_banner_subtitle": "حلول موثوقة تدعم قيمة عقارك وتسهل إدارته.",
+    "@maintenance_banner_subtitle": {
+        "description": "Subtitle for the maintenance services banner"
+    },
+    "unit_details_booking_date": "التاريخ",
+    "@unit_details_booking_date": {
+        "description": "Label for booking date in unit details"
+    },
+    "unit_details_booking_time": "الوقت",
+    "@unit_details_booking_time": {
+        "description": "Label for booking time in unit details"
+    },
+    "unit_details_booking_notes": "ملاحظات",
+    "@unit_details_booking_notes": {
+        "description": "Label for booking notes in unit details"
+    },
+    "guest_user": "زائر",
+    "@guest_user": {
+        "description": "Label for guest user"
+    },
+    "teamMembers": "فريق العمل",
+    "@teamMembers": {
+        "description": "Title for the team members section"
+    },
+    "position": "المنصب",
+    "@position": {
+        "description": "Label for the team member position"
+    },
+    "statistics": "الإحصائيات",
+    "@statistics": {
+        "description": "Title for the statistics section"
+    },
+    "noDataFound": "لم يتم العثور على بيانات",
+    "@noDataFound": {
+        "description": "Message shown when no data is found"
+    },
+    "showMore": "عرض المزيد",
+    "@showMore": {
+        "description": "Label for the show more button"
+    },
+    "showLess": "عرض أقل",
+    "@showLess": {
+        "description": "Label for the show less button"
+    },
+    "accountDeletedSuccess": "تم حذف الحساب بنجاح",
+    "@accountDeletedSuccess": {
+        "description": "Success message after deleting an account"
+    },
+    "unitStatus": "الحالة",
+    "@unitStatus": {
+        "description": "Label for unit status"
+    },
+    "status_sold": "تم البيع",
+    "@status_sold": {
+        "description": "Label for sold status"
+    },
+    "status_rented": "تم التأجير",
+    "@status_rented": {
+        "description": "Label for rented status"
+    },
+    "status_available": "متاح",
+    "@status_available": {
+        "description": "Label for available status"
+    },
+    "status_approved": "معتمد",
+    "@status_approved": {
+        "description": "Label for approved status"
+    },
+    "chooseProductTitle": "اختر المنتج للمقارنة",
+    "@chooseProductTitle": {
+        "description": "Title for choose product screen"
+    },
+    "comparisonTitle": "مقارنة المنتجات",
+    "@comparisonTitle": {
+        "description": "Title for comparison screen"
+    },
+    "noProductsToCompare": "لا توجد منتجات متاحة للمقارنة",
+    "@noProductsToCompare": {
+        "description": "Message when no products are available to compare"
+    },
+    "selectProductHint": "يرجى اختيار منتج للمقارنة معه",
+    "@selectProductHint": {
+        "description": "Hint text for product selection"
+    },
+    "compare": "مقارنة",
+    "@compare": {
+        "description": "Compare action button label"
+    },
+    "pricePerM2": "سعر المتر",
+    "@pricePerM2": {
+        "description": "Label for price per square meter"
+    },
+    "networkError": "خطأ في الشبكة",
+    "@networkError": {
+        "description": "Error message for network issues"
+    },
+    "failedToUpdateBooking": "فشل في تحديث الحجز",
+    "@failedToUpdateBooking": {
+        "description": "Error message when booking update fails"
+    },
+    "homeServicePlaceholder": "اسم خدمة منزلية",
+    "@homeServicePlaceholder": {
+        "description": "Placeholder for home service name"
+    },
+    "technicalServicePlaceholder": "اسم خدمة تقنية",
+    "@technicalServicePlaceholder": {
+        "description": "Placeholder for technical service name"
+    },
+    "categoryPlaceholder": "فئة",
+    "@categoryPlaceholder": {
+        "description": "Placeholder for category"
+    },
+    "testimonialAdded": "تم إضافة الشهادة بنجاح",
+    "@testimonialAdded": {
+        "description": "Success message when testimonial is added"
+    },
+    "failedToAddTestimonial": "فشل في إضافة الشهادة",
+    "@failedToAddTestimonial": {
+        "description": "Error message when testimonial addition fails"
+    },
+    "testimonialUpdated": "تم تحديث الشهادة بنجاح",
+    "@testimonialUpdated": {
+        "description": "Success message when testimonial is updated"
+    },
+    "failedToUpdateTestimonial": "فشل في تحديث الشهادة",
+    "@failedToUpdateTestimonial": {
+        "description": "Error message when testimonial update fails"
+    },
+    "testimonialDeleted": "تم حذف الشهادة بنجاح",
+    "@testimonialDeleted": {
+        "description": "Success message when testimonial is deleted"
+    },
+    "failedToDeleteTestimonial": "فشل في حذف الشهادة",
+    "@failedToDeleteTestimonial": {
+        "description": "Error message when testimonial deletion fails"
+    },
+    "editTestimonial": "تعديل الشهادة",
+    "@editTestimonial": {
+        "description": "Title for edit testimonial sheet"
+    },
+    "addTestimonial": "إضافة شهادة",
+    "@addTestimonial": {
+        "description": "Title for add testimonial sheet"
+    },
+    "shareThoughts": "شاركنا رأيك...",
+    "@shareThoughts": {
+        "description": "Placeholder for testimonial content field"
+    },
+    "update": "تحديث",
+    "@update": {
+        "description": "Label for update button"
+    },
+    "submit": "إرسال",
+    "@submit": {
+        "description": "Label for submit button"
+    },
+    "deleteTestimonial": "حذف الشهادة",
+    "@deleteTestimonial": {
+        "description": "Title for delete confirmation dialog"
+    },
+    "deleteConfirmation": "هل أنت متأكد أنك تريد حذف هذه الشهادة؟",
+    "@deleteConfirmation": {
+        "description": "Message for delete confirmation dialog"
+    },
+    "edit": "تعديل",
+    "@edit": {
+        "description": "Label for edit option"
+    },
+    "fallbackTestimonial": "خدمة رائعة! نوصي بها بشدة.",
+    "@fallbackTestimonial": {
+        "description": "Fallback content for testimonial"
+    },
+    "servicePlaceholder": "اسم الخدمة",
+    "@servicePlaceholder": {
+        "description": "Placeholder for service name"
+    },
+    "serviceDescriptionPlaceholder": "هذا وصف طويل للخدمة لمحاكاة مظهر النص في البطاقة.",
+    "@serviceDescriptionPlaceholder": {
+        "description": "Placeholder for service description"
+    },
+    "faqQuestionPlaceholder": "سؤال شائع؟",
+    "@faqQuestionPlaceholder": {
+        "description": "Placeholder for faq question"
+    },
+    "faqAnswerPlaceholder": "هذه إجابة مفصلة للسؤال لضمان مظهر واقعي للقالب.",
+    "@faqAnswerPlaceholder": {
+        "description": "Placeholder for faq answer"
+    },
+    "testimonials": "الشهادات",
+    "@testimonials": {
+        "description": "Title for testimonials section"
+    },
+    "myTestimonials": "شهادتي",
+    "@myTestimonials": {
+        "description": "Title for my testimonials view"
+    },
+    "loadingContent": "جاري تحميل المحتوى...",
+    "@loadingContent": {
+        "description": "Loading content text for skeletons"
+    },
+    "noTestimonialsYet": "لا توجد شهادات بعد.",
+    "@noTestimonialsYet": {
+        "description": "Empty state message for testimonials"
+    },
+    "guestUser": "مستخدم زائر",
+    "@guestUser": {
+        "description": "Text displayed for unauthenticated users"
+    },
+    "guestEmail": "guest@example.com",
+    "@guestEmail": {
+        "description": "Placeholder email for unauthenticated users"
+    },
+    "saveChanges": "حفظ التغييرات",
+    "no_results": "لم يتم العثور على نتائج",
+    "@no_results": {
+        "description": "Message shown when no search results are found"
+    },
+    "searchPropertyPlaceholder": "ابحث عن عقار...",
+    "@searchPropertyPlaceholder": {
+        "description": "Placeholder for property search input"
+    },
+    "search_title": "البحث",
+    "@search_title": {
+        "description": "Title for the search screen"
+    },
+    "search_start_title": "ابحث عن منزل أحلامك",
+    "@search_start_title": {
+        "description": "Initial title displayed on search screen"
+    },
+    "search_start_subtitle": "ابحث عن وحدات، كمبوندات، أو مطورين",
+    "@search_start_subtitle": {
+        "description": "Initial subtitle displayed on search screen"
+    },
+    "search_results": "نتائج البحث",
+    "@search_results": {
+        "description": "Label for search results section"
+    }
+}

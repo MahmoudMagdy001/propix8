@@ -1,0 +1,78 @@
+import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../models/maintenance_booking_model.dart';
+import '../repositories/maintenance_service_repository.dart';
+
+enum BookingStatus { initial, loading, success, failure }
+
+class MaintenanceBookingState extends Equatable {
+  const MaintenanceBookingState({
+    this.status = BookingStatus.initial,
+    this.response,
+    this.errorMessage,
+  });
+
+  final BookingStatus status;
+  final MaintenanceBookingResponse? response;
+  final String? errorMessage;
+
+  MaintenanceBookingState copyWith({
+    BookingStatus? status,
+    MaintenanceBookingResponse? response,
+    String? errorMessage,
+  }) => MaintenanceBookingState(
+    status: status ?? this.status,
+    response: response ?? this.response,
+    errorMessage: errorMessage ?? this.errorMessage,
+  );
+
+  @override
+  List<Object?> get props => [status, response, errorMessage];
+}
+
+class MaintenanceBookingCubit extends Cubit<MaintenanceBookingState> {
+  MaintenanceBookingCubit(this._repository)
+    : super(const MaintenanceBookingState());
+
+  final MaintenanceServiceRepository _repository;
+
+  Future<void> bookMaintenance({
+    required int maintenanceServiceId,
+    required String phone,
+    required String address,
+    required String message,
+  }) async {
+    emit(state.copyWith(status: BookingStatus.loading));
+    try {
+      final response = await _repository.bookMaintenance(
+        maintenanceServiceId: maintenanceServiceId,
+        phone: phone,
+        address: address,
+        message: message,
+      );
+      if (isClosed) return;
+      if (response.status) {
+        emit(state.copyWith(status: BookingStatus.success, response: response));
+      } else {
+        emit(
+          state.copyWith(
+            status: BookingStatus.failure,
+            errorMessage: response.message,
+          ),
+        );
+      }
+    } catch (e) {
+      emit(
+        state.copyWith(
+          status: BookingStatus.failure,
+          errorMessage: e.toString(),
+        ),
+      );
+    }
+  }
+
+  void reset() {
+    emit(const MaintenanceBookingState());
+  }
+}

@@ -1,0 +1,95 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../core/di/locator.dart';
+import '../../../core/router/app_routes.dart';
+import '../../../core/theme/app_colors.dart';
+import '../../../core/utils/responsive_helper.dart';
+import '../../../l10n/app_localizations.dart';
+import '../viewmodels/auth_cubit.dart';
+import '../viewmodels/auth_state.dart';
+
+class EmailVerificationHandler extends StatefulWidget {
+  const EmailVerificationHandler({
+    required this.id,
+    required this.hash,
+    required this.queryParams,
+    super.key,
+  });
+
+  final String id;
+  final String hash;
+  final Map<String, String> queryParams;
+
+  @override
+  State<EmailVerificationHandler> createState() =>
+      _EmailVerificationHandlerState();
+}
+
+class _EmailVerificationHandlerState extends State<EmailVerificationHandler> {
+  @override
+  void initState() {
+    super.initState();
+    _verify();
+  }
+
+  void _verify() {
+    // Reconstruct the URL
+    // The format from laravel typically needs the full signature url
+    // baseUrl/api/email/verify/{id}/{hash}?expires=...&signature=...
+    // But since we are catching /api/email/verify/:id/:hash in app,
+    // we need to construct the full verify URL that the backend expects.
+    // The link the user provided is: https://www.propix8.com/api/email/verify/25/...
+    // Our repository method `verifyEmail(url)` takes the full URL.
+
+    const baseUrl = 'https://www.propix8.com/api/email/verify';
+    final queryString = widget.queryParams.entries
+        .map((e) => '${e.key}=${e.value}')
+        .join('&');
+    final fullUrl = '$baseUrl/${widget.id}/${widget.hash}?$queryString';
+
+    context.read<AuthCubit>().verifyEmail(fullUrl);
+  }
+
+  @override
+  Widget build(BuildContext context) => BlocProvider.value(
+    value: locator<AuthCubit>(),
+    child: BlocListener<AuthCubit, AuthState>(
+      listenWhen: (previous, current) =>
+          previous.verificationStatus != current.verificationStatus,
+      listener: (context, state) {
+        if (state.verificationStatus == AuthRequestStatus.success) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(AppLocalizations.of(context)!.emailVerified),
+            ),
+          );
+          context.goNamed(AppRoutes.login);
+        } else if (state.verificationStatus == AuthRequestStatus.failure) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                state.errorMessage ?? AppLocalizations.of(context)!.error,
+              ),
+              backgroundColor: AppColors.errorLight,
+            ),
+          );
+          context.goNamed(AppRoutes.login);
+        }
+      },
+      child: Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const CircularProgressIndicator(),
+              SizedBox(height: 16.h),
+              Text(AppLocalizations.of(context)!.verifyingEmail),
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
+}

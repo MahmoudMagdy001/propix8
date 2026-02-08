@@ -1,0 +1,82 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../core/utils/responsive_helper.dart';
+import '../../feature/favorites/viewmodels/favorite_cubit.dart';
+import '../../feature/favorites/viewmodels/favorite_state.dart';
+import '../../feature/home/models/unit_model.dart';
+import '../utils/context_extensions.dart';
+
+class FavoriteButton extends StatefulWidget {
+  const FavoriteButton({
+    required this.unit,
+    required this.isFavorite,
+    this.size,
+    this.padding,
+    this.color,
+    super.key,
+  });
+
+  final UnitModel unit;
+  final bool isFavorite;
+  final double? size;
+  final EdgeInsetsGeometry? padding;
+  final Color? color;
+
+  @override
+  State<FavoriteButton> createState() => _FavoriteButtonState();
+}
+
+class _FavoriteButtonState extends State<FavoriteButton> {
+  @override
+  void initState() {
+    super.initState();
+    // Initialize favorite status if not already in state
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        final cubit = context.read<FavoriteCubit>();
+        // Only update if this unit isn't already tracked
+        if (!cubit.state.favorites.containsKey(widget.unit.id)) {
+          cubit.updateFavoriteStatus(widget.unit.id, widget.isFavorite);
+        }
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) =>
+      BlocBuilder<FavoriteCubit, FavoriteState>(
+        // Rebuild whenever favorites map changes
+        buildWhen: (previous, current) =>
+            previous.favorites != current.favorites,
+        builder: (context, state) {
+          // Use favorites map as source of truth, fallback to widget.isFavorite
+          final bool currentFavorite;
+          if (state.favorites.containsKey(widget.unit.id)) {
+            currentFavorite = state.favorites[widget.unit.id]!;
+          } else {
+            currentFavorite = widget.isFavorite;
+          }
+          return IconButton(
+            onPressed: () =>
+                context.read<FavoriteCubit>().toggleFavorite(widget.unit),
+            icon: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 300),
+              transitionBuilder: (Widget child, Animation<double> animation) =>
+                  ScaleTransition(scale: animation, child: child),
+              child: Icon(
+                currentFavorite ? Icons.favorite : Icons.favorite_outline,
+                key: ValueKey<bool>(currentFavorite),
+                color: currentFavorite
+                    ? context.colorScheme.primary
+                    : (widget.color ?? Colors.white),
+                size: widget.size ?? 24.sp,
+              ),
+            ),
+            padding: widget.padding ?? EdgeInsets.all(8.w),
+            constraints: const BoxConstraints(),
+            splashRadius: (widget.size ?? 24.sp) * 0.8,
+          );
+        },
+      );
+}

@@ -1,0 +1,157 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../../../core/theme/app_colors.dart';
+import '../../../../../../core/utils/context_extensions.dart';
+import '../../../../../core/utils/responsive_helper.dart';
+import '../../../../auth/views/map/models/city_model.dart';
+import '../viewmodels/filter_cubit.dart';
+import '../viewmodels/filter_state.dart';
+import 'widgets/development_status_toggle.dart';
+import 'widgets/filter_counter.dart';
+import 'widgets/filter_toggle.dart';
+import 'widgets/range_slider_with_input.dart';
+
+class FilterSheetContent extends StatelessWidget {
+  const FilterSheetContent({super.key});
+
+  @override
+  Widget build(BuildContext context) => BlocBuilder<FilterCubit, FilterState>(
+    builder: (context, state) {
+      final cubit = context.read<FilterCubit>();
+      final l10n = context.l10n;
+
+      return Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20.w),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _buildSectionTitle(context, l10n.propertyType),
+            SizedBox(height: 12.h),
+            FilterToggle(
+              activeTab: state.activeTab,
+              onTabChanged: cubit.changeTab,
+            ),
+            SizedBox(height: 24.h),
+            _buildSectionTitle(context, l10n.developmentStatus),
+            SizedBox(height: 12.h),
+            DevelopmentStatusToggle(
+              selectedStatus: state.developmentStatus,
+              onStatusChanged: cubit.changeDevelopmentStatus,
+            ),
+            SizedBox(height: 24.h),
+            _buildSectionTitle(context, l10n.location),
+            SizedBox(height: 12.h),
+            _buildLocationSearch(context, cubit, state),
+            SizedBox(height: 24.h),
+            RangeSliderWithInput(
+              label: l10n.priceRange,
+              min: 0,
+              max: 10000000,
+              currentMin: state.minPrice,
+              currentMax: state.maxPrice,
+              onChanged: cubit.updatePriceRange,
+            ),
+            SizedBox(height: 24.h),
+            _buildSectionTitle(context, l10n.propertySpecs),
+            SizedBox(height: 12.h),
+            FilterCounter(
+              label: l10n.bedrooms,
+              value: state.bedrooms,
+              onChanged: cubit.updateBedrooms,
+            ),
+            FilterCounter(
+              label: l10n.bathrooms,
+              value: state.bathrooms,
+              onChanged: cubit.updateBathrooms,
+            ),
+
+            SizedBox(height: 24.h),
+            RangeSliderWithInput(
+              label: l10n.unitArea,
+              min: 0,
+              max: 5000,
+              currentMin: state.minArea,
+              currentMax: state.maxArea,
+              onChanged: cubit.updateAreaRange,
+            ),
+            SizedBox(height: 16.h),
+            SizedBox(
+              width: double.infinity,
+              height: 48.h,
+              child: ElevatedButton(
+                onPressed: () {
+                  // Apply filters and close
+                  Navigator.pop(context, state);
+                },
+                child: Text(
+                  l10n.apply,
+                  style: context.textTheme.titleMedium?.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    },
+  );
+
+  Widget _buildSectionTitle(BuildContext context, String title) => Text(
+    title,
+    style: context.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+  );
+
+  Widget _buildLocationSearch(
+    BuildContext context,
+    FilterCubit cubit,
+    FilterState state,
+  ) {
+    if (state.status == FilterStatus.citiesLoading) {
+      return Container(
+        height: 50.h,
+        alignment: Alignment.center,
+        child: const CircularProgressIndicator(),
+      );
+    }
+
+    return Container(
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(12.r)),
+      child: DropdownButtonHideUnderline(
+        child: DropdownButtonFormField<int>(
+          decoration: InputDecoration(
+            border: InputBorder.none,
+            hintText: context.l10n.selectCity,
+            hintStyle: context.textTheme.bodyMedium?.copyWith(
+              color: Colors.grey[400],
+            ),
+            prefixIcon: const Icon(
+              Icons.location_on,
+              color: AppColors.primaryLight,
+            ),
+            contentPadding: EdgeInsets.symmetric(
+              horizontal: 16.w,
+              vertical: 12.h,
+            ),
+          ),
+          initialValue: state.selectedCityId,
+          items: state.cities
+              .map(
+                (City city) => DropdownMenuItem<int>(
+                  value: city.id,
+                  child: Text(city.name),
+                ),
+              )
+              .toList(),
+          onChanged: (value) {
+            if (value != null) {
+              cubit.selectCity(value);
+            }
+          },
+        ),
+      ),
+    );
+  }
+}

@@ -1,0 +1,61 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../unit_details/repositories/unit_details_repository.dart';
+import '../models/comparison_model.dart';
+import 'comparison_state.dart';
+
+class ComparisonCubit extends Cubit<ComparisonState> {
+  ComparisonCubit(this._repository) : super(const ComparisonState());
+
+  final UnitDetailsRepository _repository;
+
+  Future<void> loadComparison({
+    required int baseUnitId,
+    required int selectedUnitId,
+    required String Function(String) getLocalizedLabel,
+    required String Function(String, String) getLocalizedValue,
+    required String meterSquared,
+    required String currencySymbol,
+  }) async {
+    emit(state.copyWith(status: ComparisonStatus.loading));
+
+    try {
+      // Load both units in parallel
+      final results = await Future.wait([
+        _repository.getUnitDetails(baseUnitId),
+        _repository.getUnitDetails(selectedUnitId),
+      ]);
+
+      if (isClosed) return;
+
+      final baseUnit = results[0];
+      final selectedUnit = results[1];
+
+      // Generate comparison items
+      final comparisonItems = ComparisonHelper.generateComparisonItems(
+        baseUnit: baseUnit,
+        selectedUnit: selectedUnit,
+        getLocalizedLabel: getLocalizedLabel,
+        getLocalizedValue: getLocalizedValue,
+        meterSquared: meterSquared,
+        currencySymbol: currencySymbol,
+      );
+
+      emit(
+        state.copyWith(
+          status: ComparisonStatus.success,
+          baseUnit: baseUnit,
+          selectedUnit: selectedUnit,
+          comparisonItems: comparisonItems,
+        ),
+      );
+    } catch (e) {
+      emit(
+        state.copyWith(
+          status: ComparisonStatus.failure,
+          errorMessage: e.toString(),
+        ),
+      );
+    }
+  }
+}

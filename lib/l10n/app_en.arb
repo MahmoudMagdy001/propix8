@@ -1,0 +1,1434 @@
+{
+  "@@locale": "en",
+  "appTitle": "ProPix8",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "posts": "Posts",
+  "@posts": {
+    "description": "Label for the posts section"
+  },
+  "noInternetTitle": "No Internet Connection",
+  "@noInternetTitle": {
+    "description": "Title shown when there is no internet connection"
+  },
+  "noInternetSubtitle": "Please check your connection and try again.",
+  "@noInternetSubtitle": {
+    "description": "Subtitle shown when there is no internet connection"
+  },
+  "tryAgainText": "Try Again",
+  "@tryAgainText": {
+    "description": "Label for the try again button"
+  },
+  "loading": "Loading...",
+  "@loading": {
+    "description": "Loading indicator text"
+  },
+  "error": "An error occurred",
+  "@error": {
+    "description": "Generic error message"
+  },
+  "noData": "No data available",
+  "@noData": {
+    "description": "Message shown when no data is available"
+  },
+  "startNow": "Start Now",
+  "@startNow": {
+    "description": "Button text to start the onboarding flow"
+  },
+  "next": "Next",
+  "@next": {
+    "description": "Label for the next button"
+  },
+  "back": "Back",
+  "@back": {
+    "description": "Label for the back button"
+  },
+  "skip": "Skip",
+  "@skip": {
+    "description": "Label for the skip button in onboarding"
+  },
+  "onboardingTitle1": "Start now and discover your ideal unit",
+  "@onboardingTitle1": {
+    "description": "Title for the first onboarding screen"
+  },
+  "onboardingSubtitle1": "Browse units easily and save your favorites",
+  "@onboardingSubtitle1": {
+    "description": "Subtitle for the first onboarding screen"
+  },
+  "onboardingTitle2": "View units for sale or rent quickly and easily",
+  "@onboardingTitle2": {
+    "description": "Title for the second onboarding screen"
+  },
+  "onboardingSubtitle2": "Search easily, choose quickly",
+  "@onboardingSubtitle2": {
+    "description": "Subtitle for the second onboarding screen"
+  },
+  "onboardingTitle3": "Discover the best properties in your area easily and quickly",
+  "@onboardingTitle3": {
+    "description": "Title for the third onboarding screen"
+  },
+  "onboardingSubtitle3": "All options in one place",
+  "@onboardingSubtitle3": {
+    "description": "Subtitle for the third onboarding screen"
+  },
+  "login": "Login",
+  "@login": {
+    "description": "Title for the login screen and label for the login button"
+  },
+  "signup": "Sign Up",
+  "@signup": {
+    "description": "Title for the signup screen"
+  },
+  "contactUsSection": "Contact Us",
+  "@contactUsSection": {
+    "description": "Label for the contact us section"
+  },
+  "contactUsSuccess": "Your request has been sent successfully",
+  "@contactUsSuccess": {
+    "description": "Success message after sending contact request"
+  },
+  "sendRequest": "Send Request",
+  "@sendRequest": {
+    "description": "Label for the send request button"
+  },
+  "signup_Button": "Create Account",
+  "@signup_Button": {
+    "description": "Label for the signup button"
+  },
+  "email": "Email",
+  "@email": {
+    "description": "Label for the email input field"
+  },
+  "password": "Password",
+  "@password": {
+    "description": "Label for the password input field"
+  },
+  "name": "Full Name",
+  "@name": {
+    "description": "Label for the full name input field"
+  },
+  "phone": "Phone Number",
+  "@phone": {
+    "description": "Label for the phone number input field"
+  },
+  "address": "Address",
+  "@address": {
+    "description": "Label for the address input field"
+  },
+  "city": "City",
+  "@city": {
+    "description": "Label for the city input field"
+  },
+  "date": "Date",
+  "@date": {
+    "description": "Label for the date selection"
+  },
+  "time": "Time",
+  "@time": {
+    "description": "Label for the time selection"
+  },
+  "delete": "Delete",
+  "@delete": {
+    "description": "Label for the delete button"
+  },
+  "approve": "Approve",
+  "@approve": {
+    "description": "Label for the approval button"
+  },
+  "deleteBooking": "Delete Booking",
+  "@deleteBooking": {
+    "description": "Title for the delete booking confirmation"
+  },
+  "deleteBookingConfirmation": "Are you sure you want to delete this booking permanently?",
+  "@deleteBookingConfirmation": {
+    "description": "Message for the delete booking confirmation"
+  },
+  "bookingDeletedSuccess": "Booking deleted successfully",
+  "@bookingDeletedSuccess": {
+    "description": "Success message after deleting a booking"
+  },
+  "suggestedDate": "Suggested Date",
+  "@suggestedDate": {
+    "description": "Label for the suggested date"
+  },
+  "suggestedTime": "Suggested Time",
+  "@suggestedTime": {
+    "description": "Label for the suggested time"
+  },
+  "adminNotes": "Admin Notes",
+  "@adminNotes": {
+    "description": "Label for the admin notes section"
+  },
+  "yourMessage": "Your Message",
+  "@yourMessage": {
+    "description": "Label for the user message"
+  },
+  "statusPending": "Pending Confirmation",
+  "@statusPending": {
+    "description": "Status label for pending booking"
+  },
+  "statusConfirmed": "Confirmed",
+  "@statusConfirmed": {
+    "description": "Status label for confirmed booking"
+  },
+  "statusRescheduleAdmin": "Admin Suggested New Time",
+  "@statusRescheduleAdmin": {
+    "description": "Status label when admin suggests a new time"
+  },
+  "statusCancelled": "Cancelled",
+  "@statusCancelled": {
+    "description": "Status label for cancelled booking"
+  },
+  "confirmSuggestedTime": "Are you sure you want to approve the suggested time?",
+  "@confirmSuggestedTime": {
+    "description": "Confirmation message for suggested time"
+  },
+  "approveSuggestedTime": "Approve Suggested Time",
+  "@approveSuggestedTime": {
+    "description": "Button label to approve suggested time"
+  },
+  "suggestedTimeAccepted": "Suggested time accepted successfully",
+  "@suggestedTimeAccepted": {
+    "description": "Success message after accepting suggested time"
+  },
+  "suggestAnotherTime": "Suggest Another Time",
+  "@suggestAnotherTime": {
+    "description": "Button label to suggest another time"
+  },
+  "editBookingTime": "Edit Booking Time",
+  "@editBookingTime": {
+    "description": "Button label to edit booking time"
+  },
+  "newTimeSuggestionSent": "New time suggestion sent",
+  "@newTimeSuggestionSent": {
+    "description": "Success message after sending new time suggestion"
+  },
+  "confirmCancellation": "Confirm Cancellation",
+  "@confirmCancellation": {
+    "description": "Title for cancellation confirmation"
+  },
+  "cancelBookingConfirmation": "Are you sure you want to cancel this booking? This action cannot be undone.",
+  "@cancelBookingConfirmation": {
+    "description": "Message for cancellation confirmation"
+  },
+  "cancelBooking": "Cancel Booking",
+  "@cancelBooking": {
+    "description": "Button label to cancel booking"
+  },
+  "bookingCancelled": "Booking Cancelled",
+  "@bookingCancelled": {
+    "description": "Success message after cancelling a booking"
+  },
+  "selectDate": "Select Date",
+  "@selectDate": {
+    "description": "Button label or prompt to select a date"
+  },
+  "selectTime": "Select Time",
+  "@selectTime": {
+    "description": "Button label or prompt to select a time"
+  },
+  "pleaseSelectDate": "Please select a date",
+  "@pleaseSelectDate": {
+    "description": "Validation error message for missing date"
+  },
+  "pleaseSelectTime": "Please select a time",
+  "@pleaseSelectTime": {
+    "description": "Validation error message for missing time"
+  },
+  "pastTimeError": "Selected time has passed, please select a future time",
+  "@pastTimeError": {
+    "description": "Validation error message for past time selection"
+  },
+  "messageOptional": "Message (Optional)",
+  "@messageOptional": {
+    "description": "Label for optional message field"
+  },
+  "messagePlaceholder": "Write your message here...",
+  "@messagePlaceholder": {
+    "description": "Placeholder for message input field"
+  },
+  "sendSuggestion": "Send Suggestion",
+  "@sendSuggestion": {
+    "description": "Button label to send a suggestion"
+  },
+  "confirmPassword": "Confirm Password",
+  "@confirmPassword": {
+    "description": "Label for the confirm password input field"
+  },
+  "forgotPassword": "Forgot Password?",
+  "@forgotPassword": {
+    "description": "Label for the forgot password link"
+  },
+  "dontHaveAccount": "Don't have an account?",
+  "@dontHaveAccount": {
+    "description": "Label for the registration prompt"
+  },
+  "alreadyHaveAccount": "Already have an account?",
+  "@alreadyHaveAccount": {
+    "description": "Label for the login prompt"
+  },
+  "sendResetLink": "Send Reset Link",
+  "@sendResetLink": {
+    "description": "Label for the send reset email button"
+  },
+  "passwordResetConfirmation": "A password reset link has been sent to your email",
+  "@passwordResetConfirmation": {
+    "description": "Message shown after sending reset link"
+  },
+  "passwordStrength": "Password Strength",
+  "@passwordStrength": {
+    "description": "Label for password strength indicator"
+  },
+  "weak": "Weak",
+  "@weak": {
+    "description": "Label for weak password strength"
+  },
+  "fair": "Fair",
+  "@fair": {
+    "description": "Label for fair password strength"
+  },
+  "good": "Good",
+  "@good": {
+    "description": "Label for good password strength"
+  },
+  "strong": "Strong",
+  "@strong": {
+    "description": "Label for strong password strength"
+  },
+  "agreeToTerms": "I agree to the terms & conditions",
+  "@agreeToTerms": {
+    "description": "Label for terms and conditions checkbox"
+  },
+  "fieldRequired": "This field is required",
+  "@fieldRequired": {
+    "description": "Validation error for required fields"
+  },
+  "invalidEmail": "Invalid email format",
+  "@invalidEmail": {
+    "description": "Validation error for invalid email format"
+  },
+  "passwordTooShort": "Password must be at least 8 characters",
+  "passwordMinLength6": "Password must be at least 6 characters",
+  "@passwordMinLength6": {
+    "description": "Validation error for short password"
+  },
+  "@passwordTooShort": {
+    "description": "Validation error for short password"
+  },
+  "passwordsDoNotMatch": "Passwords do not match",
+  "@passwordsDoNotMatch": {
+    "description": "Validation error for mismatched passwords"
+  },
+  "loginSuccess": "Logged in successfully",
+  "@loginSuccess": {
+    "description": "Success message after login"
+  },
+  "signupSuccess": "Account created successfully please verify your email to login",
+  "@signupSuccess": {
+    "description": "Success message after signup"
+  },
+  "resetSuccess": "Password reset successfully",
+  "@resetSuccess": {
+    "description": "Success message after password reset"
+  },
+  "enterNewPassword": "Enter your new password below",
+  "@enterNewPassword": {
+    "description": "Instruction to enter new password"
+  },
+  "token": "Reset Token",
+  "@token": {
+    "description": "Label for reset token input"
+  },
+  "termsAndConditions": "Terms & Conditions",
+  "@termsAndConditions": {
+    "description": "Title for terms and conditions screen"
+  },
+  "paymentSchedule": "1. Payment Schedule",
+  "@paymentSchedule": {
+    "description": "Section title for payment schedule"
+  },
+  "paymentScheduleContent": "- 100% of the total amount must be paid at the time of booking\n- Remaining balance: due later",
+  "@paymentScheduleContent": {
+    "description": "Content for payment schedule section"
+  },
+  "cancellationPolicy": "2. Cancellation Policy",
+  "@cancellationPolicy": {
+    "description": "Section title for cancellation policy"
+  },
+  "cancellationPolicyContent": "- 75% of pre-paid payments are refundable when canceled 41 days or more before arrival\n- 50% of pre-paid payments are refundable when canceled 21 days or more before arrival\n- 0% refundable if canceled after that",
+  "@cancellationPolicyContent": {
+    "description": "Content for cancellation policy section"
+  },
+  "securityDeposit": "3. Security Deposit",
+  "@securityDeposit": {
+    "description": "Section title for security deposit"
+  },
+  "securityDepositContent": "- A refundable security deposit of 25% must be paid",
+  "@securityDepositContent": {
+    "description": "Content for security deposit section"
+  },
+  "notes": "4. Notes",
+  "@notes": {
+    "description": "Section title for additional notes"
+  },
+  "notesContent": "- 5% discount for stays of 14 nights or more\n- 10% discount for stays of 30 nights or more",
+  "@notesContent": {
+    "description": "Content for additional notes section"
+  },
+  "agreeToTermsPart1": "I agree to the ",
+  "@agreeToTermsPart1": {
+    "description": "First part of the terms agreement text"
+  },
+  "agreeToTermsPart2": "terms & conditions",
+  "@agreeToTermsPart2": {
+    "description": "Second part of the terms agreement text (linked)"
+  },
+  "resetPasswordSuccessTitle": "Password Changed",
+  "@resetPasswordSuccessTitle": {
+    "description": "Title for the password reset success screen"
+  },
+  "resetPasswordSuccessSubtitle": "Your password has been changed successfully",
+  "@resetPasswordSuccessSubtitle": {
+    "description": "Subtitle for the password reset success screen"
+  },
+  "forgotPasswordSubtitle": "Enter your email and we will send you a link to reset your password",
+  "@forgotPasswordSubtitle": {
+    "description": "Instructional text on the forgot password screen"
+  },
+  "resetPassword": "Reset Password",
+  "@resetPassword": {
+    "description": "Title for the reset password screen"
+  },
+  "resetPasswordSubtitle": "Please write a password you can easily remember",
+  "@resetPasswordSubtitle": {
+    "description": "Instructional text on the reset password screen"
+  },
+  "changePassword": "Change Password",
+  "@changePassword": {
+    "description": "Label for the change password button"
+  },
+  "completeProfile": "Complete Profile",
+  "@completeProfile": {
+    "description": "Title for the complete profile screen"
+  },
+  "selectCity": "Select City",
+  "@selectCity": {
+    "description": "Label for city selection dropdown"
+  },
+  "selectedAddress": "Selected Address: {address}",
+  "@selectedAddress": {
+    "description": "Label for displaying the selected address",
+    "placeholders": {
+      "address": {
+        "type": "String"
+      }
+    }
+  },
+  "submitProfile": "Submit Profile",
+  "@submitProfile": {
+    "description": "Label for the submit profile button"
+  },
+  "profileUpdateSuccess": "Profile updated successfully!",
+  "@profileUpdateSuccess": {
+    "description": "Success message after updating profile"
+  },
+  "profileUpdateError": "An error occurred while updating profile",
+  "@profileUpdateError": {
+    "description": "Error message when profile update fails"
+  },
+  "selectLocationError": "Please select a city and a location on the map.",
+  "@selectLocationError": {
+    "description": "Error message when city or location is not selected"
+  },
+  "startExploring": "Start Exploring Now",
+  "@startExploring": {
+    "description": "Button text to start exploring"
+  },
+  "buy": "Buy",
+  "@buy": {
+    "description": "Label for buy option"
+  },
+  "rent": "For Rent",
+  "@rent": {
+    "description": "Label for rent option"
+  },
+  "locationDetails": "Location Details",
+  "@locationDetails": {
+    "description": "Title for location details section"
+  },
+  "all": "All",
+  "@all": {
+    "description": "Label for all categories option"
+  },
+  "apartments": "Apartments",
+  "@apartments": {
+    "description": "Label for apartments category"
+  },
+  "villas": "Villas",
+  "@villas": {
+    "description": "Label for villas category"
+  },
+  "houses": "Houses",
+  "@houses": {
+    "description": "Label for houses category"
+  },
+  "nearbyProperties": "Nearby Properties",
+  "@nearbyProperties": {
+    "description": "Title for nearby properties section on home screen"
+  },
+  "latestProperties": "Latest Properties",
+  "@latestProperties": {
+    "description": "Title for latest properties section on home screen"
+  },
+  "allProperties": "All Properties",
+  "@allProperties": {
+    "description": "Title for all properties section on home screen"
+  },
+  "seeAll": "See All",
+  "@seeAll": {
+    "description": "Label for 'See All' button"
+  },
+  "noPropertiesFound": "No properties found",
+  "@noPropertiesFound": {
+    "description": "Message shown when no properties are found"
+  },
+  "resendVerification": "Resend Verification",
+  "@resendVerification": {
+    "description": "Label for resend verification button"
+  },
+  "verificationEmailSent": "Verification link has been sent to your email",
+  "@verificationEmailSent": {
+    "description": "Message shown when verification email is sent"
+  },
+  "verificationSuccess": "Email verified successfully",
+  "@verificationSuccess": {
+    "description": "Message shown when email is verified successfully"
+  },
+  "accountNotVerified": "Your account is not verified. Please verify your email to login.",
+  "@accountNotVerified": {
+    "description": "Error message for unverified account login attempt"
+  },
+  "verifyingEmail": "Verifying Email...",
+  "@verifyingEmail": {
+    "description": "Loading text for email verification"
+  },
+  "emailVerified": "Email verified successfully",
+  "@emailVerified": {
+    "description": "Success text for email verification"
+  },
+  "navHome": "Home",
+  "@navHome": {
+    "description": "Label for home navigation item"
+  },
+  "navServices": "Services",
+  "@navServices": {
+    "description": "Label for services navigation item"
+  },
+  "navFavorites": "Favorites",
+  "@navFavorites": {
+    "description": "Label for favorites navigation item"
+  },
+  "noFavoritesTitle": "No favorites yet",
+  "@noFavoritesTitle": {
+    "description": "Title shown when there are no favorite properties"
+  },
+  "noFavoritesSubtitle": "Start adding properties to your favorites to see them here.",
+  "@noFavoritesSubtitle": {
+    "description": "Subtitle shown when there are no favorite properties"
+  },
+  "navProfile": "Profile",
+  "@navProfile": {
+    "description": "Label for profile navigation item"
+  },
+  "filter": "Filter",
+  "@filter": {
+    "description": "Title for filter screen"
+  },
+  "reset": "Reset",
+  "@reset": {
+    "description": "Label for reset button"
+  },
+  "location": "Location",
+  "@location": {
+    "description": "Label for location section"
+  },
+  "searchLocationPlaceholder": "Search for apartment, house, ........",
+  "@searchLocationPlaceholder": {
+    "description": "Placeholder text for location search input"
+  },
+  "priceRange": "Price Range",
+  "@priceRange": {
+    "description": "Label for price range section"
+  },
+  "propertySpecs": "Property Specifications",
+  "@propertySpecs": {
+    "description": "Label for property specifications section"
+  },
+  "bedrooms": "Bedrooms",
+  "@bedrooms": {
+    "description": "Label for bedrooms counter"
+  },
+  "bathrooms": "Bathrooms",
+  "@bathrooms": {
+    "description": "Label for bathrooms counter"
+  },
+  "rooms": "Rooms",
+  "@rooms": {
+    "description": "Label for rooms counter"
+  },
+  "unitArea": "Unit Area",
+  "@unitArea": {
+    "description": "Label for unit area section"
+  },
+  "apply": "Apply",
+  "@apply": {
+    "description": "Label for apply button"
+  },
+  "from": "From",
+  "@from": {
+    "description": "Label for 'from' range"
+  },
+  "to": "To",
+  "@to": {
+    "description": "Label for 'to' range"
+  },
+  "unitDetails": "Details",
+  "@unitDetails": {
+    "description": "Title for unit details section"
+  },
+  "description": "Description",
+  "@description": {
+    "description": "Title for description section"
+  },
+  "mapLocation": "Location on Map",
+  "@mapLocation": {
+    "description": "Title for map location section"
+  },
+  "virtualTour": "Virtual Tour",
+  "@virtualTour": {
+    "description": "Title for virtual tour section"
+  },
+  "compound": "Compound",
+  "@compound": {
+    "description": "Label for compound field"
+  },
+  "developer": "Developer",
+  "@developer": {
+    "description": "Label for developer field"
+  },
+  "floorPlan": "Floor Plan",
+  "@floorPlan": {
+    "description": "Title for floor plan section"
+  },
+  "amenities": "Amenities",
+  "@amenities": {
+    "description": "Title for amenities section"
+  },
+  "garages": "Garages",
+  "@garages": {
+    "description": "Label for garages field"
+  },
+  "landArea": "Land Area",
+  "@landArea": {
+    "description": "Label for land area field"
+  },
+  "internalArea": "Internal Area",
+  "@internalArea": {
+    "description": "Label for internal area field"
+  },
+  "saleStatusLabel": "Offer Type: ",
+  "@saleStatusLabel": {
+    "description": "Label for the unit sale status"
+  },
+  "sale": "For Sale",
+  "@sale": {
+    "description": "Label for sale offer type"
+  },
+  "meterSquared": "m²",
+  "@meterSquared": {
+    "description": "Symbol for square meters"
+  },
+  "buildYear": "Build Year",
+  "@buildYear": {
+    "description": "Label for build year field"
+  },
+  "reserveNow": "Reserve Now",
+  "@reserveNow": {
+    "description": "Label for reserve now button"
+  },
+  "alreadyBooked": "You have already booked this unit",
+  "@alreadyBooked": {
+    "description": "Label for already booked status"
+  },
+  "sendMessage": "Send Message",
+  "@sendMessage": {
+    "description": "Label for send message button"
+  },
+  "tapToInteract": "Tap to interact with the map",
+  "@tapToInteract": {
+    "description": "Hint text to tap map to interact"
+  },
+  "relatedUnits": "Related Units",
+  "@relatedUnits": {
+    "description": "Label for related units section"
+  },
+  "propertiesCount": "Number of Properties: {count}",
+  "@propertiesCount": {
+    "description": "Label for properties count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "bookingSuccess": "Booking submitted successfully!",
+  "@bookingSuccess": {
+    "description": "Success message after successful booking"
+  },
+  "myBookings": "My Bookings",
+  "@myBookings": {
+    "description": "Title for the bookings screen"
+  },
+  "noBookingsTitle": "No bookings yet",
+  "@noBookingsTitle": {
+    "description": "Title shown when there are no bookings"
+  },
+  "noBookingsSubtitle": "You haven't made any property bookings. Explore properties and start booking today!",
+  "@noBookingsSubtitle": {
+    "description": "Subtitle shown when there are no bookings"
+  },
+  "reviews": "Reviews",
+  "@reviews": {
+    "description": "Label for reviews section"
+  },
+  "submitReview": "Submit Review",
+  "@submitReview": {
+    "description": "Label for submit review button"
+  },
+  "writeComment": "Write a comment...",
+  "@writeComment": {
+    "description": "Placeholder for review comment"
+  },
+  "reviewSubmittedSuccess": "Review submitted successfully",
+  "@reviewSubmittedSuccess": {
+    "description": "Success message for review submission"
+  },
+  "reviewUpdatedSuccess": "Review updated successfully",
+  "@reviewUpdatedSuccess": {
+    "description": "Success message for review update"
+  },
+  "reviewDeletedSuccess": "Review deleted successfully",
+  "@reviewDeletedSuccess": {
+    "description": "Success message for review deletion"
+  },
+  "reviewSubmissionError": "Failed to submit review",
+  "@reviewSubmissionError": {
+    "description": "Error message for review submission"
+  },
+  "editReview": "Edit Review",
+  "@editReview": {
+    "description": "Label for edit review option"
+  },
+  "updateReview": "Update Review",
+  "@updateReview": {
+    "description": "Label for update review button"
+  },
+  "addReview": "Add Review",
+  "@addReview": {
+    "description": "Label for add review button"
+  },
+  "viewAllReviews": "View All Reviews",
+  "@viewAllReviews": {
+    "description": "Label for view all reviews button"
+  },
+  "contactOwner": "Contact Owner",
+  "@contactOwner": {
+    "description": "Label for contact owner button"
+  },
+  "message": "Message",
+  "@message": {
+    "description": "Label for message input"
+  },
+  "messageSuccess": "Message sent successfully",
+  "@messageSuccess": {
+    "description": "Success message for sending message"
+  },
+  "messageFailure": "Failed to send message",
+  "@messageFailure": {
+    "description": "Error message for sending message"
+  },
+  "contactOwnerTitle": "Contact Unit Owner",
+  "@contactOwnerTitle": {
+    "description": "Title for contact owner dialog"
+  },
+  "send": "Send",
+  "@send": {
+    "description": "Label for send button"
+  },
+  "deleteReviewConfirmationTitle": "Delete Review",
+  "@deleteReviewConfirmationTitle": {
+    "description": "Title for delete review confirmation"
+  },
+  "deleteReviewConfirmationContent": "Are you sure you want to delete this review?",
+  "@deleteReviewConfirmationContent": {
+    "description": "Content for delete review confirmation"
+  },
+  "confirm": "Confirm",
+  "@confirm": {
+    "description": "Label for confirm button"
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Label for cancel button"
+  },
+  "rating": "Rating",
+  "@rating": {
+    "description": "Label for rating"
+  },
+  "review": "Review",
+  "@review": {
+    "description": "Label for review text"
+  },
+  "requiredField": "This field is required",
+  "@requiredField": {
+    "description": "Error message for a required field"
+  },
+  "ourServices": "Our Services",
+  "faqs": "FAQs",
+  "@faqs": {
+    "description": "Title for FAQs screen"
+  },
+  "@ourServices": {
+    "description": "Title for Our Services screen"
+  },
+  "ourProfile": "Our Profile",
+  "@ourProfile": {
+    "description": "Title for Our Profile screen"
+  },
+  "comingSoon": "Coming Soon: {title}",
+  "@comingSoon": {
+    "description": "Placeholder text for coming soon screens",
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "homeMaintenanceServices": "Home Maintenance Services",
+  "@homeMaintenanceServices": {
+    "description": "Title for home maintenance services section"
+  },
+  "technicalMaintenanceServices": "Technical Maintenance Services",
+  "@technicalMaintenanceServices": {
+    "description": "Title for technical maintenance services section"
+  },
+  "bookNow": "Book Now",
+  "@bookNow": {
+    "description": "Label for book now button"
+  },
+  "phoneRequired": "Phone number is required",
+  "@phoneRequired": {
+    "description": "Error message when phone is missing"
+  },
+  "invalidPhoneNumber": "Invalid phone number",
+  "@invalidPhoneNumber": {
+    "description": "Error message for invalid phone"
+  },
+  "addressRequired": "Address is required",
+  "@addressRequired": {
+    "description": "Error message when address is missing"
+  },
+  "bookingFor": "Booking request for",
+  "@bookingFor": {
+    "description": "Title for booking form"
+  },
+  "success": "Success",
+  "@success": {
+    "description": "Success message"
+  },
+  "errorOccurred": "An error occurred",
+  "@errorOccurred": {
+    "description": "Error message"
+  },
+  "pressAgainToExit": "Press again to exit",
+  "@pressAgainToExit": {
+    "description": "Message to prompt user to press again to exit"
+  },
+  "exitAppConfirmationTitle": "Exit App",
+  "@exitAppConfirmationTitle": {
+    "description": "Title for exit app confirmation dialog"
+  },
+  "exitAppConfirmationMessage": "Are you sure you want to exit the app?",
+  "@exitAppConfirmationMessage": {
+    "description": "Content for exit app confirmation dialog"
+  },
+  "exit": "Exit",
+  "@exit": {
+    "description": "Label for exit button"
+  },
+  "propertyType": "Property Type",
+  "@propertyType": {
+    "description": "Label for property type section"
+  },
+  "developmentStatus": "Development Status",
+  "@developmentStatus": {
+    "description": "Label for development status section"
+  },
+  "primary": "Primary",
+  "@primary": {
+    "description": "Label for primary development status"
+  },
+  "resale": "Resale",
+  "@resale": {
+    "description": "Label for resale development status"
+  },
+  "maintenanceBookings": "Maintenance Bookings",
+  "@maintenanceBookings": {
+    "description": "Title for the maintenance bookings section"
+  },
+  "noMaintenanceBookingsTitle": "No maintenance bookings yet",
+  "@noMaintenanceBookingsTitle": {
+    "description": "Title shown when there are no maintenance bookings"
+  },
+  "noMaintenanceBookingsSubtitle": "You haven't made any maintenance service bookings. Explore our services and start booking today!",
+  "@noMaintenanceBookingsSubtitle": {
+    "description": "Subtitle shown when there are no maintenance bookings"
+  },
+  "privacyPolicy": "Privacy Policy",
+  "@privacyPolicy": {
+    "description": "Title for privacy policy screen"
+  },
+  "privacyPolicyIntro": "Welcome to Propix Eight Group for Real Estate Marketing & Property Solutions. We respect your privacy and represent our commitment to protecting your personal data.",
+  "@privacyPolicyIntro": {
+    "description": "Introduction text for privacy policy"
+  },
+  "dataCollection": "1. Data Collection",
+  "@dataCollection": {
+    "description": "Title for data collection section"
+  },
+  "dataCollectionContent": "We collect information you provide directly to us, such as when you create an account, update your profile, make a booking, or communicate with us. This may include your name, email, phone number, and payment information.",
+  "@dataCollectionContent": {
+    "description": "Content for data collection section"
+  },
+  "useOfData": "2. Use of Data",
+  "@useOfData": {
+    "description": "Title for use of data section"
+  },
+  "useOfDataContent": "We use your data to provide and improve our services, process transactions, send you notifications, and communicate with you about updates and offers.",
+  "@useOfDataContent": {
+    "description": "Content for use of data section"
+  },
+  "dataRetention": "3. Data Retention",
+  "@dataRetention": {
+    "description": "Title for data retention section"
+  },
+  "dataRetentionContent": "We retain your personal data only as long as necessary to provide you with our services and for legitimate business purposes.",
+  "@dataRetentionContent": {
+    "description": "Content for data retention section"
+  },
+  "dataDeletion": "4. Data Deletion",
+  "@dataDeletion": {
+    "description": "Title for data deletion section"
+  },
+  "dataDeletionContent": "You can request the deletion of your account and personal data at any time by contacting us or using the delete account option in your profile settings.",
+  "@dataDeletionContent": {
+    "description": "Content for data deletion section"
+  },
+  "security": "5. Security",
+  "@security": {
+    "description": "Title for security section"
+  },
+  "securityContent": "We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, loss, or misuse.",
+  "@securityContent": {
+    "description": "Content for security section"
+  },
+  "locationInformation": "6. Location Information",
+  "@locationInformation": {
+    "description": "Title for location information section"
+  },
+  "locationInformationContent": "We may use your location data to help you find nearby properties and services. This data is used to improve your search experience and is not shared with third parties without your consent.",
+  "@locationInformationContent": {
+    "description": "Content for location information section"
+  },
+  "changesToPolicy": "7. Changes to Policy",
+  "@changesToPolicy": {
+    "description": "Title for changes to policy section"
+  },
+  "changesToPolicyContent": "We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page.",
+  "@changesToPolicyContent": {
+    "description": "Content for changes to policy section"
+  },
+  "contactUs": " Contact Us",
+  "@contactUs": {
+    "description": "Title for contact us section"
+  },
+  "contactUsContent": "If you have any questions about this privacy policy, please contact us at support@propix8.com.",
+  "@contactUsContent": {
+    "description": "Content for contact us section"
+  },
+  "settings": "Settings",
+  "@settings": {
+    "description": "Title for the settings screen"
+  },
+  "appearance": "Appearance",
+  "@appearance": {
+    "description": "Label for the appearance section in settings"
+  },
+  "language": "Language",
+  "@language": {
+    "description": "Label for the language selection in settings"
+  },
+  "system": "System",
+  "@system": {
+    "description": "Label for the system theme option"
+  },
+  "light": "Light",
+  "@light": {
+    "description": "Label for the light theme option"
+  },
+  "dark": "Dark",
+  "@dark": {
+    "description": "Label for the dark theme option"
+  },
+  "english": "English",
+  "@english": {
+    "description": "Label for English language option"
+  },
+  "arabic": "Arabic",
+  "@arabic": {
+    "description": "Label for Arabic language option"
+  },
+  "chooseTheme": "Choose Theme",
+  "@chooseTheme": {
+    "description": "Label for the theme selection dialog"
+  },
+  "chooseLanguage": "Choose Language",
+  "@chooseLanguage": {
+    "description": "Label for the language selection dialog"
+  },
+  "restartRequired": "Restart Required",
+  "@restartRequired": {
+    "description": "Title for restart required dialog"
+  },
+  "restartRequiredMessage": "The app will restart to apply the new language. Do you want to continue?",
+  "@restartRequiredMessage": {
+    "description": "Message for restart required dialog"
+  },
+  "restart": "Restart",
+  "@restart": {
+    "description": "Label for the restart button"
+  },
+  "developers": "Developers",
+  "@developers": {
+    "description": "Title for the developers section"
+  },
+  "noDevelopers": "No developers found",
+  "@noDevelopers": {
+    "description": "Message shown when no developers are found"
+  },
+  "retry": "Retry",
+  "@retry": {
+    "description": "Label for the retry button"
+  },
+  "editProfile": "Edit Profile",
+  "@editProfile": {
+    "description": "Title for edit profile screen"
+  },
+  "propertyBookings": "Property Bookings",
+  "@propertyBookings": {
+    "description": "Label for property bookings section"
+  },
+  "serviceBookings": "Service Bookings",
+  "@serviceBookings": {
+    "description": "Label for service bookings section"
+  },
+  "compounds": "Compounds",
+  "@compounds": {
+    "description": "Title for the compounds section"
+  },
+  "aboutUs": "About Us",
+  "@aboutUs": {
+    "description": "Label for the about us section"
+  },
+  "logout": "Logout",
+  "@logout": {
+    "description": "Label for the logout button"
+  },
+  "logoutConfirmationMessage": "Are you sure you want to logout?",
+  "@logoutConfirmationMessage": {
+    "description": "Message for the logout confirmation dialog"
+  },
+  "editPassword": "Change Password",
+  "@editPassword": {
+    "description": "Title for edit password screen"
+  },
+  "updatePasswordSuccess": "Password updated successfully",
+  "@updatePasswordSuccess": {
+    "description": "Success message after updating password"
+  },
+  "currentPassword": "Current Password",
+  "@currentPassword": {
+    "description": "Label for current password input field"
+  },
+  "newPassword": "New Password",
+  "@newPassword": {
+    "description": "Label for new password input field"
+  },
+  "confirmNewPassword": "Confirm New Password",
+  "@confirmNewPassword": {
+    "description": "Label for confirm new password input field"
+  },
+  "editAccount": "Edit Account",
+  "@editAccount": {
+    "description": "Title for edit account screen"
+  },
+  "editData": "Edit Details",
+  "@editData": {
+    "description": "Label for edit data section"
+  },
+  "deleteAccount": "Delete Account",
+  "@deleteAccount": {
+    "description": "Label for the delete account button"
+  },
+  "deleteAccountConfirmationMessage": "Are you sure you want to delete your account?",
+  "@deleteAccountConfirmationMessage": {
+    "description": "Message for the delete account confirmation dialog"
+  },
+  "deleteAccountWarning": "All your data will be permanently deleted and cannot be recovered",
+  "@deleteAccountWarning": {
+    "description": "Warning message for delete account action"
+  },
+  "confirmDeleteAccount": "Yes, Delete My Account",
+  "@confirmDeleteAccount": {
+    "description": "Button label to confirm account deletion"
+  },
+  "compounds_view_empty": "No compounds available at the moment",
+  "@compounds_view_empty": {
+    "description": "Message shown when the compounds view is empty"
+  },
+  "maintenance_bookings_card_deleteTitle": "Delete Booking",
+  "@maintenance_bookings_card_deleteTitle": {
+    "description": "Title for delete maintenance booking dialog"
+  },
+  "maintenance_bookings_card_deleteConfirmation": "Are you sure you want to delete this booking?",
+  "@maintenance_bookings_card_deleteConfirmation": {
+    "description": "Confirmation message for deleting maintenance booking"
+  },
+  "maintenance_bookings_card_deleteSuccess": "Booking deleted successfully",
+  "@maintenance_bookings_card_deleteSuccess": {
+    "description": "Success message after deleting a maintenance booking"
+  },
+  "maintenance_bookings_card_editTitle": "Edit Booking",
+  "@maintenance_bookings_card_editTitle": {
+    "description": "Title for edit maintenance booking dialog"
+  },
+  "maintenance_bookings_card_editSuccess": "Booking edited successfully",
+  "@maintenance_bookings_card_editSuccess": {
+    "description": "Success message after editing a maintenance booking"
+  },
+  "maintenance_bookings_card_editButton": "Edit Booking Details",
+  "@maintenance_bookings_card_editButton": {
+    "description": "Button label to edit maintenance booking"
+  },
+  "maintenance_bookings_card_messageLabel": "Message:",
+  "@maintenance_bookings_card_messageLabel": {
+    "description": "Label for the message in maintenance booking card"
+  },
+  "maintenance_bookings_status_pending": "Pending",
+  "@maintenance_bookings_status_pending": {
+    "description": "Status label for pending maintenance booking"
+  },
+  "maintenance_bookings_status_contacted": "Contacted",
+  "@maintenance_bookings_status_contacted": {
+    "description": "Status label for contacted maintenance booking"
+  },
+  "maintenance_bookings_status_done": "Done",
+  "@maintenance_bookings_status_done": {
+    "description": "Status label for completed maintenance booking"
+  },
+  "unit_specs_area_unit": "m²",
+  "@unit_specs_area_unit": {
+    "description": "Unit label for area"
+  },
+  "unit_specs_rooms": "Rooms",
+  "@unit_specs_rooms": {
+    "description": "Label for rooms count in unit specs"
+  },
+  "unit_specs_bathrooms": "Bathrooms",
+  "@unit_specs_bathrooms": {
+    "description": "Label for bathrooms count in unit specs"
+  },
+  "unit_type_primary": "Primary",
+  "@unit_type_primary": {
+    "description": "Label for primary unit type"
+  },
+  "unit_type_resale": "Resale",
+  "@unit_type_resale": {
+    "description": "Label for resale unit type"
+  },
+  "currency_egp": "EGP",
+  "@currency_egp": {
+    "description": "Label for EGP currency"
+  },
+  "maintenance_banner_title": "Integrated property management and maintenance services",
+  "@maintenance_banner_title": {
+    "description": "Title for the maintenance services banner"
+  },
+  "maintenance_banner_subtitle": "Reliable solutions that support your property value and facilitate its management.",
+  "@maintenance_banner_subtitle": {
+    "description": "Subtitle for the maintenance services banner"
+  },
+  "unit_details_booking_date": "Date",
+  "@unit_details_booking_date": {
+    "description": "Label for booking date in unit details"
+  },
+  "unit_details_booking_time": "Time",
+  "@unit_details_booking_time": {
+    "description": "Label for booking time in unit details"
+  },
+  "unit_details_booking_notes": "Notes",
+  "@unit_details_booking_notes": {
+    "description": "Label for booking notes in unit details"
+  },
+  "guest_user": "Guest User",
+  "@guest_user": {
+    "description": "Label for guest user"
+  },
+  "teamMembers": "Team Members",
+  "@teamMembers": {
+    "description": "Title for the team members section"
+  },
+  "position": "Position",
+  "@position": {
+    "description": "Label for the team member position"
+  },
+  "statistics": "Statistics",
+  "@statistics": {
+    "description": "Title for the statistics section"
+  },
+  "noDataFound": "No data found",
+  "@noDataFound": {
+    "description": "No data found"
+  },
+  "showMore": "Show More",
+  "@showMore": {
+    "description": "Label for the show more button"
+  },
+  "showLess": "Show Less",
+  "@showLess": {
+    "description": "Label for the show less button"
+  },
+  "accountDeletedSuccess": "Account deleted successfully",
+  "@accountDeletedSuccess": {
+    "description": "Success message after deleting an account"
+  },
+  "unitStatus": "Status",
+  "@unitStatus": {
+    "description": "Label for unit status"
+  },
+  "status_sold": "Sold",
+  "@status_sold": {
+    "description": "Label for sold status"
+  },
+  "status_rented": "Rented",
+  "@status_rented": {
+    "description": "Label for rented status"
+  },
+  "status_available": "Available",
+  "@status_available": {
+    "description": "Label for available status"
+  },
+  "status_approved": "Approved",
+  "@status_approved": {
+    "description": "Label for approved status"
+  },
+  "chooseProductTitle": "Choose Product to Compare",
+  "@chooseProductTitle": {
+    "description": "Title for choose product screen"
+  },
+  "comparisonTitle": "Product Comparison",
+  "@comparisonTitle": {
+    "description": "Title for comparison screen"
+  },
+  "noProductsToCompare": "No products available for comparison",
+  "@noProductsToCompare": {
+    "description": "Message when no products are available to compare"
+  },
+  "selectProductHint": "Please select a product to compare with",
+  "@selectProductHint": {
+    "description": "Hint text for product selection"
+  },
+  "compare": "Compare",
+  "@compare": {
+    "description": "Compare action button label"
+  },
+  "pricePerM2": "Price / m²",
+  "@pricePerM2": {
+    "description": "Label for price per square meter"
+  },
+  "networkError": "Network Error",
+  "@networkError": {
+    "description": "Error message for network issues"
+  },
+  "failedToUpdateBooking": "Failed to update booking",
+  "@failedToUpdateBooking": {
+    "description": "Error message when booking update fails"
+  },
+  "homeServicePlaceholder": "Home Service Name",
+  "@homeServicePlaceholder": {
+    "description": "Placeholder for home service name"
+  },
+  "technicalServicePlaceholder": "Technical Service Name",
+  "@technicalServicePlaceholder": {
+    "description": "Placeholder for technical service name"
+  },
+  "categoryPlaceholder": "Category",
+  "@categoryPlaceholder": {
+    "description": "Placeholder for category"
+  },
+  "testimonialAdded": "Testimonial added successfully",
+  "@testimonialAdded": {
+    "description": "Success message when testimonial is added"
+  },
+  "failedToAddTestimonial": "Failed to add testimonial",
+  "@failedToAddTestimonial": {
+    "description": "Error message when testimonial addition fails"
+  },
+  "testimonialUpdated": "Testimonial updated successfully",
+  "@testimonialUpdated": {
+    "description": "Success message when testimonial is updated"
+  },
+  "failedToUpdateTestimonial": "Failed to update testimonial",
+  "@failedToUpdateTestimonial": {
+    "description": "Error message when testimonial update fails"
+  },
+  "testimonialDeleted": "Testimonial deleted successfully",
+  "@testimonialDeleted": {
+    "description": "Success message when testimonial is deleted"
+  },
+  "failedToDeleteTestimonial": "Failed to delete testimonial",
+  "@failedToDeleteTestimonial": {
+    "description": "Error message when testimonial deletion fails"
+  },
+  "editTestimonial": "Edit Testimonial",
+  "@editTestimonial": {
+    "description": "Title for edit testimonial sheet"
+  },
+  "addTestimonial": "Add Testimonial",
+  "@addTestimonial": {
+    "description": "Title for add testimonial sheet"
+  },
+  "shareThoughts": "Share your thoughts...",
+  "@shareThoughts": {
+    "description": "Placeholder for testimonial content field"
+  },
+  "update": "Update",
+  "@update": {
+    "description": "Label for update button"
+  },
+  "submit": "Submit",
+  "@submit": {
+    "description": "Label for submit button"
+  },
+  "deleteTestimonial": "Delete Testimonial",
+  "@deleteTestimonial": {
+    "description": "Title for delete confirmation dialog"
+  },
+  "deleteConfirmation": "Are you sure you want to delete this testimonial?",
+  "@deleteConfirmation": {
+    "description": "Message for delete confirmation dialog"
+  },
+  "edit": "Edit",
+  "@edit": {
+    "description": "Label for edit option"
+  },
+  "fallbackTestimonial": "Great service! Highly recommended.",
+  "@fallbackTestimonial": {
+    "description": "Fallback content for testimonial"
+  },
+  "servicePlaceholder": "Service Name Placeholder",
+  "@servicePlaceholder": {
+    "description": "Placeholder for service name"
+  },
+  "serviceDescriptionPlaceholder": "This is a lengthy description placeholder to simulate the visual weight of the text in the card.",
+  "@serviceDescriptionPlaceholder": {
+    "description": "Placeholder for service description"
+  },
+  "faqQuestionPlaceholder": "Common Question Placeholder?",
+  "@faqQuestionPlaceholder": {
+    "description": "Placeholder for faq question"
+  },
+  "faqAnswerPlaceholder": "This is a detailed answer placeholder to ensure the skeleton looks realistic. It spans multiple lines.",
+  "@faqAnswerPlaceholder": {
+    "description": "Placeholder for faq answer"
+  },
+  "testimonials": "Testimonials",
+  "@testimonials": {
+    "description": "Title for testimonials section"
+  },
+  "myTestimonials": "My Testimonials",
+  "@myTestimonials": {
+    "description": "Title for my testimonials view"
+  },
+  "loadingContent": "Loading content...",
+  "@loadingContent": {
+    "description": "Loading content text for skeletons"
+  },
+  "noTestimonialsYet": "No testimonials yet.",
+  "@noTestimonialsYet": {
+    "description": "Empty state message for testimonials"
+  },
+  "guestUser": "Guest User",
+  "@guestUser": {
+    "description": "Text displayed for unauthenticated users"
+  },
+  "guestEmail": "guest@example.com",
+  "@guestEmail": {
+    "description": "Placeholder email for unauthenticated users"
+  },
+  "saveChanges": "Save Changes",
+  "@saveChanges": {
+    "description": "Label for the save changes button"
+  },
+  "no_results": "No results found",
+  "@no_results": {
+    "description": "Message shown when no search results are found"
+  },
+  "searchPropertyPlaceholder": "Search for property...",
+  "@searchPropertyPlaceholder": {
+    "description": "Placeholder for property search input"
+  },
+  "search_title": "Search",
+  "@search_title": {
+    "description": "Title for the search screen"
+  },
+  "search_start_title": "Find your dream home",
+  "@search_start_title": {
+    "description": "Initial title displayed on search screen"
+  },
+  "search_start_subtitle": "Search for units, compounds, or developers",
+  "@search_start_subtitle": {
+    "description": "Initial subtitle displayed on search screen"
+  },
+  "search_results": "Search Results",
+  "@search_results": {
+    "description": "Label for search results section"
+  },
+  "profileGroupBookings": "Bookings",
+  "@profileGroupBookings": {
+    "description": "Title for bookings group in profile"
+  },
+  "profileGroupDiscover": "Discover",
+  "@profileGroupDiscover": {
+    "description": "Title for discover group in profile"
+  },
+  "profileGroupGeneral": "General",
+  "@profileGroupGeneral": {
+    "description": "Title for general group in profile"
+  },
+  "profileGroupSettings": "Settings",
+  "@profileGroupSettings": {
+    "description": "Title for settings group in profile"
+  }
+}
