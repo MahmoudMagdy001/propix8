@@ -127,14 +127,10 @@ class EditAccountView extends StatelessWidget {
                           context.read<UserProfileCubit>().deleteProfile();
                         },
                         isLoading: isLoading,
-                        backgroundColor: context.colorScheme.error,
                         foregroundColor: Colors.white,
                         padding: EdgeInsets.symmetric(vertical: 14.h),
                         text: context.l10n.confirmDeleteAccount,
-                        textStyle: context.textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
+
                         width: double.infinity,
                       ),
                       SizedBox(height: 12.h),

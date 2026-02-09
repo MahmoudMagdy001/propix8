@@ -65,6 +65,7 @@ import '../public_feature/services/deep_link_service.dart';
 import '../public_feature/services/pages_service.dart';
 import '../public_feature/services/storage_service.dart';
 import '../public_feature/viewmodels/pages_cubit.dart';
+import '../services/booking_event_service.dart';
 
 final locator = GetIt.instance;
 
@@ -97,6 +98,7 @@ Future<void> setupLocator() async {
     ..registerLazySingleton(() => OurServicesService(locator<DioClient>()))
     ..registerLazySingleton(() => SettingsService(locator<DioClient>()))
     ..registerLazySingleton(() => ContactService(locator<DioClient>()))
+    ..registerLazySingleton<BookingEventService>(() => BookingEventService())
     // Repositories
     ..registerFactory<OnboardingRepository>(() => OnboardingRepositoryImpl())
     ..registerLazySingleton<AuthRepository>(
@@ -107,7 +109,10 @@ Future<void> setupLocator() async {
       () => UnitRepositoryImpl(locator<UnitService>()),
     )
     ..registerLazySingleton<UnitDetailsRepository>(
-      () => UnitDetailsRepositoryImpl(locator<UnitDetailsService>()),
+      () => UnitDetailsRepositoryImpl(
+        locator<UnitDetailsService>(),
+        locator<BookingEventService>(),
+      ),
     )
     ..registerLazySingleton<CompoundRepository>(
       () => CompoundRepositoryImpl(locator<CompoundService>()),
@@ -119,15 +124,21 @@ Future<void> setupLocator() async {
       () => FavoriteRepositoryImpl(locator<FavoriteService>()),
     )
     ..registerLazySingleton<MaintenanceServiceRepository>(
-      () =>
-          MaintenanceServiceRepositoryImpl(locator<MaintenanceServiceSource>()),
+      () => MaintenanceServiceRepositoryImpl(
+        locator<MaintenanceServiceSource>(),
+        locator<BookingEventService>(),
+      ),
     )
     ..registerLazySingleton<BookingRepository>(
-      () => BookingRepositoryImpl(locator<BookingService>()),
+      () => BookingRepositoryImpl(
+        locator<BookingService>(),
+        locator<BookingEventService>(),
+      ),
     )
     ..registerLazySingleton<MaintenanceBookingRepository>(
       () => MaintenanceBookingRepositoryImpl(
         locator<MaintenanceBookingService>(),
+        locator<BookingEventService>(),
       ),
     )
     ..registerLazySingleton<DevelopersRepository>(
@@ -177,7 +188,12 @@ Future<void> setupLocator() async {
       ),
     )
     ..registerLazySingleton(
-      () => UserProfileCubit(locator<UserProfileRepository>()),
+      () => UserProfileCubit(
+        locator<UserProfileRepository>(),
+        locator<BookingRepository>(),
+        locator<MaintenanceBookingRepository>(),
+        locator<BookingEventService>(),
+      ),
     )
     ..registerLazySingleton(() => AddressSetupService(locator<DioClient>()))
     ..registerLazySingleton<AddressSetupRepository>(

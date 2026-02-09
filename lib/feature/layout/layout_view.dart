@@ -58,6 +58,9 @@ class _LayoutViewState extends State<LayoutView> with BackExitOverlayHelper {
 
     setState(() {
       _selectedIndex = index;
+      if (index == 3) {
+        locator<UserProfileCubit>().fetchBookingCounts();
+      }
       // Initialize screen if it hasn't been initialized yet
       if (_screens[index] is SizedBox) {
         switch (index) {

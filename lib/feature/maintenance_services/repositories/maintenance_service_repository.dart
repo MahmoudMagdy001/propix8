@@ -1,3 +1,4 @@
+import '../../../core/services/booking_event_service.dart';
 import '../models/maintenance_booking_model.dart';
 import '../models/maintenance_service_model.dart';
 import '../services/maintenance_service_source.dart';
@@ -13,8 +14,12 @@ abstract class MaintenanceServiceRepository {
 }
 
 class MaintenanceServiceRepositoryImpl implements MaintenanceServiceRepository {
-  MaintenanceServiceRepositoryImpl(this._serviceSource);
+  MaintenanceServiceRepositoryImpl(
+    this._serviceSource,
+    this._bookingEventService,
+  );
   final MaintenanceServiceSource _serviceSource;
+  final BookingEventService _bookingEventService;
 
   @override
   Future<MaintenanceServicesResponse> getMaintenanceServices() async {
@@ -33,12 +38,14 @@ class MaintenanceServiceRepositoryImpl implements MaintenanceServiceRepository {
     required String message,
   }) async {
     try {
-      return await _serviceSource.bookMaintenance(
+      final response = await _serviceSource.bookMaintenance(
         maintenanceServiceId: maintenanceServiceId,
         phone: phone,
         address: address,
         message: message,
       );
+      _bookingEventService.notifyBookingChanged();
+      return response;
     } catch (e) {
       rethrow;
     }

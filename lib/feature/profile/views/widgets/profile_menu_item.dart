@@ -10,12 +10,15 @@ class ProfileMenuItem extends StatelessWidget {
     required this.onTap,
     super.key,
     this.isDestructive = false,
+    this.badgeCount,
   });
 
   final String title;
   final IconData icon;
   final VoidCallback onTap;
   final bool isDestructive;
+  final int? badgeCount;
+
   @override
   Widget build(BuildContext context) => Material(
     color: Colors.transparent,
@@ -36,6 +39,23 @@ class ProfileMenuItem extends StatelessWidget {
                 ),
               ),
             ),
+            if (badgeCount != null && badgeCount! > 0) ...[
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.h),
+                decoration: BoxDecoration(
+                  color: context.colorScheme.primary,
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
+                child: Text(
+                  badgeCount.toString(),
+                  style: context.textTheme.labelSmall?.copyWith(
+                    color: context.colorScheme.onPrimary,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              SizedBox(width: 8.w),
+            ],
             Icon(Icons.arrow_forward_ios, size: 16.r, color: Colors.grey),
           ],
         ),

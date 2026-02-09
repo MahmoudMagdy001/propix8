@@ -65,8 +65,8 @@ class BookingCard extends StatelessWidget {
                               child: Text(context.l10n.cancel),
                             ),
                             AppElevatedButton(
+                              backgroundColor: context.theme.colorScheme.error,
                               onPressed: () => Navigator.pop(context, true),
-                              backgroundColor: context.colorScheme.error,
                               foregroundColor: Colors.white,
                               text: context.l10n.delete,
                             ),
@@ -360,7 +360,6 @@ class BookingCard extends StatelessWidget {
             },
             icon: Icon(Icons.check_circle, size: 20.sp),
             text: context.l10n.approveSuggestedTime,
-            backgroundColor: AppColors.success,
             foregroundColor: Colors.white,
             padding: EdgeInsets.symmetric(vertical: 12.h),
             borderRadius: 8.r,
@@ -429,8 +428,8 @@ class BookingCard extends StatelessWidget {
                     child: Text(context.l10n.back),
                   ),
                   AppElevatedButton(
-                    onPressed: () => Navigator.pop(context, true),
                     backgroundColor: context.colorScheme.error,
+                    onPressed: () => Navigator.pop(context, true),
                     text: context.l10n.cancelBooking,
                   ),
                 ],

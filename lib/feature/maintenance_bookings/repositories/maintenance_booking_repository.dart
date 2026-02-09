@@ -1,3 +1,4 @@
+import '../../../core/services/booking_event_service.dart';
 import '../models/maintenance_booking_model.dart';
 import '../services/maintenance_booking_service.dart';
 
@@ -15,8 +16,9 @@ abstract class MaintenanceBookingRepository {
 }
 
 class MaintenanceBookingRepositoryImpl implements MaintenanceBookingRepository {
-  MaintenanceBookingRepositoryImpl(this._service);
+  MaintenanceBookingRepositoryImpl(this._service, this._bookingEventService);
   final MaintenanceBookingService _service;
+  final BookingEventService _bookingEventService;
 
   @override
   Future<MaintenanceBookingsListResponse> getMaintenanceBookings({
@@ -32,7 +34,11 @@ class MaintenanceBookingRepositoryImpl implements MaintenanceBookingRepository {
   @override
   Future<bool> deleteMaintenanceBooking(int id) async {
     try {
-      return await _service.deleteMaintenanceBooking(id);
+      final success = await _service.deleteMaintenanceBooking(id);
+      if (success) {
+        _bookingEventService.notifyBookingChanged();
+      }
+      return success;
     } catch (e) {
       rethrow;
     }

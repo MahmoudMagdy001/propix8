@@ -17,7 +17,6 @@ class AppElevatedButton extends StatelessWidget {
     this.foregroundColor,
     this.borderRadius,
     this.padding,
-    this.textStyle,
   });
 
   final VoidCallback? onPressed;
@@ -25,13 +24,16 @@ class AppElevatedButton extends StatelessWidget {
   final Widget? icon;
   final bool isLoading;
   final bool enabled;
+
   final double? width;
   final double? height;
+
+  /// Optional colors
   final Color? backgroundColor;
   final Color? foregroundColor;
+
   final double? borderRadius;
   final EdgeInsetsGeometry? padding;
-  final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +41,18 @@ class AppElevatedButton extends StatelessWidget {
 
     final buttonStyle =
         ElevatedButton.styleFrom(
-          disabledBackgroundColor: context.colorScheme.primary.withValues(
-            alpha: 0.2,
-          ),
-          disabledForegroundColor: context.colorScheme.onPrimary.withValues(
-            alpha: 0.4,
+          backgroundColor: backgroundColor,
+          foregroundColor: foregroundColor,
+          disabledBackgroundColor:
+              backgroundColor?.withValues(alpha: 0.2) ??
+              context.colorScheme.primary.withValues(alpha: 0.2),
+          disabledForegroundColor:
+              (foregroundColor ?? context.colorScheme.onPrimary).withValues(
+                alpha: 0.4,
+              ),
+          padding: padding,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(borderRadius ?? 12),
           ),
         ).copyWith(
           fixedSize: (width != null || height != null)
@@ -53,7 +62,7 @@ class AppElevatedButton extends StatelessWidget {
               : null,
         );
 
-    Widget content = isLoading
+    final Widget content = isLoading
         ? SizedBox(
             height: 20.h,
             width: 20.h,

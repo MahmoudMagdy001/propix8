@@ -1,4 +1,5 @@
 import '../../../core/models/pagination_model.dart';
+import '../../../core/services/booking_event_service.dart';
 import '../../home/models/unit_model.dart';
 import '../models/booking_request_model.dart';
 import '../models/booking_response_model.dart';
@@ -24,8 +25,12 @@ abstract class UnitDetailsRepository {
 }
 
 class UnitDetailsRepositoryImpl implements UnitDetailsRepository {
-  UnitDetailsRepositoryImpl(this._unitDetailsService);
+  UnitDetailsRepositoryImpl(
+    this._unitDetailsService,
+    this._bookingEventService,
+  );
   final UnitDetailsService _unitDetailsService;
+  final BookingEventService _bookingEventService;
 
   @override
   Future<UnitDetailsModel> getUnitDetails(int unitId) async {
@@ -139,6 +144,7 @@ class UnitDetailsRepositoryImpl implements UnitDetailsRepository {
   Future<BookingResponse> createBooking(BookingRequest request) async {
     try {
       final json = await _unitDetailsService.createBooking(request.toJson());
+      _bookingEventService.notifyBookingChanged();
       return BookingResponse.fromJson(json);
     } catch (e) {
       rethrow;

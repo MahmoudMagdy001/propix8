@@ -73,7 +73,6 @@ class ServiceCard extends StatelessWidget {
                     ? context.l10n.serviceBooked
                     : context.l10n.bookNow,
                 width: double.infinity,
-                textStyle: TextStyle(fontSize: 12.sp),
               ),
             ],
           ),

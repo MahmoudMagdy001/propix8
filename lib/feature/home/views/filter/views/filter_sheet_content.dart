@@ -85,10 +85,6 @@ class FilterSheetContent extends StatelessWidget {
               text: l10n.apply,
               width: double.infinity,
               height: 48.h,
-              textStyle: context.textTheme.titleMedium?.copyWith(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
             ),
           ],
         ),

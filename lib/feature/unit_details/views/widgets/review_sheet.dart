@@ -127,10 +127,7 @@ class _ReviewSheetState extends State<ReviewSheet> {
                   text: widget.review != null
                       ? context.l10n.updateReview
                       : context.l10n.submitReview,
-                  textStyle: context.textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+
                   height: 50.h,
                   width: double.infinity,
                   padding: EdgeInsets.symmetric(vertical: 16.h),

@@ -1,15 +1,33 @@
+import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/di/locator.dart';
+import '../../../core/services/booking_event_service.dart';
 import '../../auth/models/auth_model.dart';
 import '../../auth/viewmodels/auth_cubit.dart';
+import '../../bookings/repositories/booking_repository.dart';
+import '../../maintenance_bookings/repositories/maintenance_booking_repository.dart';
 import '../repositories/user_profile_repository.dart';
 import 'user_profile_state.dart';
 
 class UserProfileCubit extends Cubit<UserProfileState> {
-  UserProfileCubit(this._repository) : super(const UserProfileState());
+  UserProfileCubit(
+    this._repository,
+    this._bookingRepository,
+    this._maintenanceBookingRepository,
+    this._bookingEventService,
+  ) : super(const UserProfileState()) {
+    _bookingSubscription = _bookingEventService.bookingChanged.listen((_) {
+      fetchBookingCounts();
+    });
+  }
 
   final UserProfileRepository _repository;
+  final BookingRepository _bookingRepository;
+  final MaintenanceBookingRepository _maintenanceBookingRepository;
+  final BookingEventService _bookingEventService;
+  StreamSubscription? _bookingSubscription;
 
   Future<void> loadProfile() async {
     emit(state.copyWith(status: UserProfileStatus.loading));
@@ -19,15 +37,40 @@ class UserProfileCubit extends Cubit<UserProfileState> {
       (error) => emit(
         state.copyWith(status: UserProfileStatus.failure, errorMessage: error),
       ),
-      (user) {
+      (user) async {
         locator<AuthCubit>().updateUser(user);
         emit(state.copyWith(status: UserProfileStatus.success, user: user));
+        await fetchBookingCounts();
       },
     );
   }
 
+  Future<void> fetchBookingCounts() async {
+    try {
+      final propertyBookings = await _bookingRepository.getBookings();
+      final maintenanceBookings = await _maintenanceBookingRepository
+          .getMaintenanceBookings();
+
+      final pCount =
+          propertyBookings.pagination?.total ?? propertyBookings.data.length;
+      final sCount =
+          maintenanceBookings.pagination?.total ??
+          maintenanceBookings.data.length;
+
+      emit(
+        state.copyWith(
+          propertyBookingCount: pCount,
+          serviceBookingCount: sCount,
+        ),
+      );
+    } catch (e) {
+      // Failed silently
+    }
+  }
+
   void setUser(User user) {
     emit(state.copyWith(user: user));
+    fetchBookingCounts();
   }
 
   Future<void> updateProfile(
@@ -72,5 +115,11 @@ class UserProfileCubit extends Cubit<UserProfileState> {
       ),
       (_) => emit(state.copyWith(status: UserProfileStatus.accountDeleted)),
     );
+  }
+
+  @override
+  Future<void> close() {
+    _bookingSubscription?.cancel();
+    return super.close();
   }
 }

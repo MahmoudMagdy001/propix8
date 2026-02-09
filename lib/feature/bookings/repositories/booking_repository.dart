@@ -1,3 +1,4 @@
+import '../../../core/services/booking_event_service.dart';
 import '../models/booking_model.dart';
 import '../services/booking_service.dart';
 
@@ -17,8 +18,9 @@ abstract class BookingRepository {
 }
 
 class BookingRepositoryImpl implements BookingRepository {
-  BookingRepositoryImpl(this._bookingService);
+  BookingRepositoryImpl(this._bookingService, this._bookingEventService);
   final BookingService _bookingService;
+  final BookingEventService _bookingEventService;
 
   @override
   Future<BookingResponse> getBookings({int page = 1}) async {
@@ -35,10 +37,14 @@ class BookingRepositoryImpl implements BookingRepository {
     required String status,
   }) async {
     try {
-      return await _bookingService.updateBookingStatus(
+      final success = await _bookingService.updateBookingStatus(
         bookingId: bookingId,
         status: status,
       );
+      if (success) {
+        _bookingEventService.notifyBookingChanged();
+      }
+      return success;
     } catch (e) {
       rethrow;
     }
@@ -66,7 +72,11 @@ class BookingRepositoryImpl implements BookingRepository {
   @override
   Future<bool> deleteBooking(int bookingId) async {
     try {
-      return await _bookingService.deleteBooking(bookingId);
+      final success = await _bookingService.deleteBooking(bookingId);
+      if (success) {
+        _bookingEventService.notifyBookingChanged();
+      }
+      return success;
     } catch (e) {
       rethrow;
     }
