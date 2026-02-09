@@ -93,7 +93,6 @@ class _EditMaintenanceBookingSheetState
               });
             }
           },
-          padding: EdgeInsets.symmetric(vertical: 16.h),
           text: context.l10n.saveChanges,
         ),
       ],

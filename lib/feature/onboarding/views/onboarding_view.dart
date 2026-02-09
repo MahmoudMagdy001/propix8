@@ -164,12 +164,10 @@ class _OnboardingViewBodyState extends State<_OnboardingViewBody> {
                     // Buttons
                     if (state.pageIndex == state.pages.length - 1)
                       // Last Page: Start Now
-                      SizedBox(
+                      AppElevatedButton(
                         width: double.infinity,
-                        child: AppElevatedButton(
-                          onPressed: _completeOnboarding,
-                          text: l10n.startNow,
-                        ),
+                        onPressed: _completeOnboarding,
+                        text: l10n.startNow,
                       )
                     else
                       // Pages 0 & 1: Next + Back/Skip

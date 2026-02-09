@@ -55,20 +55,18 @@ class ServiceCard extends StatelessWidget {
               ),
               SizedBox(height: 8.h),
               AppElevatedButton(
-                onPressed: isBooked
-                    ? null
-                    : () {
-                        showAppModalSheet(
-                          context: context,
-                          title: context.l10n.bookNow,
-                          child: MaintenanceBookingForm(
-                            serviceId: service.id,
-                            serviceName: service.title,
-                            onBookingSuccess: onBooked,
-                          ),
-                        );
-                      },
-                padding: EdgeInsets.symmetric(vertical: 8.h),
+                enabled: !isBooked,
+                onPressed: () {
+                  showAppModalSheet(
+                    context: context,
+                    title: context.l10n.bookNow,
+                    child: MaintenanceBookingForm(
+                      serviceId: service.id,
+                      serviceName: service.title,
+                      onBookingSuccess: onBooked,
+                    ),
+                  );
+                },
                 text: isBooked
                     ? context.l10n.serviceBooked
                     : context.l10n.bookNow,

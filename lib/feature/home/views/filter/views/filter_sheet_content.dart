@@ -79,7 +79,6 @@ class FilterSheetContent extends StatelessWidget {
             SizedBox(height: 16.h),
             AppElevatedButton(
               onPressed: () {
-                // Apply filters and close
                 Navigator.pop(context, state);
               },
               text: l10n.apply,

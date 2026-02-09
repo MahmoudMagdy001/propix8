@@ -161,40 +161,34 @@ class MaintenanceBookingCard extends StatelessWidget {
 
               if (booking.status.toLowerCase() == 'pending') ...[
                 SizedBox(height: 12.h),
-                SizedBox(
+                AppElevatedButton(
                   width: double.infinity,
-                  child: AppElevatedButton(
-                    onPressed: () async {
-                      final result =
-                          await showAppModalSheet<Map<String, String>>(
-                            context: context,
-                            title: context
-                                .l10n
-                                .maintenance_bookings_card_editTitle,
-                            child: EditMaintenanceBookingSheet(
-                              booking: booking,
-                            ),
-                          );
 
-                      if (result != null && context.mounted) {
-                        await context
-                            .read<MaintenanceBookingsCubit>()
-                            .updateMaintenanceBooking(
-                              id: booking.id,
-                              phone: result['phone']!,
-                              address: result['address']!,
-                              message: result['message']!,
-                            );
-                        if (context.mounted) {
-                          context.showSuccessSnackbar(
-                            context.l10n.maintenance_bookings_card_editSuccess,
+                  onPressed: () async {
+                    final result = await showAppModalSheet<Map<String, String>>(
+                      context: context,
+                      title: context.l10n.maintenance_bookings_card_editTitle,
+                      child: EditMaintenanceBookingSheet(booking: booking),
+                    );
+
+                    if (result != null && context.mounted) {
+                      await context
+                          .read<MaintenanceBookingsCubit>()
+                          .updateMaintenanceBooking(
+                            id: booking.id,
+                            phone: result['phone']!,
+                            address: result['address']!,
+                            message: result['message']!,
                           );
-                        }
+                      if (context.mounted) {
+                        context.showSuccessSnackbar(
+                          context.l10n.maintenance_bookings_card_editSuccess,
+                        );
                       }
-                    },
-                    icon: Icon(Icons.edit, size: 18.sp),
-                    text: context.l10n.maintenance_bookings_card_editButton,
-                  ),
+                    }
+                  },
+                  icon: Icon(Icons.edit, size: 18.sp),
+                  text: context.l10n.maintenance_bookings_card_editButton,
                 ),
               ],
 

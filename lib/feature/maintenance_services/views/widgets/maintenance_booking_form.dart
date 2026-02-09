@@ -140,7 +140,6 @@ class _MaintenanceBookingFormState extends State<MaintenanceBookingForm> {
                     }
                   },
                   isLoading: isLoading,
-                  padding: EdgeInsets.symmetric(vertical: 16.h),
                   text: context.l10n.bookNow,
                 );
               },

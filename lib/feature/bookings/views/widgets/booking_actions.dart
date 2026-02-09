@@ -26,41 +26,36 @@ class BookingActions extends StatelessWidget {
         SizedBox(height: 16.h),
         // Accept Button (only for reschedule_admin)
         if (booking.status == 'reschedule_admin') ...[
-          SizedBox(
+          AppElevatedButton(
+            onPressed: () => _showApproveDialog(context),
+            icon: Icon(Icons.check_circle, size: 20.sp),
+            text: context.l10n.approveSuggestedTime,
+            backgroundColor: context.colorScheme.tertiary,
             width: double.infinity,
-            child: AppElevatedButton(
-              onPressed: () => _showApproveDialog(context),
-              icon: Icon(Icons.check_circle, size: 20.sp),
-              text: context.l10n.approveSuggestedTime,
-              backgroundColor: context.colorScheme.tertiary,
-            ),
           ),
           SizedBox(height: 8.h),
         ],
 
         // Suggest Another Time / Edit Button
-        SizedBox(
+        AppElevatedButton(
           width: double.infinity,
-          child: AppElevatedButton(
-            onPressed: () => _showSuggestTimeModal(context),
-            icon: Icon(Icons.schedule, size: 20.sp),
-            text: booking.status == 'pending'
-                ? context.l10n.editBookingTime
-                : context.l10n.suggestAnotherTime,
-          ),
+
+          onPressed: () => _showSuggestTimeModal(context),
+          icon: Icon(Icons.schedule, size: 20.sp),
+          text: booking.status == 'pending'
+              ? context.l10n.editBookingTime
+              : context.l10n.suggestAnotherTime,
         ),
 
         SizedBox(height: 8.h),
 
         // Cancel Button
-        SizedBox(
+        AppElevatedButton(
+          onPressed: () => _showCancelDialog(context),
+          icon: Icon(Icons.cancel, size: 20.sp),
+          text: context.l10n.cancelBooking,
+          backgroundColor: context.colorScheme.error,
           width: double.infinity,
-          child: AppElevatedButton(
-            onPressed: () => _showCancelDialog(context),
-            icon: Icon(Icons.cancel, size: 20.sp),
-            text: context.l10n.cancelBooking,
-            backgroundColor: context.colorScheme.error,
-          ),
         ),
       ],
     );

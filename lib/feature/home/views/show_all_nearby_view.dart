@@ -56,7 +56,17 @@ class _ShowAllNearbyContentState extends State<_ShowAllNearbyContent> {
     super.dispose();
   }
 
+  bool _showFab = false;
+
   void _onScroll() {
+    if (_scrollController.hasClients) {
+      if (_scrollController.offset > 200 && !_showFab) {
+        setState(() => _showFab = true);
+      } else if (_scrollController.offset <= 200 && _showFab) {
+        setState(() => _showFab = false);
+      }
+    }
+
     if (_isBottom) {
       context.read<NearbyUnitsCubit>().loadMoreUnits();
     }
@@ -178,6 +188,19 @@ class _ShowAllNearbyContentState extends State<_ShowAllNearbyContent> {
         ),
       ],
     ),
+    floatingActionButton: _showFab
+        ? FloatingActionButton(
+            mini: true,
+            onPressed: () {
+              _scrollController.animateTo(
+                0,
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.easeInOut,
+              );
+            },
+            child: const Icon(Icons.arrow_upward),
+          )
+        : null,
   );
 
   Widget _buildErrorState() => SliverFillRemaining(

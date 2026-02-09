@@ -45,7 +45,17 @@ class _SearchViewContentState extends State<_SearchViewContent> {
     super.dispose();
   }
 
+  bool _showFab = false;
+
   void _onScroll() {
+    if (_scrollController.hasClients) {
+      if (_scrollController.offset > 200 && !_showFab) {
+        setState(() => _showFab = true);
+      } else if (_scrollController.offset <= 200 && _showFab) {
+        setState(() => _showFab = false);
+      }
+    }
+
     if (_isBottom) {
       context.read<SearchCubit>().loadMore();
     }
@@ -80,5 +90,18 @@ class _SearchViewContentState extends State<_SearchViewContent> {
         ),
       ),
     ),
+    floatingActionButton: _showFab
+        ? FloatingActionButton(
+            mini: true,
+            onPressed: () {
+              _scrollController.animateTo(
+                0,
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.easeInOut,
+              );
+            },
+            child: const Icon(Icons.arrow_upward),
+          )
+        : null,
   );
 }
