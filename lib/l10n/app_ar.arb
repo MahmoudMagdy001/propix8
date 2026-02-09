@@ -1474,5 +1474,21 @@
     "currentLocation": "موقعي الحالي",
     "@currentLocation": {
         "description": "Label for current location button"
+    },
+    "tabOverview": "نظرة عامة",
+    "@tabOverview": {
+        "description": "Tab label for overview section in unit details"
+    },
+    "tabDetails": "التفاصيل",
+    "@tabDetails": {
+        "description": "Tab label for details section in unit details"
+    },
+    "tabMedia": "الوسائط",
+    "@tabMedia": {
+        "description": "Tab label for media section in unit details"
+    },
+    "tabProject": "المشروع",
+    "@tabProject": {
+        "description": "Tab label for compound and developer section in unit details"
     }
 }

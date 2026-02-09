@@ -1108,4 +1108,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get currentLocation => 'موقعي الحالي';
+
+  @override
+  String get tabOverview => 'نظرة عامة';
+
+  @override
+  String get tabDetails => 'التفاصيل';
+
+  @override
+  String get tabMedia => 'الوسائط';
+
+  @override
+  String get tabProject => 'المشروع';
 }

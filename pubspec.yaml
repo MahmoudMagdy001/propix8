@@ -60,6 +60,7 @@ dependencies:
   url_launcher: ^6.3.2
   visibility_detector: ^0.4.0+2
   connectivity_plus: ^7.0.0
+  loading_animation_widget: ^1.3.0
 
 dev_dependencies:
   flutter_test:

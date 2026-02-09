@@ -2284,6 +2284,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Current Location'**
   String get currentLocation;
+
+  /// Tab label for overview section in unit details
+  ///
+  /// In en, this message translates to:
+  /// **'Overview'**
+  String get tabOverview;
+
+  /// Tab label for details section in unit details
+  ///
+  /// In en, this message translates to:
+  /// **'Details'**
+  String get tabDetails;
+
+  /// Tab label for media section in unit details
+  ///
+  /// In en, this message translates to:
+  /// **'Media'**
+  String get tabMedia;
+
+  /// Tab label for compound and developer section in unit details
+  ///
+  /// In en, this message translates to:
+  /// **'Project'**
+  String get tabProject;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

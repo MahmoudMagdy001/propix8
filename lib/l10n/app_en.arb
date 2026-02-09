@@ -1474,5 +1474,21 @@
   "currentLocation": "Current Location",
   "@currentLocation": {
     "description": "Label for current location button"
+  },
+  "tabOverview": "Overview",
+  "@tabOverview": {
+    "description": "Tab label for overview section in unit details"
+  },
+  "tabDetails": "Details",
+  "@tabDetails": {
+    "description": "Tab label for details section in unit details"
+  },
+  "tabMedia": "Media",
+  "@tabMedia": {
+    "description": "Tab label for media section in unit details"
+  },
+  "tabProject": "Project",
+  "@tabProject": {
+    "description": "Tab label for compound and developer section in unit details"
   }
 }

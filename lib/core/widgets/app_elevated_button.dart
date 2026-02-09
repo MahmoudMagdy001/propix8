@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 import '../utils/context_extensions.dart';
 import '../utils/responsive_helper.dart';
@@ -66,9 +67,9 @@ class AppElevatedButton extends StatelessWidget {
         ? SizedBox(
             height: 20.h,
             width: 20.h,
-            child: CircularProgressIndicator(
-              strokeWidth: 2,
-              color: foregroundColor ?? context.colorScheme.onPrimary,
+            child: LoadingAnimationWidget.staggeredDotsWave(
+              color: Colors.white,
+              size: 18.w,
             ),
           )
         : Row(

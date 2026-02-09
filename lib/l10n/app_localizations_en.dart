@@ -1108,4 +1108,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get currentLocation => 'Current Location';
+
+  @override
+  String get tabOverview => 'Overview';
+
+  @override
+  String get tabDetails => 'Details';
+
+  @override
+  String get tabMedia => 'Media';
+
+  @override
+  String get tabProject => 'Project';
 }
