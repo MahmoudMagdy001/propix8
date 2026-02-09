@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/widgets/app_elevated_button.dart';
+import '../../../../core/widgets/app_form.dart';
 import '../../../../core/widgets/app_modal_sheet.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
 import '../../models/testimonial_model.dart';
@@ -36,6 +37,7 @@ class AddTestimonialSheet extends StatefulWidget {
 class _AddTestimonialSheetState extends State<AddTestimonialSheet> {
   final _formKey = GlobalKey<FormState>();
   late TextEditingController _contentController;
+  final _appFormKey = GlobalKey<AppFormState>();
 
   @override
   void initState() {
@@ -66,56 +68,56 @@ class _AddTestimonialSheetState extends State<AddTestimonialSheet> {
             Navigator.of(context).pop();
           }
         },
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 6.w),
-          child: BlocBuilder<OurServicesCubit, OurServicesState>(
-            builder: (context, state) {
-              final isLoading =
-                  state.addTestimonialStatus == OurServicesStatus.loading ||
-                  state.updateTestimonialStatus == OurServicesStatus.loading;
+        child: BlocBuilder<OurServicesCubit, OurServicesState>(
+          builder: (context, state) {
+            final isLoading =
+                state.addTestimonialStatus == OurServicesStatus.loading ||
+                state.updateTestimonialStatus == OurServicesStatus.loading;
 
-              return Form(
-                key: _formKey,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    AppTextFormField(
-                      controller: _contentController,
-                      label: context.l10n.shareThoughts,
-                      prefixIcon: Icon(Icons.notes_rounded, size: 20.w),
-                      maxLines: 4,
-                      validator: (value) => value?.trim().isEmpty ?? true
-                          ? context.l10n.fieldRequired
-                          : null,
-                    ),
-                    SizedBox(height: 24.h),
-                    AppElevatedButton(
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          if (widget.testimonial != null) {
-                            context.read<OurServicesCubit>().updateTestimonial(
-                              widget.testimonial!.id,
-                              _contentController.text.trim(),
-                            );
-                          } else {
-                            context.read<OurServicesCubit>().addTestimonial(
-                              _contentController.text.trim(),
-                            );
-                          }
+            return AppForm(
+              key: _appFormKey,
+              formKey: _formKey,
+              padding: EdgeInsets.symmetric(horizontal: 6.w),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  AppTextFormField(
+                    controller: _contentController,
+                    label: context.l10n.shareThoughts,
+                    prefixIcon: Icon(Icons.notes_rounded, size: 20.w),
+                    maxLines: 4,
+                    validator: (value) => value?.trim().isEmpty ?? true
+                        ? context.l10n.fieldRequired
+                        : null,
+                  ),
+                  SizedBox(height: 24.h),
+                  AppElevatedButton(
+                    onPressed: () {
+                      if (_appFormKey.currentState?.validateAndScroll() ??
+                          false) {
+                        if (widget.testimonial != null) {
+                          context.read<OurServicesCubit>().updateTestimonial(
+                            widget.testimonial!.id,
+                            _contentController.text.trim(),
+                          );
+                        } else {
+                          context.read<OurServicesCubit>().addTestimonial(
+                            _contentController.text.trim(),
+                          );
                         }
-                      },
-                      isLoading: isLoading,
-                      padding: EdgeInsets.symmetric(vertical: 16.h),
-                      text: widget.testimonial != null
-                          ? context.l10n.update
-                          : context.l10n.submit,
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
+                      }
+                    },
+                    isLoading: isLoading,
+                    padding: EdgeInsets.symmetric(vertical: 16.h),
+                    text: widget.testimonial != null
+                        ? context.l10n.update
+                        : context.l10n.submit,
+                  ),
+                ],
+              ),
+            );
+          },
         ),
       );
 }

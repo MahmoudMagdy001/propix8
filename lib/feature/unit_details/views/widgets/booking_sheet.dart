@@ -8,6 +8,7 @@ import '../../../../core/utils/date_time_utils.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/utils/snackbar_utils.dart';
 import '../../../../core/widgets/app_elevated_button.dart';
+import '../../../../core/widgets/app_form.dart';
 import '../../../../core/widgets/app_modal_sheet.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
 import '../../../../core/widgets/terms_checkbox.dart';
@@ -42,6 +43,7 @@ class _BookingSheetState extends State<BookingSheet> {
   final _dateController = TextEditingController();
   final _timeController = TextEditingController();
   final _notesController = TextEditingController();
+  final _appFormKey = GlobalKey<AppFormState>();
 
   DateTime? _selectedDate;
   TimeOfDay? _selectedTime;
@@ -96,8 +98,8 @@ class _BookingSheetState extends State<BookingSheet> {
     }
   }
 
-  void _submit() {
-    if (_formKey.currentState?.validate() ?? false) {
+  void _submit(BuildContext context) {
+    if (_appFormKey.currentState?.validateAndScroll() ?? false) {
       final request = BookingRequest(
         unitId: widget.unitId,
         name: _nameController.text,
@@ -114,7 +116,9 @@ class _BookingSheetState extends State<BookingSheet> {
   }
 
   @override
-  Widget build(BuildContext context) => SingleChildScrollView(
+  Widget build(BuildContext context) => AppForm(
+    key: _appFormKey,
+    formKey: _formKey,
     padding: EdgeInsets.symmetric(horizontal: 6.w),
     child: BlocConsumer<UnitDetailsCubit, UnitDetailsState>(
       listenWhen: (previous, current) =>
@@ -133,139 +137,132 @@ class _BookingSheetState extends State<BookingSheet> {
           context.read<UnitDetailsCubit>().resetBookingStatus();
         }
       },
-      builder: (context, state) => Form(
-        key: _formKey,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            AppTextFormField(
-              controller: _nameController,
-              label: context.l10n.name,
-              prefixIcon: Icon(Icons.person_outline_rounded, size: 20.w),
-              validator: (v) =>
-                  v?.isEmpty ?? true ? context.l10n.fieldRequired : null,
-            ),
-            SizedBox(height: 12.h),
-            AppTextFormField(
-              controller: _emailController,
-              label: context.l10n.email,
-              prefixIcon: Icon(Icons.email_outlined, size: 20.w),
-              keyboardType: TextInputType.emailAddress,
-              validator: (v) =>
-                  v?.isEmpty ?? true ? context.l10n.fieldRequired : null,
-            ),
-            SizedBox(height: 12.h),
-            AppTextFormField(
-              controller: _phoneController,
-              label: context.l10n.phone,
-              prefixIcon: Icon(Icons.phone_outlined, size: 20.w),
-              keyboardType: TextInputType.phone,
-              validator: (v) =>
-                  v?.isEmpty ?? true ? context.l10n.fieldRequired : null,
-            ),
-            SizedBox(height: 12.h),
-            Row(
-              children: [
-                Expanded(
-                  child: AppTextFormField(
-                    controller: _dateController,
-                    label: context.l10n.unit_details_booking_date,
-                    prefixIcon: Icon(Icons.calendar_today_outlined, size: 20.w),
-                    readOnly: true,
-                    onTap: _selectDate,
-                    validator: (v) =>
-                        v?.isEmpty ?? true ? context.l10n.fieldRequired : null,
-                  ),
+      builder: (context, state) => Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          AppTextFormField(
+            controller: _nameController,
+            label: context.l10n.name,
+            prefixIcon: Icon(Icons.person_outline_rounded, size: 20.w),
+            validator: (v) =>
+                v?.isEmpty ?? true ? context.l10n.fieldRequired : null,
+          ),
+          SizedBox(height: 12.h),
+          AppTextFormField(
+            controller: _emailController,
+            label: context.l10n.email,
+            prefixIcon: Icon(Icons.email_outlined, size: 20.w),
+            keyboardType: TextInputType.emailAddress,
+            validator: (v) =>
+                v?.isEmpty ?? true ? context.l10n.fieldRequired : null,
+          ),
+          SizedBox(height: 12.h),
+          AppTextFormField(
+            controller: _phoneController,
+            label: context.l10n.phone,
+            prefixIcon: Icon(Icons.phone_outlined, size: 20.w),
+            keyboardType: TextInputType.phone,
+            validator: (v) =>
+                v?.isEmpty ?? true ? context.l10n.fieldRequired : null,
+          ),
+          SizedBox(height: 12.h),
+          Row(
+            children: [
+              Expanded(
+                child: AppTextFormField(
+                  controller: _dateController,
+                  label: context.l10n.unit_details_booking_date,
+                  prefixIcon: Icon(Icons.calendar_today_outlined, size: 20.w),
+                  readOnly: true,
+                  onTap: _selectDate,
+                  validator: (v) =>
+                      v?.isEmpty ?? true ? context.l10n.fieldRequired : null,
                 ),
-                SizedBox(width: 12.w),
-                Expanded(
-                  child: AppTextFormField(
-                    controller: _timeController,
-                    label: context.l10n.unit_details_booking_time,
-                    prefixIcon: Icon(Icons.access_time_rounded, size: 20.w),
-                    readOnly: true,
-                    onTap: _selectTime,
-                    validator: (v) =>
-                        v?.isEmpty ?? true ? context.l10n.fieldRequired : null,
+              ),
+              SizedBox(width: 12.w),
+              Expanded(
+                child: AppTextFormField(
+                  controller: _timeController,
+                  label: context.l10n.unit_details_booking_time,
+                  prefixIcon: Icon(Icons.access_time_rounded, size: 20.w),
+                  readOnly: true,
+                  onTap: _selectTime,
+                  validator: (v) =>
+                      v?.isEmpty ?? true ? context.l10n.fieldRequired : null,
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 12.h),
+          AppTextFormField(
+            controller: _notesController,
+            label: context.l10n.unit_details_booking_notes,
+            prefixIcon: Icon(Icons.notes_rounded, size: 20.w),
+            maxLines: 3,
+          ),
+          BlocSelector<
+            UnitDetailsCubit,
+            UnitDetailsState,
+            ({RequestStatus status, String? errorMessage})
+          >(
+            selector: (state) => (
+              status: state.bookingStatus,
+              errorMessage: state.bookingErrorMessage,
+            ),
+            builder: (context, result) => Column(
+              children: [
+                if (result.status == RequestStatus.failure &&
+                    result.errorMessage != null) ...[
+                  SizedBox(height: 16.h),
+                  Container(
+                    padding: EdgeInsets.all(12.w),
+                    decoration: BoxDecoration(
+                      color: context.colorScheme.errorContainer.withValues(
+                        alpha: 0.5,
+                      ),
+                      borderRadius: BorderRadius.circular(12.r),
+                      border: Border.all(
+                        color: context.colorScheme.error.withValues(alpha: 0.5),
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.error_outline_rounded,
+                          color: context.colorScheme.error,
+                          size: 20.w,
+                        ),
+                        SizedBox(width: 8.w),
+                        Expanded(
+                          child: Text(
+                            result.errorMessage!,
+                            style: context.textTheme.bodyMedium?.copyWith(
+                              color: context.colorScheme.error,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
+                ],
+                SizedBox(height: 4.h),
+                TermsCheckbox(
+                  value: _agreedToTerms,
+                  onChanged: (v) => setState(() => _agreedToTerms = v ?? false),
+                ),
+                SizedBox(height: 4.h),
+                AppElevatedButton(
+                  onPressed: () => _submit(context),
+                  isLoading: result.status == RequestStatus.loading,
+                  enabled: _agreedToTerms,
+                  text: context.l10n.reserveNow,
+                  width: double.infinity,
                 ),
               ],
             ),
-            SizedBox(height: 12.h),
-            AppTextFormField(
-              controller: _notesController,
-              label: context.l10n.unit_details_booking_notes,
-              prefixIcon: Icon(Icons.notes_rounded, size: 20.w),
-              maxLines: 3,
-            ),
-            BlocSelector<
-              UnitDetailsCubit,
-              UnitDetailsState,
-              ({RequestStatus status, String? errorMessage})
-            >(
-              selector: (state) => (
-                status: state.bookingStatus,
-                errorMessage: state.bookingErrorMessage,
-              ),
-              builder: (context, result) => Column(
-                children: [
-                  if (result.status == RequestStatus.failure &&
-                      result.errorMessage != null) ...[
-                    SizedBox(height: 16.h),
-                    Container(
-                      padding: EdgeInsets.all(12.w),
-                      decoration: BoxDecoration(
-                        color: context.colorScheme.errorContainer.withValues(
-                          alpha: 0.5,
-                        ),
-                        borderRadius: BorderRadius.circular(12.r),
-                        border: Border.all(
-                          color: context.colorScheme.error.withValues(
-                            alpha: 0.5,
-                          ),
-                        ),
-                      ),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.error_outline_rounded,
-                            color: context.colorScheme.error,
-                            size: 20.w,
-                          ),
-                          SizedBox(width: 8.w),
-                          Expanded(
-                            child: Text(
-                              result.errorMessage!,
-                              style: context.textTheme.bodyMedium?.copyWith(
-                                color: context.colorScheme.error,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                  SizedBox(height: 4.h),
-                  TermsCheckbox(
-                    value: _agreedToTerms,
-                    onChanged: (v) =>
-                        setState(() => _agreedToTerms = v ?? false),
-                  ),
-                  SizedBox(height: 4.h),
-                  AppElevatedButton(
-                    onPressed: _submit,
-                    isLoading: result.status == RequestStatus.loading,
-                    enabled: _agreedToTerms,
-                    text: context.l10n.reserveNow,
-                    width: double.infinity,
-                    padding: EdgeInsets.symmetric(vertical: 16.h),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     ),
   );

@@ -163,7 +163,7 @@ class MaintenanceBookingCard extends StatelessWidget {
                 SizedBox(height: 12.h),
                 SizedBox(
                   width: double.infinity,
-                  child: OutlinedButton.icon(
+                  child: AppElevatedButton(
                     onPressed: () async {
                       final result =
                           await showAppModalSheet<Map<String, String>>(
@@ -193,15 +193,7 @@ class MaintenanceBookingCard extends StatelessWidget {
                       }
                     },
                     icon: Icon(Icons.edit, size: 18.sp),
-                    label: Text(
-                      context.l10n.maintenance_bookings_card_editButton,
-                    ),
-                    style: OutlinedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(vertical: 8.h),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.r),
-                      ),
-                    ),
+                    text: context.l10n.maintenance_bookings_card_editButton,
                   ),
                 ),
               ],

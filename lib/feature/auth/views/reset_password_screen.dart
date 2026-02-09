@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/utils/snackbar_utils.dart';
+import '../../../../core/widgets/app_form.dart';
 import '../../../../core/widgets/custom_back_button.dart';
 import '../../../core/di/locator.dart';
 import '../../../core/router/app_routes.dart';
@@ -34,6 +35,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   final _confirmPasswordController = TextEditingController();
   final _confirmPasswordFocusNode = FocusNode();
   late final _tokenController = TextEditingController(text: widget.token);
+  final _appFormKey = GlobalKey<AppFormState>();
 
   @override
   void dispose() {
@@ -66,85 +68,85 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
               context.showErrorSnackbar(state.errorMessage ?? l10n.error);
             }
           },
-          child: SingleChildScrollView(
+          child: AppForm(
+            key: _appFormKey,
+            formKey: _formKey,
             padding: EdgeInsets.all(24.w),
-            child: Form(
-              key: _formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  SizedBox(height: 40.h),
-                  Text(
-                    l10n.resetPassword,
-                    style: context.textTheme.headlineMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: context.theme.primaryColor,
-                    ),
-                    textAlign: TextAlign.start,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                SizedBox(height: 40.h),
+                Text(
+                  l10n.resetPassword,
+                  style: context.textTheme.headlineMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: context.theme.primaryColor,
                   ),
-                  SizedBox(height: 16.h),
-                  Text(
-                    l10n.resetPasswordSubtitle,
-                    style: context.textTheme.bodyMedium,
-                    textAlign: TextAlign.start,
-                  ),
-                  SizedBox(height: 32.h),
+                  textAlign: TextAlign.start,
+                ),
+                SizedBox(height: 16.h),
+                Text(
+                  l10n.resetPasswordSubtitle,
+                  style: context.textTheme.bodyMedium,
+                  textAlign: TextAlign.start,
+                ),
+                SizedBox(height: 32.h),
 
-                  AppTextFormField(
-                    controller: _passwordController,
-                    label: l10n.password,
-                    isPassword: true,
-                    prefixIcon: const Icon(Icons.lock_outline),
-                    validator: (value) {
-                      if (value?.isEmpty ?? true) return l10n.fieldRequired;
-                      if (value!.length < 8) return l10n.passwordTooShort;
-                      return null;
-                    },
-                  ),
-                  SizedBox(height: 16.h),
-                  AppTextFormField(
-                    controller: _confirmPasswordController,
-                    label: l10n.confirmPassword,
-                    isPassword: true,
-                    prefixIcon: const Icon(Icons.lock_reset_outlined),
-                    validator: (value) {
-                      if (value?.isEmpty ?? true) return l10n.fieldRequired;
-                      if (value != _passwordController.text) {
-                        return l10n.passwordsDoNotMatch;
-                      }
-                      return null;
-                    },
-                  ),
-                  SizedBox(height: 32.h),
-                  BlocSelector<
-                    ResetPasswordCubit,
-                    ResetPasswordState,
-                    ResetPasswordStatus
-                  >(
-                    selector: (state) => state.status,
-                    builder: (context, status) {
-                      final isLoading = status == ResetPasswordStatus.loading;
-                      return AppElevatedButton(
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            context.read<ResetPasswordCubit>().resetPassword(
-                              ResetPasswordRequest(
-                                token: _tokenController.text,
-                                email: widget.email,
-                                password: _passwordController.text,
-                                passwordConfirmation:
-                                    _confirmPasswordController.text,
-                              ),
-                            );
-                          }
-                        },
-                        isLoading: isLoading,
-                        text: l10n.changePassword,
-                      );
-                    },
-                  ),
-                ],
-              ),
+                AppTextFormField(
+                  controller: _passwordController,
+                  label: l10n.password,
+                  isPassword: true,
+                  prefixIcon: const Icon(Icons.lock_outline),
+                  validator: (value) {
+                    if (value?.isEmpty ?? true) return l10n.fieldRequired;
+                    if (value!.length < 8) return l10n.passwordTooShort;
+                    return null;
+                  },
+                ),
+                SizedBox(height: 16.h),
+                AppTextFormField(
+                  controller: _confirmPasswordController,
+                  label: l10n.confirmPassword,
+                  isPassword: true,
+                  prefixIcon: const Icon(Icons.lock_reset_outlined),
+                  validator: (value) {
+                    if (value?.isEmpty ?? true) return l10n.fieldRequired;
+                    if (value != _passwordController.text) {
+                      return l10n.passwordsDoNotMatch;
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(height: 32.h),
+                BlocSelector<
+                  ResetPasswordCubit,
+                  ResetPasswordState,
+                  ResetPasswordStatus
+                >(
+                  selector: (state) => state.status,
+                  builder: (context, status) {
+                    final isLoading = status == ResetPasswordStatus.loading;
+                    return AppElevatedButton(
+                      onPressed: () {
+                        if (_appFormKey.currentState?.validateAndScroll() ??
+                            false) {
+                          context.read<ResetPasswordCubit>().resetPassword(
+                            ResetPasswordRequest(
+                              token: _tokenController.text,
+                              email: widget.email,
+                              password: _passwordController.text,
+                              passwordConfirmation:
+                                  _confirmPasswordController.text,
+                            ),
+                          );
+                        }
+                      },
+                      isLoading: isLoading,
+                      text: l10n.changePassword,
+                    );
+                  },
+                ),
+              ],
             ),
           ),
         ),

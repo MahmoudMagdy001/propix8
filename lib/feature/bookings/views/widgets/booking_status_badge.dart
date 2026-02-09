@@ -16,30 +16,42 @@ class BookingStatusBadge extends StatelessWidget {
     String statusText;
     IconData icon;
 
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     switch (status) {
       case 'pending':
-        backgroundColor = AppColors.warning.withValues(alpha: .1);
-        textColor = AppColors.warning;
+        backgroundColor = isDark
+            ? AppColors.warningDark.withValues(alpha: .1)
+            : AppColors.warningLight.withValues(alpha: .1);
+        textColor = isDark ? AppColors.warningDark : AppColors.warningLight;
         statusText = context.l10n.statusPending;
         icon = Icons.hourglass_empty;
       case 'accepted':
-        backgroundColor = AppColors.success.withValues(alpha: .1);
-        textColor = AppColors.success;
+        backgroundColor = isDark
+            ? AppColors.successDark.withValues(alpha: .1)
+            : AppColors.successLight.withValues(alpha: .1);
+        textColor = isDark ? AppColors.successDark : AppColors.successLight;
         statusText = context.l10n.statusConfirmed;
         icon = Icons.check_circle;
       case 'reschedule_admin':
-        backgroundColor = AppColors.info.withValues(alpha: .1);
-        textColor = AppColors.info;
+        backgroundColor = isDark
+            ? AppColors.infoDark.withValues(alpha: .1)
+            : AppColors.infoLight.withValues(alpha: .1);
+        textColor = isDark ? AppColors.infoDark : AppColors.infoLight;
         statusText = context.l10n.statusRescheduleAdmin;
         icon = Icons.update;
       case 'cancelled':
-        backgroundColor = AppColors.errorLight.withValues(alpha: .1);
-        textColor = AppColors.errorLight;
+        backgroundColor = isDark
+            ? AppColors.errorDark.withValues(alpha: .1)
+            : AppColors.errorLight.withValues(alpha: .1);
+        textColor = isDark ? AppColors.errorDark : AppColors.errorLight;
         statusText = context.l10n.statusCancelled;
         icon = Icons.cancel;
       default:
-        backgroundColor = Colors.grey.withValues(alpha: .1);
-        textColor = Colors.grey;
+        backgroundColor = isDark
+            ? Colors.grey.withValues(alpha: .1)
+            : Colors.grey.withValues(alpha: .1);
+        textColor = isDark ? Colors.grey : Colors.grey;
         statusText = status;
         icon = Icons.info;
     }

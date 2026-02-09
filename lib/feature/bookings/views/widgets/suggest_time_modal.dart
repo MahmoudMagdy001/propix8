@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:propix8/core/utils/snackbar_utils.dart';
 
-import '../../../../../core/utils/context_extensions.dart';
-import '../../../../../core/utils/date_time_utils.dart';
-import '../../../../../core/utils/responsive_helper.dart';
-import '../../../../../core/widgets/app_elevated_button.dart';
-import '../../../../../core/widgets/app_text_form_field.dart';
+import '../../../../core/utils/context_extensions.dart';
+import '../../../../core/utils/date_time_utils.dart';
+import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/widgets/app_elevated_button.dart';
+import '../../../../core/widgets/app_form.dart';
+import '../../../../core/widgets/app_text_form_field.dart';
 
 class SuggestTimeModal extends StatefulWidget {
   const SuggestTimeModal({super.key});
@@ -51,50 +51,25 @@ class _SuggestTimeModalState extends State<SuggestTimeModal> {
   }
 
   void _submit() {
-    if (_selectedDate == null) {
-      context.showInfoSnackbar(context.l10n.pleaseSelectDate);
-      return;
+    if (_appFormKey.currentState?.validateAndScroll() ?? false) {
+      final dateStr = DateTimeUtils.formatDateForApi(_selectedDate!);
+      final timeStr = DateTimeUtils.formatTimeForApi(_selectedTime!);
+
+      Navigator.pop(context, {
+        'date': dateStr,
+        'time': timeStr,
+        'message': _messageController.text.trim(),
+      });
     }
-
-    if (_selectedTime == null) {
-      context.showInfoSnackbar(context.l10n.pleaseSelectTime);
-      return;
-    }
-
-    // Validation: Check if selected time is in the past if date is today
-    final now = DateTime.now();
-    final isSelectedDateToday =
-        _selectedDate!.year == now.year &&
-        _selectedDate!.month == now.month &&
-        _selectedDate!.day == now.day;
-
-    if (isSelectedDateToday) {
-      final selectedDateTime = DateTime(
-        _selectedDate!.year,
-        _selectedDate!.month,
-        _selectedDate!.day,
-        _selectedTime!.hour,
-        _selectedTime!.minute,
-      );
-
-      if (selectedDateTime.isBefore(now)) {
-        context.showErrorSnackbar(context.l10n.pastTimeError);
-        return;
-      }
-    }
-
-    final dateStr = DateTimeUtils.formatDateForApi(_selectedDate!);
-    final timeStr = DateTimeUtils.formatTimeForApi(_selectedTime!);
-
-    Navigator.pop(context, {
-      'date': dateStr,
-      'time': timeStr,
-      'message': _messageController.text.trim(),
-    });
   }
 
+  final _formKey = GlobalKey<FormState>();
+  final _appFormKey = GlobalKey<AppFormState>();
+
   @override
-  Widget build(BuildContext context) => SingleChildScrollView(
+  Widget build(BuildContext context) => AppForm(
+    key: _appFormKey,
+    formKey: _formKey,
     padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
     child: Column(
       mainAxisSize: MainAxisSize.min,
@@ -106,22 +81,56 @@ class _SuggestTimeModalState extends State<SuggestTimeModal> {
           controller: TextEditingController(
             text: _selectedDate != null
                 ? DateFormat('yyyy/MM/dd').format(_selectedDate!)
-                : context.l10n.selectDate,
+                : '',
           ),
+          hint: context.l10n.selectDate,
           readOnly: true,
           onTap: _selectDate,
+          validator: (value) {
+            if (_selectedDate == null) {
+              return context.l10n.pleaseSelectDate;
+            }
+            return null;
+          },
         ),
         SizedBox(height: 12.h),
         AppTextFormField(
           label: context.l10n.time,
           prefixIcon: Icon(Icons.access_time_rounded, size: 20.w),
           controller: TextEditingController(
-            text: _selectedTime != null
-                ? _selectedTime!.format(context)
-                : context.l10n.selectTime,
+            text: _selectedTime != null ? _selectedTime!.format(context) : '',
           ),
+          hint: context.l10n.selectTime,
           readOnly: true,
           onTap: _selectTime,
+          validator: (value) {
+            if (_selectedTime == null) {
+              return context.l10n.pleaseSelectTime;
+            }
+
+            if (_selectedDate != null) {
+              final now = DateTime.now();
+              final isSelectedDateToday =
+                  _selectedDate!.year == now.year &&
+                  _selectedDate!.month == now.month &&
+                  _selectedDate!.day == now.day;
+
+              if (isSelectedDateToday) {
+                final selectedDateTime = DateTime(
+                  _selectedDate!.year,
+                  _selectedDate!.month,
+                  _selectedDate!.day,
+                  _selectedTime!.hour,
+                  _selectedTime!.minute,
+                );
+
+                if (selectedDateTime.isBefore(now)) {
+                  return context.l10n.pastTimeError;
+                }
+              }
+            }
+            return null;
+          },
         ),
         SizedBox(height: 12.h),
         AppTextFormField(
@@ -133,7 +142,6 @@ class _SuggestTimeModalState extends State<SuggestTimeModal> {
         SizedBox(height: 16.h),
         AppElevatedButton(
           onPressed: _submit,
-          padding: EdgeInsets.symmetric(vertical: 16.h),
           text: context.l10n.sendSuggestion,
           width: double.infinity,
         ),

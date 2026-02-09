@@ -31,6 +31,7 @@ abstract class AppTheme {
           ? AppColors.onSecondaryContainerDark
           : AppColors.onSecondaryContainerLight,
       error: isDark ? AppColors.errorDark : AppColors.errorLight,
+
       onError: isDark ? AppColors.onErrorDark : AppColors.onErrorLight,
       surface: isDark ? AppColors.surfaceDark : AppColors.surfaceLight,
       onSurface: isDark ? AppColors.onSurfaceDark : AppColors.onSurfaceLight,
@@ -42,6 +43,7 @@ abstract class AppTheme {
           : AppColors.onSurfaceVariantLight,
       outline: AppColors.outline,
       shadow: AppColors.shadow,
+      tertiary: isDark ? AppColors.successDark : AppColors.successLight,
     );
 
     final textTheme = AppTextStyles.getTextTheme(isDark);

@@ -6,6 +6,7 @@ import 'package:internet_state_manager/internet_state_manager.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/utils/snackbar_utils.dart';
 import '../../../../core/widgets/app_elevated_button.dart';
+import '../../../../core/widgets/app_form.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
 import '../../../core/utils/context_extensions.dart';
 import '../../../core/widgets/custom_back_button.dart';
@@ -21,6 +22,7 @@ class ChangePasswordView extends StatefulWidget {
 
 class _ChangePasswordViewState extends State<ChangePasswordView> {
   final _formKey = GlobalKey<FormState>();
+  final _appFormKey = GlobalKey<AppFormState>();
   final _currentPasswordController = TextEditingController();
   final _newPasswordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
@@ -34,7 +36,7 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
   }
 
   void _submit() {
-    if (_formKey.currentState!.validate()) {
+    if (_appFormKey.currentState!.validateAndScroll()) {
       final data = {
         'current_password': _currentPasswordController.text,
         'password': _newPasswordController.text,
@@ -71,60 +73,59 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
               return InternetStateManager(
                 noInternetScreen: const NoInternetScreen(),
                 onRestoreInternetConnection: () {},
-                child: SingleChildScrollView(
+                child: AppForm(
+                  key: _appFormKey,
+                  formKey: _formKey,
                   padding: EdgeInsets.symmetric(
                     horizontal: 6.w,
                     vertical: 10.h,
                   ),
-                  child: Form(
-                    key: _formKey,
-                    child: Column(
-                      children: [
-                        AppTextFormField(
-                          controller: _currentPasswordController,
-                          label: context.l10n.currentPassword,
-                          isPassword: true,
-                          prefixIcon: const Icon(Icons.lock_outline),
-                        ),
-                        SizedBox(height: 16.h),
-                        AppTextFormField(
-                          controller: _newPasswordController,
-                          label: context.l10n.newPassword,
-                          isPassword: true,
-                          prefixIcon: const Icon(Icons.lock_outline),
-                          validator: (v) {
-                            if (v == null || v.isEmpty) {
-                              return context.l10n.requiredField;
-                            }
-                            if (v.length < 6) {
-                              return context.l10n.passwordMinLength6;
-                            }
-                            return null;
-                          },
-                        ),
-                        SizedBox(height: 16.h),
-                        AppTextFormField(
-                          controller: _confirmPasswordController,
-                          label: context.l10n.confirmNewPassword,
-                          isPassword: true,
-                          prefixIcon: const Icon(Icons.lock_outline),
-                          validator: (v) {
-                            if (v != _newPasswordController.text) {
-                              return context.l10n.passwordsDoNotMatch;
-                            }
-                            return null;
-                          },
-                        ),
-                        SizedBox(height: 32.h),
-                        AppElevatedButton(
-                          onPressed: _submit,
-                          isLoading: isLoading,
-                          text: context.l10n.saveChanges,
-                          width: double.infinity,
-                          height: 50.h,
-                        ),
-                      ],
-                    ),
+                  child: Column(
+                    children: [
+                      AppTextFormField(
+                        controller: _currentPasswordController,
+                        label: context.l10n.currentPassword,
+                        isPassword: true,
+                        prefixIcon: const Icon(Icons.lock_outline),
+                      ),
+                      SizedBox(height: 16.h),
+                      AppTextFormField(
+                        controller: _newPasswordController,
+                        label: context.l10n.newPassword,
+                        isPassword: true,
+                        prefixIcon: const Icon(Icons.lock_outline),
+                        validator: (v) {
+                          if (v == null || v.isEmpty) {
+                            return context.l10n.requiredField;
+                          }
+                          if (v.length < 6) {
+                            return context.l10n.passwordMinLength6;
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(height: 16.h),
+                      AppTextFormField(
+                        controller: _confirmPasswordController,
+                        label: context.l10n.confirmNewPassword,
+                        isPassword: true,
+                        prefixIcon: const Icon(Icons.lock_outline),
+                        validator: (v) {
+                          if (v != _newPasswordController.text) {
+                            return context.l10n.passwordsDoNotMatch;
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(height: 32.h),
+                      AppElevatedButton(
+                        onPressed: _submit,
+                        isLoading: isLoading,
+                        text: context.l10n.saveChanges,
+                        width: double.infinity,
+                        height: 50.h,
+                      ),
+                    ],
                   ),
                 ),
               );

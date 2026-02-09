@@ -6,6 +6,7 @@ import '../../../../core/di/locator.dart';
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/snackbar_utils.dart';
 import '../../../../core/widgets/app_elevated_button.dart';
+import '../../../../core/widgets/app_form.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
 import '../../../core/public_feature/services/storage_service.dart';
 import '../../auth/models/auth_model.dart';
@@ -28,6 +29,8 @@ class _ContactFormWidgetState extends State<ContactFormWidget> {
   late final TextEditingController _addressController;
 
   final _messageController = TextEditingController();
+
+  final _appFormKey = GlobalKey<AppFormState>();
 
   @override
   void initState() {
@@ -69,8 +72,10 @@ class _ContactFormWidgetState extends State<ContactFormWidget> {
       },
       child: Padding(
         padding: EdgeInsets.only(left: 6.w, right: 6.w, top: 24.h, bottom: 6.h),
-        child: Form(
-          key: _formKey,
+        child: AppForm(
+          key: _appFormKey,
+          formKey: _formKey,
+          enableScrolling: false,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -96,7 +101,9 @@ class _ContactFormWidgetState extends State<ContactFormWidget> {
                 label: context.l10n.email,
                 keyboardType: TextInputType.emailAddress,
                 validator: (value) {
-                  if (value?.isEmpty ?? true) return context.l10n.fieldRequired;
+                  if (value?.isEmpty ?? true) {
+                    return context.l10n.fieldRequired;
+                  }
                   if (!RegExp(
                     r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
                   ).hasMatch(value!)) {
@@ -132,7 +139,8 @@ class _ContactFormWidgetState extends State<ContactFormWidget> {
               BlocBuilder<ContactCubit, ContactState>(
                 builder: (context, state) => AppElevatedButton(
                   onPressed: () {
-                    if (_formKey.currentState?.validate() ?? false) {
+                    if (_appFormKey.currentState?.validateAndScroll() ??
+                        false) {
                       final request = ContactRequestModel(
                         name: _nameController.text,
                         email: _emailController.text,

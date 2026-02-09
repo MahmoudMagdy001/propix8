@@ -35,7 +35,7 @@ class SnackbarUtils {
           ],
         ),
         action: action,
-        backgroundColor: _getBackgroundColor(type),
+        backgroundColor: _getBackgroundColor(context, type),
         behavior: SnackBarBehavior.floating,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.r),
@@ -105,16 +105,18 @@ class SnackbarUtils {
     }
   }
 
-  static Color _getBackgroundColor(SnackbarType type) {
+  static Color _getBackgroundColor(BuildContext context, SnackbarType type) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     switch (type) {
       case SnackbarType.success:
-        return AppColors.success;
+        return isDark ? AppColors.successDark : AppColors.successLight;
       case SnackbarType.error:
-        return AppColors.errorLight;
+        return isDark ? AppColors.errorDark : AppColors.errorLight;
       case SnackbarType.info:
-        return AppColors.info;
+        return isDark ? AppColors.infoDark : AppColors.infoLight;
       case SnackbarType.warning:
-        return AppColors.warning;
+        return isDark ? AppColors.warningDark : AppColors.warningLight;
     }
   }
 }

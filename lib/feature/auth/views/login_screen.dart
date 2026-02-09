@@ -11,6 +11,7 @@ import '../../../core/router/app_routes.dart';
 import '../../../core/utils/auth_constants.dart';
 import '../../../core/utils/context_extensions.dart';
 import '../../../core/widgets/app_elevated_button.dart';
+import '../../../core/widgets/app_form.dart';
 import '../../../core/widgets/app_text_form_field.dart';
 import '../viewmodels/auth_cubit.dart';
 import '../viewmodels/auth_state.dart';
@@ -43,6 +44,8 @@ class _LoginScreenState extends State<LoginScreen> {
   // While repository also has debouncing, UI-level prevention provides
   // immediate visual feedback and prevents unnecessary work.
   bool _isSubmitting = false;
+
+  final _appFormKey = GlobalKey<AppFormState>();
 
   @override
   void dispose() {
@@ -84,8 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
     if (_isSubmitting) return;
 
     // Validate form first
-    final formState = _formKey.currentState;
-    if (formState == null || !formState.validate()) return;
+    if (_appFormKey.currentState?.validateAndScroll() != true) return;
 
     // Set submitting flag
     setState(() => _isSubmitting = true);
@@ -138,129 +140,128 @@ class _LoginScreenState extends State<LoginScreen> {
               },
             ),
           ],
-          child: SingleChildScrollView(
+          child: AppForm(
+            key: _appFormKey,
+            formKey: _formKey,
             padding: EdgeInsets.all(24.w),
-            child: Form(
-              key: _formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Image.asset(
-                    'assets/images/logo.png',
-                    height: 150.h,
-                    color: context.colorScheme.primary,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Image.asset(
+                  'assets/images/logo.png',
+                  height: 150.h,
+                  color: context.colorScheme.primary,
+                ),
+                SizedBox(height: 40.h),
+                AppTextFormField(
+                  focusNode: _emailFocusNode,
+                  controller: _emailController,
+                  label: l10n.email,
+                  keyboardType: TextInputType.emailAddress,
+                  prefixIcon: const Icon(Icons.email_outlined),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return l10n.fieldRequired;
+                    }
+                    if (!RegExp(
+                      r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
+                    ).hasMatch(value)) {
+                      return l10n.invalidEmail;
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(height: 20.h),
+                AppTextFormField(
+                  focusNode: _passwordFocusNode,
+                  controller: _passwordController,
+                  label: l10n.password,
+                  isPassword: true,
+                  prefixIcon: const Icon(Icons.lock_outlined),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return l10n.fieldRequired;
+                    }
+                    return null;
+                  },
+                ),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () =>
+                        context.pushNamed(AppRoutes.forgotPassword),
+                    child: Text(l10n.forgotPassword),
                   ),
-                  SizedBox(height: 40.h),
-                  AppTextFormField(
-                    focusNode: _emailFocusNode,
-                    controller: _emailController,
-                    label: l10n.email,
-                    keyboardType: TextInputType.emailAddress,
-                    prefixIcon: const Icon(Icons.email_outlined),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return l10n.fieldRequired;
-                      }
-                      if (!RegExp(
-                        r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
-                      ).hasMatch(value)) {
-                        return l10n.invalidEmail;
-                      }
-                      return null;
-                    },
-                  ),
-                  SizedBox(height: 20.h),
-                  AppTextFormField(
-                    focusNode: _passwordFocusNode,
-                    controller: _passwordController,
-                    label: l10n.password,
-                    isPassword: true,
-                    prefixIcon: const Icon(Icons.lock_outlined),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return l10n.fieldRequired;
-                      }
-                      return null;
-                    },
-                  ),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: TextButton(
-                      onPressed: () =>
-                          context.pushNamed(AppRoutes.forgotPassword),
-                      child: Text(l10n.forgotPassword),
-                    ),
-                  ),
-                  SizedBox(height: 20.h),
-                  BlocSelector<AuthCubit, AuthState, AuthRequestStatus>(
-                    selector: (state) => state.status,
-                    builder: (context, status) {
-                      final isLoading = status == AuthRequestStatus.loading;
-                      return AppElevatedButton(
-                        onPressed: () => _handleLogin(context),
-                        isLoading: isLoading,
-                        enabled: !_isSubmitting,
-                        text: l10n.login,
-                      );
-                    },
-                  ),
-                  // Show resend verification option if error indicates unverified email
-                  BlocSelector<AuthCubit, AuthState, String?>(
-                    selector: (state) => state.errorMessage,
-                    builder: (context, errorMessage) {
-                      final showResend =
-                          errorMessage != null &&
-                          (errorMessage.contains('verified') ||
-                              errorMessage.contains('مفعل'));
-                      if (!showResend) return const SizedBox.shrink();
+                ),
+                SizedBox(height: 20.h),
+                BlocSelector<AuthCubit, AuthState, AuthRequestStatus>(
+                  selector: (state) => state.status,
+                  builder: (context, status) {
+                    final isLoading = status == AuthRequestStatus.loading;
+                    return AppElevatedButton(
+                      onPressed: () => _handleLogin(context),
+                      isLoading: isLoading,
+                      enabled: !_isSubmitting,
+                      text: l10n.login,
+                    );
+                  },
+                ),
+                // Show resend verification option if error indicates unverified email
+                BlocSelector<AuthCubit, AuthState, String?>(
+                  selector: (state) => state.errorMessage,
+                  builder: (context, errorMessage) {
+                    final showResend =
+                        errorMessage != null &&
+                        (errorMessage.contains('verified') ||
+                            errorMessage.contains('مفعل'));
+                    if (!showResend) return const SizedBox.shrink();
 
-                      return Column(
-                        children: [
-                          SizedBox(height: 16.h),
-                          BlocSelector<AuthCubit, AuthState, AuthRequestStatus>(
-                            selector: (state) => state.resendStatus,
-                            builder: (context, resendStatus) {
-                              final isResending =
-                                  resendStatus == AuthRequestStatus.loading;
-                              return TextButton(
-                                onPressed: isResending || _cooldownSeconds > 0
-                                    ? null
-                                    : () {
-                                        context
-                                            .read<AuthCubit>()
-                                            .resendVerificationEmail(
-                                              _emailController.text,
-                                            );
-                                      },
-                                child: isResending
-                                    ? const CircularProgressIndicator()
-                                    : Text(
-                                        _cooldownSeconds > 0
-                                            ? '${l10n.resendVerification} ${_cooldownSeconds}s'
-                                            : l10n.resendVerification,
-                                      ),
-                              );
-                            },
-                          ),
-                        ],
-                      );
-                    },
-                  ),
-                  SizedBox(height: 24.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(l10n.dontHaveAccount),
-                      TextButton(
-                        onPressed: () {
-                          context.pushNamed(AppRoutes.register);
-                        },
-                        child: Text(l10n.signup),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                    return Column(
+                      children: [
+                        SizedBox(height: 16.h),
+                        BlocSelector<AuthCubit, AuthState, AuthRequestStatus>(
+                          selector: (state) => state.resendStatus,
+                          builder: (context, resendStatus) {
+                            final isResending =
+                                resendStatus == AuthRequestStatus.loading;
+                            return TextButton(
+                              onPressed: isResending || _cooldownSeconds > 0
+                                  ? null
+                                  : () {
+                                      context
+                                          .read<AuthCubit>()
+                                          .resendVerificationEmail(
+                                            _emailController.text,
+                                          );
+                                    },
+                              child: isResending
+                                  ? const CircularProgressIndicator()
+                                  : Text(
+                                      _cooldownSeconds > 0
+                                          ? '${l10n.resendVerification} ${_cooldownSeconds}s'
+                                          : l10n.resendVerification,
+                                    ),
+                            );
+                          },
+                        ),
+                      ],
+                    );
+                  },
+                ),
+                SizedBox(height: 24.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(l10n.dontHaveAccount),
+                    TextButton(
+                      onPressed: () {
+                        context.pushNamed(AppRoutes.register);
+                      },
+                      child: Text(l10n.signup),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ),

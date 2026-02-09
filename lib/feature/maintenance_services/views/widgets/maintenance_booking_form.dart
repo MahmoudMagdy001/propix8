@@ -7,6 +7,7 @@ import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/utils/snackbar_utils.dart';
 import '../../../../core/widgets/app_elevated_button.dart';
+import '../../../../core/widgets/app_form.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
 import '../../../auth/models/auth_model.dart';
 import '../../viewmodels/maintenance_booking_cubit.dart';
@@ -32,6 +33,7 @@ class _MaintenanceBookingFormState extends State<MaintenanceBookingForm> {
   late TextEditingController _phoneController;
   late TextEditingController _addressController;
   final _messageController = TextEditingController();
+  final _appFormKey = GlobalKey<AppFormState>();
 
   @override
   void initState() {
@@ -68,82 +70,82 @@ class _MaintenanceBookingFormState extends State<MaintenanceBookingForm> {
           );
         }
       },
-      builder: (context, state) => SingleChildScrollView(
+      builder: (context, state) => AppForm(
+        key: _appFormKey,
+        formKey: _formKey,
         padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                '${context.l10n.bookingFor} ${widget.serviceName}',
-                style: context.textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              '${context.l10n.bookingFor} ${widget.serviceName}',
+              style: context.textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.bold,
               ),
-              SizedBox(height: 20.h),
-              AppTextFormField(
-                controller: _phoneController,
-                label: context.l10n.phone,
-                prefixIcon: const Icon(Icons.phone_outlined),
-                keyboardType: TextInputType.phone,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return context.l10n.phoneRequired;
-                  }
-                  if (value.length < 11) {
-                    return context.l10n.invalidPhoneNumber;
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(height: 12.h),
-              AppTextFormField(
-                controller: _addressController,
-                label: context.l10n.location,
-                prefixIcon: const Icon(Icons.location_on_outlined),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return context.l10n.addressRequired;
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(height: 12.h),
-              AppTextFormField(
-                controller: _messageController,
-                label: context.l10n.message,
-                prefixIcon: const Icon(Icons.notes_rounded),
-                maxLines: 3,
-              ),
-              SizedBox(height: 16.h),
-              BlocSelector<
-                MaintenanceBookingCubit,
-                MaintenanceBookingState,
-                BookingStatus
-              >(
-                selector: (state) => state.status,
-                builder: (context, status) {
-                  final isLoading = status == BookingStatus.loading;
-                  return AppElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        context.read<MaintenanceBookingCubit>().bookMaintenance(
-                          maintenanceServiceId: widget.serviceId,
-                          phone: _phoneController.text,
-                          address: _addressController.text,
-                          message: _messageController.text,
-                        );
-                      }
-                    },
-                    isLoading: isLoading,
-                    padding: EdgeInsets.symmetric(vertical: 16.h),
-                    text: context.l10n.bookNow,
-                  );
-                },
-              ),
-            ],
-          ),
+            ),
+            SizedBox(height: 20.h),
+            AppTextFormField(
+              controller: _phoneController,
+              label: context.l10n.phone,
+              prefixIcon: const Icon(Icons.phone_outlined),
+              keyboardType: TextInputType.phone,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return context.l10n.phoneRequired;
+                }
+                if (value.length < 11) {
+                  return context.l10n.invalidPhoneNumber;
+                }
+                return null;
+              },
+            ),
+            SizedBox(height: 12.h),
+            AppTextFormField(
+              controller: _addressController,
+              label: context.l10n.location,
+              prefixIcon: const Icon(Icons.location_on_outlined),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return context.l10n.addressRequired;
+                }
+                return null;
+              },
+            ),
+            SizedBox(height: 12.h),
+            AppTextFormField(
+              controller: _messageController,
+              label: context.l10n.message,
+              prefixIcon: const Icon(Icons.notes_rounded),
+              maxLines: 3,
+            ),
+            SizedBox(height: 16.h),
+            BlocSelector<
+              MaintenanceBookingCubit,
+              MaintenanceBookingState,
+              BookingStatus
+            >(
+              selector: (state) => state.status,
+              builder: (context, status) {
+                final isLoading = status == BookingStatus.loading;
+                return AppElevatedButton(
+                  onPressed: () {
+                    if (_appFormKey.currentState?.validateAndScroll() ??
+                        false) {
+                      context.read<MaintenanceBookingCubit>().bookMaintenance(
+                        maintenanceServiceId: widget.serviceId,
+                        phone: _phoneController.text,
+                        address: _addressController.text,
+                        message: _messageController.text,
+                      );
+                    }
+                  },
+                  isLoading: isLoading,
+                  padding: EdgeInsets.symmetric(vertical: 16.h),
+                  text: context.l10n.bookNow,
+                );
+              },
+            ),
+          ],
         ),
       ),
     ),

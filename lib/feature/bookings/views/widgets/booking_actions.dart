@@ -32,9 +32,7 @@ class BookingActions extends StatelessWidget {
               onPressed: () => _showApproveDialog(context),
               icon: Icon(Icons.check_circle, size: 20.sp),
               text: context.l10n.approveSuggestedTime,
-              foregroundColor: Colors.white,
-              padding: EdgeInsets.symmetric(vertical: 12.h),
-              borderRadius: 8.r,
+              backgroundColor: context.colorScheme.tertiary,
             ),
           ),
           SizedBox(height: 8.h),
@@ -43,41 +41,25 @@ class BookingActions extends StatelessWidget {
         // Suggest Another Time / Edit Button
         SizedBox(
           width: double.infinity,
-          child: OutlinedButton.icon(
+          child: AppElevatedButton(
             onPressed: () => _showSuggestTimeModal(context),
             icon: Icon(Icons.schedule, size: 20.sp),
-            label: Text(
-              booking.status == 'pending'
-                  ? context.l10n.editBookingTime
-                  : context.l10n.suggestAnotherTime,
-            ),
-            style: OutlinedButton.styleFrom(
-              foregroundColor: context.colorScheme.primary,
-              padding: EdgeInsets.symmetric(vertical: 12.h),
-              side: BorderSide(color: context.colorScheme.primary),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.r),
-              ),
-            ),
+            text: booking.status == 'pending'
+                ? context.l10n.editBookingTime
+                : context.l10n.suggestAnotherTime,
           ),
         ),
+
         SizedBox(height: 8.h),
 
         // Cancel Button
         SizedBox(
           width: double.infinity,
-          child: OutlinedButton.icon(
+          child: AppElevatedButton(
             onPressed: () => _showCancelDialog(context),
             icon: Icon(Icons.cancel, size: 20.sp),
-            label: Text(context.l10n.cancelBooking),
-            style: OutlinedButton.styleFrom(
-              foregroundColor: context.colorScheme.error,
-              padding: EdgeInsets.symmetric(vertical: 12.h),
-              side: BorderSide(color: context.colorScheme.error),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.r),
-              ),
-            ),
+            text: context.l10n.cancelBooking,
+            backgroundColor: context.colorScheme.error,
           ),
         ),
       ],
@@ -98,6 +80,7 @@ class BookingActions extends StatelessWidget {
           AppElevatedButton(
             onPressed: () => Navigator.pop(context, true),
             text: context.l10n.approve,
+            backgroundColor: context.colorScheme.tertiary,
           ),
         ],
       ),

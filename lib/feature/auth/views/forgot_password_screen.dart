@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/router/app_routes.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/utils/snackbar_utils.dart';
+import '../../../../core/widgets/app_form.dart';
 import '../../../../core/widgets/custom_back_button.dart';
 import '../../../core/di/locator.dart';
 import '../../../core/utils/context_extensions.dart';
@@ -25,6 +26,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _emailFocusNode = FocusNode();
+  final _appFormKey = GlobalKey<AppFormState>();
 
   @override
   void dispose() {
@@ -62,78 +64,73 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               context.showErrorSnackbar(state.errorMessage ?? l10n.error);
             }
           },
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.all(24.w),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    SizedBox(height: 40.h),
-                    Image.asset(
-                      'assets/images/forget_password.png',
-                      height: 200.h,
-                    ),
+          child: AppForm(
+            key: _appFormKey,
+            formKey: _formKey,
+            padding: EdgeInsets.all(24.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                SizedBox(height: 40.h),
+                Image.asset('assets/images/forget_password.png', height: 200.h),
 
-                    Text(
-                      l10n.forgotPassword,
-                      style: context.textTheme.headlineMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: context.theme.primaryColor,
-                      ),
-                      textAlign: TextAlign.start,
-                    ),
-                    SizedBox(height: 16.h),
-                    Text(
-                      l10n.forgotPasswordSubtitle,
-                      style: context.textTheme.bodyMedium,
-                      textAlign: TextAlign.start,
-                    ),
-                    SizedBox(height: 32.h),
-                    AppTextFormField(
-                      focusNode: _emailFocusNode,
-                      controller: _emailController,
-                      label: l10n.email,
-                      keyboardType: TextInputType.emailAddress,
-                      prefixIcon: const Icon(Icons.email_outlined),
-                      validator: (value) {
-                        if (value?.isEmpty ?? true) {
-                          return l10n.fieldRequired;
-                        }
-                        if (!RegExp(
-                          r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
-                        ).hasMatch(value!)) {
-                          return l10n.invalidEmail;
-                        }
-                        return null;
-                      },
-                    ),
-                    SizedBox(height: 32.h),
-                    BlocSelector<
-                      ResetPasswordCubit,
-                      ResetPasswordState,
-                      ResetPasswordStatus
-                    >(
-                      selector: (state) => state.status,
-                      builder: (context, status) {
-                        final isLoading = status == ResetPasswordStatus.loading;
-                        return AppElevatedButton(
-                          onPressed: () {
-                            if (_formKey.currentState!.validate()) {
-                              context.read<ResetPasswordCubit>().forgotPassword(
-                                _emailController.text,
-                              );
-                            }
-                          },
-                          isLoading: isLoading,
-                          text: l10n.sendResetLink,
-                        );
-                      },
-                    ),
-                  ],
+                Text(
+                  l10n.forgotPassword,
+                  style: context.textTheme.headlineMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: context.theme.primaryColor,
+                  ),
+                  textAlign: TextAlign.start,
                 ),
-              ),
+                SizedBox(height: 16.h),
+                Text(
+                  l10n.forgotPasswordSubtitle,
+                  style: context.textTheme.bodyMedium,
+                  textAlign: TextAlign.start,
+                ),
+                SizedBox(height: 32.h),
+                AppTextFormField(
+                  focusNode: _emailFocusNode,
+                  controller: _emailController,
+                  label: l10n.email,
+                  keyboardType: TextInputType.emailAddress,
+                  prefixIcon: const Icon(Icons.email_outlined),
+                  validator: (value) {
+                    if (value?.isEmpty ?? true) {
+                      return l10n.fieldRequired;
+                    }
+                    if (!RegExp(
+                      r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
+                    ).hasMatch(value!)) {
+                      return l10n.invalidEmail;
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(height: 32.h),
+                BlocSelector<
+                  ResetPasswordCubit,
+                  ResetPasswordState,
+                  ResetPasswordStatus
+                >(
+                  selector: (state) => state.status,
+                  builder: (context, status) {
+                    final isLoading = status == ResetPasswordStatus.loading;
+                    return AppElevatedButton(
+                      onPressed: () {
+                        if (_appFormKey.currentState?.validateAndScroll() ??
+                            false) {
+                          context.read<ResetPasswordCubit>().forgotPassword(
+                            _emailController.text,
+                          );
+                        }
+                      },
+                      isLoading: isLoading,
+                      text: l10n.sendResetLink,
+                    );
+                  },
+                ),
+              ],
             ),
           ),
         ),

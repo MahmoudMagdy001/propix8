@@ -11,6 +11,7 @@ import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/utils/snackbar_utils.dart';
 import '../../../../core/widgets/app_elevated_button.dart';
+import '../../../../core/widgets/app_form.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
 import '../../../../core/widgets/custom_back_button.dart';
 import '../../auth/models/auth_model.dart';
@@ -27,6 +28,7 @@ class EditProfileDataView extends StatefulWidget {
 
 class _EditProfileDataViewState extends State<EditProfileDataView> {
   final _formKey = GlobalKey<FormState>();
+  final _appFormKey = GlobalKey<AppFormState>();
   late TextEditingController _nameController;
   late TextEditingController _phoneController;
   late TextEditingController _addressController;
@@ -89,7 +91,7 @@ class _EditProfileDataViewState extends State<EditProfileDataView> {
   }
 
   void _submit() {
-    if (_formKey.currentState!.validate()) {
+    if (_appFormKey.currentState!.validateAndScroll()) {
       final data = {
         'name': _nameController.text,
         'phone': _phoneController.text,
@@ -155,128 +157,125 @@ class _EditProfileDataViewState extends State<EditProfileDataView> {
                 onRestoreInternetConnection: () {
                   context.read<UserProfileCubit>().fetchCities();
                 },
-                child: SingleChildScrollView(
+                child: AppForm(
+                  key: _appFormKey,
+                  formKey: _formKey,
                   padding: EdgeInsets.symmetric(
                     horizontal: 6.w,
                     vertical: 10.h,
                   ),
-                  child: Form(
-                    key: _formKey,
-                    child: Column(
-                      children: [
-                        GestureDetector(
-                          onTap: _pickImage,
-                          child: Stack(
-                            children: [
-                              CircleAvatar(
-                                radius: 50.r,
-                                child: ClipOval(
-                                  child: _avatarFile != null
-                                      ? Image.file(
-                                          cacheHeight: 100 * 3,
-                                          _avatarFile!,
-                                          width: 100.w,
-                                          height: 100.h,
-                                          fit: BoxFit.cover,
-                                        )
-                                      : (user?.avatar != null &&
-                                            user?.avatar != '')
-                                      ? CachedNetworkImage(
-                                          memCacheHeight: 100 * 3,
-                                          imageUrl: user!.avatar!,
-                                          width: 100.w,
-                                          height: 100.h,
-                                          fit: BoxFit.cover,
-                                          errorWidget: (context, url, error) =>
-                                              const Icon(Icons.broken_image),
-                                        )
-                                      : Icon(
-                                          Icons.person,
-                                          size: 50.r,
-                                          color: Colors.grey,
-                                        ),
+                  child: Column(
+                    children: [
+                      GestureDetector(
+                        onTap: _pickImage,
+                        child: Stack(
+                          children: [
+                            CircleAvatar(
+                              radius: 50.r,
+                              child: ClipOval(
+                                child: _avatarFile != null
+                                    ? Image.file(
+                                        cacheHeight: 100 * 3,
+                                        _avatarFile!,
+                                        width: 100.w,
+                                        height: 100.h,
+                                        fit: BoxFit.cover,
+                                      )
+                                    : (user?.avatar != null &&
+                                          user?.avatar != '')
+                                    ? CachedNetworkImage(
+                                        memCacheHeight: 100 * 3,
+                                        imageUrl: user!.avatar!,
+                                        width: 100.w,
+                                        height: 100.h,
+                                        fit: BoxFit.cover,
+                                        errorWidget: (context, url, error) =>
+                                            const Icon(Icons.broken_image),
+                                      )
+                                    : Icon(
+                                        Icons.person,
+                                        size: 50.r,
+                                        color: Colors.grey,
+                                      ),
+                              ),
+                            ),
+                            Positioned(
+                              bottom: 0,
+                              right: 0,
+                              child: CircleAvatar(
+                                radius: 18.r,
+                                backgroundColor: context.colorScheme.primary,
+                                child: Icon(
+                                  Icons.camera_alt,
+                                  size: 18.r,
+                                  color: Colors.white,
                                 ),
                               ),
-                              Positioned(
-                                bottom: 0,
-                                right: 0,
-                                child: CircleAvatar(
-                                  radius: 18.r,
-                                  backgroundColor: context.colorScheme.primary,
-                                  child: Icon(
-                                    Icons.camera_alt,
-                                    size: 18.r,
-                                    color: Colors.white,
-                                  ),
-                                ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 32.h),
+                      AppTextFormField(
+                        controller: _nameController,
+                        label: context.l10n.name,
+                        prefixIcon: Icon(Icons.person_outline),
+                        validator: (v) =>
+                            v!.isEmpty ? context.l10n.requiredField : null,
+                      ),
+                      SizedBox(height: 16.h),
+                      AppTextFormField(
+                        controller: _phoneController,
+                        label: context.l10n.phone,
+                        prefixIcon: Icon(Icons.phone_outlined),
+                        keyboardType: TextInputType.phone,
+                        validator: (v) =>
+                            v!.isEmpty ? context.l10n.requiredField : null,
+                      ),
+                      SizedBox(height: 16.h),
+                      AppTextFormField(
+                        controller: _addressController,
+                        label: context.l10n.address,
+                        prefixIcon: Icon(Icons.location_on_outlined),
+                      ),
+                      SizedBox(height: 16.h),
+                      DropdownButtonFormField<int>(
+                        decoration: InputDecoration(
+                          labelText: context.l10n.city,
+                          prefixIcon: const Icon(Icons.location_city_outlined),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12.r),
+                          ),
+                        ),
+                        initialValue: int.tryParse(_cityIdController.text),
+                        items: cities
+                            .map(
+                              (City city) => DropdownMenuItem<int>(
+                                value: city.id,
+                                child: Text(city.name),
                               ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(height: 32.h),
-                        AppTextFormField(
-                          controller: _nameController,
-                          label: context.l10n.name,
-                          prefixIcon: Icon(Icons.person_outline),
-                          validator: (v) =>
-                              v!.isEmpty ? context.l10n.requiredField : null,
-                        ),
-                        SizedBox(height: 16.h),
-                        AppTextFormField(
-                          controller: _phoneController,
-                          label: context.l10n.phone,
-                          prefixIcon: Icon(Icons.phone_outlined),
-                          keyboardType: TextInputType.phone,
-                          validator: (v) =>
-                              v!.isEmpty ? context.l10n.requiredField : null,
-                        ),
-                        SizedBox(height: 16.h),
-                        AppTextFormField(
-                          controller: _addressController,
-                          label: context.l10n.address,
-                          prefixIcon: Icon(Icons.location_on_outlined),
-                        ),
-                        SizedBox(height: 16.h),
-                        DropdownButtonFormField<int>(
-                          decoration: InputDecoration(
-                            labelText: context.l10n.city,
-                            prefixIcon: const Icon(
-                              Icons.location_city_outlined,
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12.r),
-                            ),
-                          ),
-                          initialValue: int.tryParse(_cityIdController.text),
-                          items: cities
-                              .map(
-                                (City city) => DropdownMenuItem<int>(
-                                  value: city.id,
-                                  child: Text(city.name),
-                                ),
-                              )
-                              .toList(),
-                          onChanged: (value) {
-                            if (value != null) {
-                              setState(() {
-                                _cityIdController.text = value.toString();
-                              });
-                            }
-                          },
-                          validator: (value) =>
-                              value == null ? context.l10n.requiredField : null,
-                        ),
-                        SizedBox(height: 32.h),
-                        AppElevatedButton(
-                          onPressed: _submit,
-                          isLoading: isLoading,
-                          enabled: _hasDataChanged(),
-                          text: context.l10n.saveChanges,
-                          width: double.infinity,
-                          height: 50.h,
-                        ),
-                      ],
-                    ),
+                            )
+                            .toList(),
+                        onChanged: (value) {
+                          if (value != null) {
+                            setState(() {
+                              _cityIdController.text = value.toString();
+                            });
+                          }
+                        },
+                        validator: (value) =>
+                            value == null ? context.l10n.requiredField : null,
+                      ),
+                      SizedBox(height: 32.h),
+                      AppElevatedButton(
+                        onPressed: _submit,
+                        isLoading: isLoading,
+                        enabled: _hasDataChanged(),
+                        text: context.l10n.saveChanges,
+                        width: double.infinity,
+                        height: 50.h,
+                      ),
+                    ],
                   ),
                 ),
               );

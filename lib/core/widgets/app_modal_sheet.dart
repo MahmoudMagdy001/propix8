@@ -49,7 +49,7 @@ class AppModalSheetLayout extends StatelessWidget {
     child: Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        SizedBox(height: 12.h),
+        SizedBox(height: 8.h),
         Container(
           width: 40.w,
           height: 4.h,

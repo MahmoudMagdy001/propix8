@@ -41,9 +41,14 @@ abstract class AppColors {
   static const Color errorDark = Color(0xFFFFB4AB);
   static const Color onErrorDark = Color(0xFF690005);
 
-  static const Color success = Color(0xFF4CAF50);
-  static const Color warning = Color(0xFFFFC107);
-  static const Color info = Color(0xFF2196F3);
+  static const Color successLight = Color(0xFF4CAF50);
+  static const Color successDark = Color(0xFF2E7D32);
+
+  static const Color warningLight = Color(0xFFFFC107);
+  static const Color warningDark = Color(0xFFFFA000);
+
+  static const Color infoLight = Color(0xFF2196F3);
+  static const Color infoDark = Color(0xFF1565C0);
 
   static const Color outline = Color(0xFF8E9199);
   static const Color shadow = Color(0xFF000000);
