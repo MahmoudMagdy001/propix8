@@ -9,6 +9,7 @@ import '../../../../core/utils/responsive_helper.dart';
 import '../../models/unit_details_model.dart';
 import '../../viewmodels/unit_details_cubit.dart';
 import '../../viewmodels/unit_details_state.dart';
+import 'section_header.dart';
 
 class UnitVirtualTour extends StatefulWidget {
   const UnitVirtualTour({super.key});
@@ -18,7 +19,7 @@ class UnitVirtualTour extends StatefulWidget {
 }
 
 class _UnitVirtualTourState extends State<UnitVirtualTour> {
-  // استخدام Map لتخزين المتحكمات المتعددة
+  // Use Maps to store multiple video controllers
   final Map<int, VideoPlayerController> _videoControllers = {};
   final Map<int, ChewieController> _chewieControllers = {};
 
@@ -43,7 +44,7 @@ class _UnitVirtualTourState extends State<UnitVirtualTour> {
     _videoControllers.clear();
   }
 
-  // إدارة الذاكرة: تحذف أي فيديو بعيد عن النطاق (الحالي - 1) و (الحالي + 1)
+  // Memory management: dispose controllers outside the range (current - 1) to (current + 1)
   void _manageMemory(int currentIndex) {
     final keys = List<int>.from(_videoControllers.keys);
     for (var index in keys) {
@@ -60,16 +61,16 @@ class _UnitVirtualTourState extends State<UnitVirtualTour> {
     int index,
     List<MediaModel> videos,
   ) async {
-    // التحقق من صحة الإندكس
+    // Validate index bounds
     if (index < 0 || index >= videos.length) return;
 
-    // لو الفيديو موجود بالفعل، لا تعد تحميله
+    // Skip if video is already initialized
     if (_videoControllers.containsKey(index)) return;
 
     final url = _getVideoUrl(videos[index]);
     final controller = VideoPlayerController.networkUrl(Uri.parse(url));
 
-    // تسجيله في الماب فوراً لمنع التكرار
+    // Register in the map immediately to prevent duplicate initialization
     _videoControllers[index] = controller;
 
     try {
@@ -85,7 +86,7 @@ class _UnitVirtualTourState extends State<UnitVirtualTour> {
           _chewieControllers[index] = ChewieController(
             videoPlayerController: controller,
             aspectRatio: controller.value.aspectRatio,
-            placeholder: Container(color: Colors.black), // يمنع الوميض
+            placeholder: Container(color: Colors.black), // Prevents flicker
             errorBuilder: (context, errorMessage) => Center(
               child: Text(
                 errorMessage,
@@ -104,32 +105,32 @@ class _UnitVirtualTourState extends State<UnitVirtualTour> {
   void _handlePageChanged(int index, List<MediaModel> videos) {
     if (_currentIndex == index) return;
 
-    // 1. إيقاف الفيديو القديم
+    // 1. Pause the previous video
     _chewieControllers[_currentIndex]?.pause();
 
     setState(() {
       _currentIndex = index;
     });
 
-    // 2. أهم خطوة: التأكد من وجود الفيديو الحالي (لو كان محذوف يحمله تاني)
+    // 2. Ensure current video is initialized (re-initialize if it was disposed)
     _initializeVideoAtIndex(index, videos);
 
-    // 3. Preload للفيديو القادم (Forward)
+    // 3. Preload next video (forward)
     if (index + 1 < videos.length) {
       _initializeVideoAtIndex(index + 1, videos);
     }
 
-    // 4. Preload للفيديو السابق (Backward) - ده اللي بيحل مشكلة الرجوع
+    // 4. Preload previous video (backward) — fixes back-navigation lag
     if (index - 1 >= 0) {
       _initializeVideoAtIndex(index - 1, videos);
     }
 
-    // 5. تنظيف الذاكرة
+    // 5. Clean up memory
     _manageMemory(index);
   }
 
   void _handleVisibilityChanged(VisibilityInfo info) {
-    // لو الودجت اختفت من الشاشة، وقف الفيديو الحالي
+    // Pause the current video when the widget goes off-screen
     if (info.visibleFraction < 0.1) {
       _chewieControllers[_currentIndex]?.pause();
     }
@@ -148,7 +149,7 @@ class _UnitVirtualTourState extends State<UnitVirtualTour> {
             return const SliverToBoxAdapter(child: SizedBox());
           }
 
-          // عند أول بناء فقط: حمل أول فيديو وتاني فيديو
+          // First build only: initialize the first and second videos
           if (_videoControllers.isEmpty && videos.isNotEmpty) {
             _initializeVideoAtIndex(0, videos);
             if (videos.length > 1) _initializeVideoAtIndex(1, videos);
@@ -161,16 +162,7 @@ class _UnitVirtualTourState extends State<UnitVirtualTour> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w),
-                    child: Text(
-                      context.l10n.virtualTour,
-                      style: context.textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: context.colorScheme.primary,
-                      ),
-                    ),
-                  ),
+                  SectionHeader(title: context.l10n.virtualTour),
                   SizedBox(height: 8.h),
                   _VideoCarousel(
                     videos: videos,

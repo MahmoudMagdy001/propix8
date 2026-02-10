@@ -8,6 +8,7 @@ import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/utils/snackbar_utils.dart';
 import '../../../../core/widgets/app_elevated_button.dart';
 import '../../../../core/widgets/app_modal_sheet.dart';
+import '../../../../core/widgets/app_confirmation_dialog.dart';
 import '../../models/maintenance_booking_model.dart';
 import '../../viewmodels/maintenance_bookings_cubit.dart';
 import 'edit_maintenance_booking_sheet.dart';
@@ -61,30 +62,14 @@ class MaintenanceBookingCard extends StatelessWidget {
                 left: 8.w,
                 child: GestureDetector(
                   onTap: () async {
-                    final confirmed = await showDialog<bool>(
-                      context: context,
-                      builder: (context) => AlertDialog(
-                        title: Text(
-                          context.l10n.maintenance_bookings_card_deleteTitle,
-                        ),
-                        content: Text(
-                          context
-                              .l10n
-                              .maintenance_bookings_card_deleteConfirmation,
-                        ),
-                        actions: [
-                          TextButton(
-                            onPressed: () => Navigator.pop(context, false),
-                            child: Text(context.l10n.cancel),
-                          ),
-                          AppElevatedButton(
-                            onPressed: () => Navigator.pop(context, true),
-                            backgroundColor: context.colorScheme.error,
-                            foregroundColor: Colors.white,
-                            text: context.l10n.delete,
-                          ),
-                        ],
-                      ),
+                    final confirmed = await showAppConfirmationDialog(
+                      context,
+                      title: context.l10n.maintenance_bookings_card_deleteTitle,
+                      message: context
+                          .l10n
+                          .maintenance_bookings_card_deleteConfirmation,
+                      confirmText: context.l10n.delete,
+                      actionType: DialogActionType.destructive,
                     );
 
                     if (confirmed == true && context.mounted) {

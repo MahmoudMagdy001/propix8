@@ -8,7 +8,7 @@ import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/widgets/app_modal_sheet.dart';
 import '../../../../core/widgets/app_segmented_toggle.dart';
-import '../../../auth/views/map/repositories/address_setup_repository.dart';
+import '../../../auth/repositories/address_setup_repository.dart';
 import '../../viewmodels/home_cubit.dart';
 import '../../viewmodels/home_state.dart';
 import '../filter/viewmodels/filter_cubit.dart';

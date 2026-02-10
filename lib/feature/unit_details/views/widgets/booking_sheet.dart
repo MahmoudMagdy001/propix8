@@ -100,7 +100,7 @@ class _BookingSheetState extends State<BookingSheet> {
 
   void _submit(BuildContext context) {
     if (_appFormKey.currentState?.validateAndScroll() ?? false) {
-      final request = BookingRequest(
+      final request = BookingRequestModel(
         unitId: widget.unitId,
         name: _nameController.text,
         email: _emailController.text,

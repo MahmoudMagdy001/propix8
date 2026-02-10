@@ -7,6 +7,7 @@ import '../../../../core/utils/responsive_helper.dart';
 import '../../models/unit_details_model.dart';
 import '../../viewmodels/unit_details_cubit.dart';
 import '../../viewmodels/unit_details_state.dart';
+import 'section_header.dart';
 
 class UnitAmenities extends StatefulWidget {
   const UnitAmenities({super.key});
@@ -35,16 +36,7 @@ class _UnitAmenitiesState extends State<UnitAmenities> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w),
-                  child: Text(
-                    context.l10n.amenities,
-                    style: context.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: context.colorScheme.primary,
-                    ),
-                  ),
-                ),
+                SectionHeader(title: context.l10n.amenities),
                 SizedBox(height: 12.h),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 6.w),
@@ -82,11 +74,9 @@ class _UnitAmenitiesState extends State<UnitAmenities> {
                               imageUrl: amenity.icon,
                               height: 30.h,
                               width: 30.w,
-                              errorWidget: (context, url, error) => Icon(
-                                Icons.broken_image_outlined,
-                                size: 22.sp,
-                                color: context.colorScheme.primary,
-                              ),
+                              memCacheHeight: 30 * 3,
+                              errorWidget: (context, url, error) =>
+                                  Icon(Icons.broken_image_outlined),
                             ),
                             SizedBox(height: 6.h),
                             Text(

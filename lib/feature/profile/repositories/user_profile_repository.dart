@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 
 import '../../../core/public_feature/services/storage_service.dart';
 import '../../auth/models/auth_model.dart';
-import '../../auth/views/map/models/city_model.dart';
+import '../../auth/models/city_model.dart';
 import '../services/user_profile_service.dart';
 
 abstract class UserProfileRepository {
@@ -25,9 +25,14 @@ class UserProfileRepositoryImpl implements UserProfileRepository {
   Future<Either<String, void>> deleteProfile() async {
     try {
       await _service.deleteProfile();
-      await _storageService.clearUser();
+      await _storageService.clearAuthData();
       return const Right(null);
     } on DioException catch (e) {
+      // If server returns 401, the session is already invalid on server.
+      // Clear locally to prevent being stuck.
+      if (e.response?.statusCode == 401) {
+        await _storageService.clearAuthData();
+      }
       return Left(_handleError(e, 'Failed to delete profile'));
     } catch (e) {
       return Left(e.toString());

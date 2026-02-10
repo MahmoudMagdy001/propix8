@@ -4,13 +4,12 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:go_router/go_router.dart';
 import 'package:latlong2/latlong.dart';
 
-import '../../../../../core/di/locator.dart';
-import '../../../../../core/router/app_routes.dart';
-import '../../../../../core/utils/context_extensions.dart';
-import '../../../../../core/utils/responsive_helper.dart';
-import '../../../../../core/utils/snackbar_utils.dart';
-import '../../../../../core/widgets/app_elevated_button.dart';
-import '../../../../../l10n/app_localizations.dart';
+import '../../../core/di/locator.dart';
+import '../../../core/router/app_routes.dart';
+import '../../../core/utils/context_extensions.dart';
+import '../../../core/utils/responsive_helper.dart';
+import '../../../core/utils/snackbar_utils.dart';
+import '../../../core/widgets/app_elevated_button.dart';
 import '../models/city_model.dart';
 import '../viewmodels/address_setup_cubit.dart';
 import '../viewmodels/address_setup_state.dart';
@@ -35,7 +34,7 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
       create: (context) => locator<AddressSetupCubit>()
         ..fetchCities()
         ..detectCurrentLocation(),
-      child: BlocConsumer<AddressSetupCubit, ProfileState>(
+      child: BlocConsumer<AddressSetupCubit, AddressSetupState>(
         listener: (context, state) {
           if (!ModalRoute.of(context)!.isCurrent) return;
 
@@ -43,10 +42,10 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
             _mapController.move(state.selectedLocation!, 13.0);
           }
 
-          if (state.status == ProfileStatus.success) {
+          if (state.status == AddressSetupStatus.success) {
             context.showSuccessSnackbar(l10n.profileUpdateSuccess);
             context.goNamed(AppRoutes.layout);
-          } else if (state.status == ProfileStatus.failure) {
+          } else if (state.status == AddressSetupStatus.failure) {
             if (state.errorMessage == 'LOCATION_SERVICE_DISABLED') {
               context.showErrorSnackbar(
                 l10n.locationServiceDisabled,
@@ -183,7 +182,7 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
                   width: double.infinity,
                   onPressed: () =>
                       context.read<AddressSetupCubit>().submitProfile(),
-                  isLoading: state.status == ProfileStatus.submitting,
+                  isLoading: state.status == AddressSetupStatus.submitting,
                   enabled:
                       state.selectedCityId != null &&
                       state.selectedLocation != null,
@@ -199,12 +198,12 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
 
   Widget _buildCityDropdown(
     BuildContext context,
-    ProfileState state,
-    AppLocalizations l10n,
+    AddressSetupState state,
+    dynamic l10n,
   ) {
     final colors = context.theme.colorScheme;
 
-    if (state.status == ProfileStatus.loading) {
+    if (state.status == AddressSetupStatus.loading) {
       return SizedBox(
         height: 50.h,
         child: const Center(child: CircularProgressIndicator()),
@@ -246,7 +245,7 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
     );
   }
 
-  Widget _buildMap(BuildContext context, ProfileState state) {
+  Widget _buildMap(BuildContext context, AddressSetupState state) {
     final colors = context.theme.colorScheme;
 
     final initialCenter =

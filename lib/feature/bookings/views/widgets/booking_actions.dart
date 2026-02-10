@@ -6,6 +6,7 @@ import 'package:propix8/core/utils/snackbar_utils.dart';
 
 import '../../../../core/widgets/app_elevated_button.dart';
 import '../../../../core/widgets/app_modal_sheet.dart';
+import '../../../../core/widgets/app_confirmation_dialog.dart';
 import '../../models/booking_model.dart';
 import '../../viewmodels/booking_cubit.dart';
 import 'suggest_time_modal.dart';
@@ -62,23 +63,12 @@ class BookingActions extends StatelessWidget {
   }
 
   Future<void> _showApproveDialog(BuildContext context) async {
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(context.l10n.confirm),
-        content: Text(context.l10n.confirmSuggestedTime),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context, false),
-            child: Text(context.l10n.cancel),
-          ),
-          AppElevatedButton(
-            onPressed: () => Navigator.pop(context, true),
-            text: context.l10n.approve,
-            backgroundColor: context.colorScheme.tertiary,
-          ),
-        ],
-      ),
+    final confirmed = await showAppConfirmationDialog(
+      context,
+      title: context.l10n.confirm,
+      message: context.l10n.confirmSuggestedTime,
+      confirmText: context.l10n.approve,
+      actionType: DialogActionType.positive,
     );
 
     if (confirmed == true && context.mounted) {
@@ -113,23 +103,12 @@ class BookingActions extends StatelessWidget {
   }
 
   Future<void> _showCancelDialog(BuildContext context) async {
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(context.l10n.confirmCancellation),
-        content: Text(context.l10n.cancelBookingConfirmation),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context, false),
-            child: Text(context.l10n.back),
-          ),
-          AppElevatedButton(
-            backgroundColor: context.colorScheme.error,
-            onPressed: () => Navigator.pop(context, true),
-            text: context.l10n.cancelBooking,
-          ),
-        ],
-      ),
+    final confirmed = await showAppConfirmationDialog(
+      context,
+      title: context.l10n.confirmCancellation,
+      message: context.l10n.cancelBookingConfirmation,
+      confirmText: context.l10n.cancelBooking,
+      actionType: DialogActionType.destructive,
     );
 
     if (confirmed == true && context.mounted) {

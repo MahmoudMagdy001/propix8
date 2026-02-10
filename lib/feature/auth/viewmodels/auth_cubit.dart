@@ -2,8 +2,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/utils/auth_logger.dart';
 import '../models/auth_model.dart';
-import '../repo/auth_repository.dart';
-import '../views/map/repositories/address_setup_repository.dart';
+import '../repositories/address_setup_repository.dart';
+import '../repositories/auth_repository.dart';
 import 'auth_state.dart';
 
 /// Cubit managing authentication state.
@@ -179,6 +179,16 @@ class AuthCubit extends Cubit<AuthState> {
   Future<void> logout() async {
     AuthLogger.info('Logout initiated');
     await _authRepository.logout();
+    _safeEmit(
+      const AuthState(
+        authenticationStatus: AuthenticationStatus.unauthenticated,
+      ),
+    );
+  }
+
+  Future<void> clearLocalSession() async {
+    AuthLogger.info('Clearing local session only');
+    await _authRepository.clearLocalSession();
     _safeEmit(
       const AuthState(
         authenticationStatus: AuthenticationStatus.unauthenticated,

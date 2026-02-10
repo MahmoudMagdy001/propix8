@@ -8,6 +8,7 @@ import '../../../../core/widgets/unit_list_card.dart';
 import '../../../home/models/unit_model.dart';
 import '../../viewmodels/unit_details_cubit.dart';
 import '../../viewmodels/unit_details_state.dart';
+import 'section_header.dart';
 
 class UnitRelatedSection extends StatelessWidget {
   const UnitRelatedSection({super.key});
@@ -37,16 +38,7 @@ class UnitRelatedSection extends StatelessWidget {
           return SliverMainAxisGroup(
             slivers: [
               SliverToBoxAdapter(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w),
-                  child: Text(
-                    context.l10n.relatedUnits,
-                    style: context.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: context.colorScheme.primary,
-                    ),
-                  ),
-                ),
+                child: SectionHeader(title: context.l10n.relatedUnits),
               ),
               SliverToBoxAdapter(
                 child: Column(

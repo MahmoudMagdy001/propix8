@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../auth/views/map/repositories/address_setup_repository.dart';
+import '../../../../auth/repositories/address_setup_repository.dart';
 import 'filter_state.dart';
 
 class FilterCubit extends Cubit<FilterState> {

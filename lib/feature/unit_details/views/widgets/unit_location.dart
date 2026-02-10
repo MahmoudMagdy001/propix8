@@ -10,6 +10,7 @@ import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../../viewmodels/unit_details_cubit.dart';
 import '../../viewmodels/unit_details_state.dart';
+import 'section_header.dart';
 
 class UnitLocation extends StatefulWidget {
   const UnitLocation({super.key});
@@ -58,16 +59,7 @@ class _UnitLocationState extends State<UnitLocation> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w),
-                    child: Text(
-                      context.l10n.mapLocation,
-                      style: context.textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: context.colorScheme.primary,
-                      ),
-                    ),
-                  ),
+                  SectionHeader(title: context.l10n.mapLocation),
                   SizedBox(height: 8.h),
                   SizedBox(
                     height: 200.h,

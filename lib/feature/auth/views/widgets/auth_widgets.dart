@@ -62,5 +62,3 @@ class PasswordStrengthIndicator extends StatelessWidget {
     );
   }
 }
-
-//

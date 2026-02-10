@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/widgets/app_confirmation_dialog.dart';
 import '../../../auth/viewmodels/auth_cubit.dart';
 import '../../../auth/viewmodels/auth_state.dart';
 import '../../models/testimonial_model.dart';
@@ -109,28 +110,14 @@ class TestimonialItem extends StatelessWidget {
                         );
                       } else if (value == 'delete') {
                         final cubit = context.read<OurServicesCubit>();
-                        showDialog(
-                          context: context,
-                          builder: (context) => AlertDialog(
-                            title: Text(context.l10n.deleteTestimonial),
-                            content: Text(context.l10n.deleteConfirmation),
-                            actions: [
-                              TextButton(
-                                onPressed: () => Navigator.pop(context),
-                                child: Text(context.l10n.cancel),
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  cubit.deleteTestimonial(testimonial.id);
-                                  Navigator.pop(context);
-                                },
-                                style: TextButton.styleFrom(
-                                  foregroundColor: Colors.red,
-                                ),
-                                child: Text(context.l10n.delete),
-                              ),
-                            ],
-                          ),
+                        showAppConfirmationDialog(
+                          context,
+                          title: context.l10n.deleteTestimonial,
+                          message: context.l10n.deleteConfirmation,
+                          confirmText: context.l10n.delete,
+                          actionType: DialogActionType.destructive,
+                          onConfirm: () =>
+                              cubit.deleteTestimonial(testimonial.id),
                         );
                       }
                     },

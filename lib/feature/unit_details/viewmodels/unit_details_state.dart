@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
 
 import '../../../core/models/pagination_model.dart';
 import '../../home/models/unit_model.dart';
@@ -7,6 +8,7 @@ import '../models/unit_details_model.dart';
 
 enum RequestStatus { initial, loading, success, failure }
 
+@immutable
 class UnitDetailsState extends Equatable {
   const UnitDetailsState({
     this.status = RequestStatus.initial,
@@ -74,6 +76,7 @@ class UnitDetailsState extends Equatable {
     String? bookingErrorMessage,
     bool? isBookedByUser,
     int? cancelledBookingId,
+    bool clearCancelledBookingId = false,
   }) => UnitDetailsState(
     status: status ?? this.status,
     unit: unit ?? this.unit,
@@ -93,7 +96,9 @@ class UnitDetailsState extends Equatable {
     bookingSuccessMessage: bookingSuccessMessage ?? this.bookingSuccessMessage,
     bookingErrorMessage: bookingErrorMessage ?? this.bookingErrorMessage,
     isBookedByUser: isBookedByUser ?? this.isBookedByUser,
-    cancelledBookingId: cancelledBookingId ?? this.cancelledBookingId,
+    cancelledBookingId: clearCancelledBookingId
+        ? null
+        : cancelledBookingId ?? this.cancelledBookingId,
   );
 
   @override

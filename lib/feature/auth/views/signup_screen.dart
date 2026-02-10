@@ -11,7 +11,6 @@ import '../../../core/widgets/app_elevated_button.dart';
 import '../../../core/widgets/app_form.dart';
 import '../../../core/widgets/app_text_form_field.dart';
 import '../../../core/widgets/terms_checkbox.dart';
-import '../../../l10n/app_localizations.dart';
 import '../models/auth_model.dart';
 import '../viewmodels/auth_cubit.dart';
 import '../viewmodels/auth_state.dart';
@@ -56,7 +55,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = context.l10n;
 
     return BlocProvider.value(
       value: locator<AuthCubit>(),

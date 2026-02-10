@@ -24,8 +24,9 @@ class EditAccountView extends StatelessWidget {
         listener: (context, state) {
           if (state.status == UserProfileStatus.accountDeleted) {
             context.showSuccessSnackbar(context.l10n.accountDeletedSuccess);
-            // Logout to clear token and trigger router redirect
-            locator<AuthCubit>().logout();
+            // Clear tokens locally and force clean redirect to login
+            locator<AuthCubit>().clearLocalSession();
+            context.go(AppRoutes.loginPath);
           } else if (state.status == UserProfileStatus.failure) {
             context.showErrorSnackbar(
               state.errorMessage ?? context.l10n.errorOccurred,
@@ -127,8 +128,8 @@ class EditAccountView extends StatelessWidget {
                           context.read<UserProfileCubit>().deleteProfile();
                         },
                         isLoading: isLoading,
+                        backgroundColor: context.colorScheme.error,
                         foregroundColor: Colors.white,
-                        padding: EdgeInsets.symmetric(vertical: 14.h),
                         text: context.l10n.confirmDeleteAccount,
 
                         width: double.infinity,
@@ -138,12 +139,6 @@ class EditAccountView extends StatelessWidget {
                         width: double.infinity,
                         child: OutlinedButton(
                           onPressed: isLoading ? null : () => context.pop(),
-                          style: OutlinedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(vertical: 14.h),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12.r),
-                            ),
-                          ),
                           child: Text(
                             context.l10n.cancel,
                             style: context.textTheme.titleMedium?.copyWith(

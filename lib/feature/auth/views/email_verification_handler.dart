@@ -4,9 +4,9 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/di/locator.dart';
 import '../../../core/router/app_routes.dart';
+import '../../../core/utils/context_extensions.dart';
 import '../../../core/utils/responsive_helper.dart';
 import '../../../core/utils/snackbar_utils.dart';
-import '../../../l10n/app_localizations.dart';
 import '../viewmodels/auth_cubit.dart';
 import '../viewmodels/auth_state.dart';
 
@@ -60,14 +60,10 @@ class _EmailVerificationHandlerState extends State<EmailVerificationHandler> {
           previous.verificationStatus != current.verificationStatus,
       listener: (context, state) {
         if (state.verificationStatus == AuthRequestStatus.success) {
-          context.showSuccessSnackbar(
-            AppLocalizations.of(context)!.emailVerified,
-          );
+          context.showSuccessSnackbar(context.l10n.emailVerified);
           context.goNamed(AppRoutes.login);
         } else if (state.verificationStatus == AuthRequestStatus.failure) {
-          context.showErrorSnackbar(
-            state.errorMessage ?? AppLocalizations.of(context)!.error,
-          );
+          context.showErrorSnackbar(state.errorMessage ?? context.l10n.error);
           context.goNamed(AppRoutes.login);
         }
       },
@@ -78,7 +74,7 @@ class _EmailVerificationHandlerState extends State<EmailVerificationHandler> {
             children: [
               const CircularProgressIndicator(),
               SizedBox(height: 16.h),
-              Text(AppLocalizations.of(context)!.verifyingEmail),
+              Text(context.l10n.verifyingEmail),
             ],
           ),
         ),

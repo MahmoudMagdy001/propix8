@@ -2,13 +2,13 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../feature/auth/repo/auth_repository.dart';
+import '../../feature/auth/repositories/address_setup_repository.dart';
+import '../../feature/auth/repositories/auth_repository.dart';
+import '../../feature/auth/services/address_setup_service.dart';
 import '../../feature/auth/services/auth_service.dart';
+import '../../feature/auth/viewmodels/address_setup_cubit.dart';
 import '../../feature/auth/viewmodels/auth_cubit.dart';
 import '../../feature/auth/viewmodels/reset_password_cubit.dart';
-import '../../feature/auth/views/map/repositories/address_setup_repository.dart';
-import '../../feature/auth/views/map/services/address_setup_service.dart';
-import '../../feature/auth/views/map/viewmodels/address_setup_cubit.dart';
 import '../../feature/bookings/repositories/booking_repository.dart';
 import '../../feature/bookings/services/booking_service.dart';
 import '../../feature/bookings/viewmodels/booking_cubit.dart';

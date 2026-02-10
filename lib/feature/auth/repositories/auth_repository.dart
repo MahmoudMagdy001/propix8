@@ -21,6 +21,7 @@ abstract class AuthRepository {
   Future<Either<String, void>> resendVerificationEmail(String email);
   Future<Either<String, void>> verifyEmail(String url);
   Future<void> logout();
+  Future<void> clearLocalSession();
   bool isLoggedIn();
   User? getCachedUser();
 
@@ -208,6 +209,12 @@ class AuthRepositoryImpl implements AuthRepository {
       await _storageService.clearAuthData();
       AuthLogger.info('User logged out, session cleared');
     }
+  }
+
+  @override
+  Future<void> clearLocalSession() async {
+    await _storageService.clearAuthData();
+    AuthLogger.info('Local session cleared without server call');
   }
 
   @override

@@ -7,6 +7,7 @@ import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/utils/snackbar_utils.dart';
 import '../../../../core/widgets/app_modal_sheet.dart';
+import '../../../../core/widgets/app_confirmation_dialog.dart';
 import '../../../auth/viewmodels/auth_cubit.dart';
 import '../../../auth/viewmodels/auth_state.dart';
 import '../../models/review_model.dart';
@@ -219,31 +220,13 @@ class UnitReviews extends StatelessWidget {
   Future<void> _showDeleteConfirmationDialog(
     BuildContext context,
     VoidCallback onConfirm,
-  ) async => showDialog<void>(
-    context: context,
-    builder: (context) => AlertDialog(
-      title: Text(context.l10n.deleteReviewConfirmationTitle),
-      content: Text(context.l10n.deleteReviewConfirmationContent),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.of(context).pop(),
-          child: Text(
-            context.l10n.cancel,
-            style: const TextStyle(color: Colors.grey),
-          ),
-        ),
-        TextButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-            onConfirm();
-          },
-          child: Text(
-            context.l10n.confirm,
-            style: const TextStyle(color: Colors.red),
-          ),
-        ),
-      ],
-    ),
+  ) async => showAppConfirmationDialog(
+    context,
+    title: context.l10n.deleteReviewConfirmationTitle,
+    message: context.l10n.deleteReviewConfirmationContent,
+    confirmText: context.l10n.confirm,
+    actionType: DialogActionType.destructive,
+    onConfirm: onConfirm,
   );
 }
 

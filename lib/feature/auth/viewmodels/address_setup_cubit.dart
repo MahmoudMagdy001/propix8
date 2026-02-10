@@ -3,25 +3,26 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
 
-import '../../../../../core/di/locator.dart';
-import '../../../viewmodels/auth_cubit.dart';
+import '../../../core/di/locator.dart';
 import '../repositories/address_setup_repository.dart';
 import 'address_setup_state.dart';
+import 'auth_cubit.dart';
 
-class AddressSetupCubit extends Cubit<ProfileState> {
-  AddressSetupCubit(this._addressSetupRepository) : super(const ProfileState());
+class AddressSetupCubit extends Cubit<AddressSetupState> {
+  AddressSetupCubit(this._addressSetupRepository)
+    : super(const AddressSetupState());
   final AddressSetupRepository _addressSetupRepository;
 
   Future<void> fetchCities() async {
-    emit(state.copyWith(status: ProfileStatus.loading));
+    emit(state.copyWith(status: AddressSetupStatus.loading));
     final result = await _addressSetupRepository.getCities();
     if (isClosed) return;
     result.fold(
       (error) => emit(
-        state.copyWith(status: ProfileStatus.failure, errorMessage: error),
+        state.copyWith(status: AddressSetupStatus.failure, errorMessage: error),
       ),
       (cities) => emit(
-        state.copyWith(status: ProfileStatus.citiesLoaded, cities: cities),
+        state.copyWith(status: AddressSetupStatus.citiesLoaded, cities: cities),
       ),
     );
   }
@@ -34,7 +35,7 @@ class AddressSetupCubit extends Cubit<ProfileState> {
     if (!serviceEnabled) {
       emit(
         state.copyWith(
-          status: ProfileStatus.failure,
+          status: AddressSetupStatus.failure,
           errorMessage: 'LOCATION_SERVICE_DISABLED',
         ),
       );
@@ -47,7 +48,7 @@ class AddressSetupCubit extends Cubit<ProfileState> {
       if (permission == LocationPermission.denied) {
         emit(
           state.copyWith(
-            status: ProfileStatus.failure,
+            status: AddressSetupStatus.failure,
             errorMessage: 'LOCATION_PERMISSION_DENIED',
           ),
         );
@@ -58,7 +59,7 @@ class AddressSetupCubit extends Cubit<ProfileState> {
     if (permission == LocationPermission.deniedForever) {
       emit(
         state.copyWith(
-          status: ProfileStatus.failure,
+          status: AddressSetupStatus.failure,
           errorMessage: 'LOCATION_PERMISSION_DENIED_FOREVER',
         ),
       );
@@ -132,14 +133,14 @@ class AddressSetupCubit extends Cubit<ProfileState> {
     if (state.selectedCityId == null || state.selectedLocation == null) {
       emit(
         state.copyWith(
-          status: ProfileStatus.failure,
+          status: AddressSetupStatus.failure,
           errorMessage: 'Please select a city and a location on the map.',
         ),
       );
       return;
     }
 
-    emit(state.copyWith(status: ProfileStatus.submitting));
+    emit(state.copyWith(status: AddressSetupStatus.submitting));
     final result = await _addressSetupRepository.updateProfile(
       cityId: state.selectedCityId!,
       address: state.address,
@@ -148,11 +149,11 @@ class AddressSetupCubit extends Cubit<ProfileState> {
 
     result.fold(
       (error) => emit(
-        state.copyWith(status: ProfileStatus.failure, errorMessage: error),
+        state.copyWith(status: AddressSetupStatus.failure, errorMessage: error),
       ),
       (user) {
         locator<AuthCubit>().updateUser(user);
-        emit(state.copyWith(status: ProfileStatus.success));
+        emit(state.copyWith(status: AddressSetupStatus.success));
       },
     );
   }

@@ -28,13 +28,17 @@ class ProfileMenuItem extends StatelessWidget {
         padding: EdgeInsets.all(16.r),
         child: Row(
           children: [
-            Icon(icon, size: 24.r, color: isDestructive ? Colors.red : null),
+            Icon(
+              icon,
+              size: 24.r,
+              color: isDestructive ? context.colorScheme.error : null,
+            ),
             SizedBox(width: 16.w),
             Expanded(
               child: Text(
                 title,
                 style: context.textTheme.bodyLarge?.copyWith(
-                  color: isDestructive ? Colors.red : null,
+                  color: isDestructive ? context.colorScheme.error : null,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -56,7 +60,13 @@ class ProfileMenuItem extends StatelessWidget {
               ),
               SizedBox(width: 8.w),
             ],
-            Icon(Icons.arrow_forward_ios, size: 16.r, color: Colors.grey),
+            Icon(
+              Icons.arrow_forward_ios,
+              size: 16.r,
+              color: isDestructive
+                  ? context.colorScheme.error.withValues(alpha: 0.8)
+                  : context.colorScheme.onSurface.withValues(alpha: 0.8),
+            ),
           ],
         ),
       ),

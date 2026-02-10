@@ -12,6 +12,7 @@ import '../../../../core/widgets/app_form.dart';
 import '../../../../core/widgets/app_modal_sheet.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
 import '../../../auth/models/auth_model.dart';
+import '../../models/unit_details_model.dart';
 import '../../viewmodels/unit_details_cubit.dart';
 import '../../viewmodels/unit_details_state.dart';
 
@@ -80,10 +81,9 @@ class _ContactSheetState extends State<ContactSheet> {
       key: _appFormKey,
       formKey: _formKey,
       padding: EdgeInsets.symmetric(horizontal: 6.w),
-      child: BlocBuilder<UnitDetailsCubit, UnitDetailsState>(
-        builder: (context, state) {
-          final owner = state.unit?.owner;
-
+      child: BlocSelector<UnitDetailsCubit, UnitDetailsState, OwnerModel?>(
+        selector: (state) => state.unit?.owner,
+        builder: (context, owner) {
           return Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -94,7 +94,6 @@ class _ContactSheetState extends State<ContactSheet> {
                   decoration: BoxDecoration(
                     color: context.theme.cardTheme.color,
                     borderRadius: BorderRadius.circular(12.r),
-                    // border: Border.all(color: Colors.grey.shade200),
                   ),
                   child: Row(
                     children: [
@@ -203,7 +202,6 @@ class _ContactSheetState extends State<ContactSheet> {
                   },
                   isLoading: status == RequestStatus.loading,
                   text: context.l10n.send,
-                  padding: EdgeInsets.symmetric(vertical: 16.h),
                 ),
               ),
             ],

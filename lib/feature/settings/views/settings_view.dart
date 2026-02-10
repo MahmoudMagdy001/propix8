@@ -7,6 +7,7 @@ import '../../../core/utils/context_extensions.dart';
 import '../../../core/utils/responsive_helper.dart';
 import '../../../core/widgets/app_modal_sheet.dart';
 import '../../../core/widgets/custom_back_button.dart';
+import '../../../core/widgets/app_confirmation_dialog.dart';
 import '../viewmodels/settings_cubit.dart';
 import '../viewmodels/settings_state.dart';
 
@@ -175,22 +176,12 @@ class SettingsView extends StatelessWidget {
       );
 
   Future<bool?> _confirmLanguageChange(BuildContext context) =>
-      showDialog<bool>(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text(context.l10n.restartRequired),
-          content: Text(context.l10n.restartRequiredMessage),
-          actions: [
-            TextButton(
-              onPressed: () => context.pop(false),
-              child: Text(context.l10n.cancel),
-            ),
-            TextButton(
-              onPressed: () => context.pop(true),
-              child: Text(context.l10n.restart),
-            ),
-          ],
-        ),
+      showAppConfirmationDialog(
+        context,
+        title: context.l10n.restartRequired,
+        message: context.l10n.restartRequiredMessage,
+        confirmText: context.l10n.restart,
+        actionType: DialogActionType.primary,
       );
 
   Widget _buildRadioItem<T>({

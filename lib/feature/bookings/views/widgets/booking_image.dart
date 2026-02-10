@@ -5,7 +5,7 @@ import 'package:propix8/core/utils/context_extensions.dart';
 import 'package:propix8/core/utils/responsive_helper.dart';
 import 'package:propix8/core/utils/snackbar_utils.dart';
 
-import '../../../../core/widgets/app_elevated_button.dart';
+import '../../../../core/widgets/app_confirmation_dialog.dart';
 import '../../models/booking_model.dart';
 import '../../viewmodels/booking_cubit.dart';
 
@@ -50,24 +50,12 @@ class BookingImage extends StatelessWidget {
   }
 
   Future<void> _showDeleteDialog(BuildContext context) async {
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(context.l10n.deleteBooking),
-        content: Text(context.l10n.deleteBookingConfirmation),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context, false),
-            child: Text(context.l10n.cancel),
-          ),
-          AppElevatedButton(
-            backgroundColor: context.theme.colorScheme.error,
-            onPressed: () => Navigator.pop(context, true),
-            foregroundColor: Colors.white,
-            text: context.l10n.delete,
-          ),
-        ],
-      ),
+    final confirmed = await showAppConfirmationDialog(
+      context,
+      title: context.l10n.deleteBooking,
+      message: context.l10n.deleteBookingConfirmation,
+      confirmText: context.l10n.delete,
+      actionType: DialogActionType.destructive,
     );
 
     if (confirmed == true && context.mounted) {

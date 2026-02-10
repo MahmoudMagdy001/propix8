@@ -11,7 +11,6 @@ import '../../../core/di/locator.dart';
 import '../../../core/utils/context_extensions.dart';
 import '../../../core/widgets/app_elevated_button.dart';
 import '../../../core/widgets/app_text_form_field.dart';
-import '../../../l10n/app_localizations.dart';
 import '../viewmodels/reset_password_cubit.dart';
 import '../viewmodels/reset_password_state.dart';
 
@@ -37,7 +36,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = context.l10n;
 
     return BlocProvider(
       create: (context) => locator<ResetPasswordCubit>(),

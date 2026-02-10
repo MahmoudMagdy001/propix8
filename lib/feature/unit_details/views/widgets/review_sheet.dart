@@ -128,9 +128,7 @@ class _ReviewSheetState extends State<ReviewSheet> {
                       ? context.l10n.updateReview
                       : context.l10n.submitReview,
 
-                  height: 50.h,
                   width: double.infinity,
-                  padding: EdgeInsets.symmetric(vertical: 16.h),
                 ),
               ],
             ),

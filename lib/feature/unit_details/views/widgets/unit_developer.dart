@@ -10,6 +10,7 @@ import '../../../../core/utils/responsive_helper.dart';
 import '../../models/unit_details_model.dart';
 import '../../viewmodels/unit_details_cubit.dart';
 import '../../viewmodels/unit_details_state.dart';
+import 'section_header.dart';
 
 class UnitDeveloper extends StatelessWidget {
   const UnitDeveloper({super.key});
@@ -25,16 +26,7 @@ class UnitDeveloper extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w),
-              child: Text(
-                context.l10n.developer,
-                style: context.textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: context.colorScheme.primary,
-                ),
-              ),
-            ),
+            SectionHeader(title: context.l10n.developer),
             SizedBox(height: 8.h),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 6.w),

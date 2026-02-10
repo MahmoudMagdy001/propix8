@@ -15,64 +15,84 @@ class UnitActionButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SafeArea(
-    child: BlocBuilder<UnitDetailsCubit, UnitDetailsState>(
-      builder: (context, state) {
-        final unit = state.unit;
-        final isLoading = state.status == RequestStatus.loading;
-        final isActionDisabled =
-            isLoading ||
-            state.isBookedByUser ||
-            (unit != null &&
-                (unit.status.toLowerCase() == 'sold' ||
-                    unit.status.toLowerCase() == 'rented'));
+    child:
+        BlocSelector<
+          UnitDetailsCubit,
+          UnitDetailsState,
+          ({
+            RequestStatus status,
+            bool isBookedByUser,
+            int? cancelledBookingId,
+            int? unitId,
+            String? unitStatus,
+          })
+        >(
+          selector: (state) => (
+            status: state.status,
+            isBookedByUser: state.isBookedByUser,
+            cancelledBookingId: state.cancelledBookingId,
+            unitId: state.unit?.id,
+            unitStatus: state.unit?.status,
+          ),
+          builder: (context, data) {
+            final isLoading = data.status == RequestStatus.loading;
+            final isActionDisabled =
+                isLoading ||
+                data.isBookedByUser ||
+                (data.unitStatus != null &&
+                    (data.unitStatus!.toLowerCase() == 'sold' ||
+                        data.unitStatus!.toLowerCase() == 'rented'));
 
-        return Skeletonizer(
-          enabled: isLoading,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 10.h),
-            child: Row(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: AppElevatedButton(
-                    onPressed: () {
-                      if (unit != null) {
-                        BookingSheet.show(context, unit.id);
-                      }
-                    },
-                    enabled: !isActionDisabled,
-                    text: state.isBookedByUser
-                        ? context.l10n.alreadyBooked
-                        : (state.cancelledBookingId != null
-                              ? context.l10n.rebook
-                              : context.l10n.reserveNow),
-                  ),
+            return Skeletonizer(
+              enabled: isLoading,
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 16.0.w,
+                  vertical: 10.h,
                 ),
-                SizedBox(width: 12.w),
-                Expanded(
-                  child: OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(vertical: 16.h),
-                      side: BorderSide(
-                        color: isActionDisabled
-                            ? Colors.grey.shade200
-                            : Colors.grey.shade300,
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.r),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: AppElevatedButton(
+                        onPressed: () {
+                          if (data.unitId != null) {
+                            BookingSheet.show(context, data.unitId!);
+                          }
+                        },
+                        enabled: !isActionDisabled,
+                        text: data.isBookedByUser
+                            ? context.l10n.alreadyBooked
+                            : (data.cancelledBookingId != null
+                                  ? context.l10n.rebook
+                                  : context.l10n.reserveNow),
                       ),
                     ),
-                    onPressed: isActionDisabled
-                        ? null
-                        : () => ContactSheet.show(context),
-                    child: Text(context.l10n.sendMessage),
-                  ),
+                    SizedBox(width: 12.w),
+                    Expanded(
+                      child: OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(vertical: 16.h),
+                          side: BorderSide(
+                            color: isActionDisabled
+                                ? Colors.grey.shade200
+                                : Colors.grey.shade300,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12.r),
+                          ),
+                        ),
+                        onPressed: isActionDisabled
+                            ? null
+                            : () => ContactSheet.show(context),
+                        child: Text(context.l10n.sendMessage),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-        );
-      },
-    ),
+              ),
+            );
+          },
+        ),
   );
 }

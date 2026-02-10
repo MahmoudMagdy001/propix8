@@ -11,7 +11,7 @@ abstract class UnitDetailsRepository {
   Future<UnitDetailsModel> getUnitDetails(int unitId);
   Future<List<UnitModel>> getRelatedUnits(int unitId);
   Future<PaginatedResponse<ReviewModel>> getReviews(int unitId, {int page = 1});
-  Future<void> submitReview(int unitId, int rating, String? comment);
+  Future<ReviewModel> submitReview(int unitId, int rating, String? comment);
   Future<void> deleteReview(int reviewId);
   Future<ReviewModel> updateReview(int reviewId, int rating, String? comment);
   Future<void> contactOwner({
@@ -21,7 +21,7 @@ abstract class UnitDetailsRepository {
     required String message,
     required int unitId,
   });
-  Future<BookingResponse> createBooking(BookingRequest request);
+  Future<BookingResponse> createBooking(BookingRequestModel request);
 }
 
 class UnitDetailsRepositoryImpl implements UnitDetailsRepository {
@@ -141,7 +141,7 @@ class UnitDetailsRepositoryImpl implements UnitDetailsRepository {
   }
 
   @override
-  Future<BookingResponse> createBooking(BookingRequest request) async {
+  Future<BookingResponse> createBooking(BookingRequestModel request) async {
     try {
       final json = await _unitDetailsService.createBooking(request.toJson());
       _bookingEventService.notifyBookingChanged();

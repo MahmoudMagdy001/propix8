@@ -8,6 +8,7 @@ import '../../../../core/utils/responsive_helper.dart';
 import '../../models/unit_details_model.dart';
 import '../../viewmodels/unit_details_cubit.dart';
 import '../../viewmodels/unit_details_state.dart';
+import 'section_header.dart';
 
 class UnitCompound extends StatelessWidget {
   const UnitCompound({super.key});
@@ -24,16 +25,7 @@ class UnitCompound extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w),
-                  child: Text(
-                    context.l10n.compound,
-                    style: context.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: context.colorScheme.primary,
-                    ),
-                  ),
-                ),
+                SectionHeader(title: context.l10n.compound),
                 SizedBox(height: 8.h),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 6.w),

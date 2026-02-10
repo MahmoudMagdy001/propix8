@@ -209,7 +209,7 @@ class UnitDetailsCubit extends Cubit<UnitDetailsState> {
     emit(state.copyWith(bookingStatus: RequestStatus.initial));
   }
 
-  Future<void> createBooking(BookingRequest request) async {
+  Future<void> createBooking(BookingRequestModel request) async {
     emit(state.copyWith(bookingStatus: RequestStatus.loading));
     try {
       // If there's an existing cancelled booking, delete it first

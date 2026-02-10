@@ -150,6 +150,7 @@ class UnitDetailsModel extends Equatable {
     amenities,
     averageRating,
     reviewsCount,
+    createdAt,
   ];
 
   static UnitDetailsModel get dummy => UnitDetailsModel(

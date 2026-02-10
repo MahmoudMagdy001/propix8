@@ -68,6 +68,16 @@ class _SearchViewContentState extends State<_SearchViewContent> {
     return currentScroll >= (maxScroll * 0.9);
   }
 
+  void scrollToTop() {
+    if (_scrollController.hasClients) {
+      _scrollController.animateTo(
+        0,
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) => Scaffold(
     backgroundColor: context.colorScheme.surface,
@@ -91,16 +101,16 @@ class _SearchViewContentState extends State<_SearchViewContent> {
       ),
     ),
     floatingActionButton: _showFab
-        ? FloatingActionButton(
-            mini: true,
-            onPressed: () {
-              _scrollController.animateTo(
-                0,
-                duration: const Duration(milliseconds: 500),
-                curve: Curves.easeInOut,
-              );
-            },
-            child: const Icon(Icons.arrow_upward),
+        ? AnimatedScale(
+            scale: _showFab ? 1.0 : 0.0,
+            duration: const Duration(milliseconds: 300),
+            child: FloatingActionButton(
+              mini: true,
+              onPressed: scrollToTop,
+              backgroundColor: context.colorScheme.primary,
+              foregroundColor: context.colorScheme.onPrimary,
+              child: const Icon(Icons.keyboard_arrow_up_rounded),
+            ),
           )
         : null,
   );

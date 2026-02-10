@@ -3,7 +3,7 @@ import 'package:latlong2/latlong.dart';
 
 import '../models/city_model.dart';
 
-enum ProfileStatus {
+enum AddressSetupStatus {
   initial,
   loading,
   citiesLoaded,
@@ -12,30 +12,30 @@ enum ProfileStatus {
   failure,
 }
 
-class ProfileState extends Equatable {
-  const ProfileState({
-    this.status = ProfileStatus.initial,
+class AddressSetupState extends Equatable {
+  const AddressSetupState({
+    this.status = AddressSetupStatus.initial,
     this.cities = const [],
     this.selectedCityId,
     this.selectedLocation,
     this.address = '',
     this.errorMessage,
   });
-  final ProfileStatus status;
+  final AddressSetupStatus status;
   final List<City> cities;
   final int? selectedCityId;
   final LatLng? selectedLocation;
   final String address;
   final String? errorMessage;
 
-  ProfileState copyWith({
-    ProfileStatus? status,
+  AddressSetupState copyWith({
+    AddressSetupStatus? status,
     List<City>? cities,
     int? selectedCityId,
     LatLng? selectedLocation,
     String? address,
     String? errorMessage,
-  }) => ProfileState(
+  }) => AddressSetupState(
     status: status ?? this.status,
     cities: cities ?? this.cities,
     selectedCityId: selectedCityId ?? this.selectedCityId,

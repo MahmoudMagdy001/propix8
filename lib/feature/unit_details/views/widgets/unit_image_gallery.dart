@@ -38,17 +38,7 @@ class UnitImageGallery extends StatelessWidget {
                 Align(
                   alignment: AlignmentDirectional.topEnd,
                   child: FavoriteButton(
-                    unit: UnitModel(
-                      id: unit.id,
-                      title: unit.title,
-                      price: unit.price,
-                      isFavorite: unit.isFavourite,
-                      address: unit.address,
-                      bedrooms: unit.rooms,
-                      bathrooms: unit.bathrooms,
-                      area: unit.area,
-                      description: unit.description,
-                    ),
+                    unit: _buildUnitModel(unit),
                     isFavorite: unit.isFavourite,
                     size: 26.sp,
                   ),
@@ -66,18 +56,7 @@ class UnitImageGallery extends StatelessWidget {
             : Align(
                 alignment: AlignmentDirectional.topEnd,
                 child: FavoriteButton(
-                  unit: UnitModel(
-                    id: unit.id,
-                    title: unit.title,
-                    price: unit.price,
-                    imageUrl: images.isNotEmpty ? images.first.filePath : null,
-                    isFavorite: unit.isFavourite,
-                    address: unit.address,
-                    bedrooms: unit.rooms,
-                    bathrooms: unit.bathrooms,
-                    area: unit.area,
-                    description: unit.description,
-                  ),
+                  unit: _buildUnitModel(unit, imageUrl: images.first.filePath),
                   isFavorite: unit.isFavourite,
                   size: 26.sp,
                 ),
@@ -85,4 +64,18 @@ class UnitImageGallery extends StatelessWidget {
       );
     },
   );
+
+  UnitModel _buildUnitModel(UnitDetailsModel unit, {String? imageUrl}) =>
+      UnitModel(
+        id: unit.id,
+        title: unit.title,
+        price: unit.price,
+        imageUrl: imageUrl,
+        isFavorite: unit.isFavourite,
+        address: unit.address,
+        bedrooms: unit.rooms,
+        bathrooms: unit.bathrooms,
+        area: unit.area,
+        description: unit.description,
+      );
 }

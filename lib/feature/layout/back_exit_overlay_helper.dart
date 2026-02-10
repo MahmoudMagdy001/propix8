@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 
 import '../../core/utils/context_extensions.dart';
 import '../../core/utils/responsive_helper.dart';
+import '../../core/widgets/app_confirmation_dialog.dart';
 
 /// A mixin that provides overlay and timer logic for handling double-back-press to exit.
 /// This helps keep the main view clean and separates the UX logic for back press.
@@ -82,25 +83,12 @@ mixin BackExitOverlayHelper<T extends StatefulWidget> on State<T> {
   }
 
   Future<void> _showExitDialog() async {
-    final result = await showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(context.l10n.exitAppConfirmationTitle),
-        content: Text(context.l10n.exitAppConfirmationMessage),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: Text(context.l10n.cancel),
-          ),
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(true),
-            child: Text(
-              context.l10n.exit,
-              style: context.textTheme.titleMedium?.copyWith(color: Colors.red),
-            ),
-          ),
-        ],
-      ),
+    final result = await showAppConfirmationDialog(
+      context,
+      title: context.l10n.exitAppConfirmationTitle,
+      message: context.l10n.exitAppConfirmationMessage,
+      confirmText: context.l10n.exit,
+      actionType: DialogActionType.destructive,
     );
 
     if (result == true) {

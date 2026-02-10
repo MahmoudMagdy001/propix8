@@ -5,7 +5,7 @@ import '../../../../../../core/theme/app_colors.dart';
 import '../../../../../../core/utils/context_extensions.dart';
 import '../../../../../../core/widgets/app_elevated_button.dart';
 import '../../../../../core/utils/responsive_helper.dart';
-import '../../../../auth/views/map/models/city_model.dart';
+import '../../../../auth/models/city_model.dart';
 import '../viewmodels/filter_cubit.dart';
 import '../viewmodels/filter_state.dart';
 import 'widgets/development_status_toggle.dart';

@@ -6,6 +6,7 @@ import '../../../../core/router/app_routes.dart';
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/utils/snackbar_utils.dart';
+import '../../../core/widgets/app_confirmation_dialog.dart';
 import '../../auth/models/auth_model.dart';
 import '../../auth/viewmodels/auth_cubit.dart';
 import '../viewmodels/user_profile_cubit.dart';
@@ -229,31 +230,18 @@ class _ProfileViewContent extends StatelessWidget {
           'icon': Icons.logout,
           'isDestructive': true,
           'onTap': () {
-            showDialog(
-              context: context,
-              builder: (dialogContext) => AlertDialog(
-                title: Text(context.l10n.logout),
-                content: Text(context.l10n.logoutConfirmationMessage),
-                actions: [
-                  TextButton(
-                    onPressed: () => context.pop(),
-                    child: Text(context.l10n.cancel),
-                  ),
-                  TextButton(
-                    onPressed: () async {
-                      context.pop(); // Close dialog
-                      await context.read<AuthCubit>().logout();
-                      if (context.mounted) {
-                        context.goNamed(AppRoutes.login);
-                      }
-                    },
-                    child: Text(
-                      context.l10n.logout,
-                      style: const TextStyle(color: Colors.red),
-                    ),
-                  ),
-                ],
-              ),
+            showAppConfirmationDialog(
+              context,
+              title: context.l10n.logout,
+              message: context.l10n.logoutConfirmationMessage,
+              confirmText: context.l10n.logout,
+              actionType: DialogActionType.destructive,
+              onConfirm: () async {
+                await context.read<AuthCubit>().logout();
+                if (context.mounted) {
+                  context.goNamed(AppRoutes.login);
+                }
+              },
             );
           },
         },

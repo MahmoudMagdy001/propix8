@@ -5,21 +5,13 @@ class UnitDetailsService {
   final DioClient _dioClient;
 
   Future<Map<String, dynamic>> getUnitDetails(int unitId) async {
-    try {
-      final response = await _dioClient.get('units/$unitId');
-      return response.data;
-    } catch (e) {
-      rethrow;
-    }
+    final response = await _dioClient.get('units/$unitId');
+    return response.data;
   }
 
   Future<Map<String, dynamic>> getRelatedUnits(int unitId) async {
-    try {
-      final response = await _dioClient.get('units/$unitId/related');
-      return response.data;
-    } catch (e) {
-      rethrow;
-    }
+    final response = await _dioClient.get('units/$unitId/related');
+    return response.data;
   }
 
   Future<Map<String, dynamic>> submitReview({
@@ -27,35 +19,23 @@ class UnitDetailsService {
     required int rating,
     String? comment,
   }) async {
-    try {
-      final response = await _dioClient.post(
-        'reviews',
-        data: {'unit_id': unitId, 'rating': rating, 'comment': comment},
-      );
-      return response.data;
-    } catch (e) {
-      rethrow;
-    }
+    final response = await _dioClient.post(
+      'reviews',
+      data: {'unit_id': unitId, 'rating': rating, 'comment': comment},
+    );
+    return response.data;
   }
 
   Future<Map<String, dynamic>> getReviews(int unitId, {int page = 1}) async {
-    try {
-      final response = await _dioClient.get(
-        'units/$unitId/reviews',
-        queryParameters: {'page': page},
-      );
-      return response.data;
-    } catch (e) {
-      rethrow;
-    }
+    final response = await _dioClient.get(
+      'units/$unitId/reviews',
+      queryParameters: {'page': page},
+    );
+    return response.data;
   }
 
   Future<void> deleteReview(int reviewId) async {
-    try {
-      await _dioClient.delete('reviews/$reviewId');
-    } catch (e) {
-      rethrow;
-    }
+    await _dioClient.delete('reviews/$reviewId');
   }
 
   Future<Map<String, dynamic>> updateReview({
@@ -63,15 +43,11 @@ class UnitDetailsService {
     required int rating,
     String? comment,
   }) async {
-    try {
-      final response = await _dioClient.post(
-        'reviews/$reviewId',
-        data: {'rating': rating, 'comment': comment, '_method': 'PUT'},
-      );
-      return response.data;
-    } catch (e) {
-      rethrow;
-    }
+    final response = await _dioClient.post(
+      'reviews/$reviewId',
+      data: {'rating': rating, 'comment': comment, '_method': 'PUT'},
+    );
+    return response.data;
   }
 
   Future<void> contactOwner({
@@ -81,28 +57,20 @@ class UnitDetailsService {
     required String message,
     required int unitId,
   }) async {
-    try {
-      await _dioClient.post(
-        'contact',
-        data: {
-          'name': name,
-          'email': email,
-          'phone': phone,
-          'message': message,
-          'unit_id': unitId,
-        },
-      );
-    } catch (e) {
-      rethrow;
-    }
+    await _dioClient.post(
+      'contact',
+      data: {
+        'name': name,
+        'email': email,
+        'phone': phone,
+        'message': message,
+        'unit_id': unitId,
+      },
+    );
   }
 
   Future<Map<String, dynamic>> createBooking(Map<String, dynamic> data) async {
-    try {
-      final response = await _dioClient.post('bookings', data: data);
-      return response.data;
-    } catch (e) {
-      rethrow;
-    }
+    final response = await _dioClient.post('bookings', data: data);
+    return response.data;
   }
 }

@@ -15,7 +15,7 @@ import '../../../../core/widgets/app_form.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
 import '../../../../core/widgets/custom_back_button.dart';
 import '../../auth/models/auth_model.dart';
-import '../../auth/views/map/models/city_model.dart';
+import '../../auth/models/city_model.dart';
 import '../viewmodels/user_profile_cubit.dart';
 import '../viewmodels/user_profile_state.dart';
 

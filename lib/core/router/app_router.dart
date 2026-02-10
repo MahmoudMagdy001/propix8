@@ -5,16 +5,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/di/locator.dart';
-import '../public_feature/services/storage_service.dart';
-import '../public_feature/privacy_policy_screen.dart';
-import '../public_feature/terms_and_conditions_screen.dart';
 import '../../feature/auth/models/auth_model.dart';
 import '../../feature/auth/viewmodels/auth_cubit.dart';
 import '../../feature/auth/viewmodels/auth_state.dart';
+import '../../feature/auth/views/address_setup_view.dart';
 import '../../feature/auth/views/email_verification_handler.dart';
 import '../../feature/auth/views/forgot_password_screen.dart';
 import '../../feature/auth/views/login_screen.dart';
-import '../../feature/auth/views/map/views/address_setup.dart';
 import '../../feature/auth/views/reset_password_screen.dart';
 import '../../feature/auth/views/signup_screen.dart';
 import '../../feature/auth/views/widgets/password_success_screen.dart';
@@ -44,6 +41,9 @@ import '../../feature/settings/views/settings_view.dart';
 import '../../feature/unit_details/views/unit_details_view.dart';
 import '../../feature/unit_details/views/unit_map_view.dart';
 import '../public_feature/about_us/about_us_screen.dart';
+import '../public_feature/privacy_policy_screen.dart';
+import '../public_feature/services/storage_service.dart';
+import '../public_feature/terms_and_conditions_screen.dart';
 import 'app_routes.dart';
 
 final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -430,6 +430,9 @@ class AppRouter {
       location == AppRoutes.forgotPasswordPath ||
       location == AppRoutes.passwordSuccessPath ||
       location == AppRoutes.splashPath ||
+      location == AppRoutes.termsPath ||
+      location == AppRoutes.privacyPath ||
+      location == AppRoutes.aboutUsPath ||
       location.contains('/api/email/verify') ||
       location.contains('/api/password/verify');
 

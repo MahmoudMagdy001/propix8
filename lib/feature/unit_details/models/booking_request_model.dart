@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-class BookingRequest extends Equatable {
-  const BookingRequest({
+class BookingRequestModel extends Equatable {
+  const BookingRequestModel({
     required this.unitId,
     required this.name,
     required this.email,
