@@ -6,10 +6,6 @@ import '../models/auth_model.dart';
 ///
 /// Returns raw or lightly-parsed responses. Exceptions propagate to the
 /// repository layer for user-friendly error mapping.
-// TODO(arch): login() and register() return parsed AuthResponse instead of raw
-// JSON (Map<String, dynamic>) as architecture rules require. Changing this
-// would require updating AuthRepositoryImpl and is deferred to avoid
-// behavioral risk.
 class AuthService {
   AuthService(this._dioClient);
   final DioClient _dioClient;
