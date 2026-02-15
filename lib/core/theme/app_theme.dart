@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_classes_with_only_static_members
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import '../utils/responsive_helper.dart';
 import 'app_colors.dart';
 import 'app_text_styles.dart';
@@ -149,6 +150,78 @@ abstract class AppTheme {
       dividerTheme: DividerThemeData(
         color: colorScheme.outlineVariant.withValues(alpha: .2),
         thickness: 1.h,
+      ),
+      timePickerTheme: TimePickerThemeData(
+        backgroundColor: colorScheme.surface,
+        hourMinuteColor: colorScheme.primary,
+        hourMinuteTextColor: WidgetStateColor.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return Colors.white;
+          }
+          return colorScheme.onSurface;
+        }),
+        dayPeriodColor: colorScheme.primary,
+        dayPeriodTextColor: WidgetStateColor.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return Colors.white;
+          }
+          return colorScheme.onSurfaceVariant;
+        }),
+        dialBackgroundColor: colorScheme.surfaceContainerHighest,
+        dialHandColor: colorScheme.primary,
+        dialTextColor: WidgetStateColor.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return Colors.white;
+          }
+          return colorScheme.onSurface;
+        }),
+        entryModeIconColor: colorScheme.primary,
+        helpTextStyle: textTheme.labelLarge?.copyWith(
+          color: colorScheme
+              .onSurfaceVariant, // Updated to not use fontWeight which shouldn't be here? No, copyWith is fine.
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+      datePickerTheme: DatePickerThemeData(
+        backgroundColor: colorScheme.surface,
+        headerBackgroundColor: colorScheme.primary,
+        headerForegroundColor: colorScheme.onPrimary,
+
+        dayForegroundColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return Colors.white;
+          }
+          return colorScheme.onSurface;
+        }),
+        dayBackgroundColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return colorScheme.primary;
+          }
+          return Colors.transparent;
+        }),
+
+        todayForegroundColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return colorScheme.onPrimary;
+          }
+          return colorScheme.primary;
+        }),
+        todayBackgroundColor: WidgetStateProperty.all(
+          colorScheme.primary.withValues(alpha: .15),
+        ),
+
+        yearForegroundColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return colorScheme.onPrimaryContainer;
+          }
+          return colorScheme.onSurface;
+        }),
+        yearBackgroundColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return colorScheme.primaryContainer;
+          }
+          return Colors.transparent;
+        }),
       ),
     );
   }
