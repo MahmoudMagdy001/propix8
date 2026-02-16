@@ -65,9 +65,9 @@ class _LayoutViewState extends State<LayoutView> with BackExitOverlayHelper {
       if (_screens[index] is SizedBox) {
         switch (index) {
           case 1:
-            _screens[1] = BlocProvider(
-              create: (context) =>
-                  locator<MaintenanceServicesCubit>()..getMaintenanceServices(),
+            _screens[1] = BlocProvider.value(
+              value: locator<MaintenanceServicesCubit>()
+                ..getMaintenanceServices(),
               child: MaintenanceServicesView(key: _servicesKey),
             );
             break;

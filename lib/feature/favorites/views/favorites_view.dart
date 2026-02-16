@@ -71,11 +71,11 @@ class FavoritesViewState extends State<FavoritesView> {
   Widget build(BuildContext context) => Scaffold(
     body: InternetStateManager(
       onRestoreInternetConnection: () =>
-          context.read<FavoriteCubit>().getFavorites(),
+          context.read<FavoriteCubit>().getFavorites(forceRefresh: true),
       child: RefreshIndicator(
         key: _refreshIndicatorKey,
         onRefresh: () async {
-          await context.read<FavoriteCubit>().getFavorites();
+          await context.read<FavoriteCubit>().getFavorites(forceRefresh: true);
         },
         child: CustomScrollView(
           controller: _scrollController,

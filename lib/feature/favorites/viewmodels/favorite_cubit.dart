@@ -11,7 +11,17 @@ class FavoriteCubit extends Cubit<FavoriteState> {
 
   final FavoriteRepository _favoriteRepository;
 
-  Future<void> getFavorites({bool isLoadMore = false}) async {
+  Future<void> getFavorites({
+    bool isLoadMore = false,
+    bool forceRefresh = false,
+  }) async {
+    // Skip fetch if data is already loaded (prevents refetch on tab switch)
+    if (!isLoadMore &&
+        !forceRefresh &&
+        state.listStatus == FavoriteStatus.success &&
+        state.favoriteUnits.isNotEmpty) {
+      return;
+    }
     if (isLoadMore && !state.hasMore) return;
     if (isLoadMore && state.listStatus == FavoriteStatus.loading) return;
 

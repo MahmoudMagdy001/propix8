@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart'; // Add this import
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/utils/responsive_helper.dart';
@@ -15,6 +16,7 @@ class FavoriteButton extends StatefulWidget {
     this.size,
     this.padding,
     this.color,
+    this.enableHapticFeedback = true, // Optional: allow disabling
     super.key,
   });
 
@@ -23,6 +25,7 @@ class FavoriteButton extends StatefulWidget {
   final double? size;
   final EdgeInsetsGeometry? padding;
   final Color? color;
+  final bool enableHapticFeedback; // New parameter
 
   @override
   State<FavoriteButton> createState() => _FavoriteButtonState();
@@ -60,6 +63,11 @@ class _FavoriteButtonState extends State<FavoriteButton> {
           }
           return IconButton(
             onPressed: () async {
+              // Trigger haptic feedback
+              if (widget.enableHapticFeedback) {
+                HapticFeedback.lightImpact();
+              }
+
               final cubit = context.read<FavoriteCubit>();
               final isCurrentlyFavorite =
                   cubit.state.favorites[widget.unit.id] ?? widget.isFavorite;

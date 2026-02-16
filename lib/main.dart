@@ -62,9 +62,9 @@ class MyApp extends StatelessWidget {
     splitScreenMode: true,
     builder: (context, child) => MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => locator<FavoriteCubit>()),
-        BlocProvider(create: (context) => locator<AuthCubit>()),
-        BlocProvider(create: (context) => locator<SettingsCubit>()),
+        BlocProvider.value(value: locator<FavoriteCubit>()),
+        BlocProvider.value(value: locator<AuthCubit>()),
+        BlocProvider.value(value: locator<SettingsCubit>()),
       ],
       child: BlocBuilder<SettingsCubit, SettingsState>(
         builder: (context, state) => Theme(
