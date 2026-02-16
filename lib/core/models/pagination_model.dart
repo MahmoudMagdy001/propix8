@@ -12,14 +12,14 @@ class PaginationModel extends Equatable {
     if (json == null) return PaginationModel.empty();
     return PaginationModel(
       currentPage: json['current_page'] ?? 1,
-      perPage: json['per_page'] ?? 15,
+      perPage: json['per_page'] ?? 10,
       total: json['total'] ?? 0,
       lastPage: json['last_page'] ?? 1,
     );
   }
 
   factory PaginationModel.empty() =>
-      const PaginationModel(currentPage: 1, perPage: 15, total: 0, lastPage: 1);
+      const PaginationModel(currentPage: 1, perPage: 10, total: 0, lastPage: 1);
 
   final int currentPage;
   final int perPage;

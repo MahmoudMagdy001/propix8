@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -72,10 +73,13 @@ final locator = GetIt.instance;
 Future<void> setupLocator() async {
   // External
   final sharedPreferences = await SharedPreferences.getInstance();
+  const secureStorage = FlutterSecureStorage();
+  final storageService = StorageService(sharedPreferences, secureStorage);
+  await storageService.initializeCache();
   locator
     ..registerLazySingleton<SharedPreferences>(() => sharedPreferences)
     // Network
-    ..registerLazySingleton(() => StorageService(locator<SharedPreferences>()))
+    ..registerLazySingleton(() => storageService)
     ..registerLazySingleton(() => AuthInterceptor(locator<StorageService>()))
     ..registerLazySingleton(() => DioClient(Dio(), locator<AuthInterceptor>()))
     // Services

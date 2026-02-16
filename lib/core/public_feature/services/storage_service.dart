@@ -1,26 +1,26 @@
 import 'dart:convert';
 
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../utils/auth_logger.dart';
 
-/// Service for persisting app data to SharedPreferences with in-memory caching.
+/// Service for persisting app data using secure and non-secure storage.
 ///
-/// OPTIMIZATION: Uses in-memory cache to avoid repeated disk I/O on every
+/// SECURITY: Sensitive data (token, user) is stored in FlutterSecureStorage
+/// (encrypted Keychain on iOS, EncryptedSharedPreferences on Android).
+/// Non-sensitive data (locale, theme, onboarding) stays in SharedPreferences.
+///
+/// OPTIMIZATION: Uses in-memory cache to avoid repeated I/O on every
 /// widget rebuild. Cache is populated lazily and invalidated on writes.
-///
-/// SECURITY: Provides clearMemory() to wipe sensitive data from RAM on logout.
 ///
 /// RESILIENCE: Graceful degradation methods (*Safe variants) that keep data
 /// in memory even when disk persistence fails.
 class StorageService {
-  StorageService(this._prefs) {
-    // OPTIMIZATION: Pre-populate cache from disk on initialization
-    // This ensures first read is fast and avoids async gap issues
-    _initializeCache();
-  }
+  StorageService(this._prefs, this._secureStorage);
 
   final SharedPreferences _prefs;
+  final FlutterSecureStorage _secureStorage;
 
   // ─────────────────────────────────────────────────────────────────────────
   // Storage Keys (centralized for easy maintenance)
@@ -34,116 +34,108 @@ class StorageService {
 
   // ─────────────────────────────────────────────────────────────────────────
   // In-Memory Cache
-  // WHY: Avoids repeated SharedPreferences reads on every widget rebuild.
-  // SharedPreferences reads are synchronous but still involve disk I/O.
+  // WHY: Avoids repeated secure storage reads (which are async) on every
+  // widget rebuild. Cache provides synchronous access after initialization.
   // ─────────────────────────────────────────────────────────────────────────
 
   String? _cachedToken;
   Map<String, dynamic>? _cachedUser;
   bool _cacheInitialized = false;
 
-  /// Pre-populate cache from disk storage.
-  void _initializeCache() {
+  /// Pre-populate cache from secure storage.
+  ///
+  /// MUST be called after construction but before first use (e.g., in DI setup).
+  Future<void> initializeCache() async {
     if (_cacheInitialized) return;
 
-    _cachedToken = _prefs.getString(_tokenKey);
-    final userString = _prefs.getString(_userKey);
-    if (userString != null) {
-      try {
-        _cachedUser = jsonDecode(userString) as Map<String, dynamic>;
-      } catch (e) {
-        AuthLogger.error('Failed to parse cached user data', e);
-        _cachedUser = null;
-      }
+    try {
+      _cachedToken = await _secureStorage.read(key: _tokenKey);
+    } catch (e) {
+      AuthLogger.error('Failed to read cached token from secure storage', e);
     }
+
+    try {
+      final userString = await _secureStorage.read(key: _userKey);
+      if (userString != null) {
+        _cachedUser = jsonDecode(userString) as Map<String, dynamic>;
+      }
+    } catch (e) {
+      AuthLogger.error('Failed to parse cached user data', e);
+      _cachedUser = null;
+    }
+
     _cacheInitialized = true;
   }
 
   // ─────────────────────────────────────────────────────────────────────────
-  // Token Management
+  // Token Management (Secure Storage)
   // ─────────────────────────────────────────────────────────────────────────
 
   Future<void> saveToken(String token) async {
     _cachedToken = token; // Update cache immediately for fast reads
-    await _prefs.setString(_tokenKey, token);
-    AuthLogger.debug('Token saved to storage');
+    await _secureStorage.write(key: _tokenKey, value: token);
+    AuthLogger.debug('Token saved to secure storage');
   }
 
-  /// Get auth token (from cache first, disk as fallback).
+  /// Get auth token (from cache first, secure storage as fallback).
   String? getToken() {
-    // OPTIMIZATION: Return cached value if available (avoids disk I/O)
-    if (_cachedToken != null) return _cachedToken;
-
-    // Fallback to disk if cache empty (e.g., direct storage access)
-    _cachedToken = _prefs.getString(_tokenKey);
+    // OPTIMIZATION: Return cached value (avoids async secure storage read)
     return _cachedToken;
   }
 
   Future<void> deleteToken() async {
     _cachedToken = null; // Clear cache first for immediate effect
-    await _prefs.remove(_tokenKey);
-    AuthLogger.debug('Token deleted from storage');
+    await _secureStorage.delete(key: _tokenKey);
+    AuthLogger.debug('Token deleted from secure storage');
   }
 
   /// Save token with graceful degradation.
   ///
-  /// RESILIENCE: Returns true if disk write succeeded, false if only in-memory.
-  /// Even on disk failure, token is kept in memory so auth continues to work
+  /// RESILIENCE: Returns true if secure write succeeded, false if only in-memory.
+  /// Even on failure, token is kept in memory so auth continues to work
   /// for the current session.
   Future<bool> saveTokenSafe(String token) async {
     _cachedToken = token; // Always update memory first
     try {
-      await _prefs.setString(_tokenKey, token);
+      await _secureStorage.write(key: _tokenKey, value: token);
       return true;
     } catch (e) {
-      AuthLogger.error('Failed to persist token to disk', e);
+      AuthLogger.error('Failed to persist token to secure storage', e);
       // Token is still in memory, auth will work for this session
       return false;
     }
   }
 
   // ─────────────────────────────────────────────────────────────────────────
-  // User Data Management
+  // User Data Management (Secure Storage)
   // ─────────────────────────────────────────────────────────────────────────
 
   Future<void> saveUser(Map<String, dynamic> userJson) async {
     _cachedUser = userJson; // Update cache immediately
-    await _prefs.setString(_userKey, jsonEncode(userJson));
-    AuthLogger.debug('User data saved to storage');
+    await _secureStorage.write(key: _userKey, value: jsonEncode(userJson));
+    AuthLogger.debug('User data saved to secure storage');
   }
 
-  /// Get user data (from cache first, disk as fallback).
+  /// Get user data (from cache — secure storage requires async init).
   Map<String, dynamic>? getUser() {
-    // OPTIMIZATION: Return cached value if available
-    if (_cachedUser != null) return _cachedUser;
-
-    // Fallback to disk
-    final userString = _prefs.getString(_userKey);
-    if (userString == null) return null;
-
-    try {
-      _cachedUser = jsonDecode(userString) as Map<String, dynamic>;
-      return _cachedUser;
-    } catch (e) {
-      AuthLogger.error('Failed to parse user data from storage', e);
-      return null;
-    }
+    // OPTIMIZATION: Return cached value (avoids async secure storage read)
+    return _cachedUser;
   }
 
   Future<void> clearUser() async {
     _cachedUser = null; // Clear cache first
-    await _prefs.remove(_userKey);
-    AuthLogger.debug('User data cleared from storage');
+    await _secureStorage.delete(key: _userKey);
+    AuthLogger.debug('User data cleared from secure storage');
   }
 
   /// Save user with graceful degradation.
   Future<bool> saveUserSafe(Map<String, dynamic> userJson) async {
     _cachedUser = userJson;
     try {
-      await _prefs.setString(_userKey, jsonEncode(userJson));
+      await _secureStorage.write(key: _userKey, value: jsonEncode(userJson));
       return true;
     } catch (e) {
-      AuthLogger.error('Failed to persist user to disk', e);
+      AuthLogger.error('Failed to persist user to secure storage', e);
       return false;
     }
   }
@@ -162,7 +154,7 @@ class StorageService {
     AuthLogger.debug('Sensitive data cleared from memory');
   }
 
-  /// Clear all auth-related data (both memory and disk).
+  /// Clear all auth-related data (both memory and secure storage).
   ///
   /// Use on logout to ensure complete cleanup.
   Future<void> clearAuthData() async {
@@ -172,7 +164,7 @@ class StorageService {
   }
 
   // ─────────────────────────────────────────────────────────────────────────
-  // Locale & Theme (non-sensitive, no caching needed)
+  // Locale & Theme (non-sensitive, SharedPreferences is fine)
   // ─────────────────────────────────────────────────────────────────────────
 
   Future<void> saveLocale(String locale) async {
@@ -188,7 +180,7 @@ class StorageService {
   String? getThemeMode() => _prefs.getString(_themeKey);
 
   // ─────────────────────────────────────────────────────────────────────────
-  // Onboarding
+  // Onboarding (non-sensitive, SharedPreferences is fine)
   // ─────────────────────────────────────────────────────────────────────────
 
   Future<void> saveOnboardingSeen() async {
@@ -198,11 +190,11 @@ class StorageService {
   bool getIsOnboardingSeen() => _prefs.getBool(_onboardingKey) ?? false;
 
   // ─────────────────────────────────────────────────────────────────────────
-  // Clear All (existing method preserved)
+  // Clear All
   // ─────────────────────────────────────────────────────────────────────────
 
   Future<void> clearAll() async {
     clearMemory(); // Also clear in-memory cache
-    await _prefs.clear();
+    await Future.wait([_prefs.clear(), _secureStorage.deleteAll()]);
   }
 }
