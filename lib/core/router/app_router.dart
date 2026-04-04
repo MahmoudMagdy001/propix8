@@ -152,7 +152,13 @@ class AppRouter {
         redirect: (context, state) {
           final token = state.pathParameters['token'];
           final email = state.uri.queryParameters['email'];
-          return '/login/api/password/verify/$token?email=$email';
+          if (token == null || token.isEmpty) {
+            return AppRoutes.loginPath;
+          }
+          final encodedEmail = email != null
+              ? Uri.encodeQueryComponent(email)
+              : '';
+          return '/login/api/password/verify/$token?email=$encodedEmail';
         },
       ),
       GoRoute(
@@ -392,12 +398,7 @@ class AppRouter {
   static String? _handleAuthenticatedRedirect(GoRouterState state, User? user) {
     final location = state.uri.path;
 
-    // 1. Password Verification Loop Exception
-    if (location.contains('/api/password/verify')) {
-      return AppRoutes.layoutPath;
-    }
-
-    // 2. City Selection Check
+    // 1. City Selection Check
     if (user != null) {
       final hasCity = user.cityId != null || (user.toJson()['city'] != null);
       if (!hasCity) {
