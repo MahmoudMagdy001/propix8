@@ -25,115 +25,112 @@ class _ProfileViewContent extends StatelessWidget {
   const _ProfileViewContent();
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: context.colorScheme.surface,
-      body: BlocListener<UserProfileCubit, UserProfileState>(
-        listener: (context, state) {
-          if (state.status == UserProfileStatus.accountDeleted) {
-            context.goNamed(AppRoutes.login);
-          } else if (state.status == UserProfileStatus.failure) {
-            context.showErrorSnackbar(state.errorMessage ?? context.l10n.error);
-          }
-        },
-        child:
-            BlocSelector<
-              UserProfileCubit,
-              UserProfileState,
-              ({
-                UserProfileStatus status,
-                User? user,
-                int propertyBookingCount,
-                int serviceBookingCount,
-              })
-            >(
-              selector: (state) => (
-                status: state.status,
-                user: state.user,
-                propertyBookingCount: state.propertyBookingCount,
-                serviceBookingCount: state.serviceBookingCount,
-              ),
-              builder: (context, result) {
-                final menuGroups = _getMenuGroups(
-                  context,
-                  propertyBookingCount: result.propertyBookingCount,
-                  serviceBookingCount: result.serviceBookingCount,
-                );
-                return CustomScrollView(
-                  slivers: [
-                    const ProfileSliverAppBar(),
-                    SliverPadding(
-                      padding: EdgeInsets.symmetric(
-                        vertical: 4.h,
-                        horizontal: 6.w,
-                      ),
-                      sliver: SliverList(
-                        delegate: SliverChildBuilderDelegate((context, index) {
-                          final groupData = menuGroups[index];
-                          final groupTitle = groupData['groupTitle'] as String?;
-                          final items =
-                              groupData['items'] as List<Map<String, dynamic>>;
+  Widget build(BuildContext context) => Scaffold(
+    backgroundColor: context.colorScheme.surface,
+    body: BlocListener<UserProfileCubit, UserProfileState>(
+      listener: (context, state) {
+        if (state.status == UserProfileStatus.accountDeleted) {
+          context.goNamed(AppRoutes.login);
+        } else if (state.status == UserProfileStatus.failure) {
+          context.showErrorSnackbar(state.errorMessage ?? context.l10n.error);
+        }
+      },
+      child:
+          BlocSelector<
+            UserProfileCubit,
+            UserProfileState,
+            ({
+              UserProfileStatus status,
+              User? user,
+              int propertyBookingCount,
+              int serviceBookingCount,
+            })
+          >(
+            selector: (state) => (
+              status: state.status,
+              user: state.user,
+              propertyBookingCount: state.propertyBookingCount,
+              serviceBookingCount: state.serviceBookingCount,
+            ),
+            builder: (context, result) {
+              final menuGroups = _getMenuGroups(
+                context,
+                propertyBookingCount: result.propertyBookingCount,
+                serviceBookingCount: result.serviceBookingCount,
+              );
+              return CustomScrollView(
+                slivers: [
+                  const ProfileSliverAppBar(),
+                  SliverPadding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 4.h,
+                      horizontal: 6.w,
+                    ),
+                    sliver: SliverList(
+                      delegate: SliverChildBuilderDelegate((context, index) {
+                        final groupData = menuGroups[index];
+                        final groupTitle = groupData['groupTitle'] as String?;
+                        final items =
+                            groupData['items'] as List<Map<String, dynamic>>;
 
-                          return Padding(
-                            padding: EdgeInsets.only(bottom: 16.h),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: context.theme.cardTheme.color,
-                                borderRadius: BorderRadius.circular(12.r),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black.withValues(alpha: 0.05),
-                                    blurRadius: 10,
-                                    offset: const Offset(0, 2),
+                        return Padding(
+                          padding: EdgeInsets.only(bottom: 16.h),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: context.theme.cardTheme.color,
+                              borderRadius: BorderRadius.circular(12.r),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withValues(alpha: 0.05),
+                                  blurRadius: 10,
+                                  offset: const Offset(0, 2),
+                                ),
+                              ],
+                            ),
+                            clipBehavior: Clip.hardEdge,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                if (groupTitle != null) ...[
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.only(
+                                      start: 12.w,
+                                      end: 12.w,
+                                      top: 12.h,
+                                    ),
+                                    child: Text(
+                                      groupTitle,
+                                      style: context.textTheme.titleSmall
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
                                   ),
                                 ],
-                              ),
-                              clipBehavior: Clip.hardEdge,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  if (groupTitle != null) ...[
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.only(
-                                        start: 12.w,
-                                        end: 12.w,
-                                        top: 12.h,
-                                      ),
-                                      child: Text(
-                                        groupTitle,
-                                        style: context.textTheme.titleSmall
-                                            ?.copyWith(
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                      ),
-                                    ),
-                                  ],
-                                  for (int i = 0; i < items.length; i++) ...[
-                                    ProfileMenuItem(
-                                      title: items[i]['title'] as String,
-                                      icon: items[i]['icon'] as IconData,
-                                      isDestructive:
-                                          items[i]['isDestructive'] as bool? ??
-                                          false,
-                                      badgeCount:
-                                          items[i]['badgeCount'] as int?,
-                                      onTap: items[i]['onTap'] as VoidCallback,
-                                    ),
-                                  ],
+                                for (int i = 0; i < items.length; i++) ...[
+                                  ProfileMenuItem(
+                                    title: items[i]['title'] as String,
+                                    icon: items[i]['icon'] as IconData,
+                                    isDestructive:
+                                        items[i]['isDestructive'] as bool? ??
+                                        false,
+                                    badgeCount: items[i]['badgeCount'] as int?,
+                                    onTap: items[i]['onTap'] as VoidCallback,
+                                  ),
                                 ],
-                              ),
+                              ],
                             ),
-                          );
-                        }, childCount: menuGroups.length),
-                      ),
+                          ),
+                        );
+                      }, childCount: menuGroups.length),
                     ),
-                  ],
-                );
-              },
-            ),
-      ),
-    );
-  }
+                  ),
+                ],
+              );
+            },
+          ),
+    ),
+  );
 
   List<Map<String, dynamic>> _getMenuGroups(
     BuildContext context, {

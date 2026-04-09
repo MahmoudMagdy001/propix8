@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
-import 'package:propix8/core/utils/snackbar_utils.dart';
 
 import '../../../../core/di/locator.dart';
 import '../../../../core/utils/context_extensions.dart';
@@ -9,6 +8,7 @@ import '../../../../core/utils/mixins/connectivity_mixin.dart';
 import '../../../../core/utils/mixins/scroll_pagination_mixin.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/widgets/custom_back_button.dart';
+import '../../../core/utils/snackbar_utils.dart';
 import '../../maintenance_services/viewmodels/maintenance_services_cubit.dart';
 import '../viewmodels/maintenance_bookings_cubit.dart';
 import '../viewmodels/maintenance_bookings_state.dart';

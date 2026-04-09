@@ -66,57 +66,49 @@ class MyApp extends StatelessWidget {
         BlocProvider.value(value: locator<AuthCubit>()),
         BlocProvider.value(value: locator<SettingsCubit>()),
       ],
-      child: BlocBuilder<SettingsCubit, SettingsState>(
-        builder: (context, state) => Theme(
-          data: state.themeMode == ThemeMode.dark
-              ? AppTheme.darkTheme
-              : AppTheme.lightTheme,
-          child: Builder(
-            builder: (context) => MaterialApp.router(
-              routerConfig: AppRouter.router,
-              debugShowCheckedModeBanner: false,
-              onGenerateTitle: (context) =>
-                  AppLocalizations.of(context)!.appTitle,
+      child: BlocSelector<SettingsCubit, SettingsState, (ThemeMode, Locale)>(
+        selector: (state) => (state.themeMode, state.locale),
+        builder: (context, settings) => MaterialApp.router(
+          routerConfig: AppRouter.router,
+          debugShowCheckedModeBanner: false,
+          onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle,
 
-              theme: AppTheme.lightTheme,
-              darkTheme: AppTheme.darkTheme,
-              themeMode: state.themeMode,
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: settings.$1,
 
-              localizationsDelegates: const [
-                AppLocalizations.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-              ],
-              supportedLocales: const [Locale('ar', ''), Locale('en', '')],
-              locale: state.locale,
-
-              builder: (context, child) {
-                WidgetsBinding.instance.addPostFrameCallback((_) {
-                  FlutterNativeSplash.remove();
-                });
-                return MediaQuery(
-                  data: MediaQuery.of(
-                    context,
-                  ).copyWith(textScaler: TextScaler.noScaling),
-                  child: InternetStateManagerInitializer(
-                    options: InternetStateOptions(
-                      checkConnectionPeriodic: const Duration(seconds: 5),
-                      labels: InternetStateLabels(
-                        noInternetTitle: () =>
-                            AppLocalizations.of(context)!.noInternetTitle,
-                        descriptionText: () =>
-                            AppLocalizations.of(context)!.noInternetSubtitle,
-                        tryAgainText: () =>
-                            AppLocalizations.of(context)!.tryAgainText,
-                      ),
-                    ),
-                    child: child!,
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: const [Locale('ar', ''), Locale('en', '')],
+          locale: settings.$2,
+          builder: (context, child) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              FlutterNativeSplash.remove();
+            });
+            return MediaQuery(
+              data: MediaQuery.of(
+                context,
+              ).copyWith(textScaler: TextScaler.noScaling),
+              child: InternetStateManagerInitializer(
+                options: InternetStateOptions(
+                  checkConnectionPeriodic: const Duration(seconds: 5),
+                  labels: InternetStateLabels(
+                    noInternetTitle: () =>
+                        AppLocalizations.of(context)!.noInternetTitle,
+                    descriptionText: () =>
+                        AppLocalizations.of(context)!.noInternetSubtitle,
+                    tryAgainText: () =>
+                        AppLocalizations.of(context)!.tryAgainText,
                   ),
-                );
-              },
-            ),
-          ),
+                ),
+                child: child!,
+              ),
+            );
+          },
         ),
       ),
     ),

@@ -78,10 +78,7 @@ class StorageService {
   }
 
   /// Get auth token (from cache first, secure storage as fallback).
-  String? getToken() {
-    // OPTIMIZATION: Return cached value (avoids async secure storage read)
-    return _cachedToken;
-  }
+  String? getToken() => _cachedToken;
 
   Future<void> deleteToken() async {
     _cachedToken = null; // Clear cache first for immediate effect
@@ -117,10 +114,7 @@ class StorageService {
   }
 
   /// Get user data (from cache — secure storage requires async init).
-  Map<String, dynamic>? getUser() {
-    // OPTIMIZATION: Return cached value (avoids async secure storage read)
-    return _cachedUser;
-  }
+  Map<String, dynamic>? getUser() => _cachedUser;
 
   Future<void> clearUser() async {
     _cachedUser = null; // Clear cache first

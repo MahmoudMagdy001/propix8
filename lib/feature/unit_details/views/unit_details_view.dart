@@ -67,8 +67,9 @@ class _UnitDetailsViewState extends State<UnitDetailsView>
 
   @override
   void dispose() {
-    _scrollController.removeListener(_onScroll);
-    _scrollController.dispose();
+    _scrollController
+      ..removeListener(_onScroll)
+      ..dispose();
     _tabController?.dispose();
     super.dispose();
   }
@@ -78,10 +79,11 @@ class _UnitDetailsViewState extends State<UnitDetailsView>
     BuildContext context,
     UnitDetailsModel? unit,
   ) {
-    final tabs = <_SectionTab>[];
-
+    final tabs = <_SectionTab>[
+      _SectionTab(key: _overviewKey, label: context.l10n.tabOverview),
+    ]
     // Overview is always visible
-    tabs.add(_SectionTab(key: _overviewKey, label: context.l10n.tabOverview));
+    ;
 
     // Details (Description + Amenities combined)
     if (unit != null &&
@@ -170,7 +172,6 @@ class _UnitDetailsViewState extends State<UnitDetailsView>
       context,
       duration: const Duration(milliseconds: 400),
       curve: Curves.easeInOut,
-      alignmentPolicy: ScrollPositionAlignmentPolicy.explicit,
     );
 
     // Reset flag after scroll animation completes
@@ -257,7 +258,7 @@ class _UnitDetailsViewState extends State<UnitDetailsView>
                               floating: true,
                               pinned: true,
                               bottom: PreferredSize(
-                                preferredSize: Size.fromHeight(40.h),
+                                preferredSize: Size.fromHeight(50.h),
                                 child: Container(
                                   color: context.colorScheme.surface,
                                   child: TabBar(

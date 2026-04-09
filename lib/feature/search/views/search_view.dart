@@ -32,6 +32,7 @@ class _SearchViewContent extends StatefulWidget {
 
 class _SearchViewContentState extends State<_SearchViewContent> {
   late final ScrollController _scrollController;
+  final ValueNotifier<bool> _showFabNotifier = ValueNotifier<bool>(false);
 
   @override
   void initState() {
@@ -42,17 +43,15 @@ class _SearchViewContentState extends State<_SearchViewContent> {
   @override
   void dispose() {
     _scrollController.dispose();
+    _showFabNotifier.dispose();
     super.dispose();
   }
 
-  bool _showFab = false;
-
   void _onScroll() {
     if (_scrollController.hasClients) {
-      if (_scrollController.offset > 200 && !_showFab) {
-        setState(() => _showFab = true);
-      } else if (_scrollController.offset <= 200 && _showFab) {
-        setState(() => _showFab = false);
+      final showFab = _scrollController.offset > 200;
+      if (showFab != _showFabNotifier.value) {
+        _showFabNotifier.value = showFab;
       }
     }
 
@@ -100,18 +99,19 @@ class _SearchViewContentState extends State<_SearchViewContent> {
         ),
       ),
     ),
-    floatingActionButton: _showFab
-        ? AnimatedScale(
-            scale: _showFab ? 1.0 : 0.0,
-            duration: const Duration(milliseconds: 300),
-            child: FloatingActionButton(
-              mini: true,
-              onPressed: scrollToTop,
-              backgroundColor: context.colorScheme.primary,
-              foregroundColor: context.colorScheme.onPrimary,
-              child: const Icon(Icons.keyboard_arrow_up_rounded),
-            ),
-          )
-        : null,
+    floatingActionButton: ValueListenableBuilder<bool>(
+      valueListenable: _showFabNotifier,
+      builder: (context, showFab, child) => AnimatedScale(
+        scale: showFab ? 1.0 : 0.0,
+        duration: const Duration(milliseconds: 300),
+        child: FloatingActionButton(
+          mini: true,
+          onPressed: scrollToTop,
+          backgroundColor: context.colorScheme.primary,
+          foregroundColor: context.colorScheme.onPrimary,
+          child: const Icon(Icons.keyboard_arrow_up_rounded),
+        ),
+      ),
+    ),
   );
 }

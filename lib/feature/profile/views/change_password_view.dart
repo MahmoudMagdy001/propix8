@@ -57,8 +57,9 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
     body: BlocConsumer<UserProfileCubit, UserProfileState>(
       listener: (context, state) {
         if (state.status == UserProfileStatus.updated) {
-          context.showSuccessSnackbar(context.l10n.updatePasswordSuccess);
-          context.pop();
+          context
+            ..showSuccessSnackbar(context.l10n.updatePasswordSuccess)
+            ..pop();
         } else if (state.status == UserProfileStatus.failure) {
           context.showErrorSnackbar(
             state.errorMessage ?? context.l10n.errorOccurred,

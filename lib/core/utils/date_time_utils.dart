@@ -5,9 +5,8 @@ class DateTimeUtils {
   DateTimeUtils._(); // private constructor
 
   /// yyyy-MM-dd (للـ backend)
-  static String formatDateForApi(DateTime date) {
-    return DateFormat('yyyy-MM-dd').format(date);
-  }
+  static String formatDateForApi(DateTime date) =>
+      DateFormat('yyyy-MM-dd').format(date);
 
   /// hh:mm a (عرض للمستخدم)
   static String formatTimeForDisplay(TimeOfDay time) {

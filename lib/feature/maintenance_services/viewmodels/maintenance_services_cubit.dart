@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../maintenance_bookings/models/maintenance_booking_model.dart';
 import '../../maintenance_bookings/repositories/maintenance_booking_repository.dart';
+import '../models/maintenance_service_model.dart';
 import '../repositories/maintenance_service_repository.dart';
 import 'maintenance_services_state.dart';
 
@@ -20,28 +21,13 @@ class MaintenanceServicesCubit extends Cubit<MaintenanceServicesState> {
     try {
       final results = await Future.wait([
         _repository.getMaintenanceServices(),
-        _bookingRepository.getMaintenanceBookings(
-          page: 1,
-        ), // Fetch first page to check existing bookings
+        _bookingRepository
+            .getMaintenanceBookings(), // Fetch first page to check existing bookings
       ]);
 
       if (isClosed) return;
 
-      final serviceResponse =
-          results[0]
-              as dynamic; // MaintenanceServiceResponse isn't exported? Or similar type.
-      // Based on previous file reading, _repository.getMaintenanceServices() returns a response with .data
-      // Let's assume the type is inferred or dynamic for now as the file didn't show imports for the response type explicitly other than usage.
-      // Wait, looking at previous `getMaintenanceServices` it returned `response`.
-      // The `_repository` type is `MaintenanceServiceRepository`.
-      // Let's look at `MaintenanceServicesCubit` again.
-      // It was:
-      // final response = await _repository.getMaintenanceServices();
-      // emit(state.copyWith(..., data: response.data));
-      //
-      // So results[0] is the response from getMaintenanceServices().
-      // results[1] is MaintenanceBookingsListResponse.
-
+      final serviceResponse = results[0] as MaintenanceServicesResponse;
       final servicesData = serviceResponse.data;
       final bookingsResponse = results[1] as MaintenanceBookingsListResponse;
 

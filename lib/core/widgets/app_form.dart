@@ -104,24 +104,22 @@ class AppFormState extends State<AppForm> implements AppFormScope {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return _AppFormInheritedScope(
-      state: this,
-      child: Form(
-        key: widget.formKey,
-        child: widget.enableScrolling
-            ? SingleChildScrollView(
-                controller: _scrollController,
-                padding: widget.padding,
-                child: widget.child,
-              )
-            : Padding(
-                padding: widget.padding ?? EdgeInsets.zero,
-                child: widget.child,
-              ),
-      ),
-    );
-  }
+  Widget build(BuildContext context) => _AppFormInheritedScope(
+    state: this,
+    child: Form(
+      key: widget.formKey,
+      child: widget.enableScrolling
+          ? SingleChildScrollView(
+              controller: _scrollController,
+              padding: widget.padding,
+              child: widget.child,
+            )
+          : Padding(
+              padding: widget.padding ?? EdgeInsets.zero,
+              child: widget.child,
+            ),
+    ),
+  );
 }
 
 class _AppFormInheritedScope extends InheritedWidget {

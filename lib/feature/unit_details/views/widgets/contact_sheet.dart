@@ -83,130 +83,127 @@ class _ContactSheetState extends State<ContactSheet> {
       padding: EdgeInsets.symmetric(horizontal: 6.w),
       child: BlocSelector<UnitDetailsCubit, UnitDetailsState, OwnerModel?>(
         selector: (state) => state.unit?.owner,
-        builder: (context, owner) {
-          return Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              if (owner != null) ...[
-                Container(
-                  padding: EdgeInsets.all(6.w),
-                  decoration: BoxDecoration(
-                    color: context.theme.cardTheme.color,
-                    borderRadius: BorderRadius.circular(12.r),
-                  ),
-                  child: Row(
-                    children: [
-                      ClipOval(
-                        child: CachedNetworkImage(
-                          imageUrl: owner.avatar,
-                          width: 48.r,
-                          height: 48.r,
-                          fit: BoxFit.cover,
+        builder: (context, owner) => Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            if (owner != null) ...[
+              Container(
+                padding: EdgeInsets.all(6.w),
+                decoration: BoxDecoration(
+                  color: context.theme.cardTheme.color,
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
+                child: Row(
+                  children: [
+                    ClipOval(
+                      child: CachedNetworkImage(
+                        imageUrl: owner.avatar,
+                        width: 48.r,
+                        height: 48.r,
+                        fit: BoxFit.cover,
 
-                          memCacheWidth: 200,
+                        memCacheWidth: 200,
 
-                          errorWidget: (_, _, _) => CircleAvatar(
-                            radius: 24.r,
-                            backgroundColor: context.colorScheme.primary
-                                .withValues(alpha: 0.1),
-                            child: Icon(
-                              Icons.person,
-                              color: context.colorScheme.primary,
-                            ),
+                        errorWidget: (_, _, _) => CircleAvatar(
+                          radius: 24.r,
+                          backgroundColor: context.colorScheme.primary
+                              .withValues(alpha: 0.1),
+                          child: Icon(
+                            Icons.person,
+                            color: context.colorScheme.primary,
                           ),
                         ),
                       ),
+                    ),
 
-                      SizedBox(width: 12.w),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
+                    SizedBox(width: 12.w),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            context.l10n.contactOwnerTitle,
+                            style: context.textTheme.labelSmall?.copyWith(
+                              color: Colors.grey,
+                            ),
+                          ),
+                          SizedBox(height: 2.h),
+                          Text(
+                            owner.name,
+                            style: context.textTheme.titleMedium?.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          if (owner.role.isNotEmpty)
                             Text(
-                              context.l10n.contactOwnerTitle,
-                              style: context.textTheme.labelSmall?.copyWith(
-                                color: Colors.grey,
+                              owner.role,
+                              style: context.textTheme.bodySmall?.copyWith(
+                                color: context.colorScheme.primary,
                               ),
                             ),
-                            SizedBox(height: 2.h),
-                            Text(
-                              owner.name,
-                              style: context.textTheme.titleMedium?.copyWith(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            if (owner.role.isNotEmpty)
-                              Text(
-                                owner.role,
-                                style: context.textTheme.bodySmall?.copyWith(
-                                  color: context.colorScheme.primary,
-                                ),
-                              ),
-                          ],
-                        ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                SizedBox(height: 16.h),
-              ],
-              AppTextFormField(
-                controller: _nameController,
-                label: context.l10n.name,
-                prefixIcon: Icon(Icons.person_outline_rounded, size: 20.w),
-                validator: (value) =>
-                    value?.isEmpty ?? true ? context.l10n.fieldRequired : null,
-              ),
-              SizedBox(height: 12.h),
-              AppTextFormField(
-                controller: _emailController,
-                label: context.l10n.email,
-                prefixIcon: Icon(Icons.email_outlined, size: 20.w),
-                keyboardType: TextInputType.emailAddress,
-                validator: (value) =>
-                    value?.isEmpty ?? true ? context.l10n.fieldRequired : null,
-              ),
-              SizedBox(height: 12.h),
-              AppTextFormField(
-                controller: _phoneController,
-                label: context.l10n.phone,
-                prefixIcon: Icon(Icons.phone_outlined, size: 20.w),
-                keyboardType: TextInputType.phone,
-                validator: (value) =>
-                    value?.isEmpty ?? true ? context.l10n.fieldRequired : null,
-              ),
-              SizedBox(height: 12.h),
-              AppTextFormField(
-                controller: _messageController,
-                label: context.l10n.message,
-                prefixIcon: Icon(Icons.notes_rounded, size: 20.w),
-                maxLines: 4,
-                validator: (value) =>
-                    value?.isEmpty ?? true ? context.l10n.fieldRequired : null,
               ),
               SizedBox(height: 16.h),
-              BlocSelector<UnitDetailsCubit, UnitDetailsState, RequestStatus>(
-                selector: (state) => state.contactStatus,
-                builder: (context, status) => AppElevatedButton(
-                  onPressed: () {
-                    if (_appFormKey.currentState?.validateAndScroll() ??
-                        false) {
-                      context.read<UnitDetailsCubit>().contactOwner(
-                        name: _nameController.text,
-                        email: _emailController.text,
-                        phone: _phoneController.text,
-                        message: _messageController.text,
-                      );
-                    }
-                  },
-                  isLoading: status == RequestStatus.loading,
-                  text: context.l10n.send,
-                ),
-              ),
             ],
-          );
-        },
+            AppTextFormField(
+              controller: _nameController,
+              label: context.l10n.name,
+              prefixIcon: Icon(Icons.person_outline_rounded, size: 20.w),
+              validator: (value) =>
+                  value?.isEmpty ?? true ? context.l10n.fieldRequired : null,
+            ),
+            SizedBox(height: 12.h),
+            AppTextFormField(
+              controller: _emailController,
+              label: context.l10n.email,
+              prefixIcon: Icon(Icons.email_outlined, size: 20.w),
+              keyboardType: TextInputType.emailAddress,
+              validator: (value) =>
+                  value?.isEmpty ?? true ? context.l10n.fieldRequired : null,
+            ),
+            SizedBox(height: 12.h),
+            AppTextFormField(
+              controller: _phoneController,
+              label: context.l10n.phone,
+              prefixIcon: Icon(Icons.phone_outlined, size: 20.w),
+              keyboardType: TextInputType.phone,
+              validator: (value) =>
+                  value?.isEmpty ?? true ? context.l10n.fieldRequired : null,
+            ),
+            SizedBox(height: 12.h),
+            AppTextFormField(
+              controller: _messageController,
+              label: context.l10n.message,
+              prefixIcon: Icon(Icons.notes_rounded, size: 20.w),
+              maxLines: 4,
+              validator: (value) =>
+                  value?.isEmpty ?? true ? context.l10n.fieldRequired : null,
+            ),
+            SizedBox(height: 16.h),
+            BlocSelector<UnitDetailsCubit, UnitDetailsState, RequestStatus>(
+              selector: (state) => state.contactStatus,
+              builder: (context, status) => AppElevatedButton(
+                onPressed: () {
+                  if (_appFormKey.currentState?.validateAndScroll() ?? false) {
+                    context.read<UnitDetailsCubit>().contactOwner(
+                      name: _nameController.text,
+                      email: _emailController.text,
+                      phone: _phoneController.text,
+                      message: _messageController.text,
+                    );
+                  }
+                },
+                isLoading: status == RequestStatus.loading,
+                text: context.l10n.send,
+              ),
+            ),
+          ],
+        ),
       ),
     ),
   );

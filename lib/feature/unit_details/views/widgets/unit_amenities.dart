@@ -76,7 +76,7 @@ class _UnitAmenitiesState extends State<UnitAmenities> {
                               width: 30.w,
                               memCacheHeight: 30 * 3,
                               errorWidget: (context, url, error) =>
-                                  Icon(Icons.broken_image_outlined),
+                                  const Icon(Icons.broken_image_outlined),
                             ),
                             SizedBox(height: 6.h),
                             Text(

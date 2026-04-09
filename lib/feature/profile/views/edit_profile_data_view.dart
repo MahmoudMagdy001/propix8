@@ -219,7 +219,7 @@ class _EditProfileDataViewState extends State<EditProfileDataView> {
                       AppTextFormField(
                         controller: _nameController,
                         label: context.l10n.name,
-                        prefixIcon: Icon(Icons.person_outline),
+                        prefixIcon: const Icon(Icons.person_outline),
                         validator: (v) =>
                             v!.isEmpty ? context.l10n.requiredField : null,
                       ),
@@ -227,7 +227,7 @@ class _EditProfileDataViewState extends State<EditProfileDataView> {
                       AppTextFormField(
                         controller: _phoneController,
                         label: context.l10n.phone,
-                        prefixIcon: Icon(Icons.phone_outlined),
+                        prefixIcon: const Icon(Icons.phone_outlined),
                         keyboardType: TextInputType.phone,
                         validator: (v) =>
                             v!.isEmpty ? context.l10n.requiredField : null,
@@ -236,7 +236,7 @@ class _EditProfileDataViewState extends State<EditProfileDataView> {
                       AppTextFormField(
                         controller: _addressController,
                         label: context.l10n.address,
-                        prefixIcon: Icon(Icons.location_on_outlined),
+                        prefixIcon: const Icon(Icons.location_on_outlined),
                       ),
                       SizedBox(height: 16.h),
                       DropdownButtonFormField<int>(

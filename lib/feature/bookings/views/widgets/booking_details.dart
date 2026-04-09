@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:propix8/core/utils/context_extensions.dart';
-import 'package:propix8/core/utils/date_time_utils.dart';
-import 'package:propix8/core/utils/responsive_helper.dart';
 
+import '../../../../core/utils/context_extensions.dart';
+import '../../../../core/utils/date_time_utils.dart';
+import '../../../../core/utils/responsive_helper.dart';
 import '../../models/booking_model.dart';
 
 class BookingDetails extends StatelessWidget {
@@ -12,120 +12,107 @@ class BookingDetails extends StatelessWidget {
   final BookingModel booking;
 
   @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(16.w),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Unit Title
-          Text(
-            booking.unit.title,
-            style: context.textTheme.titleMedium?.copyWith(
-              fontWeight: FontWeight.bold,
-            ),
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
+  Widget build(BuildContext context) => Padding(
+    padding: EdgeInsets.all(16.w),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Unit Title
+        Text(
+          booking.unit.title,
+          style: context.textTheme.titleMedium?.copyWith(
+            fontWeight: FontWeight.bold,
           ),
-          SizedBox(height: 8.h),
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+        ),
+        SizedBox(height: 8.h),
 
-          // Address
-          if (booking.unit.address.isNotEmpty) ...[
-            Row(
-              children: [
-                Icon(Icons.location_on, size: 16.sp, color: Colors.grey),
-                SizedBox(width: 4.w),
-                Expanded(
-                  child: Text(
-                    booking.unit.address,
-                    style: context.textTheme.bodySmall?.copyWith(
-                      color: Colors.grey,
-                    ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
+        // Address
+        if (booking.unit.address.isNotEmpty) ...[
+          Row(
+            children: [
+              Icon(Icons.location_on, size: 16.sp, color: Colors.grey),
+              SizedBox(width: 4.w),
+              Expanded(
+                child: Text(
+                  booking.unit.address,
+                  style: context.textTheme.bodySmall?.copyWith(
+                    color: Colors.grey,
                   ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
-              ],
-            ),
-            SizedBox(height: 12.h),
-          ],
+              ),
+            ],
+          ),
+          SizedBox(height: 12.h),
+        ],
 
-          // Divider
+        // Divider
+        Divider(height: 1.h),
+        SizedBox(height: 12.h),
+
+        // Booking Info
+        _buildInfoRow(context, Icons.person, context.l10n.name, booking.name),
+        SizedBox(height: 8.h),
+        _buildInfoRow(context, Icons.email, context.l10n.email, booking.email),
+        SizedBox(height: 8.h),
+        _buildInfoRow(context, Icons.phone, context.l10n.phone, booking.phone),
+        SizedBox(height: 8.h),
+        _buildInfoRow(
+          context,
+          Icons.calendar_today,
+          booking.status == 'reschedule_admin'
+              ? context.l10n.suggestedDate
+              : context.l10n.date,
+          _formatDate(booking.date, context),
+        ),
+        SizedBox(height: 8.h),
+        _buildInfoRow(
+          context,
+          Icons.access_time,
+          booking.status == 'reschedule_admin'
+              ? context.l10n.suggestedTime
+              : context.l10n.time,
+          DateTimeUtils.formatTimeForDisplay(
+            DateTimeUtils.parseApiTime(booking.time),
+          ),
+        ),
+
+        // Notes (Admin)
+        if (booking.notes != null && booking.notes!.isNotEmpty) ...[
+          SizedBox(height: 12.h),
           Divider(height: 1.h),
           SizedBox(height: 12.h),
-
-          // Booking Info
-          _buildInfoRow(context, Icons.person, context.l10n.name, booking.name),
-          SizedBox(height: 8.h),
-          _buildInfoRow(
-            context,
-            Icons.email,
-            context.l10n.email,
-            booking.email,
-          ),
-          SizedBox(height: 8.h),
-          _buildInfoRow(
-            context,
-            Icons.phone,
-            context.l10n.phone,
-            booking.phone,
-          ),
-          SizedBox(height: 8.h),
-          _buildInfoRow(
-            context,
-            Icons.calendar_today,
-            booking.status == 'reschedule_admin'
-                ? context.l10n.suggestedDate
-                : context.l10n.date,
-            _formatDate(booking.date, context),
-          ),
-          SizedBox(height: 8.h),
-          _buildInfoRow(
-            context,
-            Icons.access_time,
-            booking.status == 'reschedule_admin'
-                ? context.l10n.suggestedTime
-                : context.l10n.time,
-            DateTimeUtils.formatTimeForDisplay(
-              DateTimeUtils.parseApiTime(booking.time),
+          Text(
+            '${context.l10n.adminNotes}:',
+            style: context.textTheme.bodyMedium?.copyWith(
+              fontWeight: FontWeight.bold,
             ),
           ),
-
-          // Notes (Admin)
-          if (booking.notes != null && booking.notes!.isNotEmpty) ...[
-            SizedBox(height: 12.h),
-            Divider(height: 1.h),
-            SizedBox(height: 12.h),
-            Text(
-              '${context.l10n.adminNotes}:',
-              style: context.textTheme.bodyMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 4.h),
-            Text(booking.notes!, style: context.textTheme.bodySmall),
-          ],
-
-          // User Message
-          if (booking.userMessage != null &&
-              booking.userMessage!.isNotEmpty) ...[
-            SizedBox(height: 12.h),
-            if (booking.notes == null || booking.notes!.isEmpty)
-              Divider(height: 1.h),
-            SizedBox(height: 12.h),
-            Text(
-              '${context.l10n.yourMessage}:',
-              style: context.textTheme.bodyMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 4.h),
-            Text(booking.userMessage!, style: context.textTheme.bodySmall),
-          ],
+          SizedBox(height: 4.h),
+          Text(booking.notes!, style: context.textTheme.bodySmall),
         ],
-      ),
-    );
-  }
+
+        // User Message
+        if (booking.userMessage != null && booking.userMessage!.isNotEmpty) ...[
+          SizedBox(height: 12.h),
+          if (booking.notes == null || booking.notes!.isEmpty)
+            Divider(height: 1.h),
+          SizedBox(height: 12.h),
+          Text(
+            '${context.l10n.yourMessage}:',
+            style: context.textTheme.bodyMedium?.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 4.h),
+          Text(booking.userMessage!, style: context.textTheme.bodySmall),
+        ],
+      ],
+    ),
+  );
 
   Widget _buildInfoRow(
     BuildContext context,

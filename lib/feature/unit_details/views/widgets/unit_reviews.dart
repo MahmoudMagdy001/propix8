@@ -6,10 +6,9 @@ import 'package:intl/intl.dart';
 import '../../../../core/utils/context_extensions.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../../../../core/utils/snackbar_utils.dart';
-import '../../../../core/widgets/app_modal_sheet.dart';
 import '../../../../core/widgets/app_confirmation_dialog.dart';
+import '../../../../core/widgets/app_modal_sheet.dart';
 import '../../../auth/viewmodels/auth_cubit.dart';
-import '../../../auth/viewmodels/auth_state.dart';
 import '../../models/review_model.dart';
 import '../../models/unit_details_model.dart';
 import '../../viewmodels/unit_details_cubit.dart';
@@ -57,6 +56,15 @@ class UnitReviews extends StatelessWidget {
               return const SliverToBoxAdapter(child: SizedBox());
             }
 
+            // Get current user ID from AuthCubit without causing rebuilds
+            final currentUserId = context.read<AuthCubit>().state.user?.id;
+            final userReview = currentUserId != null
+                ? result.reviews.cast<ReviewModel?>().firstWhere(
+                    (r) => r?.user.id == currentUserId,
+                    orElse: () => null,
+                  )
+                : null;
+
             return SliverMainAxisGroup(
               slivers: [
                 SliverToBoxAdapter(
@@ -96,98 +104,66 @@ class UnitReviews extends StatelessWidget {
                               color: Colors.grey,
                             ),
                           ),
-                        BlocSelector<
-                          UnitDetailsCubit,
-                          UnitDetailsState,
-                          List<ReviewModel>
-                        >(
-                          selector: (state) => state.reviews,
-                          builder: (context, reviewsList) =>
-                              BlocBuilder<AuthCubit, AuthState>(
-                                builder: (context, authState) {
-                                  final currentUserId = authState.user?.id;
-                                  final userReview = currentUserId != null
-                                      ? reviewsList
-                                            .cast<ReviewModel?>()
-                                            .firstWhere(
-                                              (r) =>
-                                                  r?.user.id == currentUserId,
-                                              orElse: () => null,
-                                            )
-                                      : null;
-
-                                  if (userReview != null) {
-                                    return const SizedBox.shrink();
-                                  }
-
-                                  return InkWell(
-                                    onTap: () {
-                                      final cubit = context
-                                          .read<UnitDetailsCubit>();
-                                      showAppModalSheet(
-                                        context: context,
-                                        title: context.l10n.addReview,
-                                        child: BlocProvider.value(
-                                          value: cubit,
-                                          child: const ReviewSheet(),
-                                        ),
-                                      );
-                                    },
-                                    child: Text(
-                                      context.l10n.addReview,
-                                      style: context.textTheme.bodyMedium
-                                          ?.copyWith(
-                                            color: context.colorScheme.primary,
-                                            fontWeight: FontWeight.bold,
-                                            decoration:
-                                                TextDecoration.underline,
-                                          ),
-                                    ),
-                                  );
-                                },
+                        if (userReview == null)
+                          InkWell(
+                            onTap: () {
+                              final cubit = context.read<UnitDetailsCubit>();
+                              showAppModalSheet(
+                                context: context,
+                                title: context.l10n.addReview,
+                                child: BlocProvider.value(
+                                  value: cubit,
+                                  child: const ReviewSheet(),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              context.l10n.addReview,
+                              style: context.textTheme.bodyMedium?.copyWith(
+                                color: context.colorScheme.primary,
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.underline,
                               ),
-                        ),
+                            ),
+                          )
+                        else
+                          const SizedBox.shrink(),
                       ],
                     ),
                   ),
                 ),
                 SliverToBoxAdapter(child: SizedBox(height: 6.h)),
                 if (result.reviews.isNotEmpty)
-                  BlocBuilder<AuthCubit, AuthState>(
-                    builder: (context, authState) {
-                      final currentUserId = authState.user?.id;
-                      return SliverPadding(
-                        padding: EdgeInsets.symmetric(horizontal: 6.0.w),
-                        sliver: SliverList.separated(
-                          itemCount: result.reviews.length,
-                          separatorBuilder: (_, _) => SizedBox(height: 4.h),
-                          itemBuilder: (context, index) {
-                            final review = result.reviews[index];
-                            return _ReviewItem(
-                              review: review,
-                              isOwner: review.user.id == currentUserId,
-                              onEdit: () {
-                                final cubit = context.read<UnitDetailsCubit>();
-                                showAppModalSheet(
-                                  context: context,
-                                  title: context.l10n.editReview,
-                                  child: BlocProvider.value(
-                                    value: cubit,
-                                    child: ReviewSheet(review: review),
-                                  ),
-                                );
-                              },
-                              onDelete: () => _showDeleteConfirmationDialog(
-                                context,
-                                () => context
-                                    .read<UnitDetailsCubit>()
-                                    .deleteReview(review.id),
+                  SliverPadding(
+                    padding: EdgeInsets.symmetric(horizontal: 6.0.w),
+                    sliver: SliverList.separated(
+                      itemCount: result.reviews.length,
+                      separatorBuilder: (_, _) => SizedBox(height: 4.h),
+                      itemBuilder: (context, index) {
+                        final review = result.reviews[index];
+                        return _ReviewItem(
+                          review: review,
+                          isOwner: review.user.id == currentUserId,
+                          onEdit: () {
+                            final cubit = context.read<UnitDetailsCubit>();
+                            showAppModalSheet(
+                              context: context,
+                              title: context.l10n.editReview,
+                              child: BlocProvider.value(
+                                value: cubit,
+                                child: ReviewSheet(review: review),
                               ),
                             );
                           },
-                        ),
-                      );
-                    },
+                          onDelete: () => _showDeleteConfirmationDialog(
+                            context,
+                            () => context.read<UnitDetailsCubit>().deleteReview(
+                              review.id,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 if (result.hasMore)
                   SliverToBoxAdapter(

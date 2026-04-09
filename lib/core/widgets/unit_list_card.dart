@@ -84,7 +84,7 @@ class UnitListCard extends StatelessWidget {
 
             // Content Section
             Padding(
-              padding: EdgeInsets.all(12.r),
+              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [

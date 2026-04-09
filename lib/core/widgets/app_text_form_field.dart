@@ -78,59 +78,57 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      key: _fieldKey,
-      controller: widget.controller,
-      obscureText: widget.isPassword ? _obscureText : false,
-      keyboardType: widget.keyboardType,
-      validator: widget.validator,
-      focusNode: widget.focusNode,
-      onFieldSubmitted: widget.onFieldSubmitted,
-      onChanged: widget.onChanged,
-      maxLines: widget.maxLines,
-      enabled: widget.enabled,
-      readOnly: widget.readOnly,
-      onTap: widget.onTap,
-      textInputAction: widget.textInputAction,
-      autovalidateMode: widget.autovalidateMode,
-      onTapOutside: (event) {
-        widget.focusNode?.unfocus();
-        FocusScope.of(context).unfocus();
-      },
-      decoration: InputDecoration(
-        labelText: widget.label,
-        hintText: widget.hint,
-        prefixIcon: widget.prefixIcon,
-        prefixIconColor: context.colorScheme.primary,
-        contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.r)),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12.r),
-          borderSide: BorderSide(color: AppColors.outline.withAlpha(50)),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12.r),
-          borderSide: BorderSide(color: context.colorScheme.primary, width: 2),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12.r),
-          borderSide: BorderSide(color: context.colorScheme.error),
-        ),
-        suffixIcon: widget.isPassword
-            ? IconButton(
-                icon: Icon(
-                  _obscureText ? Icons.visibility_off : Icons.visibility,
-                  color: AppColors.outline,
-                ),
-                onPressed: () {
-                  setState(() {
-                    _obscureText = !_obscureText;
-                  });
-                },
-              )
-            : widget.suffixIcon,
+  Widget build(BuildContext context) => TextFormField(
+    key: _fieldKey,
+    controller: widget.controller,
+    obscureText: widget.isPassword ? _obscureText : false,
+    keyboardType: widget.keyboardType,
+    validator: widget.validator,
+    focusNode: widget.focusNode,
+    onFieldSubmitted: widget.onFieldSubmitted,
+    onChanged: widget.onChanged,
+    maxLines: widget.maxLines,
+    enabled: widget.enabled,
+    readOnly: widget.readOnly,
+    onTap: widget.onTap,
+    textInputAction: widget.textInputAction,
+    autovalidateMode: widget.autovalidateMode,
+    onTapOutside: (event) {
+      widget.focusNode?.unfocus();
+      FocusScope.of(context).unfocus();
+    },
+    decoration: InputDecoration(
+      labelText: widget.label,
+      hintText: widget.hint,
+      prefixIcon: widget.prefixIcon,
+      prefixIconColor: context.colorScheme.primary,
+      contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.r)),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12.r),
+        borderSide: BorderSide(color: AppColors.outline.withAlpha(50)),
       ),
-    );
-  }
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12.r),
+        borderSide: BorderSide(color: context.colorScheme.primary, width: 2),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12.r),
+        borderSide: BorderSide(color: context.colorScheme.error),
+      ),
+      suffixIcon: widget.isPassword
+          ? IconButton(
+              icon: Icon(
+                _obscureText ? Icons.visibility_off : Icons.visibility,
+                color: AppColors.outline,
+              ),
+              onPressed: () {
+                setState(() {
+                  _obscureText = !_obscureText;
+                });
+              },
+            )
+          : widget.suffixIcon,
+    ),
+  );
 }

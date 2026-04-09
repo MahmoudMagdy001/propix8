@@ -10,6 +10,7 @@ import '../../../core/utils/context_extensions.dart';
 import '../../../core/utils/responsive_helper.dart';
 import '../../../core/utils/snackbar_utils.dart';
 import '../../../core/widgets/app_elevated_button.dart';
+import '../../../l10n/app_localizations.dart';
 import '../models/city_model.dart';
 import '../viewmodels/address_setup_cubit.dart';
 import '../viewmodels/address_setup_state.dart';
@@ -43,8 +44,9 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
           }
 
           if (state.status == AddressSetupStatus.success) {
-            context.showSuccessSnackbar(l10n.profileUpdateSuccess);
-            context.goNamed(AppRoutes.layout);
+            context
+              ..showSuccessSnackbar(l10n.profileUpdateSuccess)
+              ..goNamed(AppRoutes.layout);
           } else if (state.status == AddressSetupStatus.failure) {
             if (state.errorMessage == 'LOCATION_SERVICE_DISABLED') {
               context.showErrorSnackbar(
@@ -199,7 +201,7 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
   Widget _buildCityDropdown(
     BuildContext context,
     AddressSetupState state,
-    dynamic l10n,
+    AppLocalizations l10n,
   ) {
     final colors = context.theme.colorScheme;
 

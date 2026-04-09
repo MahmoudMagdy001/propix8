@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="sharedpref" path="FlutterSecureStorage"/>
+        <exclude domain="database" path="."></exclude>
+        <exclude domain="file" path="."></exclude>
+        <exclude domain="external" path="."></exclude>
+        <exclude domain="root" path="."></exclude>
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="sharedpref" path="FlutterSecureStorage"/>
+        <exclude domain="database" path="."></exclude>
+        <exclude domain="file" path="."></exclude>
+        <exclude domain="external" path="."></exclude>
+        <exclude domain="root" path="."></exclude>
+    </device-transfer>
+</data-extraction-rules>

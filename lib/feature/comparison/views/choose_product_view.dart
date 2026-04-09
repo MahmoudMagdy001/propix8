@@ -33,7 +33,9 @@ class ChooseProductView extends StatefulWidget {
 class _ChooseProductViewState extends State<ChooseProductView>
     with ScrollPaginationMixin<ChooseProductView> {
   late final ChooseProductCubit _cubit;
-  bool _showScrollToTop = false;
+  final ValueNotifier<bool> _showScrollToTopNotifier = ValueNotifier<bool>(
+    false,
+  );
 
   @override
   void initState() {
@@ -44,14 +46,20 @@ class _ChooseProductViewState extends State<ChooseProductView>
   }
 
   @override
+  void dispose() {
+    _showScrollToTopNotifier.dispose();
+    super.dispose();
+  }
+
+  @override
   void onPageFetched() {
     _cubit.loadMoreUnits(excludeId: widget.baseUnitId);
   }
 
   void _onScrollFabVisibility() {
     final show = scrollController.offset > 200.h;
-    if (show != _showScrollToTop) {
-      setState(() => _showScrollToTop = show);
+    if (show != _showScrollToTopNotifier.value) {
+      _showScrollToTopNotifier.value = show;
     }
   }
 
@@ -79,22 +87,37 @@ class _ChooseProductViewState extends State<ChooseProductView>
               controller: scrollController,
               slivers: [
                 _buildSliverSwitcher(),
-                BlocBuilder<ChooseProductCubit, ChooseProductState>(
-                  builder: (context, state) {
-                    if (state.status == ChooseProductStatus.failure &&
-                        state.units.isEmpty) {
-                      return _buildErrorState(state.errorMessage);
+                BlocSelector<
+                  ChooseProductCubit,
+                  ChooseProductState,
+                  ({
+                    ChooseProductStatus status,
+                    List<UnitModel> units,
+                    String? errorMessage,
+                    ViewType viewType,
+                  })
+                >(
+                  selector: (state) => (
+                    status: state.status,
+                    units: state.units,
+                    errorMessage: state.errorMessage,
+                    viewType: state.viewType,
+                  ),
+                  builder: (context, data) {
+                    if (data.status == ChooseProductStatus.failure &&
+                        data.units.isEmpty) {
+                      return _buildErrorState(data.errorMessage);
                     }
 
                     final isLoading =
-                        state.status == ChooseProductStatus.loading &&
-                        state.units.isEmpty;
+                        data.status == ChooseProductStatus.loading &&
+                        data.units.isEmpty;
                     final units = isLoading
                         ? List.generate(
                             6,
                             (index) => UnitModel.dummyUnits.first,
                           )
-                        : state.units;
+                        : data.units;
 
                     if (!isLoading && units.isEmpty) {
                       return _buildEmptyState();
@@ -102,7 +125,7 @@ class _ChooseProductViewState extends State<ChooseProductView>
 
                     return Skeletonizer.sliver(
                       enabled: isLoading,
-                      child: state.viewType == ViewType.grid
+                      child: data.viewType == ViewType.grid
                           ? _buildSliverGrid(units)
                           : _buildSliverList(units),
                     );
@@ -114,15 +137,18 @@ class _ChooseProductViewState extends State<ChooseProductView>
             ),
           ),
         ),
-        floatingActionButton: AnimatedScale(
-          scale: _showScrollToTop ? 1.0 : 0.0,
-          duration: const Duration(milliseconds: 300),
-          child: FloatingActionButton(
-            mini: true,
-            onPressed: scrollToTop,
-            backgroundColor: context.colorScheme.primary,
-            foregroundColor: context.colorScheme.onPrimary,
-            child: const Icon(Icons.keyboard_arrow_up_rounded),
+        floatingActionButton: ValueListenableBuilder<bool>(
+          valueListenable: _showScrollToTopNotifier,
+          builder: (context, showScrollToTop, child) => AnimatedScale(
+            scale: showScrollToTop ? 1.0 : 0.0,
+            duration: const Duration(milliseconds: 300),
+            child: FloatingActionButton(
+              mini: true,
+              onPressed: scrollToTop,
+              backgroundColor: context.colorScheme.primary,
+              foregroundColor: context.colorScheme.onPrimary,
+              child: const Icon(Icons.keyboard_arrow_up_rounded),
+            ),
           ),
         ),
       ),
@@ -130,10 +156,15 @@ class _ChooseProductViewState extends State<ChooseProductView>
   }
 
   Widget _buildLoadMoreIndicator() =>
-      BlocBuilder<ChooseProductCubit, ChooseProductState>(
-        builder: (context, state) {
-          if (state.status == ChooseProductStatus.loading &&
-              state.units.isNotEmpty) {
+      BlocSelector<
+        ChooseProductCubit,
+        ChooseProductState,
+        ({ChooseProductStatus status, bool hasUnits})
+      >(
+        selector: (state) =>
+            (status: state.status, hasUnits: state.units.isNotEmpty),
+        builder: (context, data) {
+          if (data.status == ChooseProductStatus.loading && data.hasUnits) {
             return SliverToBoxAdapter(
               child: Padding(
                 padding: EdgeInsets.symmetric(vertical: 24.h),

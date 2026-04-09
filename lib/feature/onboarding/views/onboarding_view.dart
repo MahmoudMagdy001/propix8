@@ -11,6 +11,7 @@ import '../../../core/utils/context_extensions.dart';
 import '../../../core/utils/responsive_helper.dart';
 import '../../settings/viewmodels/settings_cubit.dart';
 import '../../settings/viewmodels/settings_state.dart';
+import '../models/onboarding_model.dart';
 import '../viewmodels/onboarding_cubit.dart';
 import '../viewmodels/onboarding_state.dart';
 import 'widgets/onboarding_content.dart';
@@ -98,121 +99,152 @@ class _OnboardingViewBodyState extends State<_OnboardingViewBody> {
   }
 
   @override
+  Widget build(BuildContext context) => Scaffold(
+    body: BlocSelector<OnboardingCubit, OnboardingState, List<OnboardingModel>>(
+      selector: (state) => state.pages,
+      builder: (context, pages) {
+        if (pages.isEmpty) {
+          return const SizedBox.shrink();
+        }
+
+        return Stack(
+          children: [
+            // Content - PageView only rebuilds when pages change
+            Column(
+              children: [
+                Expanded(
+                  child: PageView.builder(
+                    controller: _pageController,
+                    itemCount: pages.length,
+                    onPageChanged: (index) {
+                      context.read<OnboardingCubit>().updatePageIndex(index);
+                    },
+                    itemBuilder: (context, index) => OnboardingContent(
+                      title: pages[index].title,
+                      subtitle: pages[index].subtitle,
+                      imagePath: pages[index].imagePath,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+
+            // Bottom controls - only rebuild when pageIndex changes
+            const _OnboardingControls(),
+          ],
+        );
+      },
+    ),
+  );
+}
+
+class _OnboardingControls extends StatelessWidget {
+  const _OnboardingControls();
+
+  @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
 
-    return Scaffold(
-      body: BlocBuilder<OnboardingCubit, OnboardingState>(
-        builder: (context, state) {
-          if (state.pages.isEmpty) {
-            return const SizedBox.shrink();
-          }
-
-          return Stack(
-            children: [
-              // Content
-              Column(
-                children: [
-                  Expanded(
-                    child: PageView.builder(
-                      controller: _pageController,
-                      itemCount: state.pages.length,
-                      onPageChanged: (index) {
-                        context.read<OnboardingCubit>().updatePageIndex(index);
-                      },
-                      itemBuilder: (context, index) => OnboardingContent(
-                        title: state.pages[index].title,
-                        subtitle: state.pages[index].subtitle,
-                        imagePath: state.pages[index].imagePath,
+    return Positioned(
+      bottom: 30.h,
+      left: 24.w,
+      right: 24.w,
+      child:
+          BlocSelector<
+            OnboardingCubit,
+            OnboardingState,
+            ({int pageIndex, int pageCount})
+          >(
+            selector: (state) =>
+                (pageIndex: state.pageIndex, pageCount: state.pages.length),
+            builder: (context, data) => Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Page Indicator
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(data.pageCount, (index) {
+                    final isActive = data.pageIndex == index;
+                    return AnimatedContainer(
+                      duration: const Duration(milliseconds: 300),
+                      margin: EdgeInsets.symmetric(horizontal: 4.w),
+                      width: isActive ? 32.w : 6.w,
+                      height: 6.h,
+                      decoration: BoxDecoration(
+                        color: isActive
+                            ? context.colorScheme.primary
+                            : Colors.grey[300],
+                        borderRadius: BorderRadius.circular(
+                          isActive ? 4.r : 3.r,
+                        ),
                       ),
-                    ),
-                  ),
-                ],
-              ),
-
-              // Bottom Sheet / Controls
-              Positioned(
-                bottom: 30.h,
-                left: 24.w,
-                right: 24.w,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    // Page Indicator
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(state.pages.length, (index) {
-                        final isActive = state.pageIndex == index;
-                        return AnimatedContainer(
-                          duration: const Duration(milliseconds: 300),
-                          margin: EdgeInsets.symmetric(horizontal: 4.w),
-                          width: isActive ? 32.w : 6.w,
-                          height: 6.h,
-                          decoration: BoxDecoration(
-                            color: isActive
-                                ? context.colorScheme.primary
-                                : Colors.grey[300],
-                            borderRadius: BorderRadius.circular(
-                              isActive ? 4.r : 3.r,
-                            ),
-                          ),
-                        );
-                      }),
-                    ),
-                    SizedBox(height: 32.h),
-
-                    // Buttons
-                    if (state.pageIndex == state.pages.length - 1)
-                      // Last Page: Start Now
-                      AppElevatedButton(
-                        width: double.infinity,
-                        onPressed: _completeOnboarding,
-                        text: l10n.startNow,
-                      )
-                    else
-                      // Pages 0 & 1: Next + Back/Skip
-                      Row(
-                        children: [
-                          Expanded(
-                            child: AppElevatedButton(
-                              onPressed: () {
-                                _pageController.nextPage(
-                                  duration: const Duration(milliseconds: 300),
-                                  curve: Curves.easeInOut,
-                                );
-                              },
-                              text: l10n.next,
-                            ),
-                          ),
-                          SizedBox(width: 16.w),
-                          Expanded(
-                            child: AppElevatedButton(
-                              onPressed: () {
-                                if (state.pageIndex > 0) {
-                                  _pageController.previousPage(
-                                    duration: const Duration(milliseconds: 300),
-                                    curve: Curves.easeInOut,
-                                  );
-                                } else {
-                                  _completeOnboarding();
-                                }
-                              },
-                              backgroundColor: context.colorScheme.secondary,
-                              foregroundColor: context.colorScheme.onSecondary,
-                              text: state.pageIndex == 0
-                                  ? l10n.skip
-                                  : l10n.back,
-                            ),
-                          ),
-                        ],
-                      ),
-                  ],
+                    );
+                  }),
                 ),
-              ),
-            ],
-          );
-        },
-      ),
+                SizedBox(height: 32.h),
+
+                // Buttons
+                if (data.pageIndex == data.pageCount - 1)
+                  // Last Page: Start Now
+                  AppElevatedButton(
+                    width: double.infinity,
+                    onPressed: () => _completeOnboarding(context),
+                    text: l10n.startNow,
+                  )
+                else
+                  // Pages 0 & 1: Next + Back/Skip
+                  Row(
+                    children: [
+                      Expanded(
+                        child: AppElevatedButton(
+                          onPressed: () {
+                            final controller = context
+                                .findAncestorStateOfType<
+                                  _OnboardingViewBodyState
+                                >()
+                                ?._pageController;
+                            controller?.nextPage(
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.easeInOut,
+                            );
+                          },
+                          text: l10n.next,
+                        ),
+                      ),
+                      SizedBox(width: 16.w),
+                      Expanded(
+                        child: AppElevatedButton(
+                          onPressed: () {
+                            final state = context
+                                .findAncestorStateOfType<
+                                  _OnboardingViewBodyState
+                                >();
+                            final controller = state?._pageController;
+                            if (data.pageIndex > 0) {
+                              controller?.previousPage(
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeInOut,
+                              );
+                            } else {
+                              _completeOnboarding(context);
+                            }
+                          },
+                          backgroundColor: context.colorScheme.secondary,
+                          foregroundColor: context.colorScheme.onSecondary,
+                          text: data.pageIndex == 0 ? l10n.skip : l10n.back,
+                        ),
+                      ),
+                    ],
+                  ),
+              ],
+            ),
+          ),
     );
+  }
+
+  void _completeOnboarding(BuildContext context) {
+    context
+        .findAncestorStateOfType<_OnboardingViewBodyState>()
+        ?._completeOnboarding();
   }
 }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:propix8/core/utils/enums.dart';
-import 'package:propix8/core/utils/responsive_helper.dart';
 
 import '../theme/app_colors.dart';
 import 'context_extensions.dart';
+import 'enums.dart';
+import 'responsive_helper.dart';
 
 class SnackbarUtils {
   static void showSnackbar(
@@ -12,40 +12,37 @@ class SnackbarUtils {
     required SnackbarType type,
     SnackBarAction? action,
   }) {
-    final scaffoldMessenger = ScaffoldMessenger.of(context);
-
-    // Clear existing snackbars
-    scaffoldMessenger.removeCurrentSnackBar();
-
-    scaffoldMessenger.showSnackBar(
-      SnackBar(
-        content: Row(
-          children: [
-            Icon(_getIcon(type), color: Colors.white, size: 24.w),
-            SizedBox(width: 12.w),
-            Expanded(
-              child: Text(
-                message,
-                style: context.textTheme.bodyMedium?.copyWith(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
+    ScaffoldMessenger.of(context)
+      ..removeCurrentSnackBar()
+      ..showSnackBar(
+        SnackBar(
+          content: Row(
+            children: [
+              Icon(_getIcon(type), color: Colors.white, size: 24.w),
+              SizedBox(width: 12.w),
+              Expanded(
+                child: Text(
+                  message,
+                  style: context.textTheme.bodyMedium?.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
+          action: action,
+          backgroundColor: _getBackgroundColor(context, type),
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.r),
+          ),
+          margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
+          duration: action != null
+              ? const Duration(seconds: 5)
+              : const Duration(seconds: 3),
         ),
-        action: action,
-        backgroundColor: _getBackgroundColor(context, type),
-        behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.r),
-        ),
-        margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
-        duration: action != null
-            ? const Duration(seconds: 5)
-            : const Duration(seconds: 3),
-      ),
-    );
+      );
   }
 
   static void showSuccess(

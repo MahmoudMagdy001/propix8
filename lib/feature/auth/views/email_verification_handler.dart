@@ -60,11 +60,13 @@ class _EmailVerificationHandlerState extends State<EmailVerificationHandler> {
           previous.verificationStatus != current.verificationStatus,
       listener: (context, state) {
         if (state.verificationStatus == AuthRequestStatus.success) {
-          context.showSuccessSnackbar(context.l10n.emailVerified);
-          context.goNamed(AppRoutes.login);
+          context
+            ..showSuccessSnackbar(context.l10n.emailVerified)
+            ..goNamed(AppRoutes.login);
         } else if (state.verificationStatus == AuthRequestStatus.failure) {
-          context.showErrorSnackbar(state.errorMessage ?? context.l10n.error);
-          context.goNamed(AppRoutes.login);
+          context
+            ..showErrorSnackbar(state.errorMessage ?? context.l10n.error)
+            ..goNamed(AppRoutes.login);
         }
       },
       child: Scaffold(

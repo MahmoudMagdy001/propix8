@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:propix8/core/utils/context_extensions.dart';
-import 'package:propix8/core/utils/responsive_helper.dart';
-import 'package:propix8/core/utils/snackbar_utils.dart';
 
+import '../../../../core/utils/context_extensions.dart';
+import '../../../../core/utils/responsive_helper.dart';
+import '../../../../core/utils/snackbar_utils.dart';
+import '../../../../core/widgets/app_confirmation_dialog.dart';
 import '../../../../core/widgets/app_elevated_button.dart';
 import '../../../../core/widgets/app_modal_sheet.dart';
-import '../../../../core/widgets/app_confirmation_dialog.dart';
 import '../../models/booking_model.dart';
 import '../../viewmodels/booking_cubit.dart';
 import 'suggest_time_modal.dart';

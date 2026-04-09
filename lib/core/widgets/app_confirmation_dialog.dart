@@ -26,33 +26,31 @@ class AppConfirmationDialog extends StatelessWidget {
   final DialogActionType actionType;
 
   @override
-  Widget build(BuildContext context) {
-    return AlertDialog(
-      backgroundColor: context.theme.cardTheme.color,
-      surfaceTintColor: Colors.transparent,
-      title: Text(
-        title,
-        style: context.textTheme.titleMedium?.copyWith(
-          fontWeight: FontWeight.bold,
+  Widget build(BuildContext context) => AlertDialog(
+    backgroundColor: context.theme.cardTheme.color,
+    surfaceTintColor: Colors.transparent,
+    title: Text(
+      title,
+      style: context.textTheme.titleMedium?.copyWith(
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    content: Text(message, style: context.textTheme.bodyMedium),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.r)),
+    actionsPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+    actions: [
+      TextButton(
+        onPressed: () => Navigator.of(context).pop(false),
+        style: TextButton.styleFrom(foregroundColor: Colors.grey),
+        child: Text(
+          cancelText ?? context.l10n.cancel,
+          style: context.textTheme.labelLarge?.copyWith(color: Colors.grey),
         ),
       ),
-      content: Text(message, style: context.textTheme.bodyMedium),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.r)),
-      actionsPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.of(context).pop(false),
-          style: TextButton.styleFrom(foregroundColor: Colors.grey),
-          child: Text(
-            cancelText ?? context.l10n.cancel,
-            style: context.textTheme.labelLarge?.copyWith(color: Colors.grey),
-          ),
-        ),
-        SizedBox(width: 8.w),
-        _buildConfirmButton(context),
-      ],
-    );
-  }
+      SizedBox(width: 8.w),
+      _buildConfirmButton(context),
+    ],
+  );
 
   Widget _buildConfirmButton(BuildContext context) {
     Color foregroundColor;
@@ -92,16 +90,14 @@ Future<bool?> showAppConfirmationDialog(
   String? cancelText,
   FutureOr<void> Function()? onConfirm,
   DialogActionType actionType = DialogActionType.primary,
-}) {
-  return showDialog<bool>(
-    context: context,
-    builder: (context) => AppConfirmationDialog(
-      title: title,
-      message: message,
-      confirmText: confirmText,
-      cancelText: cancelText,
-      onConfirm: onConfirm,
-      actionType: actionType,
-    ),
-  );
-}
+}) => showDialog<bool>(
+  context: context,
+  builder: (context) => AppConfirmationDialog(
+    title: title,
+    message: message,
+    confirmText: confirmText,
+    cancelText: cancelText,
+    onConfirm: onConfirm,
+    actionType: actionType,
+  ),
+);

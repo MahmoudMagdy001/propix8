@@ -45,7 +45,7 @@ class UnitDetailsCubit extends Cubit<UnitDetailsState> {
 
       final cancelledBooking = bookingsResponse.data.firstWhere(
         (b) => b.unit.id == unitId && b.status.toLowerCase() == 'cancelled',
-        orElse: () => BookingModel.fromJson({}),
+        orElse: () => BookingModel.fromJson(const {}),
       );
 
       emit(
@@ -225,7 +225,6 @@ class UnitDetailsCubit extends Cubit<UnitDetailsState> {
             bookingStatus: RequestStatus.success,
             bookingSuccessMessage: response.message,
             isBookedByUser: true,
-            cancelledBookingId: null,
           ),
         );
       } else {

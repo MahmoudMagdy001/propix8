@@ -51,14 +51,15 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             if (!ModalRoute.of(context)!.isCurrent) return;
 
             if (state.status == ResetPasswordStatus.emailSent) {
-              context.showInfoSnackbar(
-                state.successMessage ?? l10n.passwordResetConfirmation,
-              );
-              context.pushNamed(
-                AppRoutes.resetPasswordVerification,
-                pathParameters: {'token': state.token ?? ''},
-                queryParameters: {'email': _emailController.text},
-              );
+              context
+                ..showInfoSnackbar(
+                  state.successMessage ?? l10n.passwordResetConfirmation,
+                )
+                ..pushNamed(
+                  AppRoutes.resetPasswordVerification,
+                  pathParameters: {'token': state.token ?? ''},
+                  queryParameters: {'email': _emailController.text},
+                );
             } else if (state.status == ResetPasswordStatus.failure) {
               context.showErrorSnackbar(state.errorMessage ?? l10n.error);
             }
