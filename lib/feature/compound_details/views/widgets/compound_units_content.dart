@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/utils/enums.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/widgets/app_sliver_grid.dart';
-import '../../../../core/widgets/app_sliver_list.dart';
-import '../../../../core/widgets/unit_grid_card.dart';
-import '../../../../core/widgets/unit_list_card.dart';
-import '../../../home/models/unit_model.dart';
-import '../../../home/viewmodels/home_state.dart';
-import '../../viewmodels/compound_units_cubit.dart';
-import '../../viewmodels/compound_units_state.dart';
-import 'compound_units_empty.dart';
-import 'compound_units_error.dart';
+import 'package:propix8/core/utils/enums.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/app_sliver_grid.dart';
+import 'package:propix8/core/widgets/app_sliver_list.dart';
+import 'package:propix8/core/widgets/unit_grid_card.dart';
+import 'package:propix8/core/widgets/unit_list_card.dart';
+import 'package:propix8/feature/compound_details/viewmodels/compound_units_cubit.dart';
+import 'package:propix8/feature/compound_details/viewmodels/compound_units_state.dart';
+import 'package:propix8/feature/compound_details/views/widgets/compound_units_empty.dart';
+import 'package:propix8/feature/compound_details/views/widgets/compound_units_error.dart';
+import 'package:propix8/feature/home/models/unit_model.dart';
+import 'package:propix8/feature/home/viewmodels/home_state.dart';
 
 class CompoundUnitsContent extends StatelessWidget {
   const CompoundUnitsContent({super.key});

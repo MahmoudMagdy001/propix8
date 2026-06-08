@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skeletonizer/skeletonizer.dart';
-
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../core/di/locator.dart';
-import '../../../core/utils/context_extensions.dart';
-import '../../../core/utils/enums.dart';
-import '../../../core/widgets/app_sliver_grid.dart';
-import '../../../core/widgets/app_sliver_list.dart';
-import '../../../core/widgets/app_view_switcher.dart';
-import '../../../core/widgets/custom_back_button.dart';
-import '../../../core/widgets/unit_grid_card.dart';
-import '../../../core/widgets/unit_list_card.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/enums.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/app_sliver_grid.dart';
+import 'package:propix8/core/widgets/app_sliver_list.dart';
+import 'package:propix8/core/widgets/app_view_switcher.dart';
+import 'package:propix8/core/widgets/custom_back_button.dart';
+import 'package:propix8/core/widgets/unit_grid_card.dart';
+import 'package:propix8/core/widgets/unit_list_card.dart';
 // Correcting import for UnitModel
-import '../models/unit_model.dart';
-import '../viewmodels/home_state.dart' show HomeRequestStatus;
-import '../viewmodels/nearby_units_cubit.dart';
-import '../viewmodels/nearby_units_state.dart';
+import 'package:propix8/feature/home/models/unit_model.dart';
+import 'package:propix8/feature/home/viewmodels/home_state.dart' show HomeRequestStatus;
+import 'package:propix8/feature/home/viewmodels/nearby_units_cubit.dart';
+import 'package:propix8/feature/home/viewmodels/nearby_units_state.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class ShowAllNearbyView extends StatefulWidget {
   const ShowAllNearbyView({super.key});

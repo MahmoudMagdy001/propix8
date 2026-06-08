@@ -1,72 +1,71 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
+import 'package:propix8/core/network/auth_interceptor.dart';
+import 'package:propix8/core/network/dio_client.dart';
+import 'package:propix8/core/public_feature/repositories/pages_repository.dart';
+import 'package:propix8/core/public_feature/services/deep_link_service.dart';
+import 'package:propix8/core/public_feature/services/pages_service.dart';
+import 'package:propix8/core/public_feature/services/storage_service.dart';
+import 'package:propix8/core/public_feature/viewmodels/pages_cubit.dart';
+import 'package:propix8/core/services/booking_event_service.dart';
+import 'package:propix8/feature/auth/repositories/address_setup_repository.dart';
+import 'package:propix8/feature/auth/repositories/auth_repository.dart';
+import 'package:propix8/feature/auth/services/address_setup_service.dart';
+import 'package:propix8/feature/auth/services/auth_service.dart';
+import 'package:propix8/feature/auth/viewmodels/address_setup_cubit.dart';
+import 'package:propix8/feature/auth/viewmodels/auth_cubit.dart';
+import 'package:propix8/feature/auth/viewmodels/reset_password_cubit.dart';
+import 'package:propix8/feature/bookings/repositories/booking_repository.dart';
+import 'package:propix8/feature/bookings/services/booking_service.dart';
+import 'package:propix8/feature/bookings/viewmodels/booking_cubit.dart';
+import 'package:propix8/feature/comparison/viewmodels/choose_product_cubit.dart';
+import 'package:propix8/feature/comparison/viewmodels/comparison_cubit.dart';
+import 'package:propix8/feature/compound_details/repositories/compound_repository.dart';
+import 'package:propix8/feature/compound_details/services/compound_service.dart';
+import 'package:propix8/feature/compound_details/viewmodels/compound_units_cubit.dart';
+import 'package:propix8/feature/compounds/repositories/compound_repository.dart';
+import 'package:propix8/feature/compounds/services/compound_service.dart';
+import 'package:propix8/feature/compounds/viewmodels/compound_cubit.dart';
+import 'package:propix8/feature/contact/repositories/contact_repository.dart';
+import 'package:propix8/feature/contact/services/contact_service.dart';
+import 'package:propix8/feature/contact/viewmodels/contact_cubit.dart';
+import 'package:propix8/feature/developer_details/repositories/developer_repository.dart';
+import 'package:propix8/feature/developer_details/services/developer_service.dart';
+import 'package:propix8/feature/developer_details/viewmodels/developer_units_cubit.dart';
+import 'package:propix8/feature/developers/repositories/developer_repository.dart';
+import 'package:propix8/feature/developers/services/developer_service.dart';
+import 'package:propix8/feature/developers/viewmodels/developer_cubit.dart';
+import 'package:propix8/feature/favorites/repositories/favorite_repository.dart';
+import 'package:propix8/feature/favorites/services/favorite_service.dart';
+import 'package:propix8/feature/favorites/viewmodels/favorite_cubit.dart';
+import 'package:propix8/feature/home/repositories/unit_repository.dart';
+import 'package:propix8/feature/home/services/unit_service.dart';
+import 'package:propix8/feature/home/viewmodels/home_cubit.dart';
+import 'package:propix8/feature/home/viewmodels/nearby_units_cubit.dart';
+import 'package:propix8/feature/maintenance_bookings/repositories/maintenance_booking_repository.dart';
+import 'package:propix8/feature/maintenance_bookings/services/maintenance_booking_service.dart';
+import 'package:propix8/feature/maintenance_bookings/viewmodels/maintenance_bookings_cubit.dart';
+import 'package:propix8/feature/maintenance_services/repositories/maintenance_service_repository.dart';
+import 'package:propix8/feature/maintenance_services/services/maintenance_service_source.dart';
+import 'package:propix8/feature/maintenance_services/viewmodels/maintenance_booking_cubit.dart';
+import 'package:propix8/feature/maintenance_services/viewmodels/maintenance_services_cubit.dart';
+import 'package:propix8/feature/onboarding/repositories/onboarding_repository.dart';
+import 'package:propix8/feature/onboarding/viewmodels/onboarding_cubit.dart';
+import 'package:propix8/feature/our_services/repositories/our_services_repository.dart';
+import 'package:propix8/feature/our_services/services/our_services_service.dart';
+import 'package:propix8/feature/our_services/viewmodels/our_services_cubit.dart';
+import 'package:propix8/feature/profile/repositories/user_profile_repository.dart';
+import 'package:propix8/feature/profile/services/user_profile_service.dart';
+import 'package:propix8/feature/profile/viewmodels/user_profile_cubit.dart';
+import 'package:propix8/feature/search/viewmodels/search_cubit.dart';
+import 'package:propix8/feature/settings/repositories/settings_repository.dart';
+import 'package:propix8/feature/settings/services/settings_service.dart';
+import 'package:propix8/feature/settings/viewmodels/settings_cubit.dart';
+import 'package:propix8/feature/unit_details/repositories/unit_details_repository.dart';
+import 'package:propix8/feature/unit_details/services/unit_details_service.dart';
+import 'package:propix8/feature/unit_details/viewmodels/unit_details_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../feature/auth/repositories/address_setup_repository.dart';
-import '../../feature/auth/repositories/auth_repository.dart';
-import '../../feature/auth/services/address_setup_service.dart';
-import '../../feature/auth/services/auth_service.dart';
-import '../../feature/auth/viewmodels/address_setup_cubit.dart';
-import '../../feature/auth/viewmodels/auth_cubit.dart';
-import '../../feature/auth/viewmodels/reset_password_cubit.dart';
-import '../../feature/bookings/repositories/booking_repository.dart';
-import '../../feature/bookings/services/booking_service.dart';
-import '../../feature/bookings/viewmodels/booking_cubit.dart';
-import '../../feature/comparison/viewmodels/choose_product_cubit.dart';
-import '../../feature/comparison/viewmodels/comparison_cubit.dart';
-import '../../feature/compound_details/repositories/compound_repository.dart';
-import '../../feature/compound_details/services/compound_service.dart';
-import '../../feature/compound_details/viewmodels/compound_units_cubit.dart';
-import '../../feature/compounds/repositories/compound_repository.dart';
-import '../../feature/compounds/services/compound_service.dart';
-import '../../feature/compounds/viewmodels/compound_cubit.dart';
-import '../../feature/contact/repositories/contact_repository.dart';
-import '../../feature/contact/services/contact_service.dart';
-import '../../feature/contact/viewmodels/contact_cubit.dart';
-import '../../feature/developer_details/repositories/developer_repository.dart';
-import '../../feature/developer_details/services/developer_service.dart';
-import '../../feature/developer_details/viewmodels/developer_units_cubit.dart';
-import '../../feature/developers/repositories/developer_repository.dart';
-import '../../feature/developers/services/developer_service.dart';
-import '../../feature/developers/viewmodels/developer_cubit.dart';
-import '../../feature/favorites/repositories/favorite_repository.dart';
-import '../../feature/favorites/services/favorite_service.dart';
-import '../../feature/favorites/viewmodels/favorite_cubit.dart';
-import '../../feature/home/repositories/unit_repository.dart';
-import '../../feature/home/services/unit_service.dart';
-import '../../feature/home/viewmodels/home_cubit.dart';
-import '../../feature/home/viewmodels/nearby_units_cubit.dart';
-import '../../feature/maintenance_bookings/repositories/maintenance_booking_repository.dart';
-import '../../feature/maintenance_bookings/services/maintenance_booking_service.dart';
-import '../../feature/maintenance_bookings/viewmodels/maintenance_bookings_cubit.dart';
-import '../../feature/maintenance_services/repositories/maintenance_service_repository.dart';
-import '../../feature/maintenance_services/services/maintenance_service_source.dart';
-import '../../feature/maintenance_services/viewmodels/maintenance_booking_cubit.dart';
-import '../../feature/maintenance_services/viewmodels/maintenance_services_cubit.dart';
-import '../../feature/onboarding/repositories/onboarding_repository.dart';
-import '../../feature/onboarding/viewmodels/onboarding_cubit.dart';
-import '../../feature/our_services/repositories/our_services_repository.dart';
-import '../../feature/our_services/services/our_services_service.dart';
-import '../../feature/our_services/viewmodels/our_services_cubit.dart';
-import '../../feature/profile/repositories/user_profile_repository.dart';
-import '../../feature/profile/services/user_profile_service.dart';
-import '../../feature/profile/viewmodels/user_profile_cubit.dart';
-import '../../feature/search/viewmodels/search_cubit.dart';
-import '../../feature/settings/repositories/settings_repository.dart';
-import '../../feature/settings/services/settings_service.dart';
-import '../../feature/settings/viewmodels/settings_cubit.dart';
-import '../../feature/unit_details/repositories/unit_details_repository.dart';
-import '../../feature/unit_details/services/unit_details_service.dart';
-import '../../feature/unit_details/viewmodels/unit_details_cubit.dart';
-import '../network/auth_interceptor.dart';
-import '../network/dio_client.dart';
-import '../public_feature/repositories/pages_repository.dart';
-import '../public_feature/services/deep_link_service.dart';
-import '../public_feature/services/pages_service.dart';
-import '../public_feature/services/storage_service.dart';
-import '../public_feature/viewmodels/pages_cubit.dart';
-import '../services/booking_event_service.dart';
 
 final locator = GetIt.instance;
 
@@ -102,9 +101,9 @@ Future<void> setupLocator() async {
     ..registerLazySingleton(() => OurServicesService(locator<DioClient>()))
     ..registerLazySingleton(() => SettingsService(locator<DioClient>()))
     ..registerLazySingleton(() => ContactService(locator<DioClient>()))
-    ..registerLazySingleton<BookingEventService>(() => BookingEventService())
+    ..registerLazySingleton<BookingEventService>(BookingEventService.new)
     // Repositories
-    ..registerFactory<OnboardingRepository>(() => OnboardingRepositoryImpl())
+    ..registerFactory<OnboardingRepository>(OnboardingRepositoryImpl.new)
     ..registerLazySingleton<AuthRepository>(
       () =>
           AuthRepositoryImpl(locator<AuthService>(), locator<StorageService>()),
@@ -236,5 +235,5 @@ Future<void> setupLocator() async {
     ..registerFactory(() => ComparisonCubit(locator<UnitDetailsRepository>()))
     ..registerFactory(() => ChooseProductCubit(locator<UnitRepository>()))
     ..registerFactory(() => ContactCubit(locator<ContactRepository>()))
-    ..registerLazySingleton(() => DeepLinkService());
+    ..registerLazySingleton(DeepLinkService.new);
 }

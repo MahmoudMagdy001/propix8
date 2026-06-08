@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/router/app_routes.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/app_elevated_button.dart';
+import 'package:propix8/core/widgets/custom_back_button.dart';
+import 'package:propix8/feature/compounds/models/compound_model.dart';
+import 'package:propix8/feature/compounds/viewmodels/compound_cubit.dart';
+import 'package:propix8/feature/compounds/views/widgets/compound_card.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-
-import '../../../../core/di/locator.dart';
-import '../../../../core/router/app_routes.dart';
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/widgets/app_elevated_button.dart';
-import '../../../../core/widgets/custom_back_button.dart';
-import '../models/compound_model.dart';
-import '../viewmodels/compound_cubit.dart';
-import 'widgets/compound_card.dart';
 
 class CompoundsView extends StatelessWidget {
   const CompoundsView({super.key});

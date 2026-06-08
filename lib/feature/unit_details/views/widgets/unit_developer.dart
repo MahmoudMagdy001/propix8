@@ -2,15 +2,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:propix8/core/router/app_routes.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/feature/unit_details/models/unit_details_model.dart';
+import 'package:propix8/feature/unit_details/viewmodels/unit_details_cubit.dart';
+import 'package:propix8/feature/unit_details/viewmodels/unit_details_state.dart';
+import 'package:propix8/feature/unit_details/views/widgets/section_header.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../../../../core/router/app_routes.dart';
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../models/unit_details_model.dart';
-import '../../viewmodels/unit_details_cubit.dart';
-import '../../viewmodels/unit_details_state.dart';
-import 'section_header.dart';
 
 class UnitDeveloper extends StatelessWidget {
   const UnitDeveloper({super.key});

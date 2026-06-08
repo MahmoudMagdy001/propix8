@@ -1,5 +1,5 @@
-import '../../../l10n/app_localizations.dart';
-import '../models/onboarding_model.dart';
+import 'package:propix8/feature/onboarding/models/onboarding_model.dart';
+import 'package:propix8/l10n/app_localizations.dart';
 
 abstract class OnboardingRepository {
   List<OnboardingModel> getOnboardingData(

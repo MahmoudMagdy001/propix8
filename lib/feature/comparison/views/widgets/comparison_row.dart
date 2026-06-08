@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/utils/context_extensions.dart';
-import '../../models/comparison_model.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/feature/comparison/models/comparison_model.dart';
 
 /// A single row in the comparison table showing an attribute's values for both units.
 class ComparisonRow extends StatelessWidget {

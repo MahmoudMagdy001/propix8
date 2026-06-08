@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({super.key});

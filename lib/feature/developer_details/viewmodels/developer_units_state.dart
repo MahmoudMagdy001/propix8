@@ -1,8 +1,7 @@
 import 'package:equatable/equatable.dart';
-
-import '../../../../core/utils/enums.dart';
-import '../../home/viewmodels/home_state.dart';
-import '../models/developer_collection_model.dart';
+import 'package:propix8/core/utils/enums.dart';
+import 'package:propix8/feature/developer_details/models/developer_collection_model.dart';
+import 'package:propix8/feature/home/viewmodels/home_state.dart';
 
 class DeveloperUnitsState extends Equatable {
   const DeveloperUnitsState({

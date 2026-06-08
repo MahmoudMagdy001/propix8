@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../../models/stat_model.dart';
-import '../../utils/context_extensions.dart';
-import '../../utils/responsive_helper.dart';
+import 'package:propix8/core/models/stat_model.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
 
 class AboutUsStatCard extends StatelessWidget {
   const AboutUsStatCard({required this.stat, super.key});

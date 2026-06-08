@@ -3,17 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:go_router/go_router.dart';
 import 'package:latlong2/latlong.dart';
-
-import '../../../core/di/locator.dart';
-import '../../../core/router/app_routes.dart';
-import '../../../core/utils/context_extensions.dart';
-import '../../../core/utils/responsive_helper.dart';
-import '../../../core/utils/snackbar_utils.dart';
-import '../../../core/widgets/app_elevated_button.dart';
-import '../../../l10n/app_localizations.dart';
-import '../models/city_model.dart';
-import '../viewmodels/address_setup_cubit.dart';
-import '../viewmodels/address_setup_state.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/router/app_routes.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/utils/snackbar_utils.dart';
+import 'package:propix8/core/widgets/app_elevated_button.dart';
+import 'package:propix8/feature/auth/viewmodels/address_setup_cubit.dart';
+import 'package:propix8/feature/auth/viewmodels/address_setup_state.dart';
+import 'package:propix8/l10n/app_localizations.dart';
 
 class ProfileSetupScreen extends StatefulWidget {
   const ProfileSetupScreen({super.key});
@@ -234,7 +232,7 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
         initialValue: state.selectedCityId,
         items: state.cities
             .map(
-              (City city) =>
+              (city) =>
                   DropdownMenuItem<int>(value: city.id, child: Text(city.name)),
             )
             .toList(),

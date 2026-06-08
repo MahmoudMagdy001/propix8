@@ -1,5 +1,5 @@
-import '../../../../core/network/dio_client.dart';
-import '../models/developer_model.dart';
+import 'package:propix8/core/network/dio_client.dart';
+import 'package:propix8/feature/developers/models/developer_model.dart';
 
 class DevelopersService {
   DevelopersService(this._dioClient);

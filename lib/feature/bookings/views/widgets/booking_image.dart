@@ -2,12 +2,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/utils/snackbar_utils.dart';
-import '../../../../core/widgets/app_confirmation_dialog.dart';
-import '../../models/booking_model.dart';
-import '../../viewmodels/booking_cubit.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/utils/snackbar_utils.dart';
+import 'package:propix8/core/widgets/app_confirmation_dialog.dart';
+import 'package:propix8/feature/bookings/models/booking_model.dart';
+import 'package:propix8/feature/bookings/viewmodels/booking_cubit.dart';
 
 class BookingImage extends StatelessWidget {
   const BookingImage({required this.booking, super.key});
@@ -58,7 +58,7 @@ class BookingImage extends StatelessWidget {
       actionType: DialogActionType.destructive,
     );
 
-    if (confirmed == true && context.mounted) {
+    if ((confirmed ?? false) && context.mounted) {
       await context.read<BookingCubit>().deleteBooking(booking.id);
       if (context.mounted) {
         context.showInfoSnackbar(context.l10n.bookingDeletedSuccess);

@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../auth/repositories/address_setup_repository.dart';
-import 'filter_state.dart';
+import 'package:propix8/feature/auth/repositories/address_setup_repository.dart';
+import 'package:propix8/feature/home/views/filter/viewmodels/filter_state.dart';
 
 class FilterCubit extends Cubit<FilterState> {
   FilterCubit(this._addressSetupRepository) : super(const FilterState());

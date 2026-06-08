@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
 
-import '../models/banner_model.dart';
-import '../models/category_model.dart';
-import '../models/unit_model.dart';
-import '../views/filter/viewmodels/filter_state.dart';
+import 'package:propix8/feature/home/models/banner_model.dart';
+import 'package:propix8/feature/home/models/category_model.dart';
+import 'package:propix8/feature/home/models/unit_model.dart';
+import 'package:propix8/feature/home/views/filter/viewmodels/filter_state.dart';
 
 enum HomeRequestStatus { initial, loading, success, failure }
 

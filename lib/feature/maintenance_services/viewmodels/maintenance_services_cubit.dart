@@ -1,10 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../maintenance_bookings/models/maintenance_booking_model.dart';
-import '../../maintenance_bookings/repositories/maintenance_booking_repository.dart';
-import '../models/maintenance_service_model.dart';
-import '../repositories/maintenance_service_repository.dart';
-import 'maintenance_services_state.dart';
+import 'package:propix8/feature/maintenance_bookings/models/maintenance_booking_model.dart';
+import 'package:propix8/feature/maintenance_bookings/repositories/maintenance_booking_repository.dart';
+import 'package:propix8/feature/maintenance_services/models/maintenance_service_model.dart';
+import 'package:propix8/feature/maintenance_services/repositories/maintenance_service_repository.dart';
+import 'package:propix8/feature/maintenance_services/viewmodels/maintenance_services_state.dart';
 
 class MaintenanceServicesCubit extends Cubit<MaintenanceServicesState> {
   MaintenanceServicesCubit(this._repository, this._bookingRepository)

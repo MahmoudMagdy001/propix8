@@ -2,16 +2,15 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/utils/snackbar_utils.dart';
-import '../../../../core/widgets/app_elevated_button.dart';
-import '../../../../core/widgets/app_modal_sheet.dart';
-import '../../../../core/widgets/app_confirmation_dialog.dart';
-import '../../models/maintenance_booking_model.dart';
-import '../../viewmodels/maintenance_bookings_cubit.dart';
-import 'edit_maintenance_booking_sheet.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/utils/snackbar_utils.dart';
+import 'package:propix8/core/widgets/app_confirmation_dialog.dart';
+import 'package:propix8/core/widgets/app_elevated_button.dart';
+import 'package:propix8/core/widgets/app_modal_sheet.dart';
+import 'package:propix8/feature/maintenance_bookings/models/maintenance_booking_model.dart';
+import 'package:propix8/feature/maintenance_bookings/viewmodels/maintenance_bookings_cubit.dart';
+import 'package:propix8/feature/maintenance_bookings/views/widgets/edit_maintenance_booking_sheet.dart';
 
 class MaintenanceBookingCard extends StatelessWidget {
   const MaintenanceBookingCard({
@@ -24,7 +23,7 @@ class MaintenanceBookingCard extends StatelessWidget {
   final void Function(int serviceId)? onDeleted;
 
   @override
-  Widget build(BuildContext context) => Container(
+  Widget build(BuildContext context) => DecoratedBox(
     decoration: BoxDecoration(
       color: context.theme.cardTheme.color,
       borderRadius: BorderRadius.circular(12.r),
@@ -72,7 +71,7 @@ class MaintenanceBookingCard extends StatelessWidget {
                       actionType: DialogActionType.destructive,
                     );
 
-                    if (confirmed == true && context.mounted) {
+                    if ((confirmed ?? false) && context.mounted) {
                       final serviceId = booking.service?.id;
                       await context
                           .read<MaintenanceBookingsCubit>()

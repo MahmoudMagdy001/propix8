@@ -1,5 +1,5 @@
-import '../../../core/network/dio_client.dart';
-import '../models/contact_request_model.dart';
+import 'package:propix8/core/network/dio_client.dart';
+import 'package:propix8/feature/contact/models/contact_request_model.dart';
 
 class ContactService {
   ContactService(this._dioClient);

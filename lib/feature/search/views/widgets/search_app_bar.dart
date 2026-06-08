@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/widgets/custom_back_button.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/widgets/custom_back_button.dart';
 
 class SearchAppBar extends StatelessWidget {
   const SearchAppBar({super.key});

@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
 
-import '../../../../core/models/pagination_model.dart';
-import '../../../../core/utils/enums.dart';
-import '../models/unit_model.dart';
-import 'home_state.dart' show HomeRequestStatus;
+import 'package:propix8/core/models/pagination_model.dart';
+import 'package:propix8/core/utils/enums.dart';
+import 'package:propix8/feature/home/models/unit_model.dart';
+import 'package:propix8/feature/home/viewmodels/home_state.dart' show HomeRequestStatus;
 
 class NearbyUnitsState extends Equatable {
   const NearbyUnitsState({

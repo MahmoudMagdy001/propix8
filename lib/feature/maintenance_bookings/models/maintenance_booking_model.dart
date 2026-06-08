@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-import '../../../core/models/pagination_model.dart';
-import '../../maintenance_services/models/maintenance_service_model.dart';
+import 'package:propix8/core/models/pagination_model.dart';
+import 'package:propix8/feature/maintenance_services/models/maintenance_service_model.dart';
 
 class MaintenanceBookingModel extends Equatable {
   const MaintenanceBookingModel({

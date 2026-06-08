@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../viewmodels/unit_details_cubit.dart';
-import '../../viewmodels/unit_details_state.dart';
-import 'section_header.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/feature/unit_details/viewmodels/unit_details_cubit.dart';
+import 'package:propix8/feature/unit_details/viewmodels/unit_details_state.dart';
+import 'package:propix8/feature/unit_details/views/widgets/section_header.dart';
 
 class UnitDescription extends StatelessWidget {
   const UnitDescription({super.key});

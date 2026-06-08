@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../core/router/app_routes.dart';
-import '../../../core/utils/context_extensions.dart';
-import '../../../core/utils/responsive_helper.dart';
-import '../../../core/widgets/app_confirmation_dialog.dart';
-import '../../../core/widgets/app_modal_sheet.dart';
-import '../../../core/widgets/custom_back_button.dart';
-import '../viewmodels/settings_cubit.dart';
-import '../viewmodels/settings_state.dart';
+import 'package:propix8/core/router/app_routes.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/app_confirmation_dialog.dart';
+import 'package:propix8/core/widgets/app_modal_sheet.dart';
+import 'package:propix8/core/widgets/custom_back_button.dart';
+import 'package:propix8/feature/settings/viewmodels/settings_cubit.dart';
+import 'package:propix8/feature/settings/viewmodels/settings_state.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});
@@ -54,7 +54,7 @@ class SettingsView extends StatelessWidget {
     required String value,
     required IconData icon,
     required VoidCallback onTap,
-  }) => Container(
+  }) => DecoratedBox(
     decoration: BoxDecoration(
       color: context.theme.cardTheme.color,
       borderRadius: BorderRadius.circular(12.r),
@@ -142,7 +142,7 @@ class SettingsView extends StatelessWidget {
           onChanged: (val) async {
             if (val!.languageCode != currentLocale.languageCode) {
               final confirmed = await _confirmLanguageChange(context);
-              if (confirmed == true && context.mounted) {
+              if ((confirmed ?? false) && context.mounted) {
                 context.pop(); // Close modal
                 await context.read<SettingsCubit>().updateLocale(val);
                 // Navigate to home to refresh all data

@@ -2,18 +2,17 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/utils/snackbar_utils.dart';
-import '../../../../core/widgets/app_confirmation_dialog.dart';
-import '../../../../core/widgets/app_modal_sheet.dart';
-import '../../../auth/viewmodels/auth_cubit.dart';
-import '../../models/review_model.dart';
-import '../../models/unit_details_model.dart';
-import '../../viewmodels/unit_details_cubit.dart';
-import '../../viewmodels/unit_details_state.dart';
-import 'review_sheet.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/utils/snackbar_utils.dart';
+import 'package:propix8/core/widgets/app_confirmation_dialog.dart';
+import 'package:propix8/core/widgets/app_modal_sheet.dart';
+import 'package:propix8/feature/auth/viewmodels/auth_cubit.dart';
+import 'package:propix8/feature/unit_details/models/review_model.dart';
+import 'package:propix8/feature/unit_details/models/unit_details_model.dart';
+import 'package:propix8/feature/unit_details/viewmodels/unit_details_cubit.dart';
+import 'package:propix8/feature/unit_details/viewmodels/unit_details_state.dart';
+import 'package:propix8/feature/unit_details/views/widgets/review_sheet.dart';
 
 class UnitReviews extends StatelessWidget {
   const UnitReviews({super.key});

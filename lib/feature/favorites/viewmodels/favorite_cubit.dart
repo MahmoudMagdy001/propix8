@@ -1,10 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/utils/enums.dart';
-import '../../home/models/unit_model.dart';
-import '../models/favorite_model.dart';
-import '../repositories/favorite_repository.dart';
-import 'favorite_state.dart';
+import 'package:propix8/core/utils/enums.dart';
+import 'package:propix8/feature/favorites/models/favorite_model.dart';
+import 'package:propix8/feature/favorites/repositories/favorite_repository.dart';
+import 'package:propix8/feature/favorites/viewmodels/favorite_state.dart';
+import 'package:propix8/feature/home/models/unit_model.dart';
 
 class FavoriteCubit extends Cubit<FavoriteState> {
   FavoriteCubit(this._favoriteRepository) : super(const FavoriteState());
@@ -46,7 +45,7 @@ class FavoriteCubit extends Cubit<FavoriteState> {
 
       // Update the favorites map for ALL units in the list (not just new ones)
       final updatedFavorites = Map<int, bool>.from(state.favorites);
-      for (var fav in units) {
+      for (final fav in units) {
         updatedFavorites[fav.unit.id] = true;
       }
 

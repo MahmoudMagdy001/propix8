@@ -1,5 +1,5 @@
-import '../../../core/network/dio_client.dart';
-import '../models/booking_model.dart';
+import 'package:propix8/core/network/dio_client.dart';
+import 'package:propix8/feature/bookings/models/booking_model.dart';
 
 class BookingService {
   BookingService(this._dioClient);

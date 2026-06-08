@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../utils/context_extensions.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
 
 class AppNetworkErrorWidget extends StatelessWidget {
   const AppNetworkErrorWidget({

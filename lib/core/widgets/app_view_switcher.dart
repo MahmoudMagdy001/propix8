@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../../../../core/utils/responsive_helper.dart';
-import '../utils/context_extensions.dart';
-import '../utils/enums.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/enums.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
 
 class AppViewSwitcher extends StatelessWidget {
   const AppViewSwitcher({

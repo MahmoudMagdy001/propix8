@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../core/utils/responsive_helper.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
 
 class AppImageViewer extends StatefulWidget {
   const AppImageViewer({

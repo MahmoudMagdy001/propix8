@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
-
-import '../../unit_details/models/unit_details_model.dart';
-import '../models/comparison_model.dart';
+import 'package:propix8/feature/comparison/models/comparison_model.dart';
+import 'package:propix8/feature/unit_details/models/unit_details_model.dart';
 
 enum ComparisonStatus { initial, loading, success, failure }
 

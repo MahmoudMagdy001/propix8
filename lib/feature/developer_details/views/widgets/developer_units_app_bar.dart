@@ -1,14 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/widgets/custom_back_button.dart';
-import '../../../home/viewmodels/home_state.dart';
-import '../../viewmodels/developer_units_cubit.dart';
-import '../../viewmodels/developer_units_state.dart';
-import 'developer_units_contact_buttons.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/custom_back_button.dart';
+import 'package:propix8/feature/developer_details/viewmodels/developer_units_cubit.dart';
+import 'package:propix8/feature/developer_details/viewmodels/developer_units_state.dart';
+import 'package:propix8/feature/developer_details/views/widgets/developer_units_contact_buttons.dart';
+import 'package:propix8/feature/home/viewmodels/home_state.dart';
 
 class DeveloperUnitsAppBar extends StatelessWidget {
   const DeveloperUnitsAppBar({super.key});

@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../models/compound_model.dart';
-import '../repositories/compound_repository.dart';
+import 'package:propix8/feature/compounds/models/compound_model.dart';
+import 'package:propix8/feature/compounds/repositories/compound_repository.dart';
 
 enum CompoundsStatus { initial, loading, success, failure }
 

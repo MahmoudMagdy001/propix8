@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
-
-import '../../../../core/di/locator.dart';
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/mixins/connectivity_mixin.dart';
-import '../../../../core/utils/mixins/scroll_pagination_mixin.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/widgets/custom_back_button.dart';
-import '../../../core/utils/snackbar_utils.dart';
-import '../../maintenance_services/viewmodels/maintenance_services_cubit.dart';
-import '../viewmodels/maintenance_bookings_cubit.dart';
-import '../viewmodels/maintenance_bookings_state.dart';
-import 'widgets/maintenance_bookings_empty_widget.dart';
-import 'widgets/maintenance_bookings_error_widget.dart';
-import 'widgets/maintenance_bookings_sliver_list.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/mixins/connectivity_mixin.dart';
+import 'package:propix8/core/utils/mixins/scroll_pagination_mixin.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/utils/snackbar_utils.dart';
+import 'package:propix8/core/widgets/custom_back_button.dart';
+import 'package:propix8/feature/maintenance_bookings/viewmodels/maintenance_bookings_cubit.dart';
+import 'package:propix8/feature/maintenance_bookings/viewmodels/maintenance_bookings_state.dart';
+import 'package:propix8/feature/maintenance_bookings/views/widgets/maintenance_bookings_empty_widget.dart';
+import 'package:propix8/feature/maintenance_bookings/views/widgets/maintenance_bookings_error_widget.dart';
+import 'package:propix8/feature/maintenance_bookings/views/widgets/maintenance_bookings_sliver_list.dart';
+import 'package:propix8/feature/maintenance_services/viewmodels/maintenance_services_cubit.dart';
 
 class MaintenanceBookingsView extends StatelessWidget {
   const MaintenanceBookingsView({super.key});

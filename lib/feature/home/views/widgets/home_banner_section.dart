@@ -3,13 +3,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:propix8/core/router/app_routes.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/feature/home/models/banner_model.dart';
+import 'package:propix8/feature/home/viewmodels/home_cubit.dart';
+import 'package:propix8/feature/home/viewmodels/home_state.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-
-import '../../../../core/router/app_routes.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../models/banner_model.dart';
-import '../../viewmodels/home_cubit.dart';
-import '../../viewmodels/home_state.dart';
 
 class HomeBannerSection extends StatelessWidget {
   const HomeBannerSection({super.key});
@@ -68,7 +67,7 @@ class HomeBannerSection extends StatelessWidget {
                 items: banners
                     .map(
                       (banner) => Builder(
-                        builder: (BuildContext context) => Container(
+                        builder: (context) => Container(
                           margin: EdgeInsets.symmetric(vertical: 12.h),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(16.r),

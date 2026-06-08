@@ -1,9 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/utils/enums.dart';
-import '../../home/repositories/unit_repository.dart';
-import '../../home/viewmodels/home_state.dart';
-import 'search_state.dart';
+import 'package:propix8/core/utils/enums.dart';
+import 'package:propix8/feature/home/repositories/unit_repository.dart';
+import 'package:propix8/feature/home/viewmodels/home_state.dart';
+import 'package:propix8/feature/search/viewmodels/search_state.dart';
 
 class SearchCubit extends Cubit<SearchState> {
   SearchCubit(this._unitRepository) : super(const SearchState());

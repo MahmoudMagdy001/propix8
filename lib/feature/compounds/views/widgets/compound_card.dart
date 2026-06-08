@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../models/compound_model.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/feature/compounds/models/compound_model.dart';
 
 class CompoundCard extends StatelessWidget {
   const CompoundCard({required this.compound, super.key, this.onTap});

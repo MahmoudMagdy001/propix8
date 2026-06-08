@@ -1,15 +1,14 @@
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/feature/unit_details/models/unit_details_model.dart';
+import 'package:propix8/feature/unit_details/viewmodels/unit_details_cubit.dart';
+import 'package:propix8/feature/unit_details/viewmodels/unit_details_state.dart';
+import 'package:propix8/feature/unit_details/views/widgets/section_header.dart';
 import 'package:video_player/video_player.dart';
 import 'package:visibility_detector/visibility_detector.dart';
-
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../models/unit_details_model.dart';
-import '../../viewmodels/unit_details_cubit.dart';
-import '../../viewmodels/unit_details_state.dart';
-import 'section_header.dart';
 
 class UnitVirtualTour extends StatefulWidget {
   const UnitVirtualTour({super.key});
@@ -34,10 +33,10 @@ class _UnitVirtualTourState extends State<UnitVirtualTour> {
   }
 
   void _disposeAllControllers() {
-    for (var controller in _chewieControllers.values) {
+    for (final controller in _chewieControllers.values) {
       controller.dispose();
     }
-    for (var controller in _videoControllers.values) {
+    for (final controller in _videoControllers.values) {
       controller.dispose();
     }
     _chewieControllers.clear();
@@ -47,7 +46,7 @@ class _UnitVirtualTourState extends State<UnitVirtualTour> {
   // Memory management: dispose controllers outside the range (current - 1) to (current + 1)
   void _manageMemory(int currentIndex) {
     final keys = List<int>.from(_videoControllers.keys);
-    for (var index in keys) {
+    for (final index in keys) {
       if (index < currentIndex - 1 || index > currentIndex + 1) {
         _chewieControllers[index]?.dispose();
         _videoControllers[index]?.dispose();
@@ -234,9 +233,9 @@ class _VideoCarouselState extends State<_VideoCarousel> {
                 borderRadius: BorderRadius.circular(12.r),
                 child: isInitialized && chewieController != null
                     ? Chewie(controller: chewieController)
-                    : Container(
+                    : const ColoredBox(
                         color: Colors.black,
-                        child: const Center(
+                        child: Center(
                           child: CircularProgressIndicator(color: Colors.white),
                         ),
                       ),

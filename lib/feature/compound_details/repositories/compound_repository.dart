@@ -1,6 +1,6 @@
-import '../../../../core/models/pagination_model.dart';
-import '../models/compound_collection_model.dart';
-import '../services/compound_service.dart';
+import 'package:propix8/core/models/pagination_model.dart';
+import 'package:propix8/feature/compound_details/models/compound_collection_model.dart';
+import 'package:propix8/feature/compound_details/services/compound_service.dart';
 
 abstract class CompoundRepository {
   Future<CompoundCollectionModel> getCompoundUnits(int id, {int? page});

@@ -1,6 +1,6 @@
-import '../../../../core/models/pagination_model.dart';
-import '../models/developer_collection_model.dart';
-import '../services/developer_service.dart';
+import 'package:propix8/core/models/pagination_model.dart';
+import 'package:propix8/feature/developer_details/models/developer_collection_model.dart';
+import 'package:propix8/feature/developer_details/services/developer_service.dart';
 
 abstract class DeveloperRepository {
   Future<DeveloperCollectionModel> getDeveloperUnits(int id, {int? page});

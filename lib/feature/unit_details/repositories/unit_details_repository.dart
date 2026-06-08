@@ -1,11 +1,11 @@
-import '../../../core/models/pagination_model.dart';
-import '../../../core/services/booking_event_service.dart';
-import '../../home/models/unit_model.dart';
-import '../models/booking_request_model.dart';
-import '../models/booking_response_model.dart';
-import '../models/review_model.dart';
-import '../models/unit_details_model.dart';
-import '../services/unit_details_service.dart';
+import 'package:propix8/core/models/pagination_model.dart';
+import 'package:propix8/core/services/booking_event_service.dart';
+import 'package:propix8/feature/home/models/unit_model.dart';
+import 'package:propix8/feature/unit_details/models/booking_request_model.dart';
+import 'package:propix8/feature/unit_details/models/booking_response_model.dart';
+import 'package:propix8/feature/unit_details/models/review_model.dart';
+import 'package:propix8/feature/unit_details/models/unit_details_model.dart';
+import 'package:propix8/feature/unit_details/services/unit_details_service.dart';
 
 abstract class UnitDetailsRepository {
   Future<UnitDetailsModel> getUnitDetails(int unitId);

@@ -1,6 +1,6 @@
-import '../../../core/services/booking_event_service.dart';
-import '../models/maintenance_booking_model.dart';
-import '../services/maintenance_booking_service.dart';
+import 'package:propix8/core/services/booking_event_service.dart';
+import 'package:propix8/feature/maintenance_bookings/models/maintenance_booking_model.dart';
+import 'package:propix8/feature/maintenance_bookings/services/maintenance_booking_service.dart';
 
 abstract class MaintenanceBookingRepository {
   Future<MaintenanceBookingsListResponse> getMaintenanceBookings({

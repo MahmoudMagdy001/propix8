@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/widgets/app_elevated_button.dart';
-import '../../../../core/widgets/app_form.dart';
-import '../../../../core/widgets/app_modal_sheet.dart';
-import '../../../../core/widgets/app_text_form_field.dart';
-import '../../models/testimonial_model.dart';
-import '../../viewmodels/our_services_cubit.dart';
-import '../../viewmodels/our_services_state.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/app_elevated_button.dart';
+import 'package:propix8/core/widgets/app_form.dart';
+import 'package:propix8/core/widgets/app_modal_sheet.dart';
+import 'package:propix8/core/widgets/app_text_form_field.dart';
+import 'package:propix8/feature/our_services/models/testimonial_model.dart';
+import 'package:propix8/feature/our_services/viewmodels/our_services_cubit.dart';
+import 'package:propix8/feature/our_services/viewmodels/our_services_state.dart';
 
 class AddTestimonialSheet extends StatefulWidget {
   const AddTestimonialSheet({super.key, this.testimonial});

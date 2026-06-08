@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/widgets/custom_back_button.dart';
-import '../../viewmodels/compound_units_cubit.dart';
-import '../../viewmodels/compound_units_state.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/custom_back_button.dart';
+import 'package:propix8/feature/compound_details/viewmodels/compound_units_cubit.dart';
+import 'package:propix8/feature/compound_details/viewmodels/compound_units_state.dart';
 
 class CompoundUnitsAppBar extends StatelessWidget {
   const CompoundUnitsAppBar({super.key});

@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 
-import '../../../../core/utils/enums.dart';
-import '../../home/models/unit_model.dart';
-import '../../home/viewmodels/home_state.dart';
+import 'package:propix8/core/utils/enums.dart';
+import 'package:propix8/feature/home/models/unit_model.dart';
+import 'package:propix8/feature/home/viewmodels/home_state.dart';
 
 class SearchState extends Equatable {
   const SearchState({

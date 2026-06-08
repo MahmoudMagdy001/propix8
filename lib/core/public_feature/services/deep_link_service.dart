@@ -2,9 +2,8 @@ import 'dart:async';
 
 import 'package:app_links/app_links.dart';
 import 'package:flutter/widgets.dart';
-
-import '../../router/app_router.dart';
-import '../../utils/auth_logger.dart';
+import 'package:propix8/core/router/app_router.dart';
+import 'package:propix8/core/utils/auth_logger.dart';
 
 /// Service to handle deep linking.
 ///
@@ -26,7 +25,7 @@ class DeepLinkService with WidgetsBindingObserver {
 
     // 2. Listen to incoming links (Background & Foreground)
     _linkSubscription = _appLinks.uriLinkStream.listen(
-      (uri) => _handleLink(uri),
+      _handleLink,
       onError: (err) {
         AuthLogger.error('Deep link error: $err');
       },

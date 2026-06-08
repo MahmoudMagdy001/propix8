@@ -1,15 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../core/di/locator.dart';
-import '../../../core/services/booking_event_service.dart';
-import '../../auth/models/auth_model.dart';
-import '../../auth/viewmodels/auth_cubit.dart';
-import '../../bookings/repositories/booking_repository.dart';
-import '../../maintenance_bookings/repositories/maintenance_booking_repository.dart';
-import '../repositories/user_profile_repository.dart';
-import 'user_profile_state.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/services/booking_event_service.dart';
+import 'package:propix8/feature/auth/models/auth_model.dart';
+import 'package:propix8/feature/auth/viewmodels/auth_cubit.dart';
+import 'package:propix8/feature/bookings/repositories/booking_repository.dart';
+import 'package:propix8/feature/maintenance_bookings/repositories/maintenance_booking_repository.dart';
+import 'package:propix8/feature/profile/repositories/user_profile_repository.dart';
+import 'package:propix8/feature/profile/viewmodels/user_profile_state.dart';
 
 class UserProfileCubit extends Cubit<UserProfileState> {
   UserProfileCubit(

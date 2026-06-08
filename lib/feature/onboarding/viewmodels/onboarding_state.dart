@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import '../models/onboarding_model.dart';
+import 'package:propix8/feature/onboarding/models/onboarding_model.dart';
 
 class OnboardingState extends Equatable {
   const OnboardingState({this.pageIndex = 0, this.pages = const []});

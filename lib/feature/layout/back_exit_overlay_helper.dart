@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../core/utils/context_extensions.dart';
-import '../../core/utils/responsive_helper.dart';
-import '../../core/widgets/app_confirmation_dialog.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/app_confirmation_dialog.dart';
 
 /// A mixin that provides overlay and timer logic for handling double-back-press to exit.
 /// This helps keep the main view clean and separates the UX logic for back press.
@@ -71,9 +71,7 @@ mixin BackExitOverlayHelper<T extends StatefulWidget> on State<T> {
     );
 
     Overlay.of(context).insert(_overlayEntry!);
-    _overlayTimer = Timer(const Duration(seconds: 2), () {
-      _removeOverlay();
-    });
+    _overlayTimer = Timer(const Duration(seconds: 2), _removeOverlay);
   }
 
   void _removeOverlay() {
@@ -91,7 +89,7 @@ mixin BackExitOverlayHelper<T extends StatefulWidget> on State<T> {
       actionType: DialogActionType.destructive,
     );
 
-    if (result == true) {
+    if (result ?? false) {
       SystemNavigator.pop();
     }
   }

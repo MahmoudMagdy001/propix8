@@ -1,10 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/utils/enums.dart';
-import '../../home/viewmodels/home_state.dart';
-import '../models/developer_collection_model.dart';
-import '../repositories/developer_repository.dart';
-import 'developer_units_state.dart';
+import 'package:propix8/core/utils/enums.dart';
+import 'package:propix8/feature/developer_details/models/developer_collection_model.dart';
+import 'package:propix8/feature/developer_details/repositories/developer_repository.dart';
+import 'package:propix8/feature/developer_details/viewmodels/developer_units_state.dart';
+import 'package:propix8/feature/home/viewmodels/home_state.dart';
 
 class DeveloperUnitsCubit extends Cubit<DeveloperUnitsState> {
   DeveloperUnitsCubit(this._developerRepository)

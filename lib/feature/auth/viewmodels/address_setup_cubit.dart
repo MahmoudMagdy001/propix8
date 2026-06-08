@@ -3,10 +3,10 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
 
-import '../../../core/di/locator.dart';
-import '../repositories/address_setup_repository.dart';
-import 'address_setup_state.dart';
-import 'auth_cubit.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/feature/auth/repositories/address_setup_repository.dart';
+import 'package:propix8/feature/auth/viewmodels/address_setup_state.dart';
+import 'package:propix8/feature/auth/viewmodels/auth_cubit.dart';
 
 class AddressSetupCubit extends Cubit<AddressSetupState> {
   AddressSetupCubit(this._addressSetupRepository)

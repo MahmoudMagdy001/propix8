@@ -1,8 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../unit_details/repositories/unit_details_repository.dart';
-import '../models/comparison_model.dart';
-import 'comparison_state.dart';
+import 'package:propix8/feature/comparison/models/comparison_model.dart';
+import 'package:propix8/feature/comparison/viewmodels/comparison_state.dart';
+import 'package:propix8/feature/unit_details/repositories/unit_details_repository.dart';
 
 class ComparisonCubit extends Cubit<ComparisonState> {
   ComparisonCubit(this._repository) : super(const ComparisonState());

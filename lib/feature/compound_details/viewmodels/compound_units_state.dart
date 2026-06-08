@@ -1,8 +1,7 @@
 import 'package:equatable/equatable.dart';
-
-import '../../../../core/utils/enums.dart';
-import '../../home/viewmodels/home_state.dart';
-import '../models/compound_collection_model.dart';
+import 'package:propix8/core/utils/enums.dart';
+import 'package:propix8/feature/compound_details/models/compound_collection_model.dart';
+import 'package:propix8/feature/home/viewmodels/home_state.dart';
 
 class CompoundUnitsState extends Equatable {
   const CompoundUnitsState({

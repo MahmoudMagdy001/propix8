@@ -1,5 +1,5 @@
-import '../models/favorite_model.dart';
-import '../services/favorite_service.dart';
+import 'package:propix8/feature/favorites/models/favorite_model.dart';
+import 'package:propix8/feature/favorites/services/favorite_service.dart';
 
 abstract class FavoriteRepository {
   Future<FavoriteResponse> getFavorites({int page = 1});

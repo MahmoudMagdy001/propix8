@@ -2,8 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../core/router/app_routes.dart';
-import '../../core/utils/context_extensions.dart';
+import 'package:propix8/core/router/app_routes.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
 
 class TermsCheckbox extends StatelessWidget {
   const TermsCheckbox({

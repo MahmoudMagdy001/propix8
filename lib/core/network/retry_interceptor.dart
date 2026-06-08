@@ -2,9 +2,8 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:dio/dio.dart';
-
-import '../utils/auth_constants.dart';
-import '../utils/auth_logger.dart';
+import 'package:propix8/core/utils/auth_constants.dart';
+import 'package:propix8/core/utils/auth_logger.dart';
 
 /// Retry interceptor with exponential backoff for failed requests.
 ///

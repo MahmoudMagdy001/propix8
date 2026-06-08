@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/enums.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/widgets/app_view_switcher.dart';
-import '../../viewmodels/search_cubit.dart';
-import '../../viewmodels/search_state.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/enums.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/app_view_switcher.dart';
+import 'package:propix8/feature/search/viewmodels/search_cubit.dart';
+import 'package:propix8/feature/search/viewmodels/search_state.dart';
 
 class SearchViewSwitcher extends StatelessWidget {
   const SearchViewSwitcher({super.key});

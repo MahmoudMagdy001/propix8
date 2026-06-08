@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/feature/developer_details/viewmodels/developer_units_cubit.dart';
+import 'package:propix8/feature/developer_details/viewmodels/developer_units_state.dart';
+import 'package:propix8/feature/developer_details/views/widgets/developer_units_app_bar.dart';
+import 'package:propix8/feature/developer_details/views/widgets/developer_units_results.dart';
+import 'package:propix8/feature/developer_details/views/widgets/developer_units_view_switcher.dart';
+import 'package:propix8/feature/home/viewmodels/home_state.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-
-import '../../../../core/di/locator.dart';
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../home/viewmodels/home_state.dart';
-import '../viewmodels/developer_units_cubit.dart';
-import '../viewmodels/developer_units_state.dart';
-import 'widgets/developer_units_app_bar.dart';
-import 'widgets/developer_units_results.dart';
-import 'widgets/developer_units_view_switcher.dart';
 
 class DeveloperUnitsView extends StatefulWidget {
   const DeveloperUnitsView({required this.developerId, super.key});

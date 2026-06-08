@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../home/viewmodels/home_state.dart';
-import '../../viewmodels/search_cubit.dart';
-import '../../viewmodels/search_state.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/feature/home/viewmodels/home_state.dart';
+import 'package:propix8/feature/search/viewmodels/search_cubit.dart';
+import 'package:propix8/feature/search/viewmodels/search_state.dart';
 
 class SearchLoadMoreIndicator extends StatelessWidget {
   const SearchLoadMoreIndicator({super.key});

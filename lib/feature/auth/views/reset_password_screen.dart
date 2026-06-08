@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/utils/snackbar_utils.dart';
-import '../../../../core/widgets/app_form.dart';
-import '../../../../core/widgets/custom_back_button.dart';
-import '../../../core/di/locator.dart';
-import '../../../core/router/app_routes.dart';
-import '../../../core/utils/context_extensions.dart';
-import '../../../core/widgets/app_elevated_button.dart';
-import '../../../core/widgets/app_text_form_field.dart';
-import '../models/auth_model.dart';
-import '../viewmodels/reset_password_cubit.dart';
-import '../viewmodels/reset_password_state.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/router/app_routes.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/utils/snackbar_utils.dart';
+import 'package:propix8/core/widgets/app_elevated_button.dart';
+import 'package:propix8/core/widgets/app_form.dart';
+import 'package:propix8/core/widgets/app_text_form_field.dart';
+import 'package:propix8/core/widgets/custom_back_button.dart';
+import 'package:propix8/feature/auth/models/auth_model.dart';
+import 'package:propix8/feature/auth/viewmodels/reset_password_cubit.dart';
+import 'package:propix8/feature/auth/viewmodels/reset_password_state.dart';
 
 class ResetPasswordScreen extends StatefulWidget {
   const ResetPasswordScreen({

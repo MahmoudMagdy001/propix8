@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/widgets/app_elevated_button.dart';
-import '../../models/booking_model.dart';
-import '../../viewmodels/booking_cubit.dart';
-import '../../viewmodels/booking_state.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/app_elevated_button.dart';
+import 'package:propix8/feature/bookings/models/booking_model.dart';
+import 'package:propix8/feature/bookings/viewmodels/booking_cubit.dart';
+import 'package:propix8/feature/bookings/viewmodels/booking_state.dart';
 
 class BookingsErrorWidget extends StatelessWidget {
   const BookingsErrorWidget({super.key});

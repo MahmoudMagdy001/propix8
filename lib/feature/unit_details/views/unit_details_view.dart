@@ -2,29 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/router/app_routes.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/custom_back_button.dart';
+import 'package:propix8/feature/unit_details/models/unit_details_model.dart';
+import 'package:propix8/feature/unit_details/viewmodels/unit_details_cubit.dart';
+import 'package:propix8/feature/unit_details/viewmodels/unit_details_state.dart';
+import 'package:propix8/feature/unit_details/views/widgets/unit_action_buttons.dart';
+import 'package:propix8/feature/unit_details/views/widgets/unit_amenities.dart';
+import 'package:propix8/feature/unit_details/views/widgets/unit_compound.dart';
+import 'package:propix8/feature/unit_details/views/widgets/unit_description.dart';
+import 'package:propix8/feature/unit_details/views/widgets/unit_developer.dart';
+import 'package:propix8/feature/unit_details/views/widgets/unit_floor_plan.dart';
+import 'package:propix8/feature/unit_details/views/widgets/unit_header.dart';
+import 'package:propix8/feature/unit_details/views/widgets/unit_image_gallery.dart';
+import 'package:propix8/feature/unit_details/views/widgets/unit_location.dart';
+import 'package:propix8/feature/unit_details/views/widgets/unit_related_section.dart';
+import 'package:propix8/feature/unit_details/views/widgets/unit_reviews.dart';
+import 'package:propix8/feature/unit_details/views/widgets/unit_specs.dart';
+import 'package:propix8/feature/unit_details/views/widgets/unit_virtual_tour.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-
-import '../../../../core/di/locator.dart';
-import '../../../../core/router/app_routes.dart';
-import '../../../../core/utils/context_extensions.dart';
-import '../../../core/utils/responsive_helper.dart';
-import '../../../core/widgets/custom_back_button.dart';
-import '../models/unit_details_model.dart';
-import '../viewmodels/unit_details_cubit.dart';
-import '../viewmodels/unit_details_state.dart';
-import 'widgets/unit_action_buttons.dart';
-import 'widgets/unit_amenities.dart';
-import 'widgets/unit_compound.dart';
-import 'widgets/unit_description.dart';
-import 'widgets/unit_developer.dart';
-import 'widgets/unit_floor_plan.dart';
-import 'widgets/unit_header.dart';
-import 'widgets/unit_image_gallery.dart';
-import 'widgets/unit_location.dart';
-import 'widgets/unit_related_section.dart';
-import 'widgets/unit_reviews.dart';
-import 'widgets/unit_specs.dart';
-import 'widgets/unit_virtual_tour.dart';
 
 /// Represents a section tab with its key and label
 class _SectionTab {
@@ -138,9 +137,9 @@ class _UnitDetailsViewState extends State<UnitDetailsView>
       return;
     }
 
-    int visibleIndex = 0;
+    var visibleIndex = 0;
 
-    for (int i = 0; i < _visibleTabs.length; i++) {
+    for (var i = 0; i < _visibleTabs.length; i++) {
       final key = _visibleTabs[i].key;
       final context = key.currentContext;
       if (context == null) continue;
@@ -259,7 +258,7 @@ class _UnitDetailsViewState extends State<UnitDetailsView>
                               pinned: true,
                               bottom: PreferredSize(
                                 preferredSize: Size.fromHeight(50.h),
-                                child: Container(
+                                child: ColoredBox(
                                   color: context.colorScheme.surface,
                                   child: TabBar(
                                     controller: _tabController,

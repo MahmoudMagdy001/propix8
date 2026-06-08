@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../../../core/theme/app_colors.dart';
-import '../../../../../../core/utils/context_extensions.dart';
-import '../../../../../../core/widgets/app_elevated_button.dart';
-import '../../../../../core/utils/responsive_helper.dart';
-import '../../../../auth/models/city_model.dart';
-import '../viewmodels/filter_cubit.dart';
-import '../viewmodels/filter_state.dart';
-import 'widgets/development_status_toggle.dart';
-import 'widgets/filter_counter.dart';
-import 'widgets/filter_toggle.dart';
-import 'widgets/range_slider_with_input.dart';
+import 'package:propix8/core/theme/app_colors.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/app_elevated_button.dart';
+import 'package:propix8/feature/auth/models/city_model.dart';
+import 'package:propix8/feature/home/views/filter/viewmodels/filter_cubit.dart';
+import 'package:propix8/feature/home/views/filter/viewmodels/filter_state.dart';
+import 'package:propix8/feature/home/views/filter/views/widgets/development_status_toggle.dart';
+import 'package:propix8/feature/home/views/filter/views/widgets/filter_counter.dart';
+import 'package:propix8/feature/home/views/filter/views/widgets/filter_toggle.dart';
+import 'package:propix8/feature/home/views/filter/views/widgets/range_slider_with_input.dart';
 
 class FilterSheetContent extends StatelessWidget {
   const FilterSheetContent({super.key});
@@ -139,7 +138,7 @@ class _LocationDropdown extends StatelessWidget {
           );
         }
 
-        return Container(
+        return DecoratedBox(
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(12.r)),
           child: DropdownButtonHideUnderline(
             child: DropdownButtonFormField<int>(
@@ -161,7 +160,7 @@ class _LocationDropdown extends StatelessWidget {
               initialValue: data.selectedCityId,
               items: data.cities
                   .map(
-                    (City city) => DropdownMenuItem<int>(
+                    (city) => DropdownMenuItem<int>(
                       value: city.id,
                       child: Text(city.name),
                     ),

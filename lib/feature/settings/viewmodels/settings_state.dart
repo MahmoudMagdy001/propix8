@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
-import '../models/site_settings_model.dart';
+import 'package:propix8/feature/settings/models/site_settings_model.dart';
 
 enum SettingsStatus { initial, loading, success, failure }
 

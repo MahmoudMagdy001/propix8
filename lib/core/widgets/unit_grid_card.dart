@@ -1,12 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../feature/home/models/unit_model.dart';
-import '../router/app_routes.dart';
-import '../utils/context_extensions.dart';
-import '../utils/responsive_helper.dart';
-import 'favorite_button.dart';
+import 'package:propix8/core/router/app_routes.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/favorite_button.dart';
+import 'package:propix8/feature/home/models/unit_model.dart';
 
 class UnitGridCard extends StatelessWidget {
   const UnitGridCard({required this.unit, super.key});

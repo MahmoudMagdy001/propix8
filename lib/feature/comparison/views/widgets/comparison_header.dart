@@ -2,8 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/utils/context_extensions.dart';
-import '../../../unit_details/models/unit_details_model.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/feature/unit_details/models/unit_details_model.dart';
 
 /// Header widget showing both unit images and titles side-by-side.
 class ComparisonHeader extends StatelessWidget {

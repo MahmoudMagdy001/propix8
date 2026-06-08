@@ -1,6 +1,6 @@
-import '../../../core/network/dio_client.dart';
-import '../../../core/utils/auth_constants.dart';
-import '../models/auth_model.dart';
+import 'package:propix8/core/network/dio_client.dart';
+import 'package:propix8/core/utils/auth_constants.dart';
+import 'package:propix8/feature/auth/models/auth_model.dart';
 
 /// Handles direct API interactions for authentication endpoints.
 ///

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/date_time_utils.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/widgets/app_elevated_button.dart';
-import '../../../../core/widgets/app_form.dart';
-import '../../../../core/widgets/app_text_form_field.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/date_time_utils.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/app_elevated_button.dart';
+import 'package:propix8/core/widgets/app_form.dart';
+import 'package:propix8/core/widgets/app_text_form_field.dart';
 
 class SuggestTimeModal extends StatefulWidget {
   const SuggestTimeModal({super.key});

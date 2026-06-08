@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/widgets/app_network_error_widget.dart';
+import 'package:propix8/core/widgets/custom_back_button.dart';
+import 'package:propix8/feature/comparison/viewmodels/comparison_cubit.dart';
+import 'package:propix8/feature/comparison/viewmodels/comparison_state.dart';
+import 'package:propix8/feature/comparison/views/widgets/comparison_header.dart';
+import 'package:propix8/feature/comparison/views/widgets/comparison_row.dart';
+import 'package:propix8/l10n/app_localizations.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-
-import '../../../core/di/locator.dart';
-import '../../../core/utils/context_extensions.dart';
-import '../../../core/widgets/app_network_error_widget.dart';
-import '../../../core/widgets/custom_back_button.dart';
-import '../../../l10n/app_localizations.dart';
-import '../viewmodels/comparison_cubit.dart';
-import '../viewmodels/comparison_state.dart';
-import 'widgets/comparison_header.dart';
-import 'widgets/comparison_row.dart';
 
 class ComparisonView extends StatefulWidget {
   const ComparisonView({

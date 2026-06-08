@@ -5,18 +5,17 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
-
-import 'core/di/locator.dart';
-import 'core/public_feature/services/deep_link_service.dart';
-import 'core/router/app_router.dart';
-import 'core/theme/app_theme.dart';
-import 'core/utils/auth_constants.dart';
-import 'core/utils/auth_logger.dart';
-import 'feature/auth/viewmodels/auth_cubit.dart';
-import 'feature/favorites/viewmodels/favorite_cubit.dart';
-import 'feature/settings/viewmodels/settings_cubit.dart';
-import 'feature/settings/viewmodels/settings_state.dart';
-import 'l10n/app_localizations.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/public_feature/services/deep_link_service.dart';
+import 'package:propix8/core/router/app_router.dart';
+import 'package:propix8/core/theme/app_theme.dart';
+import 'package:propix8/core/utils/auth_constants.dart';
+import 'package:propix8/core/utils/auth_logger.dart';
+import 'package:propix8/feature/auth/viewmodels/auth_cubit.dart';
+import 'package:propix8/feature/favorites/viewmodels/favorite_cubit.dart';
+import 'package:propix8/feature/settings/viewmodels/settings_cubit.dart';
+import 'package:propix8/feature/settings/viewmodels/settings_state.dart';
+import 'package:propix8/l10n/app_localizations.dart';
 
 void main() async {
   final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();

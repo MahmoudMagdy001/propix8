@@ -1,8 +1,7 @@
 import 'package:dio/dio.dart';
-
-import '../../../core/network/dio_client.dart';
-import '../../auth/models/auth_model.dart';
-import '../../auth/models/city_model.dart';
+import 'package:propix8/core/network/dio_client.dart';
+import 'package:propix8/feature/auth/models/auth_model.dart';
+import 'package:propix8/feature/auth/models/city_model.dart';
 
 class UserProfileService {
   UserProfileService(this._dioClient);

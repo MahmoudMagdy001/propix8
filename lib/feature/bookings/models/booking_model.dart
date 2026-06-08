@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import '../../../../core/models/pagination_model.dart';
+import 'package:propix8/core/models/pagination_model.dart';
 
 class BookingUserModel extends Equatable {
   const BookingUserModel({

@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
 
-import '../../../../core/models/pagination_model.dart';
-import '../models/faq_model.dart';
-import '../models/service_model.dart';
-import '../models/testimonial_model.dart';
+import 'package:propix8/core/models/pagination_model.dart';
+import 'package:propix8/feature/our_services/models/faq_model.dart';
+import 'package:propix8/feature/our_services/models/service_model.dart';
+import 'package:propix8/feature/our_services/models/testimonial_model.dart';
 
 enum OurServicesStatus { initial, loading, success, failure }
 

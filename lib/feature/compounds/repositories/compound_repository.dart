@@ -1,5 +1,5 @@
-import '../models/compound_model.dart';
-import '../services/compound_service.dart';
+import 'package:propix8/feature/compounds/models/compound_model.dart';
+import 'package:propix8/feature/compounds/services/compound_service.dart';
 
 abstract class CompoundsRepository {
   Future<List<CompoundModel>> getCompounds();

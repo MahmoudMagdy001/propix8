@@ -3,48 +3,47 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../core/di/locator.dart';
-import '../../feature/auth/models/auth_model.dart';
-import '../../feature/auth/viewmodels/auth_cubit.dart';
-import '../../feature/auth/viewmodels/auth_state.dart';
-import '../../feature/auth/views/address_setup_view.dart';
-import '../../feature/auth/views/email_verification_handler.dart';
-import '../../feature/auth/views/forgot_password_screen.dart';
-import '../../feature/auth/views/login_screen.dart';
-import '../../feature/auth/views/reset_password_screen.dart';
-import '../../feature/auth/views/signup_screen.dart';
-import '../../feature/auth/views/widgets/password_success_screen.dart';
-import '../../feature/bookings/views/bookings_view.dart';
-import '../../feature/comparison/views/choose_product_view.dart';
-import '../../feature/comparison/views/comparison_view.dart';
-import '../../feature/compound_details/views/compound_units_view.dart';
-import '../../feature/compounds/views/compounds_view.dart';
-import '../../feature/developer_details/views/developer_units_view.dart';
-import '../../feature/developers/views/developers_view.dart';
-import '../../feature/favorites/views/favorites_view.dart';
-import '../../feature/home/views/show_all_nearby_view.dart';
-import '../../feature/layout/layout_view.dart';
-import '../../feature/maintenance_bookings/views/maintenance_bookings_view.dart';
-import '../../feature/onboarding/views/onboarding_view.dart';
-import '../../feature/onboarding/views/splash_view.dart';
-import '../../feature/our_services/views/our_services_view.dart';
-import '../../feature/profile/viewmodels/user_profile_cubit.dart';
-import '../../feature/profile/views/change_password_view.dart';
-import '../../feature/profile/views/edit_account_view.dart';
-import '../../feature/profile/views/edit_profile_data_view.dart';
-import '../../feature/profile/views/my_testimonials_view.dart';
-import '../../feature/search/views/search_view.dart';
-import '../../feature/settings/viewmodels/settings_cubit.dart';
-import '../../feature/settings/viewmodels/settings_state.dart';
-import '../../feature/settings/views/settings_view.dart';
-import '../../feature/unit_details/views/unit_details_view.dart';
-import '../../feature/unit_details/views/unit_map_view.dart';
-import '../public_feature/about_us/about_us_screen.dart';
-import '../public_feature/privacy_policy_screen.dart';
-import '../public_feature/services/storage_service.dart';
-import '../public_feature/terms_and_conditions_screen.dart';
-import 'app_routes.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/public_feature/about_us/about_us_screen.dart';
+import 'package:propix8/core/public_feature/privacy_policy_screen.dart';
+import 'package:propix8/core/public_feature/services/storage_service.dart';
+import 'package:propix8/core/public_feature/terms_and_conditions_screen.dart';
+import 'package:propix8/core/router/app_routes.dart';
+import 'package:propix8/feature/auth/models/auth_model.dart';
+import 'package:propix8/feature/auth/viewmodels/auth_cubit.dart';
+import 'package:propix8/feature/auth/viewmodels/auth_state.dart';
+import 'package:propix8/feature/auth/views/address_setup_view.dart';
+import 'package:propix8/feature/auth/views/email_verification_handler.dart';
+import 'package:propix8/feature/auth/views/forgot_password_screen.dart';
+import 'package:propix8/feature/auth/views/login_screen.dart';
+import 'package:propix8/feature/auth/views/reset_password_screen.dart';
+import 'package:propix8/feature/auth/views/signup_screen.dart';
+import 'package:propix8/feature/auth/views/widgets/password_success_screen.dart';
+import 'package:propix8/feature/bookings/views/bookings_view.dart';
+import 'package:propix8/feature/comparison/views/choose_product_view.dart';
+import 'package:propix8/feature/comparison/views/comparison_view.dart';
+import 'package:propix8/feature/compound_details/views/compound_units_view.dart';
+import 'package:propix8/feature/compounds/views/compounds_view.dart';
+import 'package:propix8/feature/developer_details/views/developer_units_view.dart';
+import 'package:propix8/feature/developers/views/developers_view.dart';
+import 'package:propix8/feature/favorites/views/favorites_view.dart';
+import 'package:propix8/feature/home/views/show_all_nearby_view.dart';
+import 'package:propix8/feature/layout/layout_view.dart';
+import 'package:propix8/feature/maintenance_bookings/views/maintenance_bookings_view.dart';
+import 'package:propix8/feature/onboarding/views/onboarding_view.dart';
+import 'package:propix8/feature/onboarding/views/splash_view.dart';
+import 'package:propix8/feature/our_services/views/our_services_view.dart';
+import 'package:propix8/feature/profile/viewmodels/user_profile_cubit.dart';
+import 'package:propix8/feature/profile/views/change_password_view.dart';
+import 'package:propix8/feature/profile/views/edit_account_view.dart';
+import 'package:propix8/feature/profile/views/edit_profile_data_view.dart';
+import 'package:propix8/feature/profile/views/my_testimonials_view.dart';
+import 'package:propix8/feature/search/views/search_view.dart';
+import 'package:propix8/feature/settings/viewmodels/settings_cubit.dart';
+import 'package:propix8/feature/settings/viewmodels/settings_state.dart';
+import 'package:propix8/feature/settings/views/settings_view.dart';
+import 'package:propix8/feature/unit_details/views/unit_details_view.dart';
+import 'package:propix8/feature/unit_details/views/unit_map_view.dart';
 
 final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -293,7 +292,7 @@ class AppRouter {
         path: AppRoutes.propertyMapPath,
         name: AppRoutes.propertyMap,
         builder: (context, state) {
-          final extra = state.extra as Map<String, dynamic>;
+          final extra = state.extra! as Map<String, dynamic>;
           return UnitMapView(
             latitude: extra['latitude'] as double,
             longitude: extra['longitude'] as double,

@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-import '../../auth/models/auth_model.dart';
-import '../../auth/models/city_model.dart';
+import 'package:propix8/feature/auth/models/auth_model.dart';
+import 'package:propix8/feature/auth/models/city_model.dart';
 
 enum UserProfileStatus {
   initial,

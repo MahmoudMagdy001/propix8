@@ -1,8 +1,8 @@
-import '../models/banner_model.dart';
-import '../models/category_model.dart';
-import '../models/unit_model.dart';
-import '../models/unit_response.dart';
-import '../services/unit_service.dart';
+import 'package:propix8/feature/home/models/banner_model.dart';
+import 'package:propix8/feature/home/models/category_model.dart';
+import 'package:propix8/feature/home/models/unit_model.dart';
+import 'package:propix8/feature/home/models/unit_response.dart';
+import 'package:propix8/feature/home/services/unit_service.dart';
 
 abstract class UnitRepository {
   Future<UnitResponse> getNearbyUnits({int page = 1});

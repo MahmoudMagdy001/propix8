@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../repositories/maintenance_booking_repository.dart';
-import 'maintenance_bookings_state.dart';
+import 'package:propix8/feature/maintenance_bookings/repositories/maintenance_booking_repository.dart';
+import 'package:propix8/feature/maintenance_bookings/viewmodels/maintenance_bookings_state.dart';
 
 class MaintenanceBookingsCubit extends Cubit<MaintenanceBookingsState> {
   MaintenanceBookingsCubit(this._repository)

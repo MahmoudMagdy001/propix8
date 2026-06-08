@@ -1,6 +1,6 @@
-import '../../../core/services/booking_event_service.dart';
-import '../models/booking_model.dart';
-import '../services/booking_service.dart';
+import 'package:propix8/core/services/booking_event_service.dart';
+import 'package:propix8/feature/bookings/models/booking_model.dart';
+import 'package:propix8/feature/bookings/services/booking_service.dart';
 
 abstract class BookingRepository {
   Future<BookingResponse> getBookings({int page = 1});

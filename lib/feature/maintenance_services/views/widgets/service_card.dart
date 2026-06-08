@@ -1,12 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/widgets/app_elevated_button.dart';
-import '../../../../core/widgets/app_modal_sheet.dart';
-import '../../models/maintenance_service_model.dart';
-import 'maintenance_booking_form.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/app_elevated_button.dart';
+import 'package:propix8/core/widgets/app_modal_sheet.dart';
+import 'package:propix8/feature/maintenance_services/models/maintenance_service_model.dart';
+import 'package:propix8/feature/maintenance_services/views/widgets/maintenance_booking_form.dart';
 
 class ServiceCard extends StatelessWidget {
   const ServiceCard({
@@ -20,7 +19,7 @@ class ServiceCard extends StatelessWidget {
   final VoidCallback? onBooked;
 
   @override
-  Widget build(BuildContext context) => Container(
+  Widget build(BuildContext context) => DecoratedBox(
     decoration: BoxDecoration(
       color: context.theme.cardTheme.color,
       borderRadius: BorderRadius.circular(12.r),

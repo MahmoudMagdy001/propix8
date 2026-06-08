@@ -1,6 +1,6 @@
-import '../../../core/network/dio_client.dart';
-import '../models/maintenance_booking_model.dart';
-import '../models/maintenance_service_model.dart';
+import 'package:propix8/core/network/dio_client.dart';
+import 'package:propix8/feature/maintenance_services/models/maintenance_booking_model.dart';
+import 'package:propix8/feature/maintenance_services/models/maintenance_service_model.dart';
 
 class MaintenanceServiceSource {
   MaintenanceServiceSource(this._dioClient);

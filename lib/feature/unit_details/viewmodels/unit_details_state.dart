@@ -1,10 +1,10 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
-import '../../../core/models/pagination_model.dart';
-import '../../home/models/unit_model.dart';
-import '../models/review_model.dart';
-import '../models/unit_details_model.dart';
+import 'package:propix8/core/models/pagination_model.dart';
+import 'package:propix8/feature/home/models/unit_model.dart';
+import 'package:propix8/feature/unit_details/models/review_model.dart';
+import 'package:propix8/feature/unit_details/models/unit_details_model.dart';
 
 enum RequestStatus { initial, loading, success, failure }
 

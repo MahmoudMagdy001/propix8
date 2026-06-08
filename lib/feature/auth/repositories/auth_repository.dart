@@ -3,11 +3,11 @@ import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-import '../../../core/public_feature/services/storage_service.dart';
-import '../../../core/utils/auth_constants.dart';
-import '../../../core/utils/auth_logger.dart';
-import '../models/auth_model.dart';
-import '../services/auth_service.dart';
+import 'package:propix8/core/public_feature/services/storage_service.dart';
+import 'package:propix8/core/utils/auth_constants.dart';
+import 'package:propix8/core/utils/auth_logger.dart';
+import 'package:propix8/feature/auth/models/auth_model.dart';
+import 'package:propix8/feature/auth/services/auth_service.dart';
 
 /// Abstract repository defining auth operations contract.
 ///

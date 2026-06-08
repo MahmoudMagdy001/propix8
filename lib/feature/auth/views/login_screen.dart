@@ -3,18 +3,17 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/utils/snackbar_utils.dart';
-import '../../../core/di/locator.dart';
-import '../../../core/router/app_routes.dart';
-import '../../../core/utils/auth_constants.dart';
-import '../../../core/utils/context_extensions.dart';
-import '../../../core/widgets/app_elevated_button.dart';
-import '../../../core/widgets/app_form.dart';
-import '../../../core/widgets/app_text_form_field.dart';
-import '../viewmodels/auth_cubit.dart';
-import '../viewmodels/auth_state.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/router/app_routes.dart';
+import 'package:propix8/core/utils/auth_constants.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/utils/snackbar_utils.dart';
+import 'package:propix8/core/widgets/app_elevated_button.dart';
+import 'package:propix8/core/widgets/app_form.dart';
+import 'package:propix8/core/widgets/app_text_form_field.dart';
+import 'package:propix8/feature/auth/viewmodels/auth_cubit.dart';
+import 'package:propix8/feature/auth/viewmodels/auth_state.dart';
 
 /// Login screen for user authentication.
 ///

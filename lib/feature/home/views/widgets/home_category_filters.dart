@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/feature/home/models/category_model.dart';
+import 'package:propix8/feature/home/viewmodels/home_cubit.dart';
+import 'package:propix8/feature/home/viewmodels/home_state.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../models/category_model.dart';
-import '../../viewmodels/home_cubit.dart';
-import '../../viewmodels/home_state.dart';
 
 class HomeCategoryFilters extends StatelessWidget {
   const HomeCategoryFilters({super.key});

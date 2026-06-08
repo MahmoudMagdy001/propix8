@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // Add this import
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/utils/snackbar_utils.dart';
-import '../../../../core/widgets/app_elevated_button.dart';
-import '../../models/review_model.dart';
-import '../../viewmodels/unit_details_cubit.dart';
-import '../../viewmodels/unit_details_state.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/utils/snackbar_utils.dart';
+import 'package:propix8/core/widgets/app_elevated_button.dart';
+import 'package:propix8/feature/unit_details/models/review_model.dart';
+import 'package:propix8/feature/unit_details/viewmodels/unit_details_cubit.dart';
+import 'package:propix8/feature/unit_details/viewmodels/unit_details_state.dart';
 
 class ReviewSheet extends StatefulWidget {
   const ReviewSheet({this.review, super.key});
@@ -39,7 +38,7 @@ class _ReviewSheetState extends State<ReviewSheet> {
   }
 
   void _updateRatingFromPosition(double globalDx) {
-    final RenderBox? renderBox =
+    final renderBox =
         _starsRowKey.currentContext?.findRenderObject() as RenderBox?;
     if (renderBox == null) return;
 
@@ -50,7 +49,7 @@ class _ReviewSheetState extends State<ReviewSheet> {
     final isRtl = Directionality.of(context) == TextDirection.rtl;
     final dx = isRtl ? totalWidth - localPosition.dx : localPosition.dx;
 
-    int newRating = (dx / starWidth).ceil();
+    var newRating = (dx / starWidth).ceil();
     newRating = newRating.clamp(1, 5);
 
     if (newRating != _rating) {

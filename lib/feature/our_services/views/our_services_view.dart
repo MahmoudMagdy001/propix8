@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/mixins/scroll_pagination_mixin.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/utils/snackbar_utils.dart';
+import 'package:propix8/core/widgets/app_elevated_button.dart';
+import 'package:propix8/core/widgets/custom_back_button.dart';
+import 'package:propix8/feature/our_services/models/faq_model.dart';
+import 'package:propix8/feature/our_services/models/service_model.dart';
+import 'package:propix8/feature/our_services/viewmodels/our_services_cubit.dart';
+import 'package:propix8/feature/our_services/viewmodels/our_services_state.dart';
+import 'package:propix8/feature/our_services/views/widgets/contact_us_section.dart';
+import 'package:propix8/feature/our_services/views/widgets/faq_item.dart';
+import 'package:propix8/feature/our_services/views/widgets/service_item.dart';
+import 'package:propix8/feature/settings/models/site_settings_model.dart';
+import 'package:propix8/feature/settings/viewmodels/settings_cubit.dart';
+import 'package:propix8/feature/settings/viewmodels/settings_state.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-
-import '../../../../core/di/locator.dart';
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/mixins/scroll_pagination_mixin.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/utils/snackbar_utils.dart';
-import '../../../../core/widgets/app_elevated_button.dart';
-import '../../../../core/widgets/custom_back_button.dart';
-import '../../settings/models/site_settings_model.dart';
-import '../../settings/viewmodels/settings_cubit.dart';
-import '../../settings/viewmodels/settings_state.dart';
-import '../models/faq_model.dart';
-import '../models/service_model.dart';
-import '../viewmodels/our_services_cubit.dart';
-import '../viewmodels/our_services_state.dart';
-import 'widgets/contact_us_section.dart';
-import 'widgets/faq_item.dart';
-import 'widgets/service_item.dart';
 
 class OurServicesView extends StatelessWidget {
   const OurServicesView({super.key});

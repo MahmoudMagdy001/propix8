@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/date_time_utils.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../models/booking_model.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/date_time_utils.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/feature/bookings/models/booking_model.dart';
 
 class BookingDetails extends StatelessWidget {
   const BookingDetails({required this.booking, super.key});

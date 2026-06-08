@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import '../models/auth_model.dart';
+import 'package:propix8/feature/auth/models/auth_model.dart';
 
 enum AuthRequestStatus { initial, loading, success, failure }
 

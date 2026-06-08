@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../utils/context_extensions.dart';
-import '../utils/responsive_helper.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
 
 class CustomBackButton extends StatelessWidget {
   const CustomBackButton({super.key, this.color, this.onPressed});

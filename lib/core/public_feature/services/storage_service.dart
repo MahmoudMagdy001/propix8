@@ -1,9 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:propix8/core/utils/auth_logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../utils/auth_logger.dart';
 
 /// Service for persisting app data using secure and non-secure storage.
 ///

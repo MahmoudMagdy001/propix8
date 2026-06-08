@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../models/maintenance_booking_model.dart';
-import '../repositories/maintenance_service_repository.dart';
+import 'package:propix8/feature/maintenance_services/models/maintenance_booking_model.dart';
+import 'package:propix8/feature/maintenance_services/repositories/maintenance_service_repository.dart';
 
 enum BookingStatus { initial, loading, success, failure }
 

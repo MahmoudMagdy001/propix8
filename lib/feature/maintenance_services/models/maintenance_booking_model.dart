@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'maintenance_service_model.dart';
+import 'package:propix8/feature/maintenance_services/models/maintenance_service_model.dart';
 
 class MaintenanceBookingResponse extends Equatable {
   const MaintenanceBookingResponse({

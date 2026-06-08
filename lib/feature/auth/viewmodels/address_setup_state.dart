@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:latlong2/latlong.dart';
 
-import '../models/city_model.dart';
+import 'package:propix8/feature/auth/models/city_model.dart';
 
 enum AddressSetupStatus {
   initial,

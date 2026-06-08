@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/public_feature/viewmodels/pages_cubit.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/custom_back_button.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-
-import '../../../../core/utils/responsive_helper.dart';
-import '../di/locator.dart';
-import '../utils/context_extensions.dart';
-import 'viewmodels/pages_cubit.dart';
-import '../widgets/custom_back_button.dart';
 
 class TermsAndConditionsScreen extends StatelessWidget {
   const TermsAndConditionsScreen({super.key});

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/widgets/app_sliver_list.dart';
-import '../../../maintenance_services/models/maintenance_service_model.dart';
-import '../../models/maintenance_booking_model.dart';
-import '../../viewmodels/maintenance_bookings_cubit.dart';
-import '../../viewmodels/maintenance_bookings_state.dart';
-import 'maintenance_booking_card.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/app_sliver_list.dart';
+import 'package:propix8/feature/maintenance_bookings/models/maintenance_booking_model.dart';
+import 'package:propix8/feature/maintenance_bookings/viewmodels/maintenance_bookings_cubit.dart';
+import 'package:propix8/feature/maintenance_bookings/viewmodels/maintenance_bookings_state.dart';
+import 'package:propix8/feature/maintenance_bookings/views/widgets/maintenance_booking_card.dart';
+import 'package:propix8/feature/maintenance_services/models/maintenance_service_model.dart';
 
 class MaintenanceBookingsSliverList extends StatelessWidget {
   const MaintenanceBookingsSliverList({this.onBookingDeleted, super.key});

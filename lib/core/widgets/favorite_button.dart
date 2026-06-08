@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // Add this import
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/utils/responsive_helper.dart';
-import '../../feature/favorites/viewmodels/favorite_cubit.dart';
-import '../../feature/favorites/viewmodels/favorite_state.dart';
-import '../../feature/home/models/unit_model.dart';
-import '../utils/context_extensions.dart';
-import '../utils/snackbar_utils.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/utils/snackbar_utils.dart';
+import 'package:propix8/feature/favorites/viewmodels/favorite_cubit.dart';
+import 'package:propix8/feature/favorites/viewmodels/favorite_state.dart';
+import 'package:propix8/feature/home/models/unit_model.dart';
 
 class FavoriteButton extends StatefulWidget {
   const FavoriteButton({
@@ -91,7 +90,7 @@ class _FavoriteButtonState extends State<FavoriteButton> {
             },
             icon: AnimatedSwitcher(
               duration: const Duration(milliseconds: 300),
-              transitionBuilder: (Widget child, Animation<double> animation) =>
+              transitionBuilder: (child, animation) =>
                   ScaleTransition(scale: animation, child: child),
               child: Icon(
                 currentFavorite ? Icons.favorite : Icons.favorite_outline,

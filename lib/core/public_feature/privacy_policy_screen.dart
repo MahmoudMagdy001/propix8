@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../../../../core/utils/responsive_helper.dart';
-import '../utils/context_extensions.dart';
-import '../widgets/custom_back_button.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/custom_back_button.dart';
 
 class PrivacyPolicyScreen extends StatelessWidget {
   const PrivacyPolicyScreen({super.key});

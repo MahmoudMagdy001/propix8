@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import '../models/maintenance_booking_model.dart';
+import 'package:propix8/feature/maintenance_bookings/models/maintenance_booking_model.dart';
 
 enum RequestStatus { initial, loading, success, failure }
 

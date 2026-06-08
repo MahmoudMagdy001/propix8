@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
-import '../utils/context_extensions.dart';
-import '../utils/responsive_helper.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
 
 class AppElevatedButton extends StatelessWidget {
   const AppElevatedButton({

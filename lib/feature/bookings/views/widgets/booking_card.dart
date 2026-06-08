@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/router/app_routes.dart';
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../models/booking_model.dart';
-import 'booking_actions.dart';
-import 'booking_details.dart';
-import 'booking_image.dart';
-import 'booking_status_badge.dart';
+import 'package:propix8/core/router/app_routes.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/feature/bookings/models/booking_model.dart';
+import 'package:propix8/feature/bookings/views/widgets/booking_actions.dart';
+import 'package:propix8/feature/bookings/views/widgets/booking_details.dart';
+import 'package:propix8/feature/bookings/views/widgets/booking_image.dart';
+import 'package:propix8/feature/bookings/views/widgets/booking_status_badge.dart';
 
 class BookingCard extends StatelessWidget {
   const BookingCard({required this.booking, super.key});

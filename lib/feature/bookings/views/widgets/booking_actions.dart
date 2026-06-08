@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/utils/snackbar_utils.dart';
-import '../../../../core/widgets/app_confirmation_dialog.dart';
-import '../../../../core/widgets/app_elevated_button.dart';
-import '../../../../core/widgets/app_modal_sheet.dart';
-import '../../models/booking_model.dart';
-import '../../viewmodels/booking_cubit.dart';
-import 'suggest_time_modal.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/utils/snackbar_utils.dart';
+import 'package:propix8/core/widgets/app_confirmation_dialog.dart';
+import 'package:propix8/core/widgets/app_elevated_button.dart';
+import 'package:propix8/core/widgets/app_modal_sheet.dart';
+import 'package:propix8/feature/bookings/models/booking_model.dart';
+import 'package:propix8/feature/bookings/viewmodels/booking_cubit.dart';
+import 'package:propix8/feature/bookings/views/widgets/suggest_time_modal.dart';
 
 class BookingActions extends StatelessWidget {
   const BookingActions({required this.booking, super.key});
@@ -71,7 +71,7 @@ class BookingActions extends StatelessWidget {
       actionType: DialogActionType.positive,
     );
 
-    if (confirmed == true && context.mounted) {
+    if ((confirmed ?? false) && context.mounted) {
       await context.read<BookingCubit>().acceptBooking(booking.id);
       if (context.mounted) {
         context.showSuccessSnackbar(context.l10n.suggestedTimeAccepted);
@@ -111,7 +111,7 @@ class BookingActions extends StatelessWidget {
       actionType: DialogActionType.destructive,
     );
 
-    if (confirmed == true && context.mounted) {
+    if ((confirmed ?? false) && context.mounted) {
       await context.read<BookingCubit>().cancelBooking(booking.id);
       if (context.mounted) {
         context.showSuccessSnackbar(context.l10n.bookingCancelled);

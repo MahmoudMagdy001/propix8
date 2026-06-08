@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/di/locator.dart';
-import '../../../../core/router/app_routes.dart';
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/widgets/app_modal_sheet.dart';
-import '../../../../core/widgets/app_segmented_toggle.dart';
-import '../../../auth/repositories/address_setup_repository.dart';
-import '../../viewmodels/home_cubit.dart';
-import '../../viewmodels/home_state.dart';
-import '../filter/viewmodels/filter_cubit.dart';
-import '../filter/viewmodels/filter_state.dart';
-import '../filter/views/filter_sheet_content.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/router/app_routes.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/app_modal_sheet.dart';
+import 'package:propix8/core/widgets/app_segmented_toggle.dart';
+import 'package:propix8/feature/auth/repositories/address_setup_repository.dart';
+import 'package:propix8/feature/home/viewmodels/home_cubit.dart';
+import 'package:propix8/feature/home/viewmodels/home_state.dart';
+import 'package:propix8/feature/home/views/filter/viewmodels/filter_cubit.dart';
+import 'package:propix8/feature/home/views/filter/viewmodels/filter_state.dart';
+import 'package:propix8/feature/home/views/filter/views/filter_sheet_content.dart';
 
 class HomeSearchSection extends StatelessWidget {
   const HomeSearchSection({super.key});

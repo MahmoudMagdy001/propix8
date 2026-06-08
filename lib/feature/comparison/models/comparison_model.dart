@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import '../../unit_details/models/unit_details_model.dart';
+import 'package:propix8/feature/unit_details/models/unit_details_model.dart';
 
 /// Indicates which value is better in a comparison.
 enum ComparisonAdvantage {

@@ -1,10 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../core/utils/auth_logger.dart';
-import '../models/auth_model.dart';
-import '../repositories/address_setup_repository.dart';
-import '../repositories/auth_repository.dart';
-import 'auth_state.dart';
+import 'package:propix8/core/utils/auth_logger.dart';
+import 'package:propix8/feature/auth/models/auth_model.dart';
+import 'package:propix8/feature/auth/repositories/address_setup_repository.dart';
+import 'package:propix8/feature/auth/repositories/auth_repository.dart';
+import 'package:propix8/feature/auth/viewmodels/auth_state.dart';
 
 /// Cubit managing authentication state.
 ///

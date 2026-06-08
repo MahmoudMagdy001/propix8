@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/di/locator.dart';
-import '../auth/viewmodels/auth_cubit.dart';
-import '../auth/viewmodels/auth_state.dart';
-import '../favorites/views/favorites_view.dart';
-import '../home/views/home_view.dart';
-import '../maintenance_services/viewmodels/maintenance_services_cubit.dart';
-import '../maintenance_services/views/maintenance_services_view.dart';
-import '../profile/viewmodels/user_profile_cubit.dart';
-import '../profile/views/profile_view.dart';
-import 'back_exit_overlay_helper.dart';
-import 'layout_pop_handler.dart';
-import 'main_bottom_nav_bar.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/feature/auth/viewmodels/auth_cubit.dart';
+import 'package:propix8/feature/auth/viewmodels/auth_state.dart';
+import 'package:propix8/feature/favorites/views/favorites_view.dart';
+import 'package:propix8/feature/home/views/home_view.dart';
+import 'package:propix8/feature/layout/back_exit_overlay_helper.dart';
+import 'package:propix8/feature/layout/layout_pop_handler.dart';
+import 'package:propix8/feature/layout/main_bottom_nav_bar.dart';
+import 'package:propix8/feature/maintenance_services/viewmodels/maintenance_services_cubit.dart';
+import 'package:propix8/feature/maintenance_services/views/maintenance_services_view.dart';
+import 'package:propix8/feature/profile/viewmodels/user_profile_cubit.dart';
+import 'package:propix8/feature/profile/views/profile_view.dart';
 
 class LayoutView extends StatefulWidget {
   const LayoutView({super.key});

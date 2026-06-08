@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/utils/enums.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/widgets/app_view_switcher.dart';
-import '../../viewmodels/compound_units_cubit.dart';
-import '../../viewmodels/compound_units_state.dart';
+import 'package:propix8/core/utils/enums.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/app_view_switcher.dart';
+import 'package:propix8/feature/compound_details/viewmodels/compound_units_cubit.dart';
+import 'package:propix8/feature/compound_details/viewmodels/compound_units_state.dart';
 
 class CompoundUnitsViewSwitcher extends StatelessWidget {
   const CompoundUnitsViewSwitcher({super.key});

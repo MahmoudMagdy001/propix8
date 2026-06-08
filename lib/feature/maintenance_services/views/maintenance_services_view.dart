@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/mixins/connectivity_mixin.dart';
+import 'package:propix8/core/utils/mixins/scroll_pagination_mixin.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/app_network_error_widget.dart';
+import 'package:propix8/core/widgets/app_sliver_grid.dart';
+import 'package:propix8/feature/maintenance_services/models/maintenance_service_model.dart';
+import 'package:propix8/feature/maintenance_services/viewmodels/maintenance_services_cubit.dart';
+import 'package:propix8/feature/maintenance_services/viewmodels/maintenance_services_state.dart';
+import 'package:propix8/feature/maintenance_services/views/widgets/maintenance_banner.dart';
+import 'package:propix8/feature/maintenance_services/views/widgets/service_card.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/mixins/connectivity_mixin.dart';
-import '../../../../core/utils/mixins/scroll_pagination_mixin.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../core/widgets/app_network_error_widget.dart';
-import '../../../core/widgets/app_sliver_grid.dart';
-import '../models/maintenance_service_model.dart';
-import '../viewmodels/maintenance_services_cubit.dart';
-import '../viewmodels/maintenance_services_state.dart';
-import 'widgets/maintenance_banner.dart';
-import 'widgets/service_card.dart';
 
 class MaintenanceServicesView extends StatefulWidget {
   const MaintenanceServicesView({super.key});

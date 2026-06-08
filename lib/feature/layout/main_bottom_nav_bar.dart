@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
 
 /// A separate widget for the BottomNavigationBar to reduce the size of LayoutView.
 /// This widget focuses solely on the navigation UI and its items.

@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_classes_with_only_static_members
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../utils/responsive_helper.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
 
 abstract class AppTextStyles {
   static TextTheme getTextTheme(bool isDark) {

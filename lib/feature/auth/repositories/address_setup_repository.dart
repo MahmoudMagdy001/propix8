@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-import '../../../core/public_feature/services/storage_service.dart';
-import '../models/auth_model.dart';
-import '../models/city_model.dart';
-import '../services/address_setup_service.dart';
+import 'package:propix8/core/public_feature/services/storage_service.dart';
+import 'package:propix8/feature/auth/models/auth_model.dart';
+import 'package:propix8/feature/auth/models/city_model.dart';
+import 'package:propix8/feature/auth/services/address_setup_service.dart';
 
 abstract class AddressSetupRepository {
   Future<Either<String, List<City>>> getCities();

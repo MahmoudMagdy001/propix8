@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-import '../../../core/models/pagination_model.dart';
-import 'unit_model.dart';
+import 'package:propix8/core/models/pagination_model.dart';
+import 'package:propix8/feature/home/models/unit_model.dart';
 
 class UnitResponse extends Equatable {
   const UnitResponse({required this.units, this.pagination});

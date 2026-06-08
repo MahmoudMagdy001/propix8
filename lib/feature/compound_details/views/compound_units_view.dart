@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/feature/compound_details/viewmodels/compound_units_cubit.dart';
+import 'package:propix8/feature/compound_details/viewmodels/compound_units_state.dart';
+import 'package:propix8/feature/compound_details/views/widgets/compound_units_app_bar.dart';
+import 'package:propix8/feature/compound_details/views/widgets/compound_units_content.dart';
+import 'package:propix8/feature/compound_details/views/widgets/compound_units_view_switcher.dart';
+import 'package:propix8/feature/home/viewmodels/home_state.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-
-import '../../../../core/di/locator.dart';
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../home/viewmodels/home_state.dart';
-import '../viewmodels/compound_units_cubit.dart';
-import '../viewmodels/compound_units_state.dart';
-import 'widgets/compound_units_app_bar.dart';
-import 'widgets/compound_units_content.dart';
-import 'widgets/compound_units_view_switcher.dart';
 
 class CompoundUnitsView extends StatelessWidget {
   const CompoundUnitsView({required this.compoundId, super.key});

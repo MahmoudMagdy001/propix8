@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import '../../home/models/unit_model.dart';
+import 'package:propix8/feature/home/models/unit_model.dart';
 
 class BookingResponse extends Equatable {
   const BookingResponse({

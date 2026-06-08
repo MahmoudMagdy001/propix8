@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../core/di/locator.dart';
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/snackbar_utils.dart';
-import '../../../../core/widgets/app_elevated_button.dart';
-import '../../../../core/widgets/app_form.dart';
-import '../../../../core/widgets/app_text_form_field.dart';
-import '../../../core/public_feature/services/storage_service.dart';
-import '../../auth/models/auth_model.dart';
-import '../models/contact_request_model.dart';
-import '../viewmodels/contact_cubit.dart';
-import '../viewmodels/contact_state.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/public_feature/services/storage_service.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/snackbar_utils.dart';
+import 'package:propix8/core/widgets/app_elevated_button.dart';
+import 'package:propix8/core/widgets/app_form.dart';
+import 'package:propix8/core/widgets/app_text_form_field.dart';
+import 'package:propix8/feature/auth/models/auth_model.dart';
+import 'package:propix8/feature/contact/models/contact_request_model.dart';
+import 'package:propix8/feature/contact/viewmodels/contact_cubit.dart';
+import 'package:propix8/feature/contact/viewmodels/contact_state.dart';
 
 class ContactFormWidget extends StatefulWidget {
   const ContactFormWidget({super.key});

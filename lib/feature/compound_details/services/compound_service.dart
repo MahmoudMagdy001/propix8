@@ -1,4 +1,4 @@
-import '../../../core/network/dio_client.dart';
+import 'package:propix8/core/network/dio_client.dart';
 
 class CompoundService {
   CompoundService(this._dioClient);

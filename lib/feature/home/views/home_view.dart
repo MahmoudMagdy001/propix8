@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
-
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../core/di/locator.dart';
-import '../../../core/utils/mixins/connectivity_mixin.dart';
-import '../../../core/utils/mixins/scroll_pagination_mixin.dart';
-import '../../../core/widgets/app_network_error_widget.dart';
-import '../viewmodels/home_cubit.dart';
-import '../viewmodels/home_state.dart';
-import 'widgets/home_all_section.dart';
-import 'widgets/home_banner_section.dart';
-import 'widgets/home_category_filters.dart';
-import 'widgets/home_header.dart';
-import 'widgets/home_latest_section.dart';
-import 'widgets/home_load_more_indicator.dart';
-import 'widgets/home_nearby_section.dart';
-import 'widgets/home_search_section.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/utils/mixins/connectivity_mixin.dart';
+import 'package:propix8/core/utils/mixins/scroll_pagination_mixin.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/app_network_error_widget.dart';
+import 'package:propix8/feature/home/viewmodels/home_cubit.dart';
+import 'package:propix8/feature/home/viewmodels/home_state.dart';
+import 'package:propix8/feature/home/views/widgets/home_all_section.dart';
+import 'package:propix8/feature/home/views/widgets/home_banner_section.dart';
+import 'package:propix8/feature/home/views/widgets/home_category_filters.dart';
+import 'package:propix8/feature/home/views/widgets/home_header.dart';
+import 'package:propix8/feature/home/views/widgets/home_latest_section.dart';
+import 'package:propix8/feature/home/views/widgets/home_load_more_indicator.dart';
+import 'package:propix8/feature/home/views/widgets/home_nearby_section.dart';
+import 'package:propix8/feature/home/views/widgets/home_search_section.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key, this.homeKey});

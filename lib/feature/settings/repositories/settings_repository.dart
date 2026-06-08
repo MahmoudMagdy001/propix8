@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 
-import '../models/site_settings_model.dart';
-import '../services/settings_service.dart';
+import 'package:propix8/feature/settings/models/site_settings_model.dart';
+import 'package:propix8/feature/settings/services/settings_service.dart';
 
 abstract class SettingsRepository {
   Future<Either<String, SiteSettingsModel>> getSiteSettings();

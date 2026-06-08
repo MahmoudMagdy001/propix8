@@ -1,5 +1,5 @@
-import '../../../core/network/dio_client.dart';
-import '../models/site_settings_model.dart';
+import 'package:propix8/core/network/dio_client.dart';
+import 'package:propix8/feature/settings/models/site_settings_model.dart';
 
 class SettingsService {
   SettingsService(this._dioClient);

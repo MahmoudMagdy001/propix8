@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
 
 class PasswordStrengthIndicator extends StatelessWidget {
   const PasswordStrengthIndicator({required this.password, super.key});
@@ -11,8 +11,8 @@ class PasswordStrengthIndicator extends StatelessWidget {
     if (password.isEmpty) return 0.0;
     double s = 0;
     if (password.length >= 8) s += 0.25;
-    if (password.contains(RegExp(r'[A-Z]'))) s += 0.25;
-    if (password.contains(RegExp(r'[0-9]'))) s += 0.25;
+    if (password.contains(RegExp('[A-Z]'))) s += 0.25;
+    if (password.contains(RegExp('[0-9]'))) s += 0.25;
     if (password.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) s += 0.25;
     return s;
   }

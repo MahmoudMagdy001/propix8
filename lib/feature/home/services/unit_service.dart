@@ -1,8 +1,8 @@
-import '../../../core/network/dio_client.dart';
-import '../models/banner_model.dart';
-import '../models/category_model.dart';
-import '../models/unit_model.dart';
-import '../models/unit_response.dart';
+import 'package:propix8/core/network/dio_client.dart';
+import 'package:propix8/feature/home/models/banner_model.dart';
+import 'package:propix8/feature/home/models/category_model.dart';
+import 'package:propix8/feature/home/models/unit_model.dart';
+import 'package:propix8/feature/home/models/unit_response.dart';
 
 class UnitService {
   UnitService(this._dioClient);

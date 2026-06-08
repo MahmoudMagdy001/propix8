@@ -7,17 +7,17 @@ import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
 
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/utils/snackbar_utils.dart';
-import '../../../../core/widgets/app_elevated_button.dart';
-import '../../../../core/widgets/app_form.dart';
-import '../../../../core/widgets/app_text_form_field.dart';
-import '../../../../core/widgets/custom_back_button.dart';
-import '../../auth/models/auth_model.dart';
-import '../../auth/models/city_model.dart';
-import '../viewmodels/user_profile_cubit.dart';
-import '../viewmodels/user_profile_state.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/utils/snackbar_utils.dart';
+import 'package:propix8/core/widgets/app_elevated_button.dart';
+import 'package:propix8/core/widgets/app_form.dart';
+import 'package:propix8/core/widgets/app_text_form_field.dart';
+import 'package:propix8/core/widgets/custom_back_button.dart';
+import 'package:propix8/feature/auth/models/auth_model.dart';
+import 'package:propix8/feature/auth/models/city_model.dart';
+import 'package:propix8/feature/profile/viewmodels/user_profile_cubit.dart';
+import 'package:propix8/feature/profile/viewmodels/user_profile_state.dart';
 
 class EditProfileDataView extends StatefulWidget {
   const EditProfileDataView({super.key});
@@ -250,7 +250,7 @@ class _EditProfileDataViewState extends State<EditProfileDataView> {
                         initialValue: int.tryParse(_cityIdController.text),
                         items: cities
                             .map(
-                              (City city) => DropdownMenuItem<int>(
+                              (city) => DropdownMenuItem<int>(
                                 value: city.id,
                                 child: Text(city.name),
                               ),

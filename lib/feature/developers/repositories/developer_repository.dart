@@ -1,5 +1,5 @@
-import '../models/developer_model.dart';
-import '../services/developer_service.dart';
+import 'package:propix8/feature/developers/models/developer_model.dart';
+import 'package:propix8/feature/developers/services/developer_service.dart';
 
 abstract class DevelopersRepository {
   Future<List<DeveloperModel>> getDevelopers();

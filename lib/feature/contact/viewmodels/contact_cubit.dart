@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../models/contact_request_model.dart';
-import '../repositories/contact_repository.dart';
-import 'contact_state.dart';
+import 'package:propix8/feature/contact/models/contact_request_model.dart';
+import 'package:propix8/feature/contact/repositories/contact_repository.dart';
+import 'package:propix8/feature/contact/viewmodels/contact_state.dart';
 
 class ContactCubit extends Cubit<ContactState> {
   ContactCubit(this._contactRepository) : super(const ContactState());

@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
-
-import '../../../../core/di/locator.dart';
-import '../../../../core/router/app_routes.dart';
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/utils/snackbar_utils.dart';
-import '../../../../core/widgets/app_elevated_button.dart';
-import '../../../../core/widgets/app_modal_sheet.dart';
-import '../../../../core/widgets/custom_back_button.dart';
-import '../../auth/viewmodels/auth_cubit.dart';
-import '../viewmodels/user_profile_cubit.dart';
-import '../viewmodels/user_profile_state.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/router/app_routes.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/utils/snackbar_utils.dart';
+import 'package:propix8/core/widgets/app_elevated_button.dart';
+import 'package:propix8/core/widgets/app_modal_sheet.dart';
+import 'package:propix8/core/widgets/custom_back_button.dart';
+import 'package:propix8/feature/auth/viewmodels/auth_cubit.dart';
+import 'package:propix8/feature/profile/viewmodels/user_profile_cubit.dart';
+import 'package:propix8/feature/profile/viewmodels/user_profile_state.dart';
 
 class EditAccountView extends StatelessWidget {
   const EditAccountView({super.key});

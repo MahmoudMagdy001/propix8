@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/feature/settings/models/site_settings_model.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../settings/models/site_settings_model.dart';
 
 class ContactUsSection extends StatelessWidget {
   const ContactUsSection({required this.settings, super.key});

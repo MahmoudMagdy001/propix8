@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/models/page_model.dart';
+import 'package:propix8/core/models/stat_model.dart';
+import 'package:propix8/core/public_feature/about_us/about_us_section.dart';
+import 'package:propix8/core/public_feature/about_us/about_us_section_title.dart';
+import 'package:propix8/core/public_feature/about_us/about_us_stat_card.dart';
+import 'package:propix8/core/public_feature/about_us/team_member_card.dart';
+import 'package:propix8/core/public_feature/viewmodels/pages_cubit.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/app_sliver_grid.dart';
+import 'package:propix8/core/widgets/custom_back_button.dart';
+import 'package:propix8/feature/contact/views/contact_form_widget.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-
-import '../../../../../core/utils/responsive_helper.dart';
-import '../../../feature/contact/views/contact_form_widget.dart';
-import '../../di/locator.dart';
-import '../../models/page_model.dart';
-import '../../models/stat_model.dart';
-import '../../utils/context_extensions.dart';
-import '../viewmodels/pages_cubit.dart';
-import '../../widgets/app_sliver_grid.dart';
-import '../../widgets/custom_back_button.dart';
-import 'about_us_section.dart';
-import 'about_us_section_title.dart';
-import 'about_us_stat_card.dart';
-import 'team_member_card.dart';
 
 class AboutUsScreen extends StatelessWidget {
   const AboutUsScreen({super.key});

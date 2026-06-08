@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/public_feature/services/storage_service.dart';
-import '../repositories/settings_repository.dart';
-import 'settings_state.dart';
+import 'package:propix8/core/public_feature/services/storage_service.dart';
+import 'package:propix8/feature/settings/repositories/settings_repository.dart';
+import 'package:propix8/feature/settings/viewmodels/settings_state.dart';
 
 class SettingsCubit extends Cubit<SettingsState> {
   SettingsCubit(this._storageService, this._settingsRepository)

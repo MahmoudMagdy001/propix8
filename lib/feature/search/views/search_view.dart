@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
 
-import '../../../../core/di/locator.dart';
-import '../../../../core/utils/context_extensions.dart';
-import '../../../core/utils/responsive_helper.dart';
-import '../viewmodels/search_cubit.dart';
-import 'widgets/search_app_bar.dart';
-import 'widgets/search_input_field.dart';
-import 'widgets/search_load_more_indicator.dart';
-import 'widgets/search_sliver_results.dart';
-import 'widgets/search_sliver_status.dart';
-import 'widgets/search_view_switcher.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/feature/search/viewmodels/search_cubit.dart';
+import 'package:propix8/feature/search/views/widgets/search_app_bar.dart';
+import 'package:propix8/feature/search/views/widgets/search_input_field.dart';
+import 'package:propix8/feature/search/views/widgets/search_load_more_indicator.dart';
+import 'package:propix8/feature/search/views/widgets/search_sliver_results.dart';
+import 'package:propix8/feature/search/views/widgets/search_sliver_status.dart';
+import 'package:propix8/feature/search/views/widgets/search_view_switcher.dart';
 
 class SearchView extends StatelessWidget {
   const SearchView({super.key});

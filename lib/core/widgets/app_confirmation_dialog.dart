@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../utils/context_extensions.dart';
-import '../utils/responsive_helper.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
 
 enum DialogActionType { primary, destructive, positive }
 

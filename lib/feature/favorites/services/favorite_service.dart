@@ -1,5 +1,5 @@
-import '../../../core/network/dio_client.dart';
-import '../models/favorite_model.dart';
+import 'package:propix8/core/network/dio_client.dart';
+import 'package:propix8/feature/favorites/models/favorite_model.dart';
 
 class FavoriteService {
   FavoriteService(this._dioClient);

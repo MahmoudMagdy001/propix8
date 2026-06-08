@@ -1,5 +1,5 @@
-import '../../../../core/network/dio_client.dart';
-import '../models/compound_model.dart';
+import 'package:propix8/core/network/dio_client.dart';
+import 'package:propix8/feature/compounds/models/compound_model.dart';
 
 class CompoundsService {
   CompoundsService(this._dioClient);

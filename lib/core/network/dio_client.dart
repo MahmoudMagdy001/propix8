@@ -1,10 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-
-import '../utils/auth_constants.dart';
-import 'auth_interceptor.dart';
-import 'retry_interceptor.dart';
+import 'package:propix8/core/network/auth_interceptor.dart';
+import 'package:propix8/core/network/retry_interceptor.dart';
+import 'package:propix8/core/utils/auth_constants.dart';
 
 /// HTTP client wrapper providing standardized Dio configuration.
 ///

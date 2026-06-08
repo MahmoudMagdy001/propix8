@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/router/app_routes.dart';
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/utils/snackbar_utils.dart';
-import '../../../core/widgets/app_confirmation_dialog.dart';
-import '../../auth/models/auth_model.dart';
-import '../../auth/viewmodels/auth_cubit.dart';
-import '../viewmodels/user_profile_cubit.dart';
-import '../viewmodels/user_profile_state.dart';
-import 'widgets/profile_menu_item.dart';
-import 'widgets/profile_sliver_app_bar.dart';
+import 'package:propix8/core/router/app_routes.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/utils/snackbar_utils.dart';
+import 'package:propix8/core/widgets/app_confirmation_dialog.dart';
+import 'package:propix8/feature/auth/models/auth_model.dart';
+import 'package:propix8/feature/auth/viewmodels/auth_cubit.dart';
+import 'package:propix8/feature/profile/viewmodels/user_profile_cubit.dart';
+import 'package:propix8/feature/profile/viewmodels/user_profile_state.dart';
+import 'package:propix8/feature/profile/views/widgets/profile_menu_item.dart';
+import 'package:propix8/feature/profile/views/widgets/profile_sliver_app_bar.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});

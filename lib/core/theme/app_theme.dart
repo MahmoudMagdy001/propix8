@@ -1,10 +1,9 @@
 // ignore_for_file: avoid_classes_with_only_static_members
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import '../utils/responsive_helper.dart';
-import 'app_colors.dart';
-import 'app_text_styles.dart';
+import 'package:propix8/core/theme/app_colors.dart';
+import 'package:propix8/core/theme/app_text_styles.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
 
 abstract class AppTheme {
   static ThemeData get lightTheme => _buildTheme(isDark: false);

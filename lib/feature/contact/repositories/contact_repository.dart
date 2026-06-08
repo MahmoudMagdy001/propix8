@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-import '../models/contact_request_model.dart';
-import '../services/contact_service.dart';
+import 'package:propix8/feature/contact/models/contact_request_model.dart';
+import 'package:propix8/feature/contact/services/contact_service.dart';
 
 abstract class ContactRepository {
   Future<Either<String, void>> sendContactRequest(ContactRequestModel request);

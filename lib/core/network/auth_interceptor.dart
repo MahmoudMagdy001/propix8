@@ -1,10 +1,9 @@
 import 'package:dio/dio.dart';
-
-import '../router/app_router.dart';
-import '../router/app_routes.dart';
-import '../public_feature/services/storage_service.dart';
-import '../utils/auth_constants.dart';
-import '../utils/auth_logger.dart';
+import 'package:propix8/core/public_feature/services/storage_service.dart';
+import 'package:propix8/core/router/app_router.dart';
+import 'package:propix8/core/router/app_routes.dart';
+import 'package:propix8/core/utils/auth_constants.dart';
+import 'package:propix8/core/utils/auth_logger.dart';
 
 /// Interceptor that handles authentication headers and token expiry.
 ///

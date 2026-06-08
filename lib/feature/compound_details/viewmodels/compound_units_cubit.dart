@@ -1,10 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/utils/enums.dart';
-import '../../home/viewmodels/home_state.dart';
-import '../models/compound_collection_model.dart';
-import '../repositories/compound_repository.dart';
-import 'compound_units_state.dart';
+import 'package:propix8/core/utils/enums.dart';
+import 'package:propix8/feature/compound_details/models/compound_collection_model.dart';
+import 'package:propix8/feature/compound_details/repositories/compound_repository.dart';
+import 'package:propix8/feature/compound_details/viewmodels/compound_units_state.dart';
+import 'package:propix8/feature/home/viewmodels/home_state.dart';
 
 class CompoundUnitsCubit extends Cubit<CompoundUnitsState> {
   CompoundUnitsCubit(this._compoundRepository)

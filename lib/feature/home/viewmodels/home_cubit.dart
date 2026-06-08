@@ -1,8 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../repositories/unit_repository.dart';
-import '../views/filter/viewmodels/filter_state.dart';
-import 'home_state.dart';
+import 'package:propix8/feature/home/repositories/unit_repository.dart';
+import 'package:propix8/feature/home/viewmodels/home_state.dart';
+import 'package:propix8/feature/home/views/filter/viewmodels/filter_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this._unitRepository) : super(const HomeState());

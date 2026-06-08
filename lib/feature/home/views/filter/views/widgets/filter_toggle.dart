@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/utils/context_extensions.dart';
-import '../../../../../../core/widgets/app_segmented_toggle.dart';
-import '../../viewmodels/filter_state.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/widgets/app_segmented_toggle.dart';
+import 'package:propix8/feature/home/views/filter/viewmodels/filter_state.dart';
 
 class FilterToggle extends StatelessWidget {
   const FilterToggle({

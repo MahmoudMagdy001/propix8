@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/widgets/app_sliver_list.dart';
-import '../../../../core/widgets/unit_list_card.dart';
-import '../../models/unit_model.dart';
-import '../../viewmodels/home_cubit.dart';
-import '../../viewmodels/home_state.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/app_sliver_list.dart';
+import 'package:propix8/core/widgets/unit_list_card.dart';
+import 'package:propix8/feature/home/models/unit_model.dart';
+import 'package:propix8/feature/home/viewmodels/home_cubit.dart';
+import 'package:propix8/feature/home/viewmodels/home_state.dart';
 
 class HomeLatestSection extends StatelessWidget {
   const HomeLatestSection({super.key});

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/utils/context_extensions.dart';
-import '../../viewmodels/compound_units_cubit.dart';
-import '../../viewmodels/compound_units_state.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/feature/compound_details/viewmodels/compound_units_cubit.dart';
+import 'package:propix8/feature/compound_details/viewmodels/compound_units_state.dart';
 
 class CompoundUnitsError extends StatelessWidget {
   const CompoundUnitsError({super.key});

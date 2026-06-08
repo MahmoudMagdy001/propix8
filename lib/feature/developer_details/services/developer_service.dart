@@ -1,4 +1,4 @@
-import '../../../core/network/dio_client.dart';
+import 'package:propix8/core/network/dio_client.dart';
 
 class DeveloperService {
   DeveloperService(this._dioClient);

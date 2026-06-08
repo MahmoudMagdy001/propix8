@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-
-import '../../../../core/utils/context_extensions.dart';
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../core/widgets/custom_back_button.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/custom_back_button.dart';
 
 class UnitMapView extends StatefulWidget {
   const UnitMapView({
@@ -191,7 +190,7 @@ class _MapControlButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.theme.colorScheme;
 
-    return Container(
+    return DecoratedBox(
       decoration: BoxDecoration(
         color: backgroundColor ?? colors.surface.withValues(alpha: 0.9),
         borderRadius: BorderRadius.circular(12.r),

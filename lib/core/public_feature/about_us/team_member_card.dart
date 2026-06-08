@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../../models/page_model.dart';
-import '../../utils/context_extensions.dart';
-import '../../utils/responsive_helper.dart';
+import 'package:propix8/core/models/page_model.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
 
 class TeamMemberCard extends StatelessWidget {
   const TeamMemberCard({required this.member, super.key});
@@ -10,7 +9,7 @@ class TeamMemberCard extends StatelessWidget {
   final TeamMember? member;
 
   @override
-  Widget build(BuildContext context) => Container(
+  Widget build(BuildContext context) => DecoratedBox(
     decoration: BoxDecoration(
       color: context.theme.cardTheme.color,
       borderRadius: BorderRadius.circular(20.r),
@@ -37,10 +36,10 @@ class TeamMemberCard extends StatelessWidget {
           child: CircleAvatar(
             radius: 40.r,
             backgroundColor: context.colorScheme.surfaceContainerHighest,
-            backgroundImage: member?.photo.isNotEmpty == true
+            backgroundImage: member?.photo.isNotEmpty ?? false
                 ? NetworkImage(member!.photo)
                 : null,
-            child: member?.photo.isEmpty == true
+            child: member?.photo.isEmpty ?? false
                 ? Icon(
                     Icons.person,
                     size: 40.r,

@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-import '../../../../core/utils/enums.dart';
-import '../../home/models/unit_model.dart';
+import 'package:propix8/core/utils/enums.dart';
+import 'package:propix8/feature/home/models/unit_model.dart';
 
 enum ChooseProductStatus { initial, loading, success, failure }
 

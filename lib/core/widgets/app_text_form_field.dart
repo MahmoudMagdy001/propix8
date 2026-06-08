@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
-import '../theme/app_colors.dart';
-import '../utils/context_extensions.dart';
-import '../utils/responsive_helper.dart';
-import 'app_form.dart';
+import 'package:propix8/core/theme/app_colors.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/app_form.dart';
 
 class AppTextFormField extends StatefulWidget {
   const AppTextFormField({
@@ -81,7 +80,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
   Widget build(BuildContext context) => TextFormField(
     key: _fieldKey,
     controller: widget.controller,
-    obscureText: widget.isPassword ? _obscureText : false,
+    obscureText: widget.isPassword && _obscureText,
     keyboardType: widget.keyboardType,
     validator: widget.validator,
     focusNode: widget.focusNode,

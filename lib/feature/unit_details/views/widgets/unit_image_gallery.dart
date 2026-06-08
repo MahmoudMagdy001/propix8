@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/utils/responsive_helper.dart';
-import '../../../../core/widgets/favorite_button.dart';
-import '../../../../core/widgets/reusable_sliver_carousel.dart';
-import '../../../home/models/unit_model.dart';
-import '../../models/unit_details_model.dart';
-import '../../viewmodels/unit_details_cubit.dart';
-import '../../viewmodels/unit_details_state.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/favorite_button.dart';
+import 'package:propix8/core/widgets/reusable_sliver_carousel.dart';
+import 'package:propix8/feature/home/models/unit_model.dart';
+import 'package:propix8/feature/unit_details/models/unit_details_model.dart';
+import 'package:propix8/feature/unit_details/viewmodels/unit_details_cubit.dart';
+import 'package:propix8/feature/unit_details/viewmodels/unit_details_state.dart';
 
 class UnitImageGallery extends StatelessWidget {
   const UnitImageGallery({super.key});

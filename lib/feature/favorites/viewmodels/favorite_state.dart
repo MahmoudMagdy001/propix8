@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-import '../../../../core/utils/enums.dart';
-import '../models/favorite_model.dart';
+import 'package:propix8/core/utils/enums.dart';
+import 'package:propix8/feature/favorites/models/favorite_model.dart';
 
 enum FavoriteStatus { initial, loading, success, failure }
 
