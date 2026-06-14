@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // Add this import
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -40,7 +42,7 @@ class _FavoriteButtonState extends State<FavoriteButton> {
         final cubit = context.read<FavoriteCubit>();
         // Only update if this unit isn't already tracked
         if (!cubit.state.favorites.containsKey(widget.unit.id)) {
-          cubit.updateFavoriteStatus(widget.unit.id, widget.isFavorite);
+          cubit.updateFavoriteStatus(widget.unit.id, isFavorite: widget.isFavorite);
         }
       }
     });
@@ -64,7 +66,7 @@ class _FavoriteButtonState extends State<FavoriteButton> {
             onPressed: () async {
               // Trigger haptic feedback
               if (widget.enableHapticFeedback) {
-                HapticFeedback.lightImpact();
+                unawaited(HapticFeedback.lightImpact());
               }
 
               final cubit = context.read<FavoriteCubit>();

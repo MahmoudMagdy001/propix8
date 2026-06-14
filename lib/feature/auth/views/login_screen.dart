@@ -81,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   /// Handle login button press with debouncing.
-  void _handleLogin(BuildContext context) {
+  Future<void> _handleLogin(BuildContext context) async {
     // DEBOUNCING: Ignore if already submitting
     if (_isSubmitting) return;
 
@@ -92,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
     setState(() => _isSubmitting = true);
 
     // Trigger login
-    context.read<AuthCubit>().login(
+    await context.read<AuthCubit>().login(
       _emailController.text,
       _passwordController.text,
     );
@@ -226,8 +226,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             return TextButton(
                               onPressed: isResending || _cooldownSeconds > 0
                                   ? null
-                                  : () {
-                                      context
+                                  : () async {
+                                      await context
                                           .read<AuthCubit>()
                                           .resendVerificationEmail(
                                             _emailController.text,
@@ -254,7 +254,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Text(l10n.dontHaveAccount),
                     TextButton(
                       onPressed: () {
-                        context.pushNamed(AppRoutes.register);
+                        unawaited(context.pushNamed(AppRoutes.register));
                       },
                       child: Text(l10n.signup),
                     ),

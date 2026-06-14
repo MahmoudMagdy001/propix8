@@ -10,11 +10,11 @@ class ReviewModel extends Equatable {
   });
 
   factory ReviewModel.fromJson(Map<String, dynamic> json) => ReviewModel(
-    id: json['id'],
+    id: (json['id'] as int?) ?? 0,
     rating: int.tryParse(json['rating'].toString()) ?? 0,
-    comment: json['comment'],
-    createdAt: DateTime.tryParse(json['created_at'] ?? '') ?? DateTime.now(),
-    user: ReviewUser.fromJson(json['user']),
+    comment: json['comment'] as String?,
+    createdAt: DateTime.tryParse((json['created_at'] as String?) ?? '') ?? DateTime.now(),
+    user: ReviewUser.fromJson(json['user'] as Map<String, dynamic>),
   );
 
   final int id;
@@ -31,7 +31,11 @@ class ReviewUser extends Equatable {
   const ReviewUser({required this.id, required this.name, this.avatar});
 
   factory ReviewUser.fromJson(Map<String, dynamic> json) =>
-      ReviewUser(id: json['id'], name: json['name'], avatar: json['avatar']);
+      ReviewUser(
+        id: (json['id'] as int?) ?? 0,
+        name: (json['name'] as String?) ?? '',
+        avatar: json['avatar'] as String?,
+      );
 
   final int id;
   final String name;

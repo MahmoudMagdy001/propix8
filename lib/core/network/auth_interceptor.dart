@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dio/dio.dart';
 import 'package:propix8/core/public_feature/services/storage_service.dart';
 import 'package:propix8/core/router/app_router.dart';
@@ -47,10 +49,8 @@ class AuthInterceptor extends Interceptor {
       AuthLogger.info('401 Unauthorized received, clearing session');
 
       // SECURITY: Clear token from both disk and memory
-      // Using synchronous memory clear + async disk clear
-      _storageService
-        ..clearMemory()
-        ..deleteToken(); // Fire-and-forget, no await needed
+      _storageService.clearMemory();
+      unawaited(_storageService.deleteToken()); // Fire-and-forget, no await needed
 
       // Redirect to login
       AppRouter.router.goNamed(AppRoutes.login);

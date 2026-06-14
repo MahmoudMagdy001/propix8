@@ -45,7 +45,7 @@ class DevelopersCubit extends Cubit<DevelopersState> {
           developers: developers,
         ),
       );
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           status: DevelopersStatus.failure,

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
@@ -38,7 +40,7 @@ class _EditProfileDataViewState extends State<EditProfileDataView> {
   @override
   void initState() {
     super.initState();
-    context.read<UserProfileCubit>().fetchCities();
+    unawaited(context.read<UserProfileCubit>().fetchCities());
     final user = context.read<UserProfileCubit>().state.user;
     _nameController = TextEditingController(text: user?.name ?? '');
     _phoneController = TextEditingController(text: user?.phone ?? '');
@@ -99,10 +101,10 @@ class _EditProfileDataViewState extends State<EditProfileDataView> {
         'city_id': _cityIdController.text,
       };
 
-      context.read<UserProfileCubit>().updateProfile(
+      unawaited(context.read<UserProfileCubit>().updateProfile(
         data,
         avatarPath: _avatarFile?.path,
-      );
+      ));
     }
   }
 
@@ -155,7 +157,7 @@ class _EditProfileDataViewState extends State<EditProfileDataView> {
               return InternetStateManager(
                 noInternetScreen: const NoInternetScreen(),
                 onRestoreInternetConnection: () {
-                  context.read<UserProfileCubit>().fetchCities();
+                  unawaited(context.read<UserProfileCubit>().fetchCities());
                 },
                 child: AppForm(
                   key: _appFormKey,

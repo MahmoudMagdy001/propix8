@@ -39,13 +39,13 @@ class DateTimeUtils {
     try {
       final parsed = DateFormat('HH:mm').parse(time);
       return TimeOfDay(hour: parsed.hour, minute: parsed.minute);
-    } catch (e) {
+    } on Object catch (_) {
       // Fallback or rethrow? For now, try parsing with other format or return generic
       // Trying with hh:mm a just in case
       try {
         final parsed = DateFormat('hh:mm a').parse(time);
         return TimeOfDay(hour: parsed.hour, minute: parsed.minute);
-      } catch (_) {
+      } on Object catch (_) {
         return const TimeOfDay(hour: 0, minute: 0);
       }
     }

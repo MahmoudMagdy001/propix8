@@ -22,7 +22,7 @@ class NearbyUnitsCubit extends Cubit<NearbyUnitsState> {
           pagination: response.pagination,
         ),
       );
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           status: HomeRequestStatus.failure,
@@ -53,7 +53,7 @@ class NearbyUnitsCubit extends Cubit<NearbyUnitsState> {
           pagination: response.pagination,
         ),
       );
-    } catch (e) {
+    } on Object catch (_) {
       emit(state.copyWith(isLoadingMore: false));
     }
   }

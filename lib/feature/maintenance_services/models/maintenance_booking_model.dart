@@ -11,10 +11,10 @@ class MaintenanceBookingResponse extends Equatable {
 
   factory MaintenanceBookingResponse.fromJson(Map<String, dynamic> json) =>
       MaintenanceBookingResponse(
-        status: json['status'] ?? false,
-        message: json['message'] ?? '',
+        status: (json['status'] as bool?) ?? false,
+        message: (json['message'] as String?) ?? '',
         data: json['data'] != null
-            ? MaintenanceBookingData.fromJson(json['data'])
+            ? MaintenanceBookingData.fromJson(json['data'] as Map<String, dynamic>)
             : null,
       );
 
@@ -39,15 +39,15 @@ class MaintenanceBookingData extends Equatable {
 
   factory MaintenanceBookingData.fromJson(Map<String, dynamic> json) =>
       MaintenanceBookingData(
-        id: json['id'] ?? 0,
+        id: (json['id'] as int?) ?? 0,
         service: json['service'] != null
-            ? MaintenanceServiceModel.fromJson(json['service'])
+            ? MaintenanceServiceModel.fromJson(json['service'] as Map<String, dynamic>)
             : null,
-        phone: json['phone'] ?? '',
-        address: json['address'] ?? '',
-        message: json['message'] ?? '',
-        status: json['status'] ?? '',
-        createdAt: json['created_at'] ?? '',
+        phone: (json['phone'] as String?) ?? '',
+        address: (json['address'] as String?) ?? '',
+        message: (json['message'] as String?) ?? '',
+        status: (json['status'] as String?) ?? '',
+        createdAt: (json['created_at'] as String?) ?? '',
       );
 
   final int id;

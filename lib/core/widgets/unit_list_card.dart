@@ -19,8 +19,8 @@ class UnitListCard extends StatelessWidget {
       borderRadius: BorderRadius.circular(16.r),
       child: InkWell(
         borderRadius: BorderRadius.circular(16.r),
-        onTap: () {
-          context.pushNamed(
+        onTap: () async {
+          await context.pushNamed(
             AppRoutes.propertyDetails,
             pathParameters: {'id': unit.id.toString()},
           );

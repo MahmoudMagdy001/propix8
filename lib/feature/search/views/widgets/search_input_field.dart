@@ -79,7 +79,7 @@ class _SearchInputFieldState extends State<SearchInputField> {
                   Duration(milliseconds: value.isEmpty ? 0 : 500),
                   () {
                     if (mounted) {
-                      context.read<SearchCubit>().search(value);
+                      unawaited(context.read<SearchCubit>().search(value));
                     }
                   },
                 );

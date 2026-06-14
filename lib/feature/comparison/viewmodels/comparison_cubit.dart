@@ -48,7 +48,7 @@ class ComparisonCubit extends Cubit<ComparisonState> {
           comparisonItems: comparisonItems,
         ),
       );
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           status: ComparisonStatus.failure,

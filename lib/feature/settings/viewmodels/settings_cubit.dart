@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -8,7 +10,7 @@ import 'package:propix8/feature/settings/viewmodels/settings_state.dart';
 class SettingsCubit extends Cubit<SettingsState> {
   SettingsCubit(this._storageService, this._settingsRepository)
     : super(const SettingsState()) {
-    _loadSettings();
+    unawaited(_loadSettings());
     // NOTE: loadSiteSettings() is NOT called here.
     // It should only be called when user navigates to onboarding screen
     // to avoid unnecessary API calls for logged-in users.
@@ -40,7 +42,7 @@ class SettingsCubit extends Cubit<SettingsState> {
           locale: Locale(savedLocale),
         ),
       );
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           status: SettingsStatus.failure,
@@ -72,7 +74,7 @@ class SettingsCubit extends Cubit<SettingsState> {
       await _storageService.saveThemeMode(themeMode.toString());
       if (isClosed) return;
       emit(state.copyWith(themeMode: themeMode));
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           status: SettingsStatus.failure,
@@ -87,7 +89,7 @@ class SettingsCubit extends Cubit<SettingsState> {
       await _storageService.saveLocale(locale.languageCode);
       if (isClosed) return;
       emit(state.copyWith(locale: locale));
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           status: SettingsStatus.failure,

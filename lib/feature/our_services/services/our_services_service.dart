@@ -11,7 +11,7 @@ class OurServicesService {
   Future<List<ServiceModel>> getOurServices() async {
     final response = await _dioClient.get('services');
     final responseData = response.data as Map<String, dynamic>;
-    final List data = responseData['data'];
+    final data = (responseData['data'] as List?) ?? [];
     return data
         .map((json) => ServiceModel.fromJson(json as Map<String, dynamic>))
         .toList();
@@ -20,7 +20,7 @@ class OurServicesService {
   Future<List<FaqModel>> getFaqs() async {
     final response = await _dioClient.get('faqs');
     final responseData = response.data as Map<String, dynamic>;
-    final List data = responseData['data'];
+    final data = (responseData['data'] as List?) ?? [];
     return data
         .map((json) => FaqModel.fromJson(json as Map<String, dynamic>))
         .toList();
@@ -34,7 +34,7 @@ class OurServicesService {
       queryParameters: {'page': page},
     );
     final responseData = response.data as Map<String, dynamic>;
-    final List data = responseData['data'];
+    final data = (responseData['data'] as List?) ?? [];
     final paginationJson = responseData['pagination'] as Map<String, dynamic>?;
 
     return PaginatedResponse(

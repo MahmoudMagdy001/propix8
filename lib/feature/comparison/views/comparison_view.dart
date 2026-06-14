@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -44,13 +45,15 @@ class _ComparisonViewState extends State<ComparisonView> {
 
   void _loadComparison() {
     final l10n = context.l10n;
-    _cubit.loadComparison(
-      baseUnitId: widget.baseUnitId,
-      selectedUnitId: widget.selectedUnitId,
-      getLocalizedLabel: (key) => _getLocalizedLabel(l10n, key),
-      getLocalizedValue: (key, value) => _getLocalizedValue(l10n, key, value),
-      meterSquared: l10n.meterSquared,
-      currencySymbol: l10n.currency_egp,
+    unawaited(
+      _cubit.loadComparison(
+        baseUnitId: widget.baseUnitId,
+        selectedUnitId: widget.selectedUnitId,
+        getLocalizedLabel: (key) => _getLocalizedLabel(l10n, key),
+        getLocalizedValue: (key, value) => _getLocalizedValue(l10n, key, value),
+        meterSquared: l10n.meterSquared,
+        currencySymbol: l10n.currency_egp,
+      ),
     );
   }
 

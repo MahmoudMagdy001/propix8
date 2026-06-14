@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,7 +29,7 @@ class OnboardingView extends StatelessWidget {
         // This avoids loading site settings for logged-in users
         if (state.siteSettings == null && state.errorMessage == null) {
           // Trigger load if not already loading
-          context.read<SettingsCubit>().loadSiteSettings();
+          unawaited(context.read<SettingsCubit>().loadSiteSettings());
           return const Scaffold(
             body: Center(child: CircularProgressIndicator()),
           );
@@ -66,7 +68,7 @@ class _OnboardingViewBodyState extends State<_OnboardingViewBody> {
         // Pre-cache images
         if (widget.homeHeroImages != null) {
           for (final imageUrl in widget.homeHeroImages!) {
-            precacheImage(CachedNetworkImageProvider(imageUrl), context);
+            unawaited(precacheImage(CachedNetworkImageProvider(imageUrl), context));
           }
         }
       }
@@ -202,10 +204,12 @@ class _OnboardingControls extends StatelessWidget {
                                   _OnboardingViewBodyState
                                 >()
                                 ?._pageController;
-                            controller?.nextPage(
-                              duration: const Duration(milliseconds: 300),
-                              curve: Curves.easeInOut,
-                            );
+                            if (controller != null) {
+                              unawaited(controller.nextPage(
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeInOut,
+                              ));
+                            }
                           },
                           text: l10n.next,
                         ),
@@ -220,10 +224,12 @@ class _OnboardingControls extends StatelessWidget {
                                 >();
                             final controller = state?._pageController;
                             if (data.pageIndex > 0) {
-                              controller?.previousPage(
-                                duration: const Duration(milliseconds: 300),
-                                curve: Curves.easeInOut,
-                              );
+                              if (controller != null) {
+                                unawaited(controller.previousPage(
+                                  duration: const Duration(milliseconds: 300),
+                                  curve: Curves.easeInOut,
+                                ));
+                              }
                             } else {
                               _completeOnboarding(context);
                             }
@@ -242,8 +248,10 @@ class _OnboardingControls extends StatelessWidget {
   }
 
   void _completeOnboarding(BuildContext context) {
-    context
-        .findAncestorStateOfType<_OnboardingViewBodyState>()
-        ?._completeOnboarding();
+    final state = context
+        .findAncestorStateOfType<_OnboardingViewBodyState>();
+    if (state != null) {
+      unawaited(state._completeOnboarding());
+    }
   }
 }

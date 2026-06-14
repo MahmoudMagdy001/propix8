@@ -55,8 +55,8 @@ class UserProfileService {
 
   Future<List<City>> getCities() async {
     final response = await _dioClient.get('cities');
-    final List<dynamic> data =
-        (response.data as Map<String, dynamic>)['data'] ?? [];
+    final data =
+        ((response.data as Map<String, dynamic>)['data'] as List?) ?? [];
     return data
         .map((json) => City.fromJson(json as Map<String, dynamic>))
         .toList();

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:propix8/core/utils/context_extensions.dart';
@@ -56,7 +58,7 @@ class UnitActionButtons extends StatelessWidget {
                       child: AppElevatedButton(
                         onPressed: () {
                           if (data.unitId != null) {
-                            BookingSheet.show(context, data.unitId!);
+                            unawaited(BookingSheet.show(context, data.unitId!));
                           }
                         },
                         enabled: !isActionDisabled,

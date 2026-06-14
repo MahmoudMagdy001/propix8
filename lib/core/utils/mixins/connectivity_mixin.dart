@@ -7,13 +7,13 @@ mixin ConnectivityMixin<T extends StatefulWidget> on State<T> {
   StreamSubscription<List<ConnectivityResult>>? _connectivitySubscription;
 
   /// Override this to handle connectivity changes.
-  void onConnectivityChanged(bool isConnected);
+  void onConnectivityChanged({required bool isConnected});
 
   Future<void> checkInitialConnectivity() async {
     final connectivityResult = await Connectivity().checkConnectivity();
     final isConnected = !connectivityResult.contains(ConnectivityResult.none);
     if (mounted) {
-      onConnectivityChanged(isConnected);
+      onConnectivityChanged(isConnected: isConnected);
     }
   }
 
@@ -23,14 +23,15 @@ mixin ConnectivityMixin<T extends StatefulWidget> on State<T> {
     ) {
       final isConnected = !results.contains(ConnectivityResult.none);
       if (mounted) {
-        onConnectivityChanged(isConnected);
+        onConnectivityChanged(isConnected: isConnected);
       }
     });
   }
 
   @override
   void dispose() {
-    _connectivitySubscription?.cancel();
+    unawaited(_connectivitySubscription?.cancel());
+    _connectivitySubscription = null;
     super.dispose();
   }
 }

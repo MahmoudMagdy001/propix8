@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -19,15 +21,15 @@ class HomeBannerSection extends StatelessWidget {
       case '/units':
         context.goNamed(AppRoutes.layout);
       case '/about':
-        context.pushNamed(AppRoutes.aboutUs);
+        unawaited(context.pushNamed(AppRoutes.aboutUs));
       case '/services':
-        context.pushNamed(AppRoutes.ourServices);
+        unawaited(context.pushNamed(AppRoutes.ourServices));
       case '/contact':
         // Contact form is inside About Us screen
-        context.pushNamed(AppRoutes.aboutUs);
+        unawaited(context.pushNamed(AppRoutes.aboutUs));
       case '/faq':
         // FAQs section is inside Our Services screen
-        context.pushNamed(AppRoutes.ourServices);
+        unawaited(context.pushNamed(AppRoutes.ourServices));
       default:
         // Handle unknown or empty URLs gracefully
         break;

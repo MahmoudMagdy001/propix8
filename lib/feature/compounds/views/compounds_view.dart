@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -18,7 +20,11 @@ class CompoundsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BlocProvider(
-    create: (context) => locator<CompoundsCubit>()..fetchCompounds(),
+    create: (context) {
+      final cubit = locator<CompoundsCubit>();
+      unawaited(cubit.fetchCompounds());
+      return cubit;
+    },
     child: const _CompoundsViewContent(),
   );
 }
@@ -33,7 +39,7 @@ class _CompoundsViewContent extends StatelessWidget {
       child: InternetStateManager(
         noInternetScreen: const NoInternetScreen(),
         onRestoreInternetConnection: () {
-          context.read<CompoundsCubit>().fetchCompounds();
+          unawaited(context.read<CompoundsCubit>().fetchCompounds());
         },
         child: CustomScrollView(
           slivers: [
@@ -81,12 +87,12 @@ class _CompoundsViewContent extends StatelessWidget {
                           onTap: compounds.isEmpty
                               ? null
                               : () {
-                                  context.pushNamed(
+                                  unawaited(context.pushNamed(
                                     AppRoutes.compoundUnits,
                                     pathParameters: {
                                       'id': compound.id.toString(),
                                     },
-                                  );
+                                  ));
                                 },
                         );
                       }, childCount: compounds.isEmpty ? 6 : compounds.length),

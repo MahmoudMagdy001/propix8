@@ -105,7 +105,7 @@ class PagesCubit extends Cubit<PagesState> {
   PageModel? getPageBySlug(String slug) {
     try {
       return state.pages.firstWhere((page) => page.slug == slug);
-    } catch (_) {
+    } on Object catch (_) {
       return null;
     }
   }

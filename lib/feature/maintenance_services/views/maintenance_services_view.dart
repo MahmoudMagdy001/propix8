@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
@@ -32,16 +34,16 @@ class MaintenanceServicesViewState extends State<MaintenanceServicesView>
   @override
   void initState() {
     super.initState();
-    checkInitialConnectivity();
+    unawaited(checkInitialConnectivity());
     startConnectivityListener();
   }
 
   @override
-  void onConnectivityChanged(bool isConnected) {
+  void onConnectivityChanged({required bool isConnected}) {
     if (!isConnected) {
       context.read<MaintenanceServicesCubit>().setNetworkFailure();
     } else {
-      context.read<MaintenanceServicesCubit>().getMaintenanceServices();
+      unawaited(context.read<MaintenanceServicesCubit>().getMaintenanceServices());
     }
   }
 
@@ -58,7 +60,10 @@ class MaintenanceServicesViewState extends State<MaintenanceServicesView>
     if (scrollController.hasClients && scrollController.offset > 0) {
       scrollToTop();
     } else {
-      _refreshIndicatorKey.currentState?.show();
+      final state = _refreshIndicatorKey.currentState;
+      if (state != null) {
+        unawaited(state.show());
+      }
     }
   }
 

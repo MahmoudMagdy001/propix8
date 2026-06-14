@@ -15,7 +15,7 @@ class AuthService {
       AuthConstants.loginEndpoint,
       data: request.toJson(),
     );
-    return AuthResponse.fromJson(response.data);
+    return AuthResponse.fromJson(response.data as Map<String, dynamic>);
   }
 
   Future<AuthResponse> register(RegisterRequest request) async {
@@ -23,7 +23,7 @@ class AuthService {
       AuthConstants.registerEndpoint,
       data: request.toJson(),
     );
-    return AuthResponse.fromJson(response.data);
+    return AuthResponse.fromJson(response.data as Map<String, dynamic>);
   }
 
   Future<Map<String, String>> forgotPassword(String email) async {

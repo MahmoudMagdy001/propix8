@@ -42,7 +42,7 @@ class CompoundsCubit extends Cubit<CompoundsState> {
       emit(
         state.copyWith(status: CompoundsStatus.success, compounds: compounds),
       );
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           status: CompoundsStatus.failure,

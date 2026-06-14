@@ -67,7 +67,10 @@ class AppConfirmationDialog extends StatelessWidget {
     return TextButton(
       onPressed: () {
         Navigator.of(context).pop(true);
-        onConfirm?.call();
+        final result = onConfirm?.call();
+        if (result is Future<void>) {
+          unawaited(result);
+        }
       },
       style: TextButton.styleFrom(
         foregroundColor: foregroundColor,

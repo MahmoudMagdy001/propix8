@@ -40,7 +40,7 @@ void main() async {
       AuthConstants.authCheckTimeout,
     );
     AuthLogger.info('Auth check completed');
-  } catch (e) {
+  } on Object catch (e) {
     AuthLogger.error('Auth check timed out or failed', e);
   }
 

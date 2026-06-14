@@ -5,7 +5,7 @@ class UserCity extends Equatable {
   const UserCity({this.id, this.name});
 
   factory UserCity.fromJson(Map<String, dynamic> json) =>
-      UserCity(id: json['id'], name: json['name']);
+      UserCity(id: json['id'] as int?, name: json['name'] as String?);
   final int? id;
   final String? name;
 
@@ -39,21 +39,21 @@ class User extends Equatable {
       cityId = city.id;
     } else if (json['city_id'] != null) {
       cityId = json['city_id'] is String
-          ? int.tryParse(json['city_id'])
-          : json['city_id'];
+          ? int.tryParse(json['city_id'] as String)
+          : json['city_id'] as int?;
     }
 
     return User(
-      id: json['id'],
-      name: json['name'],
-      email: json['email'],
+      id: json['id'] as int?,
+      name: json['name'] as String?,
+      email: json['email'] as String?,
       phone: json['phone']?.toString(),
-      avatar: json['avatar'],
-      address: json['address'],
+      avatar: json['avatar'] as String?,
+      address: json['address'] as String?,
       cityId: cityId,
       city: city,
-      status: json['status'],
-      role: json['role'],
+      status: json['status'] as String?,
+      role: json['role'] as String?,
     );
   }
   final int? id;
@@ -100,9 +100,9 @@ class AuthResponse extends Equatable {
 
   factory AuthResponse.fromJson(Map<String, dynamic> json) => AuthResponse(
     token:
-        json['token'] ??
-        (json['data'] as Map<String, dynamic>?)?['token'] ??
-        (json['data'] as Map<String, dynamic>?)?['access_token'],
+        json['token'] as String? ??
+        (json['data'] as Map<String, dynamic>?)?['token'] as String? ??
+        (json['data'] as Map<String, dynamic>?)?['access_token'] as String?,
     user: json['user'] != null
         ? User.fromJson(json['user'] as Map<String, dynamic>)
         : ((json['data'] as Map<String, dynamic>?)?['user'] != null
@@ -111,7 +111,7 @@ class AuthResponse extends Equatable {
                       as Map<String, dynamic>,
                 )
               : null),
-    message: json['message'],
+    message: json['message'] as String?,
   );
   final String? token;
   final User? user;

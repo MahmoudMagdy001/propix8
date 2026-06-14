@@ -34,7 +34,7 @@ class UserProfileRepositoryImpl implements UserProfileRepository {
         await _storageService.clearAuthData();
       }
       return Left(_handleError(e, 'Failed to delete profile'));
-    } catch (e) {
+    } on Object catch (e) {
       return Left(e.toString());
     }
   }
@@ -46,7 +46,7 @@ class UserProfileRepositoryImpl implements UserProfileRepository {
       return Right(cities);
     } on DioException catch (e) {
       return Left(_handleError(e, 'Failed to fetch cities'));
-    } catch (e) {
+    } on Object catch (e) {
       return Left(e.toString());
     }
   }
@@ -58,7 +58,7 @@ class UserProfileRepositoryImpl implements UserProfileRepository {
       if (cachedJson != null) {
         try {
           return Right(User.fromJson(cachedJson));
-        } catch (_) {}
+        } on Object catch (_) {}
       }
     }
 
@@ -68,7 +68,7 @@ class UserProfileRepositoryImpl implements UserProfileRepository {
       return Right(user);
     } on DioException catch (e) {
       return Left(_handleError(e, 'Failed to load profile'));
-    } catch (e) {
+    } on Object catch (e) {
       return Left(e.toString());
     }
   }
@@ -84,7 +84,7 @@ class UserProfileRepositoryImpl implements UserProfileRepository {
       return Right(user);
     } on DioException catch (e) {
       return Left(_handleError(e, 'Failed to update profile'));
-    } catch (e) {
+    } on Object catch (e) {
       return Left(e.toString());
     }
   }

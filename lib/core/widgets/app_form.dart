@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 
 /// A scope that allows child fields to register themselves with the [AppForm].
@@ -86,11 +87,13 @@ class AppFormState extends State<AppForm> implements AppFormScope {
       if (state is FormFieldState && state.hasError) {
         final context = key.currentContext;
         if (context != null) {
-          Scrollable.ensureVisible(
-            context,
-            duration: const Duration(milliseconds: 500),
-            curve: Curves.easeInOut,
-            alignment: 0.2, // Align to top with some offset
+          unawaited(
+            Scrollable.ensureVisible(
+              context,
+              duration: const Duration(milliseconds: 500),
+              curve: Curves.easeInOut,
+              alignment: 0.2, // Align to top with some offset
+            ),
           );
 
           // Focus the field if possible

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
@@ -71,7 +73,7 @@ class _UnitMapViewState extends State<UnitMapView>
       }
     });
 
-    controller.forward();
+    unawaited(controller.forward());
   }
 
   @override

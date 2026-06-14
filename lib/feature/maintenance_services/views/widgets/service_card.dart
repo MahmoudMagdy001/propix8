@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:propix8/core/utils/context_extensions.dart';
@@ -56,13 +57,15 @@ class ServiceCard extends StatelessWidget {
               AppElevatedButton(
                 enabled: !isBooked,
                 onPressed: () {
-                  showAppModalSheet(
-                    context: context,
-                    title: context.l10n.bookNow,
-                    child: MaintenanceBookingForm(
-                      serviceId: service.id,
-                      serviceName: service.title,
-                      onBookingSuccess: onBooked,
+                  unawaited(
+                    showAppModalSheet<void>(
+                      context: context,
+                      title: context.l10n.bookNow,
+                      child: MaintenanceBookingForm(
+                        serviceId: service.id,
+                        serviceName: service.title,
+                        onBookingSuccess: onBooked,
+                      ),
                     ),
                   );
                 },

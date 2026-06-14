@@ -62,7 +62,7 @@ class MaintenanceBookingCubit extends Cubit<MaintenanceBookingState> {
           ),
         );
       }
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           status: BookingStatus.failure,

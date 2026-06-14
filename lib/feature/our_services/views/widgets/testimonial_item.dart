@@ -102,15 +102,15 @@ class TestimonialItem extends StatelessWidget {
               builder: (context, userId) {
                 if (userId != null && userId == testimonial.userId) {
                   return PopupMenuButton<String>(
-                    onSelected: (value) {
+                    onSelected: (value) async {
                       if (value == 'edit') {
-                        AddTestimonialSheet.show(
+                        await AddTestimonialSheet.show(
                           context,
                           testimonial: testimonial,
                         );
                       } else if (value == 'delete') {
                         final cubit = context.read<OurServicesCubit>();
-                        showAppConfirmationDialog(
+                        await showAppConfirmationDialog(
                           context,
                           title: context.l10n.deleteTestimonial,
                           message: context.l10n.deleteConfirmation,

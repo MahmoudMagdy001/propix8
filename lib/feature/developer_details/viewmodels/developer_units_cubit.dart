@@ -21,7 +21,7 @@ class DeveloperUnitsCubit extends Cubit<DeveloperUnitsState> {
       emit(
         state.copyWith(status: HomeRequestStatus.success, developer: developer),
       );
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           status: HomeRequestStatus.failure,
@@ -68,7 +68,7 @@ class DeveloperUnitsCubit extends Cubit<DeveloperUnitsState> {
           ),
         ),
       );
-    } catch (e) {
+    } on Object catch (_) {
       emit(state.copyWith(isLoadingMore: false));
     }
   }

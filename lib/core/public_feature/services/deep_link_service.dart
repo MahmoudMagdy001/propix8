@@ -26,7 +26,7 @@ class DeepLinkService with WidgetsBindingObserver {
     // 2. Listen to incoming links (Background & Foreground)
     _linkSubscription = _appLinks.uriLinkStream.listen(
       _handleLink,
-      onError: (err) {
+      onError: (Object err) {
         AuthLogger.error('Deep link error: $err');
       },
     );
@@ -34,7 +34,7 @@ class DeepLinkService with WidgetsBindingObserver {
 
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
-    _linkSubscription?.cancel();
+    unawaited(_linkSubscription?.cancel());
   }
 
   @override
@@ -53,7 +53,7 @@ class DeepLinkService with WidgetsBindingObserver {
         // We defer to _handleLink which will use GoRouter to navigate.
         _handleLink(uri);
       }
-    } catch (e) {
+    } on Exception catch (e) {
       AuthLogger.error('Failed to get initial deep link', e);
     }
   }
@@ -74,7 +74,7 @@ class DeepLinkService with WidgetsBindingObserver {
       } else {
         AuthLogger.debug('Ignoring duplicate deep link navigation: $uri');
       }
-    } catch (e) {
+    } on Exception catch (e) {
       AuthLogger.error('Failed to navigate to deep link', e);
     }
   }

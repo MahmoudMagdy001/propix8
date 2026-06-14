@@ -49,7 +49,7 @@ class StorageService {
 
     try {
       _cachedToken = await _secureStorage.read(key: _tokenKey);
-    } catch (e) {
+    } on Object catch (e) {
       AuthLogger.error('Failed to read cached token from secure storage', e);
     }
 
@@ -58,7 +58,7 @@ class StorageService {
       if (userString != null) {
         _cachedUser = jsonDecode(userString) as Map<String, dynamic>;
       }
-    } catch (e) {
+    } on Object catch (e) {
       AuthLogger.error('Failed to parse cached user data', e);
       _cachedUser = null;
     }
@@ -95,7 +95,7 @@ class StorageService {
     try {
       await _secureStorage.write(key: _tokenKey, value: token);
       return true;
-    } catch (e) {
+    } on Object catch (e) {
       AuthLogger.error('Failed to persist token to secure storage', e);
       // Token is still in memory, auth will work for this session
       return false;
@@ -127,7 +127,7 @@ class StorageService {
     try {
       await _secureStorage.write(key: _userKey, value: jsonEncode(userJson));
       return true;
-    } catch (e) {
+    } on Object catch (e) {
       AuthLogger.error('Failed to persist user to secure storage', e);
       return false;
     }

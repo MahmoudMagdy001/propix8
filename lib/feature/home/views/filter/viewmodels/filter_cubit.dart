@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:propix8/feature/auth/repositories/address_setup_repository.dart';
@@ -74,6 +76,6 @@ class FilterCubit extends Cubit<FilterState> {
 
   void reset() {
     emit(const FilterState());
-    fetchCities();
+    unawaited(fetchCities());
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -69,7 +71,7 @@ class AddressSetupCubit extends Cubit<AddressSetupState> {
     final position = await Geolocator.getCurrentPosition();
     if (isClosed) return;
 
-    updateLocation(LatLng(position.latitude, position.longitude));
+    await updateLocation(LatLng(position.latitude, position.longitude));
   }
 
   Future<void> openLocationSettings() async {
@@ -119,7 +121,7 @@ class AddressSetupCubit extends Cubit<AddressSetupState> {
           ),
         );
       }
-    } catch (e) {
+    } on Object catch (_) {
       emit(
         state.copyWith(
           address:
@@ -152,7 +154,7 @@ class AddressSetupCubit extends Cubit<AddressSetupState> {
         state.copyWith(status: AddressSetupStatus.failure, errorMessage: error),
       ),
       (user) {
-        locator<AuthCubit>().updateUser(user);
+        unawaited(locator<AuthCubit>().updateUser(user));
         emit(state.copyWith(status: AddressSetupStatus.success));
       },
     );

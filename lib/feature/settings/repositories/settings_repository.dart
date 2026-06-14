@@ -16,7 +16,7 @@ class SettingsRepositoryImpl implements SettingsRepository {
     try {
       final result = await _service.getSiteSettings();
       return Right(result);
-    } catch (e) {
+    } on Object catch (e) {
       return Left(e.toString());
     }
   }

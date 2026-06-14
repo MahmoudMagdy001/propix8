@@ -226,8 +226,8 @@ class _ProfileViewContent extends StatelessWidget {
           'title': context.l10n.logout,
           'icon': Icons.logout,
           'isDestructive': true,
-          'onTap': () {
-            showAppConfirmationDialog(
+          'onTap': () async {
+            await showAppConfirmationDialog(
               context,
               title: context.l10n.logout,
               message: context.l10n.logoutConfirmationMessage,

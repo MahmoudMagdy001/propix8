@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:propix8/core/di/locator.dart';
@@ -27,7 +29,11 @@ class ShowAllNearbyView extends StatefulWidget {
 class _ShowAllNearbyViewState extends State<ShowAllNearbyView> {
   @override
   Widget build(BuildContext context) => BlocProvider(
-    create: (context) => locator<NearbyUnitsCubit>()..loadNearbyUnits(),
+    create: (context) {
+      final cubit = locator<NearbyUnitsCubit>();
+      unawaited(cubit.loadNearbyUnits());
+      return cubit;
+    },
     child: const _ShowAllNearbyContent(),
   );
 }
@@ -67,17 +73,17 @@ class _ShowAllNearbyContentState extends State<_ShowAllNearbyContent> {
     }
 
     if (_isBottom) {
-      context.read<NearbyUnitsCubit>().loadMoreUnits();
+      unawaited(context.read<NearbyUnitsCubit>().loadMoreUnits());
     }
   }
 
   void scrollToTop() {
     if (_scrollController.hasClients) {
-      _scrollController.animateTo(
+      unawaited(_scrollController.animateTo(
         0,
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
-      );
+      ));
     }
   }
 

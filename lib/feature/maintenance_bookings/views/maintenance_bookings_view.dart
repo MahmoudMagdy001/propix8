@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
@@ -20,8 +22,11 @@ class MaintenanceBookingsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BlocProvider(
-    create: (context) =>
-        locator<MaintenanceBookingsCubit>()..getMaintenanceBookings(),
+    create: (context) {
+      final cubit = locator<MaintenanceBookingsCubit>();
+      unawaited(cubit.getMaintenanceBookings());
+      return cubit;
+    },
     child: const _MaintenanceBookingsViewContent(),
   );
 }
@@ -39,13 +44,13 @@ class _MaintenanceBookingsViewContentState
     with ScrollPaginationMixin, ConnectivityMixin {
   @override
   void onPageFetched() {
-    context.read<MaintenanceBookingsCubit>().loadMoreMaintenanceBookings();
+    unawaited(context.read<MaintenanceBookingsCubit>().loadMoreMaintenanceBookings());
   }
 
   @override
-  void onConnectivityChanged(bool isConnected) {
+  void onConnectivityChanged({required bool isConnected}) {
     if (isConnected) {
-      context.read<MaintenanceBookingsCubit>().getMaintenanceBookings();
+      unawaited(context.read<MaintenanceBookingsCubit>().getMaintenanceBookings());
     } else {
       context.read<MaintenanceBookingsCubit>().setNetworkFailure();
     }

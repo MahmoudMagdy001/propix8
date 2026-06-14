@@ -63,7 +63,7 @@ class UnitDetailsCubit extends Cubit<UnitDetailsState> {
               : null,
         ),
       );
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           status: RequestStatus.failure,
@@ -86,7 +86,7 @@ class UnitDetailsCubit extends Cubit<UnitDetailsState> {
       await _refreshUnitData(unit.id);
       if (isClosed) return;
       emit(state.copyWith(reviewStatus: RequestStatus.success));
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           reviewStatus: RequestStatus.failure,
@@ -114,7 +114,7 @@ class UnitDetailsCubit extends Cubit<UnitDetailsState> {
       await _refreshUnitData(unit.id);
       if (isClosed) return;
       emit(state.copyWith(deleteReviewStatus: RequestStatus.success));
-    } catch (e) {
+    } on Object catch (_) {
       emit(state.copyWith(deleteReviewStatus: RequestStatus.failure));
     }
   }
@@ -144,7 +144,7 @@ class UnitDetailsCubit extends Cubit<UnitDetailsState> {
           reviewsPagination: response.pagination,
         ),
       );
-    } catch (_) {
+    } on Object catch (_) {
       emit(state.copyWith(isReviewsLoadingMore: false));
     }
   }
@@ -160,7 +160,7 @@ class UnitDetailsCubit extends Cubit<UnitDetailsState> {
       await _refreshUnitData(unit.id);
       if (isClosed) return;
       emit(state.copyWith(reviewStatus: RequestStatus.success));
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           reviewStatus: RequestStatus.failure,
@@ -195,7 +195,7 @@ class UnitDetailsCubit extends Cubit<UnitDetailsState> {
       );
       if (isClosed) return;
       emit(state.copyWith(contactStatus: RequestStatus.success));
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           contactStatus: RequestStatus.failure,
@@ -235,7 +235,7 @@ class UnitDetailsCubit extends Cubit<UnitDetailsState> {
           ),
         );
       }
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           bookingStatus: RequestStatus.failure,
@@ -261,7 +261,7 @@ class UnitDetailsCubit extends Cubit<UnitDetailsState> {
           reviewsPagination: (results[1] as PaginatedResponse).pagination,
         ),
       );
-    } catch (_) {
+    } on Object catch (_) {
       // Create a silent failure or handle appropriately
     }
   }

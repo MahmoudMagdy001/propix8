@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -30,9 +32,12 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
     final colors = theme.colorScheme;
 
     return BlocProvider(
-      create: (context) => locator<AddressSetupCubit>()
-        ..fetchCities()
-        ..detectCurrentLocation(),
+      create: (context) {
+        final cubit = locator<AddressSetupCubit>();
+        unawaited(cubit.fetchCities());
+        unawaited(cubit.detectCurrentLocation());
+        return cubit;
+      },
       child: BlocConsumer<AddressSetupCubit, AddressSetupState>(
         listener: (context, state) {
           if (!ModalRoute.of(context)!.isCurrent) return;
@@ -256,7 +261,7 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
       options: MapOptions(
         initialCenter: initialCenter,
         onTap: (_, point) {
-          context.read<AddressSetupCubit>().updateLocation(point);
+          unawaited(context.read<AddressSetupCubit>().updateLocation(point));
         },
       ),
       children: [

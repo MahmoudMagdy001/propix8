@@ -500,7 +500,7 @@ class GoRouterRefreshStream extends ChangeNotifier {
   @override
   void dispose() {
     for (final sub in _subscriptions) {
-      sub.cancel();
+      unawaited(sub.cancel());
     }
     super.dispose();
   }

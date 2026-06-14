@@ -9,8 +9,8 @@ class DeveloperResponse {
 
   factory DeveloperResponse.fromJson(Map<String, dynamic> json) =>
       DeveloperResponse(
-        status: json['status'] ?? false,
-        message: json['message'] ?? '',
+        status: (json['status'] as bool?) ?? false,
+        message: (json['message'] as String?) ?? '',
         data:
             (json['data'] as List?)
                 ?.map((e) => DeveloperModel.fromJson(e as Map<String, dynamic>))
@@ -33,12 +33,12 @@ class DeveloperModel extends Equatable {
   });
 
   factory DeveloperModel.fromJson(Map<String, dynamic> json) => DeveloperModel(
-    id: json['id'] ?? 0,
-    name: json['name'] ?? '',
-    logo: json['logo'] ?? '',
-    email: json['email'],
-    phone: json['phone'],
-    address: json['address'],
+    id: (json['id'] as int?) ?? 0,
+    name: (json['name'] as String?) ?? '',
+    logo: (json['logo'] as String?) ?? '',
+    email: json['email'] as String?,
+    phone: json['phone'] as String?,
+    address: json['address'] as String?,
   );
   final int id;
   final String name;

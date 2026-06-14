@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -107,12 +108,14 @@ class UnitReviews extends StatelessWidget {
                           InkWell(
                             onTap: () {
                               final cubit = context.read<UnitDetailsCubit>();
-                              showAppModalSheet(
-                                context: context,
-                                title: context.l10n.addReview,
-                                child: BlocProvider.value(
-                                  value: cubit,
-                                  child: const ReviewSheet(),
+                              unawaited(
+                                showAppModalSheet<void>(
+                                  context: context,
+                                  title: context.l10n.addReview,
+                                  child: BlocProvider.value(
+                                    value: cubit,
+                                    child: const ReviewSheet(),
+                                  ),
                                 ),
                               );
                             },
@@ -145,12 +148,14 @@ class UnitReviews extends StatelessWidget {
                           isOwner: review.user.id == currentUserId,
                           onEdit: () {
                             final cubit = context.read<UnitDetailsCubit>();
-                            showAppModalSheet(
-                              context: context,
-                              title: context.l10n.editReview,
-                              child: BlocProvider.value(
-                                value: cubit,
-                                child: ReviewSheet(review: review),
+                            unawaited(
+                              showAppModalSheet<void>(
+                                context: context,
+                                title: context.l10n.editReview,
+                                child: BlocProvider.value(
+                                  value: cubit,
+                                  child: ReviewSheet(review: review),
+                                ),
                               ),
                             );
                           },

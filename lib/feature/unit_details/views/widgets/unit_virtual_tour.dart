@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,7 +39,7 @@ class _UnitVirtualTourState extends State<UnitVirtualTour> {
       controller.dispose();
     }
     for (final controller in _videoControllers.values) {
-      controller.dispose();
+      unawaited(controller.dispose());
     }
     _chewieControllers.clear();
     _videoControllers.clear();
@@ -49,7 +51,7 @@ class _UnitVirtualTourState extends State<UnitVirtualTour> {
     for (final index in keys) {
       if (index < currentIndex - 1 || index > currentIndex + 1) {
         _chewieControllers[index]?.dispose();
-        _videoControllers[index]?.dispose();
+        unawaited(_videoControllers[index]?.dispose() ?? Future.value());
         _chewieControllers.remove(index);
         _videoControllers.remove(index);
       }
@@ -95,7 +97,7 @@ class _UnitVirtualTourState extends State<UnitVirtualTour> {
           );
         });
       }
-    } catch (e) {
+    } on Object catch (e) {
       debugPrint('Error initializing video $index: $e');
       _videoControllers.remove(index);
     }
@@ -105,23 +107,23 @@ class _UnitVirtualTourState extends State<UnitVirtualTour> {
     if (_currentIndex == index) return;
 
     // 1. Pause the previous video
-    _chewieControllers[_currentIndex]?.pause();
+    unawaited(_chewieControllers[_currentIndex]?.pause());
 
     setState(() {
       _currentIndex = index;
     });
 
     // 2. Ensure current video is initialized (re-initialize if it was disposed)
-    _initializeVideoAtIndex(index, videos);
+    unawaited(_initializeVideoAtIndex(index, videos));
 
     // 3. Preload next video (forward)
     if (index + 1 < videos.length) {
-      _initializeVideoAtIndex(index + 1, videos);
+      unawaited(_initializeVideoAtIndex(index + 1, videos));
     }
 
     // 4. Preload previous video (backward) — fixes back-navigation lag
     if (index - 1 >= 0) {
-      _initializeVideoAtIndex(index - 1, videos);
+      unawaited(_initializeVideoAtIndex(index - 1, videos));
     }
 
     // 5. Clean up memory
@@ -131,7 +133,7 @@ class _UnitVirtualTourState extends State<UnitVirtualTour> {
   void _handleVisibilityChanged(VisibilityInfo info) {
     // Pause the current video when the widget goes off-screen
     if (info.visibleFraction < 0.1) {
-      _chewieControllers[_currentIndex]?.pause();
+      unawaited(_chewieControllers[_currentIndex]?.pause());
     }
   }
 
@@ -150,8 +152,8 @@ class _UnitVirtualTourState extends State<UnitVirtualTour> {
 
           // First build only: initialize the first and second videos
           if (_videoControllers.isEmpty && videos.isNotEmpty) {
-            _initializeVideoAtIndex(0, videos);
-            if (videos.length > 1) _initializeVideoAtIndex(1, videos);
+            unawaited(_initializeVideoAtIndex(0, videos));
+            if (videos.length > 1) unawaited(_initializeVideoAtIndex(1, videos));
           }
 
           return SliverToBoxAdapter(

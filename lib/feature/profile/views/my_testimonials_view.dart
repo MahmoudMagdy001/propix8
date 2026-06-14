@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:propix8/core/di/locator.dart';
@@ -21,9 +23,11 @@ class MyTestimonialsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BlocProvider(
-    create: (context) =>
-        locator<OurServicesCubit>()
-          ..loadData(loadServices: false, loadFaqs: false),
+    create: (context) {
+      final cubit = locator<OurServicesCubit>();
+      unawaited(cubit.loadData(loadServices: false, loadFaqs: false));
+      return cubit;
+    },
     child: const _MyTestimonialsContent(),
   );
 }

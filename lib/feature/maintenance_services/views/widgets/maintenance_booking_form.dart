@@ -128,10 +128,10 @@ class _MaintenanceBookingFormState extends State<MaintenanceBookingForm> {
               builder: (context, status) {
                 final isLoading = status == BookingStatus.loading;
                 return AppElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     if (_appFormKey.currentState?.validateAndScroll() ??
                         false) {
-                      context.read<MaintenanceBookingCubit>().bookMaintenance(
+                      await context.read<MaintenanceBookingCubit>().bookMaintenance(
                         maintenanceServiceId: widget.serviceId,
                         phone: _phoneController.text,
                         address: _addressController.text,

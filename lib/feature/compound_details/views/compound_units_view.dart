@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:propix8/core/di/locator.dart';
@@ -17,8 +19,11 @@ class CompoundUnitsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BlocProvider(
-    create: (context) =>
-        locator<CompoundUnitsCubit>()..loadCompoundUnits(compoundId),
+    create: (context) {
+      final cubit = locator<CompoundUnitsCubit>();
+      unawaited(cubit.loadCompoundUnits(compoundId));
+      return cubit;
+    },
     child: const _CompoundUnitsContent(),
   );
 }
@@ -50,7 +55,7 @@ class _CompoundUnitsContentState extends State<_CompoundUnitsContent> {
     if (_isBottom) {
       final compoundId = context.read<CompoundUnitsCubit>().state.compound?.id;
       if (compoundId != null) {
-        context.read<CompoundUnitsCubit>().loadMoreUnits(compoundId);
+        unawaited(context.read<CompoundUnitsCubit>().loadMoreUnits(compoundId));
       }
     }
   }

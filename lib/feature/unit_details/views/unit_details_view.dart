@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -60,7 +62,8 @@ class _UnitDetailsViewState extends State<UnitDetailsView>
   @override
   void initState() {
     super.initState();
-    _cubit = locator<UnitDetailsCubit>()..loadUnitDetails(widget.unitId);
+    _cubit = locator<UnitDetailsCubit>();
+    unawaited(_cubit.loadUnitDetails(widget.unitId));
     _scrollController.addListener(_onScroll);
   }
 
@@ -181,7 +184,7 @@ class _UnitDetailsViewState extends State<UnitDetailsView>
 
   void _onTabTapped(int index) {
     if (index < _visibleTabs.length) {
-      _scrollToSection(_visibleTabs[index].key);
+      unawaited(_scrollToSection(_visibleTabs[index].key));
     }
   }
 

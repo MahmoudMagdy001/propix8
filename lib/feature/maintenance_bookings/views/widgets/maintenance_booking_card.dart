@@ -260,7 +260,7 @@ class MaintenanceBookingCard extends StatelessWidget {
     try {
       final date = DateTime.parse(dateStr);
       return DateFormat('yyyy/MM/dd HH:mm').format(date);
-    } catch (e) {
+    } on Object catch (_) {
       return dateStr;
     }
   }

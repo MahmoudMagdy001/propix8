@@ -90,7 +90,7 @@ mixin BackExitOverlayHelper<T extends StatefulWidget> on State<T> {
     );
 
     if (result ?? false) {
-      SystemNavigator.pop();
+      await SystemNavigator.pop();
     }
   }
 }

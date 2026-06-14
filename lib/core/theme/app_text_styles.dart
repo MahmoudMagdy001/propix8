@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:propix8/core/utils/responsive_helper.dart';
 
 abstract class AppTextStyles {
-  static TextTheme getTextTheme(bool isDark) {
+  static TextTheme getTextTheme({required bool isDark}) {
     final color = isDark ? Colors.white : Colors.black87;
 
     return GoogleFonts.cairoTextTheme(

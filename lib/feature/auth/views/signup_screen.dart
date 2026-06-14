@@ -178,10 +178,10 @@ class _SignupScreenState extends State<SignupScreen> {
                   builder: (context, status) {
                     final isLoading = status == AuthRequestStatus.loading;
                     return AppElevatedButton(
-                      onPressed: () {
+                      onPressed: () async {
                         if (_appFormKey.currentState?.validateAndScroll() ??
                             false) {
-                          context.read<AuthCubit>().register(
+                          await context.read<AuthCubit>().register(
                             RegisterRequest(
                               name: _nameController.text,
                               email: _emailController.text,

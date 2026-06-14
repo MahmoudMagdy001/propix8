@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:propix8/core/di/locator.dart';
@@ -110,7 +112,7 @@ class _BookingSheetState extends State<BookingSheet> {
             : _timeController.text,
         notes: _notesController.text,
       );
-      context.read<UnitDetailsCubit>().createBooking(request);
+      unawaited(context.read<UnitDetailsCubit>().createBooking(request));
     }
   }
 

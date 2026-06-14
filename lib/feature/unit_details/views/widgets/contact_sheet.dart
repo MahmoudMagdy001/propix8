@@ -187,9 +187,9 @@ class _ContactSheetState extends State<ContactSheet> {
             BlocSelector<UnitDetailsCubit, UnitDetailsState, RequestStatus>(
               selector: (state) => state.contactStatus,
               builder: (context, status) => AppElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   if (_appFormKey.currentState?.validateAndScroll() ?? false) {
-                    context.read<UnitDetailsCubit>().contactOwner(
+                    await context.read<UnitDetailsCubit>().contactOwner(
                       name: _nameController.text,
                       email: _emailController.text,
                       phone: _phoneController.text,

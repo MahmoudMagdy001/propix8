@@ -43,7 +43,7 @@ class MaintenanceServicesCubit extends Cubit<MaintenanceServicesState> {
           bookedServiceIds: bookedIds,
         ),
       );
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           status: MaintenanceRequestStatus.failure,

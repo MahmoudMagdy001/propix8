@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -35,7 +37,7 @@ class TermsCheckbox extends StatelessWidget {
                   ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
-                      context.pushNamed(AppRoutes.terms);
+                      unawaited(context.pushNamed(AppRoutes.terms));
                     },
                 ),
               ],

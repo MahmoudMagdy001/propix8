@@ -46,7 +46,7 @@ abstract class AppTheme {
       tertiary: isDark ? AppColors.successDark : AppColors.successLight,
     );
 
-    final textTheme = AppTextStyles.getTextTheme(isDark);
+    final textTheme = AppTextStyles.getTextTheme(isDark: isDark);
 
     return ThemeData(
       useMaterial3: true,

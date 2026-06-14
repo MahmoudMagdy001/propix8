@@ -36,7 +36,7 @@ class UnitDetailsRepositoryImpl implements UnitDetailsRepository {
   Future<UnitDetailsModel> getUnitDetails(int unitId) async {
     try {
       final json = await _unitDetailsService.getUnitDetails(unitId);
-      return UnitDetailsModel.fromJson(json['data']);
+      return UnitDetailsModel.fromJson(json['data'] as Map<String, dynamic>?);
     } catch (e) {
       rethrow;
     }
@@ -47,7 +47,7 @@ class UnitDetailsRepositoryImpl implements UnitDetailsRepository {
     try {
       final json = await _unitDetailsService.getRelatedUnits(unitId);
       return (json['data'] as List?)
-              ?.map((unit) => UnitModel.fromJson(unit))
+              ?.map((unit) => UnitModel.fromJson(unit as Map<String, dynamic>))
               .toList() ??
           [];
     } catch (e) {
@@ -67,7 +67,7 @@ class UnitDetailsRepositoryImpl implements UnitDetailsRepository {
         rating: rating,
         comment: comment,
       );
-      return ReviewModel.fromJson(json['data']);
+      return ReviewModel.fromJson(json['data'] as Map<String, dynamic>);
     } catch (e) {
       rethrow;
     }
@@ -82,10 +82,12 @@ class UnitDetailsRepositoryImpl implements UnitDetailsRepository {
       final json = await _unitDetailsService.getReviews(unitId, page: page);
       final reviews =
           (json['data'] as List?)
-              ?.map((review) => ReviewModel.fromJson(review))
+              ?.map((review) =>
+                  ReviewModel.fromJson(review as Map<String, dynamic>))
               .toList() ??
           [];
-      final pagination = PaginationModel.fromJson(json['pagination']);
+      final pagination = PaginationModel.fromJson(
+          json['pagination'] as Map<String, dynamic>?);
       return PaginatedResponse(data: reviews, pagination: pagination);
     } catch (e) {
       rethrow;
@@ -113,7 +115,7 @@ class UnitDetailsRepositoryImpl implements UnitDetailsRepository {
         rating: rating,
         comment: comment,
       );
-      return ReviewModel.fromJson(json['data']);
+      return ReviewModel.fromJson(json['data'] as Map<String, dynamic>);
     } catch (e) {
       rethrow;
     }

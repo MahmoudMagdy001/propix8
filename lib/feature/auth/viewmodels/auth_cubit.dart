@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:propix8/core/utils/auth_logger.dart';
 import 'package:propix8/feature/auth/models/auth_model.dart';
@@ -83,10 +84,12 @@ class AuthCubit extends Cubit<AuthState> {
   /// WHY: After showing cached data for fast startup, we sync with server
   /// to ensure data is fresh. Errors are swallowed since UI already has data.
   void _refreshProfileInBackground() {
-    checkUserProfile(isBackgroundSync: true).catchError((error) {
-      AuthLogger.debug('Background profile refresh failed: $error');
-      // Swallow error - UI already has cached data
-    });
+    unawaited(
+      checkUserProfile(isBackgroundSync: true).catchError((Object error) {
+        AuthLogger.debug('Background profile refresh failed: $error');
+        // Swallow error - UI already has cached data
+      }),
+    );
   }
 
   Future<void> login(String email, String password) async {

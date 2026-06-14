@@ -93,16 +93,16 @@ class _AddTestimonialSheetState extends State<AddTestimonialSheet> {
                   ),
                   SizedBox(height: 24.h),
                   AppElevatedButton(
-                    onPressed: () {
+                    onPressed: () async {
                       if (_appFormKey.currentState?.validateAndScroll() ??
                           false) {
                         if (widget.testimonial != null) {
-                          context.read<OurServicesCubit>().updateTestimonial(
+                          await context.read<OurServicesCubit>().updateTestimonial(
                             widget.testimonial!.id,
                             _contentController.text.trim(),
                           );
                         } else {
-                          context.read<OurServicesCubit>().addTestimonial(
+                          await context.read<OurServicesCubit>().addTestimonial(
                             _contentController.text.trim(),
                           );
                         }

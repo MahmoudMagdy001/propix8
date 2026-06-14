@@ -30,7 +30,7 @@ class AddressSetupRepositoryImpl implements AddressSetupRepository {
         (e.response?.data as Map<String, dynamic>?)?['message']?.toString() ??
             'Failed to fetch cities',
       );
-    } catch (e) {
+    } on Object catch (e) {
       return Left(e.toString());
     }
   }
@@ -53,7 +53,7 @@ class AddressSetupRepositoryImpl implements AddressSetupRepository {
         (e.response?.data as Map<String, dynamic>?)?['message']?.toString() ??
             'Failed to update profile',
       );
-    } catch (e) {
+    } on Object catch (e) {
       return Left(e.toString());
     }
   }
@@ -70,7 +70,7 @@ class AddressSetupRepositoryImpl implements AddressSetupRepository {
         (e.response?.data as Map<String, dynamic>?)?['message']?.toString() ??
             'Failed to fetch profile',
       );
-    } catch (e) {
+    } on Object catch (e) {
       return Left(e.toString());
     }
   }

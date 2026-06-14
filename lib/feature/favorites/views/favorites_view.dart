@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
@@ -30,20 +32,22 @@ class FavoritesViewState extends State<FavoritesView> {
 
   void scrollToTopOrRefresh() {
     if (_scrollController.hasClients && _scrollController.offset > 0) {
-      _scrollController.animateTo(
-        0,
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeOut,
+      unawaited(
+        _scrollController.animateTo(
+          0,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+        ),
       );
     } else {
-      _refreshIndicatorKey.currentState?.show();
+      unawaited(_refreshIndicatorKey.currentState?.show());
     }
   }
 
   @override
   void initState() {
     super.initState();
-    context.read<FavoriteCubit>().getFavorites();
+    unawaited(context.read<FavoriteCubit>().getFavorites());
     _scrollController.addListener(_onScroll);
   }
 
@@ -55,7 +59,7 @@ class FavoritesViewState extends State<FavoritesView> {
 
   void _onScroll() {
     if (_isBottom) {
-      context.read<FavoriteCubit>().getFavorites(isLoadMore: true);
+      unawaited(context.read<FavoriteCubit>().getFavorites(isLoadMore: true));
     }
   }
 

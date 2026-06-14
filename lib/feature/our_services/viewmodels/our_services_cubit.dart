@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -130,7 +132,7 @@ class OurServicesCubit extends Cubit<OurServicesState> {
       ),
       (r) {
         emit(state.copyWith(addTestimonialStatus: OurServicesStatus.success));
-        refresh();
+        unawaited(refresh());
       },
     );
   }
@@ -149,7 +151,7 @@ class OurServicesCubit extends Cubit<OurServicesState> {
         emit(
           state.copyWith(updateTestimonialStatus: OurServicesStatus.success),
         );
-        refresh();
+        unawaited(refresh());
       },
     );
   }
@@ -169,7 +171,7 @@ class OurServicesCubit extends Cubit<OurServicesState> {
         emit(
           state.copyWith(deleteTestimonialStatus: OurServicesStatus.success),
         );
-        refresh();
+        unawaited(refresh());
       },
     );
   }

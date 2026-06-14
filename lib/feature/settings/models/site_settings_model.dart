@@ -16,21 +16,22 @@ class SiteSettingsModel extends Equatable {
   factory SiteSettingsModel.fromJson(Map<String, dynamic> json) {
     var heroImages = <String>[];
     if (json['home_hero_image'] is List) {
-      heroImages = List<String>.from(json['home_hero_image']);
+      heroImages = List<String>.from(
+          json['home_hero_image'] as Iterable<dynamic>);
     } else if (json['home_hero_image'] is String) {
-      heroImages = [json['home_hero_image']];
+      heroImages = [json['home_hero_image'] as String];
     }
 
     return SiteSettingsModel(
       homeHeroImages: heroImages,
-      siteName: json['site_name'] ?? '',
-      siteEmail: json['site_email'] ?? '',
-      siteLogo: json['site_logo'] ?? '',
-      sitePhone: json['site_phone'] ?? '',
-      siteAddress: json['site_address'] ?? '',
-      socialFacebook: json['social_facebook'] ?? '',
-      socialInstagram: json['social_instagram'] ?? '',
-      socialTwitter: json['social_twitter'] ?? '',
+      siteName: (json['site_name'] as String?) ?? '',
+      siteEmail: (json['site_email'] as String?) ?? '',
+      siteLogo: (json['site_logo'] as String?) ?? '',
+      sitePhone: (json['site_phone'] as String?) ?? '',
+      siteAddress: (json['site_address'] as String?) ?? '',
+      socialFacebook: (json['social_facebook'] as String?) ?? '',
+      socialInstagram: (json['social_instagram'] as String?) ?? '',
+      socialTwitter: (json['social_twitter'] as String?) ?? '',
     );
   }
   final List<String> homeHeroImages;

@@ -148,7 +148,7 @@ class BookingDetails extends StatelessWidget {
         'yyyy/MM/dd',
         context.l10n.localeName,
       ).format(parsedDate);
-    } catch (e) {
+    } on Object catch (_) {
       return date;
     }
   }

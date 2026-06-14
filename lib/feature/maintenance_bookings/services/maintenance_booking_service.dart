@@ -13,7 +13,8 @@ class MaintenanceBookingService {
         'maintenance/my-bookings',
         queryParameters: {'page': page},
       );
-      return MaintenanceBookingsListResponse.fromJson(response.data);
+      return MaintenanceBookingsListResponse.fromJson(
+          response.data as Map<String, dynamic>);
     } catch (e) {
       rethrow;
     }
@@ -23,7 +24,7 @@ class MaintenanceBookingService {
     try {
       final response = await _dioClient.delete('maintenance/bookings/$id');
       final data = response.data as Map<String, dynamic>;
-      return data['status'] ?? false;
+      return (data['status'] as bool?) ?? false;
     } catch (e) {
       rethrow;
     }
@@ -46,7 +47,7 @@ class MaintenanceBookingService {
         },
       );
       final data = response.data as Map<String, dynamic>;
-      return data['status'] ?? false;
+      return (data['status'] as bool?) ?? false;
     } catch (e) {
       rethrow;
     }

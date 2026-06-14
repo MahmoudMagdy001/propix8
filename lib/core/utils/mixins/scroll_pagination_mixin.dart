@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/widgets.dart';
 
 mixin ScrollPaginationMixin<T extends StatefulWidget> on State<T> {
@@ -25,10 +26,12 @@ mixin ScrollPaginationMixin<T extends StatefulWidget> on State<T> {
 
   void scrollToTop() {
     if (_scrollController.hasClients) {
-      _scrollController.animateTo(
-        0,
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.easeInOut,
+      unawaited(
+        _scrollController.animateTo(
+          0,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeInOut,
+        ),
       );
     }
   }

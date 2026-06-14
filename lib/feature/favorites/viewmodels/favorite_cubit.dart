@@ -58,7 +58,7 @@ class FavoriteCubit extends Cubit<FavoriteState> {
           lastPage: response.pagination?.lastPage ?? 1,
         ),
       );
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           listStatus: FavoriteStatus.failure,
@@ -68,7 +68,7 @@ class FavoriteCubit extends Cubit<FavoriteState> {
     }
   }
 
-  void updateFavoriteStatus(int unitId, bool isFavorite) {
+  void updateFavoriteStatus(int unitId, {required bool isFavorite}) {
     final updatedFavorites = Map<int, bool>.from(state.favorites);
     updatedFavorites[unitId] = isFavorite;
     emit(state.copyWith(favorites: updatedFavorites));
@@ -141,7 +141,7 @@ class FavoriteCubit extends Cubit<FavoriteState> {
           status: FavoriteStatus.success,
         ),
       );
-    } catch (e) {
+    } on Object catch (e) {
       // Rollback on error
       final rollbackFavorites = Map<int, bool>.from(state.favorites);
       rollbackFavorites[unitId] = isCurrentlyFavorite;

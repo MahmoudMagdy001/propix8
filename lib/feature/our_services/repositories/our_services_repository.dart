@@ -26,7 +26,7 @@ class OurServicesRepositoryImpl implements OurServicesRepository {
     try {
       final services = await _service.getOurServices();
       return Right(services);
-    } catch (e) {
+    } on Object catch (e) {
       return Left(e.toString());
     }
   }
@@ -36,7 +36,7 @@ class OurServicesRepositoryImpl implements OurServicesRepository {
     try {
       final faqs = await _service.getFaqs();
       return Right(faqs);
-    } catch (e) {
+    } on Object catch (e) {
       return Left(e.toString());
     }
   }
@@ -48,7 +48,7 @@ class OurServicesRepositoryImpl implements OurServicesRepository {
     try {
       final testimonials = await _service.getTestimonials(page: page);
       return Right(testimonials);
-    } catch (e) {
+    } on Object catch (e) {
       return Left(e.toString());
     }
   }
@@ -58,7 +58,7 @@ class OurServicesRepositoryImpl implements OurServicesRepository {
     try {
       await _service.addTestimonial(content);
       return const Right(null);
-    } catch (e) {
+    } on Object catch (e) {
       return Left(e.toString());
     }
   }
@@ -68,7 +68,7 @@ class OurServicesRepositoryImpl implements OurServicesRepository {
     try {
       await _service.updateTestimonial(id, content);
       return const Right(null);
-    } catch (e) {
+    } on Object catch (e) {
       return Left(e.toString());
     }
   }
@@ -78,7 +78,7 @@ class OurServicesRepositoryImpl implements OurServicesRepository {
     try {
       await _service.deleteTestimonial(id);
       return const Right(null);
-    } catch (e) {
+    } on Object catch (e) {
       return Left(e.toString());
     }
   }

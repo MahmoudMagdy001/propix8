@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
@@ -56,7 +58,7 @@ class _SearchViewContentState extends State<_SearchViewContent> {
     }
 
     if (_isBottom) {
-      context.read<SearchCubit>().loadMore();
+      unawaited(context.read<SearchCubit>().loadMore());
     }
   }
 
@@ -69,10 +71,12 @@ class _SearchViewContentState extends State<_SearchViewContent> {
 
   void scrollToTop() {
     if (_scrollController.hasClients) {
-      _scrollController.animateTo(
-        0,
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.easeInOut,
+      unawaited(
+        _scrollController.animateTo(
+          0,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeInOut,
+        ),
       );
     }
   }

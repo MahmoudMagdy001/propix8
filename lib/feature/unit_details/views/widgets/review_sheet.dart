@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // Add this import
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -57,7 +59,7 @@ class _ReviewSheetState extends State<ReviewSheet> {
         _rating = newRating;
       });
       // Haptic feedback when rating changes
-      HapticFeedback.lightImpact();
+      unawaited(HapticFeedback.lightImpact());
     }
   }
 
@@ -148,17 +150,17 @@ class _ReviewSheetState extends State<ReviewSheet> {
             AppElevatedButton(
               onPressed: isLoading || _rating == 0
                   ? null
-                  : () {
+                  : () async {
                       // Haptic feedback on submit
-                      HapticFeedback.mediumImpact();
+                      unawaited(HapticFeedback.mediumImpact());
                       if (widget.review != null) {
-                        context.read<UnitDetailsCubit>().updateReview(
+                        await context.read<UnitDetailsCubit>().updateReview(
                           widget.review!.id,
                           _rating,
                           _commentController.text,
                         );
                       } else {
-                        context.read<UnitDetailsCubit>().submitReview(
+                        await context.read<UnitDetailsCubit>().submitReview(
                           _rating,
                           _commentController.text,
                         );

@@ -21,7 +21,7 @@ class PagesRepositoryImpl implements PagesRepository {
       return Right(pages);
     } on DioException catch (e) {
       return Left(e.message ?? 'Unknown Dio error');
-    } catch (e) {
+    } on Object catch (e) {
       return Left(e.toString());
     }
   }
@@ -33,7 +33,7 @@ class PagesRepositoryImpl implements PagesRepository {
       return Right(stats);
     } on DioException catch (e) {
       return Left(e.message ?? 'Unknown Dio error');
-    } catch (e) {
+    } on Object catch (e) {
       return Left(e.toString());
     }
   }

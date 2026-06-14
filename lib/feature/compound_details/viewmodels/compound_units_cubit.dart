@@ -18,7 +18,7 @@ class CompoundUnitsCubit extends Cubit<CompoundUnitsState> {
       emit(
         state.copyWith(status: HomeRequestStatus.success, compound: compound),
       );
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           status: HomeRequestStatus.failure,
@@ -61,7 +61,7 @@ class CompoundUnitsCubit extends Cubit<CompoundUnitsState> {
           ),
         ),
       );
-    } catch (e) {
+    } on Object catch (_) {
       emit(state.copyWith(isLoadingMore: false));
     }
   }

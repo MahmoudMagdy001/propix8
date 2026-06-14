@@ -95,8 +95,8 @@ class _UnitLocationState extends State<UnitLocation> {
                                 ],
                               ),
                               GestureDetector(
-                                onTap: () {
-                                  context.pushNamed(
+                                onTap: () async {
+                                  await context.pushNamed(
                                     AppRoutes.propertyMap,
                                     extra: {
                                       'latitude': lat,

@@ -17,8 +17,8 @@ class UserProfileCubit extends Cubit<UserProfileState> {
     this._maintenanceBookingRepository,
     this._bookingEventService,
   ) : super(const UserProfileState()) {
-    _bookingSubscription = _bookingEventService.bookingChanged.listen((_) {
-      fetchBookingCounts();
+    _bookingSubscription = _bookingEventService.bookingChanged.listen((_) async {
+      await fetchBookingCounts();
     });
   }
 
@@ -26,18 +26,18 @@ class UserProfileCubit extends Cubit<UserProfileState> {
   final BookingRepository _bookingRepository;
   final MaintenanceBookingRepository _maintenanceBookingRepository;
   final BookingEventService _bookingEventService;
-  StreamSubscription? _bookingSubscription;
+  StreamSubscription<void>? _bookingSubscription;
 
   Future<void> loadProfile() async {
     emit(state.copyWith(status: UserProfileStatus.loading));
     final result = await _repository.getProfile();
     if (isClosed) return;
-    result.fold(
-      (error) => emit(
+    await result.fold(
+      (error) async => emit(
         state.copyWith(status: UserProfileStatus.failure, errorMessage: error),
       ),
       (user) async {
-        locator<AuthCubit>().updateUser(user);
+        await locator<AuthCubit>().updateUser(user);
         emit(state.copyWith(status: UserProfileStatus.success, user: user));
         await fetchBookingCounts();
       },
@@ -62,14 +62,14 @@ class UserProfileCubit extends Cubit<UserProfileState> {
           serviceBookingCount: sCount,
         ),
       );
-    } catch (e) {
+    } on Exception catch (_) {
       // Failed silently
     }
   }
 
   void setUser(User user) {
     emit(state.copyWith(user: user));
-    fetchBookingCounts();
+    unawaited(fetchBookingCounts());
   }
 
   Future<void> updateProfile(
@@ -82,12 +82,12 @@ class UserProfileCubit extends Cubit<UserProfileState> {
       avatarPath: avatarPath,
     );
     if (isClosed) return;
-    result.fold(
-      (error) => emit(
+    await result.fold(
+      (error) async => emit(
         state.copyWith(status: UserProfileStatus.failure, errorMessage: error),
       ),
-      (user) {
-        locator<AuthCubit>().updateUser(user);
+      (user) async {
+        await locator<AuthCubit>().updateUser(user);
         emit(state.copyWith(status: UserProfileStatus.updated, user: user));
       },
     );
@@ -118,7 +118,7 @@ class UserProfileCubit extends Cubit<UserProfileState> {
 
   @override
   Future<void> close() {
-    _bookingSubscription?.cancel();
+    unawaited(_bookingSubscription?.cancel());
     return super.close();
   }
 }

@@ -30,8 +30,8 @@ class UnitDeveloper extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 6.w),
               child: InkWell(
-                onTap: () {
-                  context.pushNamed(
+                onTap: () async {
+                  await context.pushNamed(
                     AppRoutes.developerUnits,
                     pathParameters: {'id': developer.id.toString()},
                   );

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
@@ -19,7 +21,11 @@ class BookingsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BlocProvider(
-    create: (context) => locator<BookingCubit>()..fetchBookings(),
+    create: (context) {
+      final cubit = locator<BookingCubit>();
+      unawaited(cubit.fetchBookings());
+      return cubit;
+    },
     child: const _BookingsViewContent(),
   );
 }
@@ -35,13 +41,13 @@ class _BookingsViewContentState extends State<_BookingsViewContent>
     with ScrollPaginationMixin, ConnectivityMixin {
   @override
   void onPageFetched() {
-    context.read<BookingCubit>().loadMoreBookings();
+    unawaited(context.read<BookingCubit>().loadMoreBookings());
   }
 
   @override
-  void onConnectivityChanged(bool isConnected) {
+  void onConnectivityChanged({required bool isConnected}) {
     if (isConnected) {
-      context.read<BookingCubit>().fetchBookings();
+      unawaited(context.read<BookingCubit>().fetchBookings());
     } else {
       context.read<BookingCubit>().setNetworkFailure();
     }

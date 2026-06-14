@@ -85,7 +85,7 @@ class AuthRepositoryImpl implements AuthRepository {
     } on DioException catch (e) {
       AuthLogger.logAuthError('Login failed', email: request.email, error: e);
       return Left(_handleError(e, 'Login failed'));
-    } catch (e) {
+    } on Object catch (e) {
       AuthLogger.logAuthError(
         'Login unexpected error',
         email: request.email,
@@ -112,7 +112,7 @@ class AuthRepositoryImpl implements AuthRepository {
         error: e,
       );
       return Left(_handleError(e, 'Registration failed'));
-    } catch (e) {
+    } on Object catch (e) {
       return Left(e.toString());
     }
   }
@@ -128,7 +128,7 @@ class AuthRepositoryImpl implements AuthRepository {
     } on DioException catch (e) {
       AuthLogger.logAuthError('Forgot password failed', email: email, error: e);
       return Left(_handleError(e, 'Action failed'));
-    } catch (e) {
+    } on Object catch (e) {
       return Left(e.toString());
     }
   }
@@ -152,7 +152,7 @@ class AuthRepositoryImpl implements AuthRepository {
         error: e,
       );
       return Left(_handleError(e, 'Reset failed'));
-    } catch (e) {
+    } on Object catch (e) {
       return Left(e.toString());
     }
   }
@@ -230,7 +230,7 @@ class AuthRepositoryImpl implements AuthRepository {
         error: e,
       );
       return Left(_handleError(e, 'Failed to resend verification email'));
-    } catch (e) {
+    } on Object catch (e) {
       return Left(e.toString());
     }
   }
@@ -245,7 +245,7 @@ class AuthRepositoryImpl implements AuthRepository {
     } on DioException catch (e) {
       AuthLogger.logAuthError('Email verification failed', error: e);
       return Left(_handleError(e, 'Verification failed'));
-    } catch (e) {
+    } on Object catch (e) {
       return Left(e.toString());
     }
   }
@@ -262,7 +262,7 @@ class AuthRepositoryImpl implements AuthRepository {
     if (userJson == null) return null;
     try {
       return User.fromJson(userJson);
-    } catch (e) {
+    } on Object catch (e) {
       AuthLogger.error('Failed to parse cached user', e);
       return null;
     }
@@ -312,7 +312,7 @@ class AuthRepositoryImpl implements AuthRepository {
       }
 
       return isExpired;
-    } catch (e) {
+    } on Object catch (e) {
       // If decode fails for any reason, let server validate the token
       AuthLogger.debug('Could not decode token for expiry check: $e');
       return false;

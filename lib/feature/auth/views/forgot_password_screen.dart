@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -50,15 +51,14 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             if (!ModalRoute.of(context)!.isCurrent) return;
 
             if (state.status == ResetPasswordStatus.emailSent) {
-              context
-                ..showInfoSnackbar(
-                  state.successMessage ?? l10n.passwordResetConfirmation,
-                )
-                ..pushNamed(
-                  AppRoutes.resetPasswordVerification,
-                  pathParameters: {'token': state.token ?? ''},
-                  queryParameters: {'email': _emailController.text},
-                );
+              context.showInfoSnackbar(
+                state.successMessage ?? l10n.passwordResetConfirmation,
+              );
+              unawaited(context.pushNamed(
+                AppRoutes.resetPasswordVerification,
+                pathParameters: {'token': state.token ?? ''},
+                queryParameters: {'email': _emailController.text},
+              ));
             } else if (state.status == ResetPasswordStatus.failure) {
               context.showErrorSnackbar(state.errorMessage ?? l10n.error);
             }
@@ -116,10 +116,10 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   builder: (context, status) {
                     final isLoading = status == ResetPasswordStatus.loading;
                     return AppElevatedButton(
-                      onPressed: () {
+                      onPressed: () async {
                         if (_appFormKey.currentState?.validateAndScroll() ??
                             false) {
-                          context.read<ResetPasswordCubit>().forgotPassword(
+                          await context.read<ResetPasswordCubit>().forgotPassword(
                             _emailController.text,
                           );
                         }

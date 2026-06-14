@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:propix8/core/di/locator.dart';
@@ -22,8 +24,11 @@ class DeveloperUnitsView extends StatefulWidget {
 class _DeveloperUnitsViewState extends State<DeveloperUnitsView> {
   @override
   Widget build(BuildContext context) => BlocProvider(
-    create: (context) =>
-        locator<DeveloperUnitsCubit>()..loadDeveloperUnits(widget.developerId),
+    create: (context) {
+      final cubit = locator<DeveloperUnitsCubit>();
+      unawaited(cubit.loadDeveloperUnits(widget.developerId));
+      return cubit;
+    },
     child: _DeveloperUnitsContent(developerId: widget.developerId),
   );
 }
@@ -54,7 +59,7 @@ class _DeveloperUnitsContentState extends State<_DeveloperUnitsContent> {
 
   void _onScroll() {
     if (_isBottom) {
-      context.read<DeveloperUnitsCubit>().loadMoreUnits(widget.developerId);
+      unawaited(context.read<DeveloperUnitsCubit>().loadMoreUnits(widget.developerId));
     }
   }
 

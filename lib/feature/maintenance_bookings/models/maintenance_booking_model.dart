@@ -16,15 +16,15 @@ class MaintenanceBookingModel extends Equatable {
 
   factory MaintenanceBookingModel.fromJson(Map<String, dynamic> json) =>
       MaintenanceBookingModel(
-        id: json['id'] ?? 0,
+        id: (json['id'] as int?) ?? 0,
         service: json['service'] != null
-            ? MaintenanceServiceModel.fromJson(json['service'])
+            ? MaintenanceServiceModel.fromJson(json['service'] as Map<String, dynamic>)
             : null,
-        phone: json['phone'] ?? '',
-        address: json['address'] ?? '',
-        message: json['message'] ?? '',
-        status: json['status'] ?? '',
-        createdAt: json['created_at'] ?? '',
+        phone: (json['phone'] as String?) ?? '',
+        address: (json['address'] as String?) ?? '',
+        message: (json['message'] as String?) ?? '',
+        status: (json['status'] as String?) ?? '',
+        createdAt: (json['created_at'] as String?) ?? '',
       );
 
   final int id;
@@ -75,13 +75,13 @@ class MaintenanceBookingsListResponse extends Equatable {
 
   factory MaintenanceBookingsListResponse.fromJson(Map<String, dynamic> json) =>
       MaintenanceBookingsListResponse(
-        status: json['status'] ?? false,
-        message: json['message'] ?? '',
-        data: (json['data'] as List? ?? [])
-            .map((e) => MaintenanceBookingModel.fromJson(e))
+        status: (json['status'] as bool?) ?? false,
+        message: (json['message'] as String?) ?? '',
+        data: ((json['data'] as List?) ?? [])
+            .map((e) => MaintenanceBookingModel.fromJson(e as Map<String, dynamic>))
             .toList(),
         pagination: json['pagination'] != null
-            ? PaginationModel.fromJson(json['pagination'])
+            ? PaginationModel.fromJson(json['pagination'] as Map<String, dynamic>)
             : null,
       );
 

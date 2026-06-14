@@ -11,10 +11,10 @@ class PaginationModel extends Equatable {
   factory PaginationModel.fromJson(Map<String, dynamic>? json) {
     if (json == null) return PaginationModel.empty();
     return PaginationModel(
-      currentPage: json['current_page'] ?? 1,
-      perPage: json['per_page'] ?? 10,
-      total: json['total'] ?? 0,
-      lastPage: json['last_page'] ?? 1,
+      currentPage: (json['current_page'] as int?) ?? 1,
+      perPage: (json['per_page'] as int?) ?? 10,
+      total: (json['total'] as int?) ?? 0,
+      lastPage: (json['last_page'] as int?) ?? 1,
     );
   }
 

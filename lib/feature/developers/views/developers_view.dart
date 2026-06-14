@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -18,7 +20,11 @@ class DevelopersView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BlocProvider(
-    create: (context) => locator<DevelopersCubit>()..fetchDevelopers(),
+    create: (context) {
+      final cubit = locator<DevelopersCubit>();
+      unawaited(cubit.fetchDevelopers());
+      return cubit;
+    },
     child: const _DevelopersViewContent(),
   );
 }
@@ -33,7 +39,7 @@ class _DevelopersViewContent extends StatelessWidget {
       child: InternetStateManager(
         noInternetScreen: const NoInternetScreen(),
         onRestoreInternetConnection: () {
-          context.read<DevelopersCubit>().fetchDevelopers();
+          unawaited(context.read<DevelopersCubit>().fetchDevelopers());
         },
         child: CustomScrollView(
           slivers: [
@@ -84,12 +90,12 @@ class _DevelopersViewContent extends StatelessWidget {
                             onTap: developers.isEmpty
                                 ? null
                                 : () {
-                                    context.pushNamed(
+                                    unawaited(context.pushNamed(
                                       AppRoutes.developerUnits,
                                       pathParameters: {
                                         'id': developer.id.toString(),
                                       },
-                                    );
+                                    ));
                                   },
                           );
                         },

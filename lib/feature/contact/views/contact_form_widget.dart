@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -147,7 +149,7 @@ class _ContactFormWidgetState extends State<ContactFormWidget> {
                         address: _addressController.text,
                         message: _messageController.text,
                       );
-                      context.read<ContactCubit>().sendContactRequest(request);
+                      unawaited(context.read<ContactCubit>().sendContactRequest(request));
                     }
                   },
                   isLoading: state.status == ContactStatus.loading,

@@ -17,7 +17,7 @@ class RangeSliderWithInput extends StatefulWidget {
   final double max;
   final double currentMin;
   final double currentMax;
-  final Function(double, double) onChanged;
+  final void Function(double, double) onChanged;
 
   @override
   State<RangeSliderWithInput> createState() => _RangeSliderWithInputState();
@@ -119,7 +119,7 @@ class _RangeSliderWithInputState extends State<RangeSliderWithInput> {
 
   Widget _buildInputField({
     required TextEditingController controller,
-    required Function(String) onChanged,
+    required void Function(String) onChanged,
   }) => TextField(
     controller: controller,
     keyboardType: TextInputType.number,

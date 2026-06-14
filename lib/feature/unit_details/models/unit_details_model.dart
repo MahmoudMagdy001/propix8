@@ -36,7 +36,7 @@ class UnitDetailsModel extends Equatable {
 
   factory UnitDetailsModel.fromJson(Map<String, dynamic>? json) {
     if (json == null) return UnitDetailsModel.dummy;
-    double parseDouble(value) {
+    double parseDouble(dynamic value) {
       if (value == null) return 0.0;
       if (value is num) return value.toDouble();
       if (value is String) return double.tryParse(value) ?? 0.0;
@@ -44,48 +44,48 @@ class UnitDetailsModel extends Equatable {
     }
 
     return UnitDetailsModel(
-      id: json['id'],
-      title: json['title'],
-      description: json['description'],
-      address: json['address'],
+      id: (json['id'] as int?) ?? 0,
+      title: (json['title'] as String?) ?? '',
+      description: (json['description'] as String?) ?? '',
+      address: (json['address'] as String?) ?? '',
       price: parseDouble(json['price']),
       pricePerM2: parseDouble(json['price_per_m2']),
-      offerType: json['offer_type'],
+      offerType: (json['offer_type'] as String?) ?? '',
       area: parseDouble(json['area']),
       landArea: parseDouble(json['land_area']),
       internalArea: parseDouble(json['internal_area']),
-      rooms: json['rooms'],
-      bathrooms: json['bathrooms'],
-      garages: json['garages'],
-      buildYear: json['build_year'],
-      latitude: json['latitude'],
-      longitude: json['longitude'],
-      status: json['status'],
-      isFavourite: json['is_favourite'],
-      isVisible: json['is_visible'],
-      developmentStatus: json['development_status'],
-      owner: OwnerModel.fromJson(json['owner']),
+      rooms: (json['rooms'] as int?) ?? 0,
+      bathrooms: (json['bathrooms'] as int?) ?? 0,
+      garages: (json['garages'] as int?) ?? 0,
+      buildYear: (json['build_year'] as String?) ?? '',
+      latitude: (json['latitude'] as String?) ?? '',
+      longitude: (json['longitude'] as String?) ?? '',
+      status: (json['status'] as String?) ?? '',
+      isFavourite: (json['is_favourite'] as bool?) ?? false,
+      isVisible: (json['is_visible'] as bool?) ?? true,
+      developmentStatus: (json['development_status'] as String?) ?? '',
+      owner: OwnerModel.fromJson(json['owner'] as Map<String, dynamic>?),
       media:
           (json['media'] as List?)
-              ?.map((m) => MediaModel.fromJson(m))
+              ?.map((m) => MediaModel.fromJson(m as Map<String, dynamic>?))
               .toList() ??
           [],
-      city: CityModel.fromJson(json['city']),
-      unitType: UnitTypeModel.fromJson(json['unit_type']),
+      city: CityModel.fromJson(json['city'] as Map<String, dynamic>?),
+      unitType: UnitTypeModel.fromJson(json['unit_type'] as Map<String, dynamic>?),
       compound: json['compound'] != null
-          ? CompoundModel.fromJson(json['compound'])
+          ? CompoundModel.fromJson(json['compound'] as Map<String, dynamic>?)
           : null,
       developer: json['developer'] != null
-          ? DeveloperModel.fromJson(json['developer'])
+          ? DeveloperModel.fromJson(json['developer'] as Map<String, dynamic>?)
           : null,
       amenities:
           (json['amenities'] as List?)
-              ?.map((a) => AmenityModel.fromJson(a))
+              ?.map((a) => AmenityModel.fromJson(a as Map<String, dynamic>?))
               .toList() ??
           [],
       averageRating: parseDouble(json['average_rating']),
-      reviewsCount: json['reviews_count'] ?? 0,
-      createdAt: DateTime.tryParse(json['created_at'] ?? '') ?? DateTime.now(),
+      reviewsCount: (json['reviews_count'] as int?) ?? 0,
+      createdAt: DateTime.tryParse((json['created_at'] as String?) ?? '') ?? DateTime.now(),
     );
   }
   final int id;
@@ -257,15 +257,15 @@ class OwnerModel extends Equatable {
       );
     }
     return OwnerModel(
-      id: json['id'],
-      name: json['name'],
-      email: json['email'],
-      phone: json['phone'] ?? '',
-      address: json['address'] ?? '',
-      avatar: json['avatar'] ?? '',
-      city: json['city'] != null ? CityModel.fromJson(json['city']) : null,
-      status: json['status'] ?? '',
-      role: json['role'] ?? '',
+      id: (json['id'] as int?) ?? 0,
+      name: (json['name'] as String?) ?? '',
+      email: (json['email'] as String?) ?? '',
+      phone: (json['phone'] as String?) ?? '',
+      address: (json['address'] as String?) ?? '',
+      avatar: (json['avatar'] as String?) ?? '',
+      city: json['city'] != null ? CityModel.fromJson(json['city'] as Map<String, dynamic>?) : null,
+      status: (json['status'] as String?) ?? '',
+      role: (json['role'] as String?) ?? '',
     );
   }
   final int id;
@@ -312,11 +312,11 @@ class MediaModel extends Equatable {
       );
     }
     return MediaModel(
-      id: json['id'] ?? -1,
-      filePath: json['file_path'] ?? '',
-      hlsPath: json['hls_path'] ?? '',
-      processingStatus: json['processing_status'] ?? '',
-      type: json['type'] ?? '',
+      id: (json['id'] as int?) ?? -1,
+      filePath: (json['file_path'] as String?) ?? '',
+      hlsPath: (json['hls_path'] as String?) ?? '',
+      processingStatus: (json['processing_status'] as String?) ?? '',
+      type: (json['type'] as String?) ?? '',
     );
   }
   final int id;
@@ -336,7 +336,10 @@ class CityModel extends Equatable {
     if (json == null) {
       return const CityModel(id: -1, name: 'Unknown');
     }
-    return CityModel(id: json['id'] ?? -1, name: json['name'] ?? 'Unknown');
+    return CityModel(
+      id: (json['id'] as int?) ?? -1,
+      name: (json['name'] as String?) ?? 'Unknown',
+    );
   }
   final int id;
   final String name;
@@ -357,9 +360,9 @@ class UnitTypeModel extends Equatable {
       return const UnitTypeModel(id: -1, name: 'Unknown', icon: '');
     }
     return UnitTypeModel(
-      id: json['id'] ?? -1,
-      name: json['name'] ?? 'Unknown',
-      icon: json['icon'] ?? '',
+      id: (json['id'] as int?) ?? -1,
+      name: (json['name'] as String?) ?? 'Unknown',
+      icon: (json['icon'] as String?) ?? '',
     );
   }
   final int id;
@@ -382,9 +385,9 @@ class CompoundModel extends Equatable {
       return const CompoundModel(id: -1, name: '', description: '');
     }
     return CompoundModel(
-      id: json['id'] ?? -1,
-      name: json['name'] ?? '',
-      description: json['description'] ?? '',
+      id: (json['id'] as int?) ?? -1,
+      name: (json['name'] as String?) ?? '',
+      description: (json['description'] as String?) ?? '',
     );
   }
   final int id;
@@ -417,12 +420,12 @@ class DeveloperModel extends Equatable {
       );
     }
     return DeveloperModel(
-      id: json['id'] ?? -1,
-      name: json['name'] ?? '',
-      logo: json['logo'] ?? '',
-      email: json['email'] ?? '',
-      phone: json['phone'] ?? '',
-      address: json['address'] ?? '',
+      id: (json['id'] as int?) ?? -1,
+      name: (json['name'] as String?) ?? '',
+      logo: (json['logo'] as String?) ?? '',
+      email: (json['email'] as String?) ?? '',
+      phone: (json['phone'] as String?) ?? '',
+      address: (json['address'] as String?) ?? '',
     );
   }
   final int id;
@@ -448,9 +451,9 @@ class AmenityModel extends Equatable {
       return const AmenityModel(id: -1, name: '', icon: '');
     }
     return AmenityModel(
-      id: json['id'] ?? -1,
-      name: json['name'] ?? '',
-      icon: json['icon'] ?? '',
+      id: (json['id'] as int?) ?? -1,
+      name: (json['name'] as String?) ?? '',
+      icon: (json['icon'] as String?) ?? '',
     );
   }
   final int id;

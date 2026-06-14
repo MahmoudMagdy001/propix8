@@ -126,10 +126,10 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   builder: (context, status) {
                     final isLoading = status == ResetPasswordStatus.loading;
                     return AppElevatedButton(
-                      onPressed: () {
+                      onPressed: () async {
                         if (_appFormKey.currentState?.validateAndScroll() ??
                             false) {
-                          context.read<ResetPasswordCubit>().resetPassword(
+                          await context.read<ResetPasswordCubit>().resetPassword(
                             ResetPasswordRequest(
                               token: _tokenController.text,
                               email: widget.email,

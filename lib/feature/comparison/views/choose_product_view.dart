@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -52,7 +54,7 @@ class _ChooseProductViewState extends State<ChooseProductView>
 
   @override
   void onPageFetched() {
-    _cubit.loadMoreUnits(excludeId: widget.baseUnitId);
+    unawaited(_cubit.loadMoreUnits(excludeId: widget.baseUnitId));
   }
 
   void _onScrollFabVisibility() {
@@ -63,7 +65,7 @@ class _ChooseProductViewState extends State<ChooseProductView>
   }
 
   void _loadUnits({bool isRefresh = false}) {
-    _cubit.loadUnits(excludeId: widget.baseUnitId, isRefresh: isRefresh);
+    unawaited(_cubit.loadUnits(excludeId: widget.baseUnitId, isRefresh: isRefresh));
   }
 
   @override
@@ -256,8 +258,8 @@ class _ChooseProductViewState extends State<ChooseProductView>
     );
   }
 
-  void _onUnitSelected(UnitModel unit) {
-    context.pushNamed(
+  Future<void> _onUnitSelected(UnitModel unit) async {
+    await context.pushNamed(
       AppRoutes.comparison,
       pathParameters: {
         'baseId': widget.baseUnitId.toString(),

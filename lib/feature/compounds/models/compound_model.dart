@@ -9,8 +9,8 @@ class CompoundResponse {
 
   factory CompoundResponse.fromJson(Map<String, dynamic> json) =>
       CompoundResponse(
-        status: json['status'] ?? false,
-        message: json['message'] ?? '',
+        status: (json['status'] as bool?) ?? false,
+        message: (json['message'] as String?) ?? '',
         data:
             (json['data'] as List?)
                 ?.map((e) => CompoundModel.fromJson(e as Map<String, dynamic>))
@@ -30,9 +30,9 @@ class CompoundModel extends Equatable {
   });
 
   factory CompoundModel.fromJson(Map<String, dynamic> json) => CompoundModel(
-    id: json['id'] ?? 0,
-    name: json['name'] ?? '',
-    description: json['description'] ?? '',
+    id: (json['id'] as int?) ?? 0,
+    name: (json['name'] as String?) ?? '',
+    description: (json['description'] as String?) ?? '',
   );
   final int id;
   final String name;

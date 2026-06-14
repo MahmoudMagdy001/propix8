@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -24,7 +25,7 @@ class EditAccountView extends StatelessWidget {
           if (state.status == UserProfileStatus.accountDeleted) {
             context.showSuccessSnackbar(context.l10n.accountDeletedSuccess);
             // Clear tokens locally and force clean redirect to login
-            locator<AuthCubit>().clearLocalSession();
+            unawaited(locator<AuthCubit>().clearLocalSession());
             context.go(AppRoutes.loginPath);
           } else if (state.status == UserProfileStatus.failure) {
             context.showErrorSnackbar(
@@ -71,12 +72,13 @@ class EditAccountView extends StatelessWidget {
 
   void _showDeleteAccountConfirmation(BuildContext context) {
     final cubit = context.read<UserProfileCubit>();
-    showAppModalSheet(
-      context: context,
-      title: context.l10n.deleteAccount,
-      isScrollable: false,
-      child: BlocProvider.value(
-        value: cubit,
+    unawaited(
+      showAppModalSheet<void>(
+        context: context,
+        title: context.l10n.deleteAccount,
+        isScrollable: false,
+        child: BlocProvider.value(
+          value: cubit,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Column(
@@ -124,7 +126,7 @@ class EditAccountView extends StatelessWidget {
                       AppElevatedButton(
                         onPressed: () {
                           context.pop(); // Close modal
-                          context.read<UserProfileCubit>().deleteProfile();
+                          unawaited(context.read<UserProfileCubit>().deleteProfile());
                         },
                         isLoading: isLoading,
                         backgroundColor: context.colorScheme.error,
@@ -155,7 +157,7 @@ class EditAccountView extends StatelessWidget {
           ),
         ),
       ),
-    );
+    ));
   }
 
   Widget _buildOptionItem(

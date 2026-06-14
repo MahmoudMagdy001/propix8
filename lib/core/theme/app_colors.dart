@@ -54,10 +54,10 @@ abstract class AppColors {
   static const Color shadow = Color(0xFF000000);
   static const Color divider = Color(0xFF44474E);
 
-  static Color primaryText(bool isDark) =>
+  static Color primaryText({required bool isDark}) =>
       isDark ? onBackgroundDark : onBackgroundLight;
-  static Color secondaryText(bool isDark) =>
+  static Color secondaryText({required bool isDark}) =>
       isDark ? onSurfaceVariantDark : onSurfaceVariantLight;
-  static Color disabledText(bool isDark) =>
+  static Color disabledText({required bool isDark}) =>
       isDark ? onSurfaceDark.withAlpha(97) : onSurfaceLight.withAlpha(97);
 }

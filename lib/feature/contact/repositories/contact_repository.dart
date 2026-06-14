@@ -21,7 +21,7 @@ class ContactRepositoryImpl implements ContactRepository {
       return const Right(null);
     } on DioException catch (e) {
       return Left(_handleError(e));
-    } catch (e) {
+    } on Object catch (e) {
       return Left(e.toString());
     }
   }

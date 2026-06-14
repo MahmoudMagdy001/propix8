@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:propix8/core/utils/responsive_helper.dart';
@@ -20,11 +21,13 @@ class AppImageViewer extends StatefulWidget {
     List<String> images, {
     int initialIndex = 0,
   }) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        fullscreenDialog: true,
-        builder: (context) =>
-            AppImageViewer(images: images, initialIndex: initialIndex),
+    unawaited(
+      Navigator.of(context).push<void>(
+        MaterialPageRoute<void>(
+          fullscreenDialog: true,
+          builder: (context) =>
+              AppImageViewer(images: images, initialIndex: initialIndex),
+        ),
       ),
     );
   }

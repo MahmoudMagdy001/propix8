@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -42,7 +44,7 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
         'password_confirmation': _confirmPasswordController.text,
       };
 
-      context.read<UserProfileCubit>().updateProfile(data);
+      unawaited(context.read<UserProfileCubit>().updateProfile(data));
     }
   }
 

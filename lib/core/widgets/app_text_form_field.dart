@@ -35,8 +35,8 @@ class AppTextFormField extends StatefulWidget {
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final FocusNode? focusNode;
-  final Function(String)? onFieldSubmitted;
-  final Function(String)? onChanged;
+  final void Function(String)? onFieldSubmitted;
+  final void Function(String)? onChanged;
   final int? maxLines;
   final bool enabled;
   final bool readOnly;
@@ -50,7 +50,7 @@ class AppTextFormField extends StatefulWidget {
 
 class _AppTextFormFieldState extends State<AppTextFormField> {
   bool _obscureText = true;
-  final _fieldKey = GlobalKey<FormFieldState>();
+  final _fieldKey = GlobalKey<FormFieldState<String>>();
   AppFormState? _formState;
 
   @override
@@ -63,7 +63,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
         _formState = newState;
         _formState?.registerField(_fieldKey);
       }
-    } catch (_) {
+    } on Object catch (_) {
       // Not inside an AppForm
       _formState?.unregisterField(_fieldKey);
       _formState = null;

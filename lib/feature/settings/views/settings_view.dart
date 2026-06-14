@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -102,7 +104,7 @@ class SettingsView extends StatelessWidget {
         child: RadioGroup<ThemeMode>(
           groupValue: currentMode,
           onChanged: (val) {
-            context.read<SettingsCubit>().updateTheme(val!);
+            unawaited(context.read<SettingsCubit>().updateTheme(val!));
             context.pop();
           },
           child: Column(

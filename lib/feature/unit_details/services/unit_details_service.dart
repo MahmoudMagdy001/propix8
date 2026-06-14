@@ -6,12 +6,12 @@ class UnitDetailsService {
 
   Future<Map<String, dynamic>> getUnitDetails(int unitId) async {
     final response = await _dioClient.get('units/$unitId');
-    return response.data;
+    return response.data as Map<String, dynamic>;
   }
 
   Future<Map<String, dynamic>> getRelatedUnits(int unitId) async {
     final response = await _dioClient.get('units/$unitId/related');
-    return response.data;
+    return response.data as Map<String, dynamic>;
   }
 
   Future<Map<String, dynamic>> submitReview({
@@ -23,7 +23,7 @@ class UnitDetailsService {
       'reviews',
       data: {'unit_id': unitId, 'rating': rating, 'comment': comment},
     );
-    return response.data;
+    return response.data as Map<String, dynamic>;
   }
 
   Future<Map<String, dynamic>> getReviews(int unitId, {int page = 1}) async {
@@ -31,7 +31,7 @@ class UnitDetailsService {
       'units/$unitId/reviews',
       queryParameters: {'page': page},
     );
-    return response.data;
+    return response.data as Map<String, dynamic>;
   }
 
   Future<void> deleteReview(int reviewId) async {
@@ -47,7 +47,7 @@ class UnitDetailsService {
       'reviews/$reviewId',
       data: {'rating': rating, 'comment': comment, '_method': 'PUT'},
     );
-    return response.data;
+    return response.data as Map<String, dynamic>;
   }
 
   Future<void> contactOwner({
@@ -71,6 +71,6 @@ class UnitDetailsService {
 
   Future<Map<String, dynamic>> createBooking(Map<String, dynamic> data) async {
     final response = await _dioClient.post('bookings', data: data);
-    return response.data;
+    return response.data as Map<String, dynamic>;
   }
 }

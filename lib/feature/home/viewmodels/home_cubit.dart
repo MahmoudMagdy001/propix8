@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:propix8/feature/home/repositories/unit_repository.dart';
 import 'package:propix8/feature/home/viewmodels/home_state.dart';
@@ -28,7 +30,7 @@ class HomeCubit extends Cubit<HomeState> {
           banners: banners,
         ),
       );
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           bannerStatus: HomeRequestStatus.failure,
@@ -51,7 +53,7 @@ class HomeCubit extends Cubit<HomeState> {
           categories: categories,
         ),
       );
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           categoryStatus: HomeRequestStatus.failure,
@@ -74,7 +76,7 @@ class HomeCubit extends Cubit<HomeState> {
           nearbyUnits: response.units,
         ),
       );
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           nearbyStatus: HomeRequestStatus.failure,
@@ -97,7 +99,7 @@ class HomeCubit extends Cubit<HomeState> {
           latestUnits: units,
         ),
       );
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           latestStatus: HomeRequestStatus.failure,
@@ -158,7 +160,7 @@ class HomeCubit extends Cubit<HomeState> {
           lastPage: response.pagination?.lastPage ?? 1,
         ),
       );
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           allStatus: HomeRequestStatus.failure,
@@ -221,7 +223,7 @@ class HomeCubit extends Cubit<HomeState> {
           lastPage: response.pagination?.lastPage ?? state.lastPage,
         ),
       );
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           loadMoreStatus: HomeRequestStatus.failure,
@@ -239,7 +241,7 @@ class HomeCubit extends Cubit<HomeState> {
     } else {
       emit(state.copyWith(activeTab: tab));
     }
-    fetchAllUnits();
+    unawaited(fetchAllUnits());
   }
 
   void changeCategory(int? unitTypeId) {
@@ -250,17 +252,17 @@ class HomeCubit extends Cubit<HomeState> {
     } else {
       emit(state.copyWith(selectedUnitTypeId: unitTypeId));
     }
-    fetchAllUnits();
+    unawaited(fetchAllUnits());
   }
 
   void applyFilters(FilterState filters) {
     emit(state.copyWith(filterState: filters));
-    fetchAllUnits();
+    unawaited(fetchAllUnits());
   }
 
   void resetFilters() {
     emit(state.copyWith(clearFilter: true));
-    fetchAllUnits();
+    unawaited(fetchAllUnits());
   }
 
   void setNetworkFailure() {

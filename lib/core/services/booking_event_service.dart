@@ -10,6 +10,6 @@ class BookingEventService {
   }
 
   void dispose() {
-    _bookingChangedController.close();
+    unawaited(_bookingChangedController.close());
   }
 }

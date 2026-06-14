@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
@@ -50,15 +52,15 @@ class HomeViewContentState extends State<HomeViewContent>
   void initState() {
     super.initState();
     // Declarative initialization through mixins
-    checkInitialConnectivity();
+    unawaited(checkInitialConnectivity());
     startConnectivityListener();
   }
 
   @override
-  void onConnectivityChanged(bool isConnected) {
+  void onConnectivityChanged({required bool isConnected}) {
     if (mounted) {
       if (isConnected) {
-        context.read<HomeCubit>().fetchAllData();
+        unawaited(context.read<HomeCubit>().fetchAllData());
       } else {
         context.read<HomeCubit>().setNetworkFailure();
       }
@@ -67,14 +69,14 @@ class HomeViewContentState extends State<HomeViewContent>
 
   @override
   void onPageFetched() {
-    context.read<HomeCubit>().loadMoreUnits();
+    unawaited(context.read<HomeCubit>().loadMoreUnits());
   }
 
   void scrollToTopOrRefresh() {
     if (scrollController.hasClients && scrollController.offset > 0) {
       scrollToTop();
     } else {
-      _refreshIndicatorKey.currentState?.show();
+      unawaited(_refreshIndicatorKey.currentState?.show());
     }
   }
 

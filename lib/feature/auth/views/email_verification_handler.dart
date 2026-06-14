@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -49,7 +51,7 @@ class _EmailVerificationHandlerState extends State<EmailVerificationHandler> {
         .join('&');
     final fullUrl = '$baseUrl/${widget.id}/${widget.hash}?$queryString';
 
-    context.read<AuthCubit>().verifyEmail(fullUrl);
+    unawaited(context.read<AuthCubit>().verifyEmail(fullUrl));
   }
 
   @override

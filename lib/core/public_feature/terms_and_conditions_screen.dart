@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
@@ -13,7 +15,11 @@ class TermsAndConditionsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BlocProvider(
-    create: (context) => locator<PagesCubit>()..loadPages(),
+    create: (context) {
+      final cubit = locator<PagesCubit>();
+      unawaited(cubit.loadPages());
+      return cubit;
+    },
     child: const _TermsContent(),
   );
 }

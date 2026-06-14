@@ -27,7 +27,7 @@ class BookingCubit extends Cubit<BookingState> {
           lastPage: response.pagination?.lastPage ?? 1,
         ),
       );
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           status: RequestStatus.failure,
@@ -57,7 +57,7 @@ class BookingCubit extends Cubit<BookingState> {
           lastPage: response.pagination?.lastPage ?? state.lastPage,
         ),
       );
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           status: RequestStatus.failure,
@@ -93,7 +93,7 @@ class BookingCubit extends Cubit<BookingState> {
         }).toList();
         emit(state.copyWith(bookings: updatedBookings));
       }
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           status: RequestStatus.failure,
@@ -120,7 +120,7 @@ class BookingCubit extends Cubit<BookingState> {
         }).toList();
         emit(state.copyWith(bookings: updatedBookings));
       }
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           status: RequestStatus.failure,
@@ -158,7 +158,7 @@ class BookingCubit extends Cubit<BookingState> {
         }).toList();
         emit(state.copyWith(bookings: updatedBookings));
       }
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           status: RequestStatus.failure,
@@ -179,7 +179,7 @@ class BookingCubit extends Cubit<BookingState> {
             .toList();
         emit(state.copyWith(bookings: updatedBookings));
       }
-    } catch (e) {
+    } on Object catch (e) {
       emit(
         state.copyWith(
           status: RequestStatus.failure,

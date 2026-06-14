@@ -9,7 +9,8 @@ class MaintenanceServiceSource {
   Future<MaintenanceServicesResponse> getMaintenanceServices() async {
     try {
       final response = await _dioClient.get('maintenance-services');
-      return MaintenanceServicesResponse.fromJson(response.data);
+      return MaintenanceServicesResponse.fromJson(
+          response.data as Map<String, dynamic>);
     } catch (e) {
       rethrow;
     }
@@ -31,7 +32,8 @@ class MaintenanceServiceSource {
           'message': message,
         },
       );
-      return MaintenanceBookingResponse.fromJson(response.data);
+      return MaintenanceBookingResponse.fromJson(
+          response.data as Map<String, dynamic>);
     } catch (e) {
       rethrow;
     }
