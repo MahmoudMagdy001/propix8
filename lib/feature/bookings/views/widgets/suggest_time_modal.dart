@@ -19,10 +19,14 @@ class _SuggestTimeModalState extends State<SuggestTimeModal> {
   DateTime? _selectedDate;
   TimeOfDay? _selectedTime;
   final _messageController = TextEditingController();
+  late final _dateController = TextEditingController();
+  late final _timeController = TextEditingController();
 
   @override
   void dispose() {
     _messageController.dispose();
+    _dateController.dispose();
+    _timeController.dispose();
     super.dispose();
   }
 
@@ -35,7 +39,10 @@ class _SuggestTimeModalState extends State<SuggestTimeModal> {
     );
 
     if (picked != null) {
-      setState(() => _selectedDate = picked);
+      setState(() {
+        _selectedDate = picked;
+        _dateController.text = DateFormat('yyyy/MM/dd').format(picked);
+      });
     }
   }
 
@@ -46,7 +53,10 @@ class _SuggestTimeModalState extends State<SuggestTimeModal> {
     );
 
     if (picked != null) {
-      setState(() => _selectedTime = picked);
+      setState(() {
+        _selectedTime = picked;
+        _timeController.text = picked.format(context);
+      });
     }
   }
 
@@ -78,11 +88,7 @@ class _SuggestTimeModalState extends State<SuggestTimeModal> {
         AppTextFormField(
           label: context.l10n.date,
           prefixIcon: Icon(Icons.calendar_today_outlined, size: 20.w),
-          controller: TextEditingController(
-            text: _selectedDate != null
-                ? DateFormat('yyyy/MM/dd').format(_selectedDate!)
-                : '',
-          ),
+          controller: _dateController,
           hint: context.l10n.selectDate,
           readOnly: true,
           onTap: _selectDate,
@@ -97,9 +103,7 @@ class _SuggestTimeModalState extends State<SuggestTimeModal> {
         AppTextFormField(
           label: context.l10n.time,
           prefixIcon: Icon(Icons.access_time_rounded, size: 20.w),
-          controller: TextEditingController(
-            text: _selectedTime != null ? _selectedTime!.format(context) : '',
-          ),
+          controller: _timeController,
           hint: context.l10n.selectTime,
           readOnly: true,
           onTap: _selectTime,

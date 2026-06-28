@@ -175,14 +175,16 @@ class _ComparisonViewState extends State<ComparisonView> {
                     selectedUnit: selectedUnit,
                   ),
                   Expanded(
-                    child: ListView.builder(
+                    child: SingleChildScrollView(
                       physics: const BouncingScrollPhysics(),
                       padding: EdgeInsets.only(bottom: 24.h),
-                      itemCount: state.comparisonItems.length,
-                      itemBuilder: (context, index) =>
-                          TweenAnimationBuilder<double>(
+                      child: Column(
+                        children: List.generate(
+                          state.comparisonItems.length,
+                          (index) => TweenAnimationBuilder<double>(
                             duration: Duration(
-                              milliseconds: 300 + (index * 50),
+                              // ponytail: Clamp the stagger delay so it doesn't become extremely slow
+                              milliseconds: 300 + (index * 50).clamp(0, 400),
                             ),
                             tween: Tween(begin: 0.0, end: 1.0),
                             builder: (context, value, child) => Opacity(
@@ -197,6 +199,8 @@ class _ComparisonViewState extends State<ComparisonView> {
                               isEven: index.isEven,
                             ),
                           ),
+                        ),
+                      ),
                     ),
                   ),
                 ],

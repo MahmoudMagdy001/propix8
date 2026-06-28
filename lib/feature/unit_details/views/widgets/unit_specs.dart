@@ -139,19 +139,35 @@ class UnitSpecs extends StatelessWidget {
             SizedBox(height: 12.h),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 6.w),
-              child: GridView.builder(
-                padding: EdgeInsets.zero,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4,
-                  crossAxisSpacing: 4.w,
-                  mainAxisSpacing: 4.h,
-                  childAspectRatio: 0.85,
+              child: Column(
+                children: List.generate(
+                  (specs.length / 4).ceil(),
+                  (rowIndex) {
+                    final startIndex = rowIndex * 4;
+                    final endIndex = (startIndex + 4).clamp(0, specs.length);
+                    final rowSpecs = specs.sublist(startIndex, endIndex);
+
+                    return Padding(
+                      padding: EdgeInsets.only(bottom: 4.h),
+                      child: Row(
+                        children: [
+                          for (final spec in rowSpecs)
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 2.w),
+                                child: AspectRatio(
+                                  aspectRatio: 0.85,
+                                  child: _buildSpecItem(context, spec),
+                                ),
+                              ),
+                            ),
+                          for (int i = 0; i < 4 - rowSpecs.length; i++)
+                            const Expanded(child: SizedBox()),
+                        ],
+                      ),
+                    );
+                  },
                 ),
-                itemCount: specs.length,
-                itemBuilder: (context, index) =>
-                    _buildSpecItem(context, specs[index]),
               ),
             ),
           ],

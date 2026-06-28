@@ -40,58 +40,83 @@ class _UnitAmenitiesState extends State<UnitAmenities> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 6.w),
 
-                  child: GridView.builder(
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4,
-                      crossAxisSpacing: 4.w,
-                      mainAxisSpacing: 4.h,
-                      childAspectRatio: 0.8,
+                  child: Column(
+                    children: List.generate(
+                      (itemsToShow.length / 4).ceil(),
+                      (rowIndex) {
+                        final startIndex = rowIndex * 4;
+                        final endIndex =
+                            (startIndex + 4).clamp(0, itemsToShow.length);
+                        final rowItems =
+                            itemsToShow.sublist(startIndex, endIndex);
+
+                        return Padding(
+                          padding: EdgeInsets.only(bottom: 4.h),
+                          child: Row(
+                            children: [
+                              for (final amenity in rowItems)
+                                Expanded(
+                                  child: Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 2.w),
+                                    child: AspectRatio(
+                                      aspectRatio: 0.8,
+                                      child: Container(
+                                        padding: EdgeInsets.all(8.r),
+                                        decoration: BoxDecoration(
+                                          color: context.theme.cardTheme.color,
+                                          borderRadius:
+                                              BorderRadius.circular(12.r),
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: Colors.black
+                                                  .withValues(alpha: 0.03),
+                                              blurRadius: 10,
+                                              offset: const Offset(0, 4),
+                                            ),
+                                          ],
+                                        ),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            CachedNetworkImage(
+                                              imageUrl: amenity.icon,
+                                              height: 30.h,
+                                              width: 30.w,
+                                              memCacheHeight: 30 * 3,
+                                              errorWidget:
+                                                  (context, url, error) =>
+                                                      const Icon(
+                                                Icons.broken_image_outlined,
+                                              ),
+                                            ),
+                                            SizedBox(height: 6.h),
+                                            Text(
+                                              amenity.name,
+                                              style: context
+                                                  .textTheme.bodyMedium
+                                                  ?.copyWith(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 11.sp,
+                                              ),
+                                              textAlign: TextAlign.center,
+                                              maxLines: 2,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              for (int i = 0; i < 4 - rowItems.length; i++)
+                                const Expanded(child: SizedBox()),
+                            ],
+                          ),
+                        );
+                      },
                     ),
-                    itemCount: itemsToShow.length,
-                    itemBuilder: (context, index) {
-                      final amenity = itemsToShow[index];
-                      return Container(
-                        padding: EdgeInsets.all(8.r),
-                        decoration: BoxDecoration(
-                          color: context.theme.cardTheme.color,
-                          borderRadius: BorderRadius.circular(12.r),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withValues(alpha: 0.03),
-                              blurRadius: 10,
-                              offset: const Offset(0, 4),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            CachedNetworkImage(
-                              imageUrl: amenity.icon,
-                              height: 30.h,
-                              width: 30.w,
-                              memCacheHeight: 30 * 3,
-                              errorWidget: (context, url, error) =>
-                                  const Icon(Icons.broken_image_outlined),
-                            ),
-                            SizedBox(height: 6.h),
-                            Text(
-                              amenity.name,
-                              style: context.textTheme.bodyMedium?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 11.sp,
-                              ),
-                              textAlign: TextAlign.center,
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ],
-                        ),
-                      );
-                    },
                   ),
                 ),
                 if (amenities.length > maxItems)
