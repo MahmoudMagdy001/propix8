@@ -1,11 +1,11 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 
 import 'package:propix8/core/utils/enums.dart';
 import 'package:propix8/feature/home/repositories/unit_repository.dart';
 import 'package:propix8/feature/home/viewmodels/home_state.dart' show HomeRequestStatus;
 import 'package:propix8/feature/home/viewmodels/nearby_units_state.dart';
 
-class NearbyUnitsCubit extends Cubit<NearbyUnitsState> {
+class NearbyUnitsCubit extends SafeCubit<NearbyUnitsState> {
   NearbyUnitsCubit(this._unitRepository) : super(const NearbyUnitsState());
 
   final UnitRepository _unitRepository;

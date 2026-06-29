@@ -11,6 +11,11 @@
 -keepattributes Signature
 -keepattributes *Annotation*
 -keepattributes EnclosingMethod
+-keepattributes InnerClasses
+-keepattributes Exceptions
+-keepattributes Deprecated
+-keepattributes SourceFile
+-keepattributes LineNumberTable
 
 # Default flutter proguard rules
 # https://github.com/flutter/flutter/wiki/Obfuscating-Dart-Code
@@ -29,3 +34,30 @@
 -dontwarn com.google.android.play.core.tasks.OnFailureListener
 -dontwarn com.google.android.play.core.tasks.OnSuccessListener
 -dontwarn com.google.android.play.core.tasks.Task
+
+# Dio / OkHttp
+-dontwarn com.squareup.okhttp.**
+-keep class com.squareup.okhttp.** { *; }
+-keep interface com.squareup.okhttp.** { *; }
+-dontwarn okhttp3.**
+-dontwarn okio.**
+-keep class okhttp3.** { *; }
+-keep interface okhttp3.** { *; }
+
+# Flutter Secure Storage
+-keep class com.it_nomads.fluttersecurestorage.** { *; }
+
+# Keep native methods
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+# Keep custom exceptions
+-keep public class * extends java.lang.Exception
+
+# J2ObjC and Checker Framework
+-dontwarn com.google.j2objc.annotations.**
+-dontwarn javax.annotation.**
+-dontwarn org.checkerframework.**
+-dontwarn com.google.errorprone.annotations.**
+

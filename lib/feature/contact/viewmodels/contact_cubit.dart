@@ -1,10 +1,10 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 
 import 'package:propix8/feature/contact/models/contact_request_model.dart';
 import 'package:propix8/feature/contact/repositories/contact_repository.dart';
 import 'package:propix8/feature/contact/viewmodels/contact_state.dart';
 
-class ContactCubit extends Cubit<ContactState> {
+class ContactCubit extends SafeCubit<ContactState> {
   ContactCubit(this._contactRepository) : super(const ContactState());
 
   final ContactRepository _contactRepository;

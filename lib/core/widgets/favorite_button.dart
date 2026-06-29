@@ -50,63 +50,53 @@ class _FavoriteButtonState extends State<FavoriteButton> {
 
   @override
   Widget build(BuildContext context) =>
-      BlocBuilder<FavoriteCubit, FavoriteState>(
-        // Rebuild whenever favorites map changes
-        buildWhen: (previous, current) =>
-            previous.favorites != current.favorites,
-        builder: (context, state) {
-          // Use favorites map as source of truth, fallback to widget.isFavorite
-          final bool currentFavorite;
-          if (state.favorites.containsKey(widget.unit.id)) {
-            currentFavorite = state.favorites[widget.unit.id]!;
-          } else {
-            currentFavorite = widget.isFavorite;
-          }
-          return IconButton(
-            onPressed: () async {
-              // Trigger haptic feedback
-              if (widget.enableHapticFeedback) {
-                unawaited(HapticFeedback.lightImpact());
-              }
+      BlocSelector<FavoriteCubit, FavoriteState, bool>(
+        selector: (state) =>
+            state.favorites[widget.unit.id] ?? widget.isFavorite,
+        builder: (context, currentFavorite) => IconButton(
+          onPressed: () async {
+            // Trigger haptic feedback
+            if (widget.enableHapticFeedback) {
+              unawaited(HapticFeedback.lightImpact());
+            }
 
-              final cubit = context.read<FavoriteCubit>();
-              final isCurrentlyFavorite =
-                  cubit.state.favorites[widget.unit.id] ?? widget.isFavorite;
+            final cubit = context.read<FavoriteCubit>();
+            final isCurrentlyFavorite =
+                cubit.state.favorites[widget.unit.id] ?? widget.isFavorite;
 
-              // Show snackbar immediately (optimistic)
-              if (context.mounted) {
-                context.showSuccessSnackbar(
-                  !isCurrentlyFavorite
-                      ? context.l10n.addedToFavorites
-                      : context.l10n.removedFromFavorites,
-                );
-              }
+            // Show snackbar immediately (optimistic)
+            if (context.mounted) {
+              context.showSuccessSnackbar(
+                !isCurrentlyFavorite
+                    ? context.l10n.addedToFavorites
+                    : context.l10n.removedFromFavorites,
+              );
+            }
 
-              await cubit.toggleFavorite(widget.unit);
+            await cubit.toggleFavorite(widget.unit);
 
-              // If the operation fails, show an error snackbar
-              if (context.mounted &&
-                  cubit.state.status == FavoriteStatus.failure) {
-                context.showErrorSnackbar(context.l10n.failedToUpdateFavorite);
-              }
-            },
-            icon: AnimatedSwitcher(
-              duration: const Duration(milliseconds: 300),
-              transitionBuilder: (child, animation) =>
-                  ScaleTransition(scale: animation, child: child),
-              child: Icon(
-                currentFavorite ? Icons.favorite : Icons.favorite_outline,
-                key: ValueKey<bool>(currentFavorite),
-                color: currentFavorite
-                    ? context.colorScheme.primary
-                    : (widget.color ?? Colors.white),
-                size: widget.size ?? 24.sp,
-              ),
+            // If the operation fails, show an error snackbar
+            if (context.mounted &&
+                cubit.state.status == FavoriteStatus.failure) {
+              context.showErrorSnackbar(context.l10n.failedToUpdateFavorite);
+            }
+          },
+          icon: AnimatedSwitcher(
+            duration: const Duration(milliseconds: 300),
+            transitionBuilder: (child, animation) =>
+                ScaleTransition(scale: animation, child: child),
+            child: Icon(
+              currentFavorite ? Icons.favorite : Icons.favorite_outline,
+              key: ValueKey<bool>(currentFavorite),
+              color: currentFavorite
+                  ? context.colorScheme.primary
+                  : (widget.color ?? Colors.white),
+              size: widget.size ?? 24.sp,
             ),
-            padding: widget.padding ?? EdgeInsets.all(8.w),
-            constraints: const BoxConstraints(),
-            splashRadius: (widget.size ?? 24.sp) * 0.8,
-          );
-        },
+          ),
+          padding: widget.padding ?? EdgeInsets.all(8.w),
+          constraints: const BoxConstraints(),
+          splashRadius: (widget.size ?? 24.sp) * 0.8,
+        ),
       );
 }

@@ -1,11 +1,10 @@
 import 'dart:async';
 
-import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 import 'package:propix8/feature/auth/repositories/address_setup_repository.dart';
 import 'package:propix8/feature/home/views/filter/viewmodels/filter_state.dart';
 
-class FilterCubit extends Cubit<FilterState> {
+class FilterCubit extends SafeCubit<FilterState> {
   FilterCubit(this._addressSetupRepository) : super(const FilterState());
   final AddressSetupRepository _addressSetupRepository;
 

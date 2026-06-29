@@ -1,9 +1,9 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 import 'package:propix8/feature/onboarding/repositories/onboarding_repository.dart';
 import 'package:propix8/feature/onboarding/viewmodels/onboarding_state.dart';
 import 'package:propix8/l10n/app_localizations.dart';
 
-class OnboardingCubit extends Cubit<OnboardingState> {
+class OnboardingCubit extends SafeCubit<OnboardingState> {
   OnboardingCubit(this._repository) : super(const OnboardingState());
   final OnboardingRepository _repository;
 

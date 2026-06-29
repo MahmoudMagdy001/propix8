@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 import 'package:propix8/feature/home/repositories/unit_repository.dart';
 import 'package:propix8/feature/home/viewmodels/home_state.dart';
 import 'package:propix8/feature/home/views/filter/viewmodels/filter_state.dart';
 
-class HomeCubit extends Cubit<HomeState> {
+class HomeCubit extends SafeCubit<HomeState> {
   HomeCubit(this._unitRepository) : super(const HomeState());
   final UnitRepository _unitRepository;
 

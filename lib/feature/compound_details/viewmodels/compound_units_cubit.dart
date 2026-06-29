@@ -1,11 +1,11 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 import 'package:propix8/core/utils/enums.dart';
 import 'package:propix8/feature/compound_details/models/compound_collection_model.dart';
 import 'package:propix8/feature/compound_details/repositories/compound_repository.dart';
 import 'package:propix8/feature/compound_details/viewmodels/compound_units_state.dart';
 import 'package:propix8/feature/home/viewmodels/home_state.dart';
 
-class CompoundUnitsCubit extends Cubit<CompoundUnitsState> {
+class CompoundUnitsCubit extends SafeCubit<CompoundUnitsState> {
   CompoundUnitsCubit(this._compoundRepository)
     : super(const CompoundUnitsState());
   final CompoundRepository _compoundRepository;

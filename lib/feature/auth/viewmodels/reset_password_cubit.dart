@@ -1,10 +1,10 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 
 import 'package:propix8/feature/auth/models/auth_model.dart';
 import 'package:propix8/feature/auth/repositories/auth_repository.dart';
 import 'package:propix8/feature/auth/viewmodels/reset_password_state.dart';
 
-class ResetPasswordCubit extends Cubit<ResetPasswordState> {
+class ResetPasswordCubit extends SafeCubit<ResetPasswordState> {
   ResetPasswordCubit(this._authRepository) : super(const ResetPasswordState());
   final AuthRepository _authRepository;
 

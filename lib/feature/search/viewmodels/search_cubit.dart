@@ -1,11 +1,11 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 
 import 'package:propix8/core/utils/enums.dart';
 import 'package:propix8/feature/home/repositories/unit_repository.dart';
 import 'package:propix8/feature/home/viewmodels/home_state.dart';
 import 'package:propix8/feature/search/viewmodels/search_state.dart';
 
-class SearchCubit extends Cubit<SearchState> {
+class SearchCubit extends SafeCubit<SearchState> {
   SearchCubit(this._unitRepository) : super(const SearchState());
   final UnitRepository _unitRepository;
 

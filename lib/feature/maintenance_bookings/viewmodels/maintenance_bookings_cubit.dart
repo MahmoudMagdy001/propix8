@@ -1,9 +1,9 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 
 import 'package:propix8/feature/maintenance_bookings/repositories/maintenance_booking_repository.dart';
 import 'package:propix8/feature/maintenance_bookings/viewmodels/maintenance_bookings_state.dart';
 
-class MaintenanceBookingsCubit extends Cubit<MaintenanceBookingsState> {
+class MaintenanceBookingsCubit extends SafeCubit<MaintenanceBookingsState> {
   MaintenanceBookingsCubit(this._repository)
     : super(const MaintenanceBookingsState());
 

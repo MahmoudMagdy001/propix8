@@ -1,11 +1,11 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 import 'package:propix8/core/utils/enums.dart';
 import 'package:propix8/feature/favorites/models/favorite_model.dart';
 import 'package:propix8/feature/favorites/repositories/favorite_repository.dart';
 import 'package:propix8/feature/favorites/viewmodels/favorite_state.dart';
 import 'package:propix8/feature/home/models/unit_model.dart';
 
-class FavoriteCubit extends Cubit<FavoriteState> {
+class FavoriteCubit extends SafeCubit<FavoriteState> {
   FavoriteCubit(this._favoriteRepository) : super(const FavoriteState());
 
   final FavoriteRepository _favoriteRepository;

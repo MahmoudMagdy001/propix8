@@ -29,7 +29,7 @@ class BookingImage extends StatelessWidget {
           errorWidget: (context, url, error) => const Icon(Icons.broken_image),
         ),
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(8.r),
           child: Align(
             alignment: AlignmentDirectional.topEnd,
             child: GestureDetector(

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
@@ -55,7 +56,7 @@ class DioClient {
         url,
         queryParameters: queryParameters,
         options: options,
-        cancelToken: cancelToken,
+        cancelToken: cancelToken ?? (Zone.current[#blocCancelKey] as CancelToken?),
         onReceiveProgress: onReceiveProgress,
       );
       return response;
@@ -88,7 +89,7 @@ class DioClient {
         data: data,
         queryParameters: queryParameters,
         options: options,
-        cancelToken: cancelToken,
+        cancelToken: cancelToken ?? (Zone.current[#blocCancelKey] as CancelToken?),
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
       );
@@ -118,11 +119,12 @@ class DioClient {
         data: data,
         queryParameters: queryParameters,
         options: options,
-        cancelToken: cancelToken,
+        cancelToken: cancelToken ?? (Zone.current[#blocCancelKey] as CancelToken?),
       );
       return response;
     } catch (e) {
       rethrow;
     }
   }
+
 }

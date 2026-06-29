@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 import 'package:propix8/feature/maintenance_services/models/maintenance_booking_model.dart';
 import 'package:propix8/feature/maintenance_services/repositories/maintenance_service_repository.dart';
 
@@ -31,7 +30,7 @@ class MaintenanceBookingState extends Equatable {
   List<Object?> get props => [status, response, errorMessage];
 }
 
-class MaintenanceBookingCubit extends Cubit<MaintenanceBookingState> {
+class MaintenanceBookingCubit extends SafeCubit<MaintenanceBookingState> {
   MaintenanceBookingCubit(this._repository)
     : super(const MaintenanceBookingState());
 

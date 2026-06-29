@@ -1,16 +1,15 @@
 import 'dart:async';
 
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
-
 import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 import 'package:propix8/feature/auth/repositories/address_setup_repository.dart';
 import 'package:propix8/feature/auth/viewmodels/address_setup_state.dart';
 import 'package:propix8/feature/auth/viewmodels/auth_cubit.dart';
 
-class AddressSetupCubit extends Cubit<AddressSetupState> {
+class AddressSetupCubit extends SafeCubit<AddressSetupState> {
   AddressSetupCubit(this._addressSetupRepository)
     : super(const AddressSetupState());
   final AddressSetupRepository _addressSetupRepository;

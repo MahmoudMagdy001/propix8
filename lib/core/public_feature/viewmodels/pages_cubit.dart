@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:propix8/core/models/page_model.dart';
 import 'package:propix8/core/models/stat_model.dart';
 import 'package:propix8/core/public_feature/repositories/pages_repository.dart';
+import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 
 enum PagesStatus { initial, loading, success, failure }
 
@@ -42,14 +42,13 @@ class PagesState extends Equatable {
   List<Object?> get props => [status, pages, stats, errorMessage];
 }
 
-class PagesCubit extends Cubit<PagesState> {
+class PagesCubit extends SafeCubit<PagesState> {
   PagesCubit(this._repository) : super(const PagesState.initial());
   final PagesRepository _repository;
 
-  Future<void> loadPages() async {
+  Future<void> loadPages() => runSafe(() async {
     emit(state.copyWith(status: PagesStatus.loading));
     final result = await _repository.getPages();
-    if (isClosed) return;
     result.fold(
       (errorMessage) => emit(
         state.copyWith(status: PagesStatus.failure, errorMessage: errorMessage),
@@ -57,12 +56,11 @@ class PagesCubit extends Cubit<PagesState> {
       (pages) =>
           emit(state.copyWith(status: PagesStatus.success, pages: pages)),
     );
-  }
+  });
 
-  Future<void> loadStats() async {
+  Future<void> loadStats() => runSafe(() async {
     emit(state.copyWith(status: PagesStatus.loading));
     final result = await _repository.getStats();
-    if (isClosed) return;
     result.fold(
       (errorMessage) => emit(
         state.copyWith(status: PagesStatus.failure, errorMessage: errorMessage),
@@ -70,13 +68,12 @@ class PagesCubit extends Cubit<PagesState> {
       (stats) =>
           emit(state.copyWith(status: PagesStatus.success, stats: stats)),
     );
-  }
+  });
 
-  Future<void> loadAll() async {
+  Future<void> loadAll() => runSafe(() async {
     emit(state.copyWith(status: PagesStatus.loading));
     final pagesResult = await _repository.getPages();
     final statsResult = await _repository.getStats();
-    if (isClosed) return;
 
     pagesResult.fold(
       (errorMessage) => emit(
@@ -100,7 +97,7 @@ class PagesCubit extends Cubit<PagesState> {
         );
       },
     );
-  }
+  });
 
   PageModel? getPageBySlug(String slug) {
     try {

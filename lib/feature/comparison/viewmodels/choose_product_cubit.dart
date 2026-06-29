@@ -1,9 +1,9 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 import 'package:propix8/core/utils/enums.dart';
 import 'package:propix8/feature/comparison/viewmodels/choose_product_state.dart';
 import 'package:propix8/feature/home/repositories/unit_repository.dart';
 
-class ChooseProductCubit extends Cubit<ChooseProductState> {
+class ChooseProductCubit extends SafeCubit<ChooseProductState> {
   ChooseProductCubit(this._unitRepository) : super(const ChooseProductState());
 
   final UnitRepository _unitRepository;

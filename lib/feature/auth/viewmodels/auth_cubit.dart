@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 import 'package:propix8/core/utils/auth_logger.dart';
 import 'package:propix8/feature/auth/models/auth_model.dart';
 import 'package:propix8/feature/auth/repositories/address_setup_repository.dart';
@@ -13,7 +13,7 @@ import 'package:propix8/feature/auth/viewmodels/auth_state.dart';
 /// 2. Safe emit pattern (checks isClosed before emitting)
 /// 3. Structured logging for debugging
 /// 4. Token expiry check before profile fetch
-class AuthCubit extends Cubit<AuthState> {
+class AuthCubit extends SafeCubit<AuthState> {
   AuthCubit(this._authRepository, this._addressSetupRepository)
     : super(const AuthState());
 
@@ -29,7 +29,7 @@ class AuthCubit extends Cubit<AuthState> {
 
   bool _isCheckingAuth = false;
 
-  Future<void> checkAuthStatus() async {
+  Future<void> checkAuthStatus() => runSafe(() async {
     // Prevent concurrent calls (race condition fix)
     if (_isCheckingAuth) {
       AuthLogger.debug('checkAuthStatus already in progress, skipping');
@@ -77,7 +77,7 @@ class AuthCubit extends Cubit<AuthState> {
     } finally {
       _isCheckingAuth = false;
     }
-  }
+  });
 
   /// Silently refresh user profile from server in background.
   ///
@@ -92,7 +92,7 @@ class AuthCubit extends Cubit<AuthState> {
     );
   }
 
-  Future<void> login(String email, String password) async {
+  Future<void> login(String email, String password) => runSafe(() async {
     _safeEmit(state.copyWith(status: AuthRequestStatus.loading));
 
     final result = await _authRepository.login(
@@ -108,9 +108,9 @@ class AuthCubit extends Cubit<AuthState> {
         await checkUserProfile();
       },
     );
-  }
+  });
 
-  Future<void> checkUserProfile({bool isBackgroundSync = false}) async {
+  Future<void> checkUserProfile({bool isBackgroundSync = false}) => runSafe(() async {
     // Only set loading if we are not already authenticated (to avoid UI flash)
     if (state.authenticationStatus != AuthenticationStatus.authenticated &&
         !isBackgroundSync) {
@@ -153,7 +153,7 @@ class AuthCubit extends Cubit<AuthState> {
         );
       },
     );
-  }
+  });
 
   Future<void> register(RegisterRequest request) async {
     _safeEmit(state.copyWith(status: AuthRequestStatus.loading));

@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 import 'package:propix8/feature/compounds/models/compound_model.dart';
 import 'package:propix8/feature/compounds/repositories/compound_repository.dart';
 
@@ -30,7 +29,7 @@ class CompoundsState extends Equatable {
   List<Object?> get props => [status, compounds, errorMessage];
 }
 
-class CompoundsCubit extends Cubit<CompoundsState> {
+class CompoundsCubit extends SafeCubit<CompoundsState> {
   CompoundsCubit(this._repository) : super(const CompoundsState());
   final CompoundsRepository _repository;
 

@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 import 'package:propix8/feature/developers/models/developer_model.dart';
 import 'package:propix8/feature/developers/repositories/developer_repository.dart';
 
@@ -30,7 +29,7 @@ class DevelopersState extends Equatable {
   List<Object?> get props => [status, developers, errorMessage];
 }
 
-class DevelopersCubit extends Cubit<DevelopersState> {
+class DevelopersCubit extends SafeCubit<DevelopersState> {
   DevelopersCubit(this._repository) : super(const DevelopersState());
   final DevelopersRepository _repository;
 

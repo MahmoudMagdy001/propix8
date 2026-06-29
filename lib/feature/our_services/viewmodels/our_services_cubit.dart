@@ -1,16 +1,15 @@
 import 'dart:async';
 
 import 'package:dartz/dartz.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:propix8/core/models/pagination_model.dart';
+import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 import 'package:propix8/feature/our_services/models/faq_model.dart';
 import 'package:propix8/feature/our_services/models/service_model.dart';
 import 'package:propix8/feature/our_services/models/testimonial_model.dart';
 import 'package:propix8/feature/our_services/repositories/our_services_repository.dart';
 import 'package:propix8/feature/our_services/viewmodels/our_services_state.dart';
 
-class OurServicesCubit extends Cubit<OurServicesState> {
+class OurServicesCubit extends SafeCubit<OurServicesState> {
   OurServicesCubit(this._repository) : super(const OurServicesState());
   final OurServicesRepository _repository;
 

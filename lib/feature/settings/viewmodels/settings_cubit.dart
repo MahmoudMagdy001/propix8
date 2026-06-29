@@ -1,13 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:propix8/core/public_feature/services/storage_service.dart';
+import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 import 'package:propix8/feature/settings/repositories/settings_repository.dart';
 import 'package:propix8/feature/settings/viewmodels/settings_state.dart';
 
-class SettingsCubit extends Cubit<SettingsState> {
+class SettingsCubit extends SafeCubit<SettingsState> {
   SettingsCubit(this._storageService, this._settingsRepository)
     : super(const SettingsState()) {
     unawaited(_loadSettings());

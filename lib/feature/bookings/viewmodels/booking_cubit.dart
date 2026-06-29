@@ -1,9 +1,9 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 
 import 'package:propix8/feature/bookings/repositories/booking_repository.dart';
 import 'package:propix8/feature/bookings/viewmodels/booking_state.dart';
 
-class BookingCubit extends Cubit<BookingState> {
+class BookingCubit extends SafeCubit<BookingState> {
   BookingCubit(this._bookingRepository) : super(const BookingState());
 
   final BookingRepository _bookingRepository;

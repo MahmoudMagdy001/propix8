@@ -1,6 +1,5 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:propix8/core/models/pagination_model.dart';
+import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 import 'package:propix8/feature/bookings/models/booking_model.dart'
     show BookingResponse, BookingModel;
 import 'package:propix8/feature/bookings/repositories/booking_repository.dart';
@@ -11,7 +10,7 @@ import 'package:propix8/feature/unit_details/models/unit_details_model.dart';
 import 'package:propix8/feature/unit_details/repositories/unit_details_repository.dart';
 import 'package:propix8/feature/unit_details/viewmodels/unit_details_state.dart';
 
-class UnitDetailsCubit extends Cubit<UnitDetailsState> {
+class UnitDetailsCubit extends SafeCubit<UnitDetailsState> {
   UnitDetailsCubit(this._unitDetailsRepository, this._bookingRepository)
     : super(const UnitDetailsState());
   final UnitDetailsRepository _unitDetailsRepository;
