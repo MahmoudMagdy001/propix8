@@ -56,7 +56,8 @@ class DioClient {
         url,
         queryParameters: queryParameters,
         options: options,
-        cancelToken: cancelToken ?? (Zone.current[#blocCancelKey] as CancelToken?),
+        cancelToken:
+            cancelToken ?? (Zone.current[#blocCancelKey] as CancelToken?),
         onReceiveProgress: onReceiveProgress,
       );
       return response;
@@ -89,7 +90,8 @@ class DioClient {
         data: data,
         queryParameters: queryParameters,
         options: options,
-        cancelToken: cancelToken ?? (Zone.current[#blocCancelKey] as CancelToken?),
+        cancelToken:
+            cancelToken ?? (Zone.current[#blocCancelKey] as CancelToken?),
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
       );
@@ -119,12 +121,12 @@ class DioClient {
         data: data,
         queryParameters: queryParameters,
         options: options,
-        cancelToken: cancelToken ?? (Zone.current[#blocCancelKey] as CancelToken?),
+        cancelToken:
+            cancelToken ?? (Zone.current[#blocCancelKey] as CancelToken?),
       );
       return response;
     } catch (e) {
       rethrow;
     }
   }
-
 }

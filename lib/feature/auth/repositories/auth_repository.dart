@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-import 'package:propix8/core/public_feature/services/storage_service.dart';
+import 'package:propix8/core/storage/storage_service.dart';
 import 'package:propix8/core/utils/auth_constants.dart';
 import 'package:propix8/core/utils/auth_logger.dart';
 import 'package:propix8/feature/auth/models/auth_model.dart';

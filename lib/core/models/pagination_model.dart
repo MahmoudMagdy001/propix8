@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
 
 class PaginationModel extends Equatable {
   const PaginationModel({
@@ -37,4 +38,15 @@ class PaginatedResponse<T> {
 
   final List<T> data;
   final PaginationModel pagination;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is PaginatedResponse<T> &&
+          runtimeType == other.runtimeType &&
+          listEquals(data, other.data) &&
+          pagination == other.pagination;
+
+  @override
+  int get hashCode => Object.hash(Object.hashAll(data), pagination);
 }

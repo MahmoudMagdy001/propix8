@@ -6,15 +6,15 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:internet_state_manager/internet_state_manager.dart';
 import 'package:propix8/core/di/locator.dart';
-import 'package:propix8/core/public_feature/services/deep_link_service.dart';
 import 'package:propix8/core/router/app_router.dart';
+import 'package:propix8/core/services/deep_link_service.dart';
 import 'package:propix8/core/theme/app_theme.dart';
 import 'package:propix8/core/utils/auth_constants.dart';
 import 'package:propix8/core/utils/auth_logger.dart';
 import 'package:propix8/feature/auth/viewmodels/auth_cubit.dart';
-import 'package:propix8/feature/favorites/viewmodels/favorite_cubit.dart';
-import 'package:propix8/feature/settings/viewmodels/settings_cubit.dart';
-import 'package:propix8/feature/settings/viewmodels/settings_state.dart';
+import 'package:propix8/feature/favorites/presentation/bloc/favorite_bloc.dart';
+import 'package:propix8/feature/settings/presentation/bloc/settings_bloc.dart';
+import 'package:propix8/feature/settings/presentation/bloc/settings_state.dart';
 import 'package:propix8/l10n/app_localizations.dart';
 
 void main() async {
@@ -36,9 +36,7 @@ void main() async {
   await InternetStateManagerInitializer.initialize();
 
   try {
-    await locator<AuthCubit>().checkAuthStatus().timeout(
-      AuthConstants.authCheckTimeout,
-    );
+    await locator<AuthCubit>().checkAuthStatus().timeout(AuthConstants.authCheckTimeout);
     AuthLogger.info('Auth check completed');
   } on Object catch (e) {
     AuthLogger.error('Auth check timed out or failed', e);
@@ -61,11 +59,11 @@ class MyApp extends StatelessWidget {
     splitScreenMode: true,
     builder: (context, child) => MultiBlocProvider(
       providers: [
-        BlocProvider.value(value: locator<FavoriteCubit>()),
+        BlocProvider.value(value: locator<FavoriteBloc>()),
         BlocProvider.value(value: locator<AuthCubit>()),
-        BlocProvider.value(value: locator<SettingsCubit>()),
+        BlocProvider.value(value: locator<SettingsBloc>()),
       ],
-      child: BlocSelector<SettingsCubit, SettingsState, (ThemeMode, Locale)>(
+      child: BlocSelector<SettingsBloc, SettingsState, (ThemeMode, Locale)>(
         selector: (state) => (state.themeMode, state.locale),
         builder: (context, settings) => MaterialApp.router(
           routerConfig: AppRouter.router,
@@ -89,19 +87,14 @@ class MyApp extends StatelessWidget {
               FlutterNativeSplash.remove();
             });
             return MediaQuery(
-              data: MediaQuery.of(
-                context,
-              ).copyWith(textScaler: TextScaler.noScaling),
+              data: MediaQuery.of(context).copyWith(textScaler: TextScaler.noScaling),
               child: InternetStateManagerInitializer(
                 options: InternetStateOptions(
                   checkConnectionPeriodic: const Duration(seconds: 5),
                   labels: InternetStateLabels(
-                    noInternetTitle: () =>
-                        AppLocalizations.of(context)!.noInternetTitle,
-                    descriptionText: () =>
-                        AppLocalizations.of(context)!.noInternetSubtitle,
-                    tryAgainText: () =>
-                        AppLocalizations.of(context)!.tryAgainText,
+                    noInternetTitle: () => AppLocalizations.of(context)!.noInternetTitle,
+                    descriptionText: () => AppLocalizations.of(context)!.noInternetSubtitle,
+                    tryAgainText: () => AppLocalizations.of(context)!.tryAgainText,
                   ),
                 ),
                 child: child!,

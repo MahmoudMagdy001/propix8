@@ -17,9 +17,9 @@ abstract class SafeCubit<State> extends Cubit<State> {
   /// Any network request made via [DioClient] within this block will automatically
   /// inherit and use this [CancelToken] if no explicit token is passed.
   Future<T> runSafe<T>(FutureOr<T> Function() computation) => runZoned(
-        () async => await computation(),
-        zoneValues: {blocCancelKey: cancelToken},
-      );
+    () async => await computation(),
+    zoneValues: {blocCancelKey: cancelToken},
+  );
 
   @override
   void emit(State state) {
@@ -86,24 +86,14 @@ class _SafeEmitter<State> implements Emitter<State> {
     Stream<T> stream, {
     required State Function(T data) onData,
     State Function(Object error, StackTrace stackTrace)? onError,
-  }) =>
-      _delegate.forEach(
-        stream,
-        onData: onData,
-        onError: onError,
-      );
+  }) => _delegate.forEach(stream, onData: onData, onError: onError);
 
   @override
   Future<void> onEach<T>(
     Stream<T> stream, {
     required void Function(T data) onData,
     void Function(Object error, StackTrace stackTrace)? onError,
-  }) =>
-      _delegate.onEach(
-        stream,
-        onData: onData,
-        onError: onError,
-      );
+  }) => _delegate.onEach(stream, onData: onData, onError: onError);
 
   @override
   bool get isDone => _delegate.isDone || _bloc.isClosed;

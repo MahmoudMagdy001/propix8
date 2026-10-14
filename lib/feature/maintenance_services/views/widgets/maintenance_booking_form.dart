@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:propix8/core/di/locator.dart';
-import 'package:propix8/core/public_feature/services/storage_service.dart';
+import 'package:propix8/core/storage/storage_service.dart';
 import 'package:propix8/core/utils/context_extensions.dart';
 import 'package:propix8/core/utils/responsive_helper.dart';
 import 'package:propix8/core/utils/snackbar_utils.dart';

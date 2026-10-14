@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-import 'package:propix8/core/public_feature/services/storage_service.dart';
+import 'package:propix8/core/storage/storage_service.dart';
 import 'package:propix8/feature/auth/models/auth_model.dart';
 import 'package:propix8/feature/auth/models/city_model.dart';
 import 'package:propix8/feature/profile/services/user_profile_service.dart';

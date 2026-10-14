@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:dio/dio.dart';
-import 'package:propix8/core/public_feature/services/storage_service.dart';
 import 'package:propix8/core/router/app_router.dart';
 import 'package:propix8/core/router/app_routes.dart';
+import 'package:propix8/core/storage/storage_service.dart';
 import 'package:propix8/core/utils/auth_constants.dart';
 import 'package:propix8/core/utils/auth_logger.dart';
 
@@ -50,7 +50,9 @@ class AuthInterceptor extends Interceptor {
 
       // SECURITY: Clear token from both disk and memory
       _storageService.clearMemory();
-      unawaited(_storageService.deleteToken()); // Fire-and-forget, no await needed
+      unawaited(
+        _storageService.deleteToken(),
+      ); // Fire-and-forget, no await needed
 
       // Redirect to login
       AppRouter.router.goNamed(AppRoutes.login);

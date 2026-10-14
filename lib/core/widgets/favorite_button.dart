@@ -1,14 +1,15 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart'; // Add this import
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:propix8/core/utils/context_extensions.dart';
 import 'package:propix8/core/utils/responsive_helper.dart';
 import 'package:propix8/core/utils/snackbar_utils.dart';
-import 'package:propix8/feature/favorites/viewmodels/favorite_cubit.dart';
-import 'package:propix8/feature/favorites/viewmodels/favorite_state.dart';
-import 'package:propix8/feature/home/models/unit_model.dart';
+import 'package:propix8/feature/favorites/presentation/bloc/favorite_bloc.dart';
+import 'package:propix8/feature/favorites/presentation/bloc/favorite_event.dart';
+import 'package:propix8/feature/favorites/presentation/bloc/favorite_state.dart';
+import 'package:propix8/feature/home/domain/entities/unit_entity.dart';
 
 class FavoriteButton extends StatefulWidget {
   const FavoriteButton({
@@ -17,16 +18,16 @@ class FavoriteButton extends StatefulWidget {
     this.size,
     this.padding,
     this.color,
-    this.enableHapticFeedback = true, // Optional: allow disabling
+    this.enableHapticFeedback = true,
     super.key,
   });
 
-  final UnitModel unit;
+  final UnitEntity unit;
   final bool isFavorite;
   final double? size;
   final EdgeInsetsGeometry? padding;
   final Color? color;
-  final bool enableHapticFeedback; // New parameter
+  final bool enableHapticFeedback;
 
   @override
   State<FavoriteButton> createState() => _FavoriteButtonState();
@@ -36,13 +37,16 @@ class _FavoriteButtonState extends State<FavoriteButton> {
   @override
   void initState() {
     super.initState();
-    // Initialize favorite status if not already in state
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) {
-        final cubit = context.read<FavoriteCubit>();
-        // Only update if this unit isn't already tracked
-        if (!cubit.state.favorites.containsKey(widget.unit.id)) {
-          cubit.updateFavoriteStatus(widget.unit.id, isFavorite: widget.isFavorite);
+        final bloc = context.read<FavoriteBloc>();
+        if (!bloc.state.favorites.containsKey(widget.unit.id)) {
+          bloc.add(
+            FavoriteEvent.favoriteStatusUpdated(
+              unitId: widget.unit.id,
+              isFavorite: widget.isFavorite,
+            ),
+          );
         }
       }
     });
@@ -50,21 +54,19 @@ class _FavoriteButtonState extends State<FavoriteButton> {
 
   @override
   Widget build(BuildContext context) =>
-      BlocSelector<FavoriteCubit, FavoriteState, bool>(
+      BlocSelector<FavoriteBloc, FavoriteState, bool>(
         selector: (state) =>
             state.favorites[widget.unit.id] ?? widget.isFavorite,
         builder: (context, currentFavorite) => IconButton(
-          onPressed: () async {
-            // Trigger haptic feedback
+          onPressed: () {
             if (widget.enableHapticFeedback) {
               unawaited(HapticFeedback.lightImpact());
             }
 
-            final cubit = context.read<FavoriteCubit>();
+            final bloc = context.read<FavoriteBloc>();
             final isCurrentlyFavorite =
-                cubit.state.favorites[widget.unit.id] ?? widget.isFavorite;
+                bloc.state.favorites[widget.unit.id] ?? widget.isFavorite;
 
-            // Show snackbar immediately (optimistic)
             if (context.mounted) {
               context.showSuccessSnackbar(
                 !isCurrentlyFavorite
@@ -73,13 +75,7 @@ class _FavoriteButtonState extends State<FavoriteButton> {
               );
             }
 
-            await cubit.toggleFavorite(widget.unit);
-
-            // If the operation fails, show an error snackbar
-            if (context.mounted &&
-                cubit.state.status == FavoriteStatus.failure) {
-              context.showErrorSnackbar(context.l10n.failedToUpdateFavorite);
-            }
+            bloc.add(FavoriteEvent.favoriteToggled(widget.unit));
           },
           icon: AnimatedSwitcher(
             duration: const Duration(milliseconds: 300),
@@ -89,7 +85,7 @@ class _FavoriteButtonState extends State<FavoriteButton> {
               currentFavorite ? Icons.favorite : Icons.favorite_outline,
               key: ValueKey<bool>(currentFavorite),
               color: currentFavorite
-                  ? context.colorScheme.primary
+                  ? context.colors.primary
                   : (widget.color ?? Colors.white),
               size: widget.size ?? 24.sp,
             ),

@@ -7,84 +7,83 @@ abstract class AppTextStyles {
   static TextTheme getTextTheme({required bool isDark}) {
     final color = isDark ? Colors.white : Colors.black87;
 
-    return GoogleFonts.cairoTextTheme(
-      TextTheme(
-        // Headlines
-        displayLarge: TextStyle(
-          fontSize: 57.sp,
-          fontWeight: FontWeight.bold,
-          color: color,
-          letterSpacing: -0.25,
-        ),
-        displayMedium: TextStyle(
-          fontSize: 45.sp,
-          fontWeight: FontWeight.normal,
-          color: color,
-        ),
-        displaySmall: TextStyle(
-          fontSize: 36.sp,
-          fontWeight: FontWeight.normal,
-          color: color,
-        ),
+    // ponytail: use GoogleFonts.cairo directly on TextTheme variants to avoid material_ui TextTheme type conflict
+    return TextTheme(
+      // Headlines
+      displayLarge: GoogleFonts.cairo(
+        fontSize: 57.sp,
+        fontWeight: FontWeight.bold,
+        color: color,
+        letterSpacing: -0.25,
+      ),
+      displayMedium: GoogleFonts.cairo(
+        fontSize: 45.sp,
+        fontWeight: FontWeight.normal,
+        color: color,
+      ),
+      displaySmall: GoogleFonts.cairo(
+        fontSize: 36.sp,
+        fontWeight: FontWeight.normal,
+        color: color,
+      ),
 
-        // Titles
-        titleLarge: TextStyle(
-          fontSize: 22.sp,
-          fontWeight: FontWeight.w600,
-          color: color,
-        ),
-        titleMedium: TextStyle(
-          fontSize: 16.sp,
-          fontWeight: FontWeight.w500,
-          color: color,
-          letterSpacing: 0.15,
-        ),
-        titleSmall: TextStyle(
-          fontSize: 14.sp,
-          fontWeight: FontWeight.w500,
-          color: color,
-          letterSpacing: 0.1,
-        ),
+      // Titles
+      titleLarge: GoogleFonts.cairo(
+        fontSize: 22.sp,
+        fontWeight: FontWeight.w600,
+        color: color,
+      ),
+      titleMedium: GoogleFonts.cairo(
+        fontSize: 16.sp,
+        fontWeight: FontWeight.w500,
+        color: color,
+        letterSpacing: 0.15,
+      ),
+      titleSmall: GoogleFonts.cairo(
+        fontSize: 14.sp,
+        fontWeight: FontWeight.w500,
+        color: color,
+        letterSpacing: 0.1,
+      ),
 
-        // Body
-        bodyLarge: TextStyle(
-          fontSize: 16.sp,
-          fontWeight: FontWeight.normal,
-          color: color,
-          letterSpacing: 0.5,
-        ),
-        bodyMedium: TextStyle(
-          fontSize: 14.sp,
-          fontWeight: FontWeight.normal,
-          color: color,
-          letterSpacing: 0.25,
-        ),
-        bodySmall: TextStyle(
-          fontSize: 12.sp,
-          fontWeight: FontWeight.normal,
-          color: color,
-          letterSpacing: 0.4,
-        ),
+      // Body
+      bodyLarge: GoogleFonts.cairo(
+        fontSize: 16.sp,
+        fontWeight: FontWeight.normal,
+        color: color,
+        letterSpacing: 0.5,
+      ),
+      bodyMedium: GoogleFonts.cairo(
+        fontSize: 14.sp,
+        fontWeight: FontWeight.normal,
+        color: color,
+        letterSpacing: 0.25,
+      ),
+      bodySmall: GoogleFonts.cairo(
+        fontSize: 12.sp,
+        fontWeight: FontWeight.normal,
+        color: color,
+        letterSpacing: 0.4,
+      ),
 
-        // Label (Captions / Buttons)
-        labelLarge: TextStyle(
-          fontSize: 14.sp,
-          fontWeight: FontWeight.w500,
-          color: color,
-          letterSpacing: 0.1,
-        ),
-        labelMedium: TextStyle(
-          fontSize: 12.sp,
-          fontWeight: FontWeight.w500,
-          color: color,
-          letterSpacing: 0.5,
-        ),
-        labelSmall: TextStyle(
-          fontSize: 11.sp,
-          fontWeight: FontWeight.w500,
-          color: color,
-          letterSpacing: 0.5,
-        ),
+      // Label (Captions / Buttons)
+      labelLarge: GoogleFonts.cairo(
+        fontSize: 14.sp,
+        fontWeight: FontWeight.w500,
+        color: color,
+        letterSpacing: 0.1,
+      ),
+      labelMedium: GoogleFonts.cairo(
+        fontSize: 12.sp,
+        fontWeight: FontWeight.w500,
+        color: color,
+        letterSpacing: 0.5,
+      ),
+      labelSmall: GoogleFonts.cairo(
+        fontSize: 11.sp,
+        fontWeight: FontWeight.w500,
+        color: color,
+        letterSpacing: 0.5,
       ),
     );
   }

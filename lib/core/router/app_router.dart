@@ -4,11 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:propix8/core/di/locator.dart';
-import 'package:propix8/core/public_feature/about_us/about_us_screen.dart';
-import 'package:propix8/core/public_feature/privacy_policy_screen.dart';
-import 'package:propix8/core/public_feature/services/storage_service.dart';
-import 'package:propix8/core/public_feature/terms_and_conditions_screen.dart';
 import 'package:propix8/core/router/app_routes.dart';
+import 'package:propix8/core/storage/storage_service.dart';
 import 'package:propix8/feature/auth/models/auth_model.dart';
 import 'package:propix8/feature/auth/viewmodels/auth_cubit.dart';
 import 'package:propix8/feature/auth/viewmodels/auth_state.dart';
@@ -20,30 +17,33 @@ import 'package:propix8/feature/auth/views/reset_password_screen.dart';
 import 'package:propix8/feature/auth/views/signup_screen.dart';
 import 'package:propix8/feature/auth/views/widgets/password_success_screen.dart';
 import 'package:propix8/feature/bookings/views/bookings_view.dart';
-import 'package:propix8/feature/comparison/views/choose_product_view.dart';
-import 'package:propix8/feature/comparison/views/comparison_view.dart';
-import 'package:propix8/feature/compound_details/views/compound_units_view.dart';
-import 'package:propix8/feature/compounds/views/compounds_view.dart';
-import 'package:propix8/feature/developer_details/views/developer_units_view.dart';
-import 'package:propix8/feature/developers/views/developers_view.dart';
-import 'package:propix8/feature/favorites/views/favorites_view.dart';
-import 'package:propix8/feature/home/views/show_all_nearby_view.dart';
+import 'package:propix8/feature/comparison/presentation/pages/choose_product_view.dart';
+import 'package:propix8/feature/comparison/presentation/pages/comparison_view.dart';
+import 'package:propix8/feature/compound_details/presentation/pages/compound_units_view.dart';
+import 'package:propix8/feature/compounds/presentation/pages/compounds_view.dart';
+import 'package:propix8/feature/developer_details/presentation/pages/developer_units_view.dart';
+import 'package:propix8/feature/developers/presentation/pages/developers_view.dart';
+import 'package:propix8/feature/favorites/presentation/pages/favorites_view.dart';
+import 'package:propix8/feature/home/presentation/pages/show_all_nearby_view.dart';
 import 'package:propix8/feature/layout/layout_view.dart';
 import 'package:propix8/feature/maintenance_bookings/views/maintenance_bookings_view.dart';
-import 'package:propix8/feature/onboarding/views/onboarding_view.dart';
-import 'package:propix8/feature/onboarding/views/splash_view.dart';
-import 'package:propix8/feature/our_services/views/our_services_view.dart';
+import 'package:propix8/feature/onboarding/presentation/pages/onboarding_view.dart';
+import 'package:propix8/feature/onboarding/presentation/pages/splash_view.dart';
+import 'package:propix8/feature/our_services/presentation/pages/our_services_view.dart';
 import 'package:propix8/feature/profile/viewmodels/user_profile_cubit.dart';
 import 'package:propix8/feature/profile/views/change_password_view.dart';
 import 'package:propix8/feature/profile/views/edit_account_view.dart';
 import 'package:propix8/feature/profile/views/edit_profile_data_view.dart';
 import 'package:propix8/feature/profile/views/my_testimonials_view.dart';
-import 'package:propix8/feature/search/views/search_view.dart';
-import 'package:propix8/feature/settings/viewmodels/settings_cubit.dart';
-import 'package:propix8/feature/settings/viewmodels/settings_state.dart';
-import 'package:propix8/feature/settings/views/settings_view.dart';
-import 'package:propix8/feature/unit_details/views/unit_details_view.dart';
-import 'package:propix8/feature/unit_details/views/unit_map_view.dart';
+import 'package:propix8/feature/search/presentation/pages/search_view.dart';
+import 'package:propix8/feature/settings/presentation/bloc/settings_bloc.dart';
+import 'package:propix8/feature/settings/presentation/bloc/settings_state.dart';
+import 'package:propix8/feature/settings/presentation/pages/settings_view.dart';
+import 'package:propix8/feature/static_pages/presentation/pages/about_us_view.dart';
+import 'package:propix8/feature/static_pages/presentation/pages/privacy_policy_view.dart';
+import 'package:propix8/feature/static_pages/presentation/pages/terms_and_conditions_view.dart';
+import 'package:propix8/feature/unit_details/presentation/pages/unit_details_view.dart';
+import 'package:propix8/feature/unit_details/presentation/pages/unit_map_view.dart';
 
 final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -52,10 +52,10 @@ class AppRouter {
     navigatorKey: rootNavigatorKey,
     initialLocation: AppRoutes.splashPath,
     refreshListenable: GoRouterRefreshStream(
-      [locator<AuthCubit>().stream, locator<SettingsCubit>().stream],
+      [locator<AuthCubit>().stream, locator<SettingsBloc>().stream],
       initialAuthStatus: locator<AuthCubit>().state.authenticationStatus,
       initialHasCity: locator<AuthCubit>().state.user?.cityId != null,
-      initialLocale: locator<SettingsCubit>().state.locale.languageCode,
+      initialLocale: locator<SettingsBloc>().state.locale.languageCode,
     ),
     debugLogDiagnostics: true,
     routes: [
@@ -109,9 +109,7 @@ class AppRouter {
         path: AppRoutes.layoutPath,
         name: AppRoutes.layout,
         builder: (context, state) => LayoutView(
-          key: ValueKey(
-            context.read<SettingsCubit>().state.locale.languageCode,
-          ),
+          key: ValueKey(context.read<SettingsBloc>().state.locale.languageCode),
         ),
         routes: [
           GoRoute(
@@ -245,17 +243,17 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.termsPath,
         name: AppRoutes.terms,
-        builder: (context, state) => const TermsAndConditionsScreen(),
+        builder: (context, state) => const TermsAndConditionsView(),
       ),
       GoRoute(
         path: AppRoutes.privacyPath,
         name: AppRoutes.privacy,
-        builder: (context, state) => const PrivacyPolicyScreen(),
+        builder: (context, state) => const PrivacyPolicyView(),
       ),
       GoRoute(
         path: AppRoutes.aboutUsPath,
         name: AppRoutes.aboutUs,
-        builder: (context, state) => const AboutUsScreen(),
+        builder: (context, state) => const AboutUsView(),
       ),
       GoRoute(
         path: AppRoutes.myTestimonialsPath,

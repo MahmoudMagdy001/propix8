@@ -18,7 +18,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noInternetTitle => 'No Internet Connection';
 
   @override
-  String get noInternetSubtitle => 'Please check your connection and try again.';
+  String get noInternetSubtitle =>
+      'Please check your connection and try again.';
 
   @override
   String get tryAgainText => 'Try Again';
@@ -48,16 +49,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get onboardingTitle1 => 'Start now and discover your ideal unit';
 
   @override
-  String get onboardingSubtitle1 => 'Browse units easily and save your favorites';
+  String get onboardingSubtitle1 =>
+      'Browse units easily and save your favorites';
 
   @override
-  String get onboardingTitle2 => 'View units for sale or rent quickly and easily';
+  String get onboardingTitle2 =>
+      'View units for sale or rent quickly and easily';
 
   @override
   String get onboardingSubtitle2 => 'Search easily, choose quickly';
 
   @override
-  String get onboardingTitle3 => 'Discover the best properties in your area easily and quickly';
+  String get onboardingTitle3 =>
+      'Discover the best properties in your area easily and quickly';
 
   @override
   String get onboardingSubtitle3 => 'All options in one place';
@@ -114,7 +118,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deleteBooking => 'Delete Booking';
 
   @override
-  String get deleteBookingConfirmation => 'Are you sure you want to delete this booking permanently?';
+  String get deleteBookingConfirmation =>
+      'Are you sure you want to delete this booking permanently?';
 
   @override
   String get bookingDeletedSuccess => 'Booking deleted successfully';
@@ -144,7 +149,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get statusCancelled => 'Cancelled';
 
   @override
-  String get confirmSuggestedTime => 'Are you sure you want to approve the suggested time?';
+  String get confirmSuggestedTime =>
+      'Are you sure you want to approve the suggested time?';
 
   @override
   String get approveSuggestedTime => 'Approve Suggested Time';
@@ -165,7 +171,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get confirmCancellation => 'Confirm Cancellation';
 
   @override
-  String get cancelBookingConfirmation => 'Are you sure you want to cancel this booking? This action cannot be undone.';
+  String get cancelBookingConfirmation =>
+      'Are you sure you want to cancel this booking? This action cannot be undone.';
 
   @override
   String get cancelBooking => 'Cancel Booking';
@@ -186,7 +193,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pleaseSelectTime => 'Please select a time';
 
   @override
-  String get pastTimeError => 'Selected time has passed, please select a future time';
+  String get pastTimeError =>
+      'Selected time has passed, please select a future time';
 
   @override
   String get messageOptional => 'Message (Optional)';
@@ -213,7 +221,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sendResetLink => 'Send Reset Link';
 
   @override
-  String get passwordResetConfirmation => 'A password reset link has been sent to your email';
+  String get passwordResetConfirmation =>
+      'A password reset link has been sent to your email';
 
   @override
   String get passwordStrength => 'Password Strength';
@@ -252,7 +261,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get loginSuccess => 'Logged in successfully';
 
   @override
-  String get signupSuccess => 'Account created successfully please verify your email to login';
+  String get signupSuccess =>
+      'Account created successfully please verify your email to login';
 
   @override
   String get resetSuccess => 'Password reset successfully';
@@ -270,25 +280,29 @@ class AppLocalizationsEn extends AppLocalizations {
   String get paymentSchedule => '1. Payment Schedule';
 
   @override
-  String get paymentScheduleContent => '- 100% of the total amount must be paid at the time of booking\n- Remaining balance: due later';
+  String get paymentScheduleContent =>
+      '- 100% of the total amount must be paid at the time of booking\n- Remaining balance: due later';
 
   @override
   String get cancellationPolicy => '2. Cancellation Policy';
 
   @override
-  String get cancellationPolicyContent => '- 75% of pre-paid payments are refundable when canceled 41 days or more before arrival\n- 50% of pre-paid payments are refundable when canceled 21 days or more before arrival\n- 0% refundable if canceled after that';
+  String get cancellationPolicyContent =>
+      '- 75% of pre-paid payments are refundable when canceled 41 days or more before arrival\n- 50% of pre-paid payments are refundable when canceled 21 days or more before arrival\n- 0% refundable if canceled after that';
 
   @override
   String get securityDeposit => '3. Security Deposit';
 
   @override
-  String get securityDepositContent => '- A refundable security deposit of 25% must be paid';
+  String get securityDepositContent =>
+      '- A refundable security deposit of 25% must be paid';
 
   @override
   String get notes => '4. Notes';
 
   @override
-  String get notesContent => '- 5% discount for stays of 14 nights or more\n- 10% discount for stays of 30 nights or more';
+  String get notesContent =>
+      '- 5% discount for stays of 14 nights or more\n- 10% discount for stays of 30 nights or more';
 
   @override
   String get agreeToTermsPart1 => 'I agree to the ';
@@ -300,16 +314,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get resetPasswordSuccessTitle => 'Password Changed';
 
   @override
-  String get resetPasswordSuccessSubtitle => 'Your password has been changed successfully';
+  String get resetPasswordSuccessSubtitle =>
+      'Your password has been changed successfully';
 
   @override
-  String get forgotPasswordSubtitle => 'Enter your email and we will send you a link to reset your password';
+  String get forgotPasswordSubtitle =>
+      'Enter your email and we will send you a link to reset your password';
 
   @override
   String get resetPassword => 'Reset Password';
 
   @override
-  String get resetPasswordSubtitle => 'Please write a password you can easily remember';
+  String get resetPasswordSubtitle =>
+      'Please write a password you can easily remember';
 
   @override
   String get changePassword => 'Change Password';
@@ -335,7 +352,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profileUpdateError => 'An error occurred while updating profile';
 
   @override
-  String get selectLocationError => 'Please select a city and a location on the map.';
+  String get selectLocationError =>
+      'Please select a city and a location on the map.';
 
   @override
   String get startExploring => 'Start Exploring Now';
@@ -380,13 +398,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get resendVerification => 'Resend Verification';
 
   @override
-  String get verificationEmailSent => 'Verification link has been sent to your email';
+  String get verificationEmailSent =>
+      'Verification link has been sent to your email';
 
   @override
   String get verificationSuccess => 'Email verified successfully';
 
   @override
-  String get accountNotVerified => 'Your account is not verified. Please verify your email to login.';
+  String get accountNotVerified =>
+      'Your account is not verified. Please verify your email to login.';
 
   @override
   String get verifyingEmail => 'Verifying Email...';
@@ -407,7 +427,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noFavoritesTitle => 'No favorites yet';
 
   @override
-  String get noFavoritesSubtitle => 'Start adding properties to your favorites to see them here.';
+  String get noFavoritesSubtitle =>
+      'Start adding properties to your favorites to see them here.';
 
   @override
   String get navProfile => 'Profile';
@@ -422,7 +443,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get location => 'Location';
 
   @override
-  String get searchLocationPlaceholder => 'Search for apartment, house, ........';
+  String get searchLocationPlaceholder =>
+      'Search for apartment, house, ........';
 
   @override
   String get priceRange => 'Price Range';
@@ -529,7 +551,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noBookingsTitle => 'No bookings yet';
 
   @override
-  String get noBookingsSubtitle => 'You haven\'t made any property bookings. Explore properties and start booking today!';
+  String get noBookingsSubtitle =>
+      'You haven\'t made any property bookings. Explore properties and start booking today!';
 
   @override
   String get reviews => 'Reviews';
@@ -586,7 +609,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deleteReviewConfirmationTitle => 'Delete Review';
 
   @override
-  String get deleteReviewConfirmationContent => 'Are you sure you want to delete this review?';
+  String get deleteReviewConfirmationContent =>
+      'Are you sure you want to delete this review?';
 
   @override
   String get confirm => 'Confirm';
@@ -651,7 +675,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get exitAppConfirmationTitle => 'Exit App';
 
   @override
-  String get exitAppConfirmationMessage => 'Are you sure you want to exit the app?';
+  String get exitAppConfirmationMessage =>
+      'Are you sure you want to exit the app?';
 
   @override
   String get exit => 'Exit';
@@ -675,61 +700,71 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noMaintenanceBookingsTitle => 'No maintenance bookings yet';
 
   @override
-  String get noMaintenanceBookingsSubtitle => 'You haven\'t made any maintenance service bookings. Explore our services and start booking today!';
+  String get noMaintenanceBookingsSubtitle =>
+      'You haven\'t made any maintenance service bookings. Explore our services and start booking today!';
 
   @override
   String get privacyPolicy => 'Privacy Policy';
 
   @override
-  String get privacyPolicyIntro => 'Welcome to Propix Eight Group for Real Estate Marketing & Property Solutions. We respect your privacy and represent our commitment to protecting your personal data.';
+  String get privacyPolicyIntro =>
+      'Welcome to Propix Eight Group for Real Estate Marketing & Property Solutions. We respect your privacy and represent our commitment to protecting your personal data.';
 
   @override
   String get dataCollection => '1. Data Collection';
 
   @override
-  String get dataCollectionContent => 'We collect information you provide directly to us, such as when you create an account, update your profile, make a booking, or communicate with us. This may include your name, email, phone number, and payment information.';
+  String get dataCollectionContent =>
+      'We collect information you provide directly to us, such as when you create an account, update your profile, make a booking, or communicate with us. This may include your name, email, phone number, and payment information.';
 
   @override
   String get useOfData => '2. Use of Data';
 
   @override
-  String get useOfDataContent => 'We use your data to provide and improve our services, process transactions, send you notifications, and communicate with you about updates and offers.';
+  String get useOfDataContent =>
+      'We use your data to provide and improve our services, process transactions, send you notifications, and communicate with you about updates and offers.';
 
   @override
   String get dataRetention => '3. Data Retention';
 
   @override
-  String get dataRetentionContent => 'We retain your personal data only as long as necessary to provide you with our services and for legitimate business purposes.';
+  String get dataRetentionContent =>
+      'We retain your personal data only as long as necessary to provide you with our services and for legitimate business purposes.';
 
   @override
   String get dataDeletion => '4. Data Deletion';
 
   @override
-  String get dataDeletionContent => 'You can request the deletion of your account and personal data at any time by contacting us or using the delete account option in your profile settings.';
+  String get dataDeletionContent =>
+      'You can request the deletion of your account and personal data at any time by contacting us or using the delete account option in your profile settings.';
 
   @override
   String get security => '5. Security';
 
   @override
-  String get securityContent => 'We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, loss, or misuse.';
+  String get securityContent =>
+      'We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, loss, or misuse.';
 
   @override
   String get locationInformation => '6. Location Information';
 
   @override
-  String get locationInformationContent => 'We may use your location data to help you find nearby properties and services. This data is used to improve your search experience and is not shared with third parties without your consent.';
+  String get locationInformationContent =>
+      'We may use your location data to help you find nearby properties and services. This data is used to improve your search experience and is not shared with third parties without your consent.';
 
   @override
   String get changesToPolicy => '7. Changes to Policy';
 
   @override
-  String get changesToPolicyContent => 'We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page.';
+  String get changesToPolicyContent =>
+      'We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page.';
 
   @override
   String get contactUs => ' Contact Us';
 
   @override
-  String get contactUsContent => 'If you have any questions about this privacy policy, please contact us at support@propix8.com.';
+  String get contactUsContent =>
+      'If you have any questions about this privacy policy, please contact us at support@propix8.com.';
 
   @override
   String get settings => 'Settings';
@@ -765,7 +800,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get restartRequired => 'Restart Required';
 
   @override
-  String get restartRequiredMessage => 'The app will restart to apply the new language. Do you want to continue?';
+  String get restartRequiredMessage =>
+      'The app will restart to apply the new language. Do you want to continue?';
 
   @override
   String get restart => 'Restart';
@@ -825,10 +861,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deleteAccount => 'Delete Account';
 
   @override
-  String get deleteAccountConfirmationMessage => 'Are you sure you want to delete your account?';
+  String get deleteAccountConfirmationMessage =>
+      'Are you sure you want to delete your account?';
 
   @override
-  String get deleteAccountWarning => 'All your data will be permanently deleted and cannot be recovered';
+  String get deleteAccountWarning =>
+      'All your data will be permanently deleted and cannot be recovered';
 
   @override
   String get confirmDeleteAccount => 'Yes, Delete My Account';
@@ -840,16 +878,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get maintenance_bookings_card_deleteTitle => 'Delete Booking';
 
   @override
-  String get maintenance_bookings_card_deleteConfirmation => 'Are you sure you want to delete this booking?';
+  String get maintenance_bookings_card_deleteConfirmation =>
+      'Are you sure you want to delete this booking?';
 
   @override
-  String get maintenance_bookings_card_deleteSuccess => 'Booking deleted successfully';
+  String get maintenance_bookings_card_deleteSuccess =>
+      'Booking deleted successfully';
 
   @override
   String get maintenance_bookings_card_editTitle => 'Edit Booking';
 
   @override
-  String get maintenance_bookings_card_editSuccess => 'Booking edited successfully';
+  String get maintenance_bookings_card_editSuccess =>
+      'Booking edited successfully';
 
   @override
   String get maintenance_bookings_card_editButton => 'Edit Booking Details';
@@ -885,10 +926,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get currency_egp => 'EGP';
 
   @override
-  String get maintenance_banner_title => 'Integrated property management and maintenance services';
+  String get maintenance_banner_title =>
+      'Integrated property management and maintenance services';
 
   @override
-  String get maintenance_banner_subtitle => 'Reliable solutions that support your property value and facilitate its management.';
+  String get maintenance_banner_subtitle =>
+      'Reliable solutions that support your property value and facilitate its management.';
 
   @override
   String get unit_details_booking_date => 'Date';
@@ -1008,7 +1051,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deleteTestimonial => 'Delete Testimonial';
 
   @override
-  String get deleteConfirmation => 'Are you sure you want to delete this testimonial?';
+  String get deleteConfirmation =>
+      'Are you sure you want to delete this testimonial?';
 
   @override
   String get edit => 'Edit';
@@ -1020,13 +1064,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get servicePlaceholder => 'Service Name Placeholder';
 
   @override
-  String get serviceDescriptionPlaceholder => 'This is a lengthy description placeholder to simulate the visual weight of the text in the card.';
+  String get serviceDescriptionPlaceholder =>
+      'This is a lengthy description placeholder to simulate the visual weight of the text in the card.';
 
   @override
   String get faqQuestionPlaceholder => 'Common Question Placeholder?';
 
   @override
-  String get faqAnswerPlaceholder => 'This is a detailed answer placeholder to ensure the skeleton looks realistic. It spans multiple lines.';
+  String get faqAnswerPlaceholder =>
+      'This is a detailed answer placeholder to ensure the skeleton looks realistic. It spans multiple lines.';
 
   @override
   String get testimonials => 'Testimonials';
@@ -1062,7 +1108,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get search_start_title => 'Find your dream home';
 
   @override
-  String get search_start_subtitle => 'Search for units, compounds, or developers';
+  String get search_start_subtitle =>
+      'Search for units, compounds, or developers';
 
   @override
   String get search_results => 'Search Results';
@@ -1092,13 +1139,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get failedToUpdateFavorite => 'Failed to update favorite';
 
   @override
-  String get locationServiceDisabled => 'Location services are disabled. Please enable them to detect your location.';
+  String get locationServiceDisabled =>
+      'Location services are disabled. Please enable them to detect your location.';
 
   @override
-  String get locationPermissionDenied => 'Location permission denied. Please grant permission to detect your location.';
+  String get locationPermissionDenied =>
+      'Location permission denied. Please grant permission to detect your location.';
 
   @override
-  String get locationPermissionDeniedForever => 'Location permissions are permanently denied. Please enable them in settings.';
+  String get locationPermissionDeniedForever =>
+      'Location permissions are permanently denied. Please enable them in settings.';
 
   @override
   String get enableLocation => 'Enable';

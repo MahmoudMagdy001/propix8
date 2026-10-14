@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ui' show Locale;
 
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -89,10 +90,11 @@ class AddressSetupCubit extends SafeCubit<AddressSetupState> {
     emit(state.copyWith(selectedLocation: location, address: '...'));
 
     try {
-      await setLocaleIdentifier('ar');
-      final placemarks = await placemarkFromCoordinates(
+      // ponytail: Geocoding 5.0 uses Geocoding instance with locale parameter
+      final placemarks = await Geocoding().placemarkFromCoordinates(
         location.latitude,
         location.longitude,
+        locale: const Locale('ar'),
       );
 
       if (isClosed) return;

@@ -1,0 +1,123 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:internet_state_manager/internet_state_manager.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/utils/mixins/connectivity_mixin.dart';
+import 'package:propix8/core/utils/mixins/scroll_pagination_mixin.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/widgets/app_network_error_widget.dart';
+import 'package:propix8/feature/home/presentation/bloc/home_bloc.dart';
+import 'package:propix8/feature/home/presentation/bloc/home_event.dart';
+import 'package:propix8/feature/home/presentation/bloc/home_state.dart';
+import 'package:propix8/feature/home/presentation/widgets/home_all_section.dart';
+import 'package:propix8/feature/home/presentation/widgets/home_banner_section.dart';
+import 'package:propix8/feature/home/presentation/widgets/home_category_filters.dart';
+import 'package:propix8/feature/home/presentation/widgets/home_header.dart';
+import 'package:propix8/feature/home/presentation/widgets/home_latest_section.dart';
+import 'package:propix8/feature/home/presentation/widgets/home_load_more_indicator.dart';
+import 'package:propix8/feature/home/presentation/widgets/home_nearby_section.dart';
+import 'package:propix8/feature/home/presentation/widgets/home_search_section.dart';
+
+class HomeView extends StatelessWidget {
+  const HomeView({super.key, this.homeKey});
+  final GlobalKey<HomeViewContentState>? homeKey;
+
+  @override
+  Widget build(BuildContext context) => BlocProvider(
+    create: (context) => locator<HomeBloc>(),
+    child: Builder(
+      builder: (context) => InternetStateManager(
+        onRestoreInternetConnection: () =>
+            context.read<HomeBloc>().add(const HomeEvent.allDataRequested()),
+        child: HomeViewContent(key: homeKey),
+      ),
+    ),
+  );
+}
+
+class HomeViewContent extends StatefulWidget {
+  const HomeViewContent({super.key});
+
+  @override
+  State<HomeViewContent> createState() => HomeViewContentState();
+}
+
+class HomeViewContentState extends State<HomeViewContent>
+    with ScrollPaginationMixin, ConnectivityMixin {
+  final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
+      GlobalKey<RefreshIndicatorState>();
+
+  @override
+  void initState() {
+    super.initState();
+    unawaited(checkInitialConnectivity());
+    startConnectivityListener();
+  }
+
+  @override
+  void onConnectivityChanged({required bool isConnected}) {
+    if (mounted) {
+      if (isConnected) {
+        context.read<HomeBloc>().add(const HomeEvent.allDataRequested());
+      } else {
+        context.read<HomeBloc>().add(const HomeEvent.networkFailureSet());
+      }
+    }
+  }
+
+  @override
+  void onPageFetched() {
+    context.read<HomeBloc>().add(const HomeEvent.loadMoreAllUnitsRequested());
+  }
+
+  void scrollToTopOrRefresh() {
+    if (scrollController.hasClients && scrollController.offset > 0) {
+      scrollToTop();
+    } else {
+      unawaited(_refreshIndicatorKey.currentState?.show());
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+    body: BlocBuilder<HomeBloc, HomeState>(
+      buildWhen: (previous, current) =>
+          previous.allStatus != current.allStatus ||
+          previous.errorMessage != current.errorMessage,
+      builder: (context, state) => RefreshIndicator(
+        key: _refreshIndicatorKey,
+        onRefresh: () async {
+          context.read<HomeBloc>().add(const HomeEvent.refreshed());
+        },
+        child: CustomScrollView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          controller: scrollController,
+          slivers: [
+            if (state.shouldShowErrorWidget)
+              SliverFillRemaining(
+                child: AppNetworkErrorWidget(
+                  errorMessage: state.errorMessage,
+                  onRetry: () => context
+                      .read<HomeBloc>()
+                      .add(const HomeEvent.allDataRequested()),
+                ),
+              )
+            else ...[
+              const HomeHeader(),
+              const HomeSearchSection(),
+              const HomeBannerSection(),
+              const HomeCategoryFilters(),
+              const HomeNearbySection(),
+              const HomeLatestSection(),
+              const HomeAllSection(),
+              const HomeLoadMoreIndicator(),
+            ],
+            SliverToBoxAdapter(child: SizedBox(height: 4.h)),
+          ],
+        ),
+      ),
+    ),
+  );
+}

@@ -18,7 +18,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noInternetTitle => 'لا يوجد اتصال بالإنترنت';
 
   @override
-  String get noInternetSubtitle => 'يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.';
+  String get noInternetSubtitle =>
+      'يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.';
 
   @override
   String get tryAgainText => 'حاول مرة أخرى';
@@ -114,7 +115,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get deleteBooking => 'حذف الحجز';
 
   @override
-  String get deleteBookingConfirmation => 'هل أنت متأكد من حذف هذا الحجز نهائياً؟';
+  String get deleteBookingConfirmation =>
+      'هل أنت متأكد من حذف هذا الحجز نهائياً؟';
 
   @override
   String get bookingDeletedSuccess => 'تم حذف الحجز بنجاح';
@@ -144,7 +146,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get statusCancelled => 'تم الالغاء';
 
   @override
-  String get confirmSuggestedTime => 'هل أنت متأكد من الموافقة على الميعاد المقترح؟';
+  String get confirmSuggestedTime =>
+      'هل أنت متأكد من الموافقة على الميعاد المقترح؟';
 
   @override
   String get approveSuggestedTime => 'موافقة على الميعاد المقترح';
@@ -165,7 +168,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get confirmCancellation => 'تأكيد الإلغاء';
 
   @override
-  String get cancelBookingConfirmation => 'هل أنت متأكد من إلغاء هذا الحجز؟ لا يمكن التراجع عن هذا الإجراء.';
+  String get cancelBookingConfirmation =>
+      'هل أنت متأكد من إلغاء هذا الحجز؟ لا يمكن التراجع عن هذا الإجراء.';
 
   @override
   String get cancelBooking => 'إلغاء الحجز';
@@ -213,7 +217,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get sendResetLink => 'إرسال رابط إعادة التعيين';
 
   @override
-  String get passwordResetConfirmation => 'تم إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني';
+  String get passwordResetConfirmation =>
+      'تم إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني';
 
   @override
   String get passwordStrength => 'قوة كلمة المرور';
@@ -252,7 +257,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get loginSuccess => 'تم تسجيل الدخول بنجاح';
 
   @override
-  String get signupSuccess => 'تم إنشاء الحساب بنجاح من فضلك قم بتفعيل الحساب من خلال البريد الإلكتروني';
+  String get signupSuccess =>
+      'تم إنشاء الحساب بنجاح من فضلك قم بتفعيل الحساب من خلال البريد الإلكتروني';
 
   @override
   String get resetSuccess => 'تم إعادة تعيين كلمة المرور بنجاح';
@@ -270,25 +276,29 @@ class AppLocalizationsAr extends AppLocalizations {
   String get paymentSchedule => '1. جدول الدفع';
 
   @override
-  String get paymentScheduleContent => '- يجب دفع 100% من المبلغ الإجمالي في وقت الحجز\n- الرصيد المتبقي: مستحق لاحقا';
+  String get paymentScheduleContent =>
+      '- يجب دفع 100% من المبلغ الإجمالي في وقت الحجز\n- الرصيد المتبقي: مستحق لاحقا';
 
   @override
   String get cancellationPolicy => '2. سياسة الإلغاء';
 
   @override
-  String get cancellationPolicyContent => '- 75% من الدفعات المسبقة المدفوعة قابلة للاسترداد عند الإلغاء قبل 41 يوما من الوصول أو قبل ذلك\n- 50% من الدفعات المقدمة المدفوعة قابلة للاسترداد عند الإلغاء قبل 21 يوما من الوصول أو قبل ذلك\n- 0% قابلة للاسترداد في حالة الإلغاء بعد ذلك';
+  String get cancellationPolicyContent =>
+      '- 75% من الدفعات المسبقة المدفوعة قابلة للاسترداد عند الإلغاء قبل 41 يوما من الوصول أو قبل ذلك\n- 50% من الدفعات المقدمة المدفوعة قابلة للاسترداد عند الإلغاء قبل 21 يوما من الوصول أو قبل ذلك\n- 0% قابلة للاسترداد في حالة الإلغاء بعد ذلك';
 
   @override
   String get securityDeposit => '3. وديعة الضمان';
 
   @override
-  String get securityDepositContent => '- يجب دفع وديعة تأمين قابلة للاسترداد بنسبة 25%';
+  String get securityDepositContent =>
+      '- يجب دفع وديعة تأمين قابلة للاسترداد بنسبة 25%';
 
   @override
   String get notes => '4. ملحوظات';
 
   @override
-  String get notesContent => '- خصم 5% علي الإقامة لمدة 14 ليلة أو أكثر\n- خصم 10% علي الإقامة لمدة 30 ليلة أو أكثر';
+  String get notesContent =>
+      '- خصم 5% علي الإقامة لمدة 14 ليلة أو أكثر\n- خصم 10% علي الإقامة لمدة 30 ليلة أو أكثر';
 
   @override
   String get agreeToTermsPart1 => 'أوافق على ';
@@ -300,16 +310,19 @@ class AppLocalizationsAr extends AppLocalizations {
   String get resetPasswordSuccessTitle => 'تم تغيير كلمة المرور';
 
   @override
-  String get resetPasswordSuccessSubtitle => 'تم تغيير كلمة المرور الخاصة بك بنجاح';
+  String get resetPasswordSuccessSubtitle =>
+      'تم تغيير كلمة المرور الخاصة بك بنجاح';
 
   @override
-  String get forgotPasswordSubtitle => 'أدخل بريدك الإلكتروني وسنرسل لك رابط لإعادة تعيين كلمة المرور';
+  String get forgotPasswordSubtitle =>
+      'أدخل بريدك الإلكتروني وسنرسل لك رابط لإعادة تعيين كلمة المرور';
 
   @override
   String get resetPassword => 'إعادة تعيين كلمة المرور';
 
   @override
-  String get resetPasswordSubtitle => 'من فضلك اكتب كلمة مرور يمكنك تذكرها بسهولة';
+  String get resetPasswordSubtitle =>
+      'من فضلك اكتب كلمة مرور يمكنك تذكرها بسهولة';
 
   @override
   String get changePassword => 'تغيير كلمة المرور';
@@ -380,13 +393,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get resendVerification => 'إعادة إرسال رمز التفعيل';
 
   @override
-  String get verificationEmailSent => 'تم إرسال رابط التفعيل إلى بريدك الإلكتروني';
+  String get verificationEmailSent =>
+      'تم إرسال رابط التفعيل إلى بريدك الإلكتروني';
 
   @override
   String get verificationSuccess => 'تم التحقق من البريد الإلكتروني بنجاح';
 
   @override
-  String get accountNotVerified => 'حسابك غير مفعل. يرجى تفعيل حسابك من خلال البريد الإلكتروني.';
+  String get accountNotVerified =>
+      'حسابك غير مفعل. يرجى تفعيل حسابك من خلال البريد الإلكتروني.';
 
   @override
   String get verifyingEmail => 'جارٍ التحقق من البريد الإلكتروني...';
@@ -407,7 +422,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noFavoritesTitle => 'لا توجد مفضلات بعد';
 
   @override
-  String get noFavoritesSubtitle => 'ابدأ بإضافة العقارات إلى مفضلتك لرؤيتها هنا.';
+  String get noFavoritesSubtitle =>
+      'ابدأ بإضافة العقارات إلى مفضلتك لرؤيتها هنا.';
 
   @override
   String get navProfile => 'الملف الشخصي';
@@ -529,7 +545,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noBookingsTitle => 'لا توجد حجوزات بعد';
 
   @override
-  String get noBookingsSubtitle => 'لم تقم بإجراء أي حجوزات للعقارات. استكشف العقارات وابدأ الحجز اليوم!';
+  String get noBookingsSubtitle =>
+      'لم تقم بإجراء أي حجوزات للعقارات. استكشف العقارات وابدأ الحجز اليوم!';
 
   @override
   String get reviews => 'المراجعات';
@@ -586,7 +603,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get deleteReviewConfirmationTitle => 'حذف المراجعة';
 
   @override
-  String get deleteReviewConfirmationContent => 'هل أنت متأكد أنك تريد حذف هذه المراجعة؟';
+  String get deleteReviewConfirmationContent =>
+      'هل أنت متأكد أنك تريد حذف هذه المراجعة؟';
 
   @override
   String get confirm => 'تأكيد';
@@ -651,7 +669,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get exitAppConfirmationTitle => 'خروج من التطبيق';
 
   @override
-  String get exitAppConfirmationMessage => 'هل أنت متأكد أنك تريد الخروج من التطبيق؟';
+  String get exitAppConfirmationMessage =>
+      'هل أنت متأكد أنك تريد الخروج من التطبيق؟';
 
   @override
   String get exit => 'خروج';
@@ -675,61 +694,71 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noMaintenanceBookingsTitle => 'لا توجد حجوزات خدمات بعد';
 
   @override
-  String get noMaintenanceBookingsSubtitle => 'لم تقم بإجراء أي حجوزات لخدمات الصيانة. استكشف خدماتنا وابدأ الحجز اليوم!';
+  String get noMaintenanceBookingsSubtitle =>
+      'لم تقم بإجراء أي حجوزات لخدمات الصيانة. استكشف خدماتنا وابدأ الحجز اليوم!';
 
   @override
   String get privacyPolicy => 'سياسة الخصوصية';
 
   @override
-  String get privacyPolicyIntro => 'مرحباً بكم في Propix Eight Group for Real Estate Marketing & Property Solutions. نحن نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية.';
+  String get privacyPolicyIntro =>
+      'مرحباً بكم في Propix Eight Group for Real Estate Marketing & Property Solutions. نحن نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية.';
 
   @override
   String get dataCollection => '1. جمع البيانات';
 
   @override
-  String get dataCollectionContent => 'نقوم بجمع المعلومات التي تقدمها لنا مباشرة، مثل عند إنشاء حساب، أو تحديث ملفك الشخصي، أو إجراء حجز، أو التواصل معنا. قد يشمل ذلك اسمك، بريدك الإلكتروني، رقم هاتفك، ومعلومات الدفع.';
+  String get dataCollectionContent =>
+      'نقوم بجمع المعلومات التي تقدمها لنا مباشرة، مثل عند إنشاء حساب، أو تحديث ملفك الشخصي، أو إجراء حجز، أو التواصل معنا. قد يشمل ذلك اسمك، بريدك الإلكتروني، رقم هاتفك، ومعلومات الدفع.';
 
   @override
   String get useOfData => '2. استخدام البيانات';
 
   @override
-  String get useOfDataContent => 'نستخدم بياناتك لتقديم خدماتنا وتحسينها، ومعالجة المعاملات، وإرسال الإشعارات لك، والتواصل معك بشأن التحديثات والعروض.';
+  String get useOfDataContent =>
+      'نستخدم بياناتك لتقديم خدماتنا وتحسينها، ومعالجة المعاملات، وإرسال الإشعارات لك، والتواصل معك بشأن التحديثات والعروض.';
 
   @override
   String get dataRetention => '3. الاحتفاظ بالبيانات';
 
   @override
-  String get dataRetentionContent => 'نحتفظ ببياناتك الشخصية فقط طالما كان ذلك ضرورياً لتزويدك بخدماتنا ولأغراض تجارية مشروعة.';
+  String get dataRetentionContent =>
+      'نحتفظ ببياناتك الشخصية فقط طالما كان ذلك ضرورياً لتزويدك بخدماتنا ولأغراض تجارية مشروعة.';
 
   @override
   String get dataDeletion => '4. حذف البيانات';
 
   @override
-  String get dataDeletionContent => 'يمكنك طلب حذف حسابك وبياناتك الشخصية في أي وقت عن طريق الاتصال بنا أو استخدام خيار حذف الحساب في إعدادات ملفك الشخصي.';
+  String get dataDeletionContent =>
+      'يمكنك طلب حذف حسابك وبياناتك الشخصية في أي وقت عن طريق الاتصال بنا أو استخدام خيار حذف الحساب في إعدادات ملفك الشخصي.';
 
   @override
   String get security => '5. الأمان';
 
   @override
-  String get securityContent => 'نحن نطبق تدابير فنية وتنظيمية مناسبة لحماية بياناتك الشخصية ضد الوصول غير المصرح به أو الفقدان أو سوء الاستخدام.';
+  String get securityContent =>
+      'نحن نطبق تدابير فنية وتنظيمية مناسبة لحماية بياناتك الشخصية ضد الوصول غير المصرح به أو الفقدان أو سوء الاستخدام.';
 
   @override
   String get locationInformation => '6. معلومات الموقع';
 
   @override
-  String get locationInformationContent => 'قد نستخدم بيانات موقعك لمساعدتك في العثور على العقارات والخدمات القريبة. تُستخدم هذه البيانات لتحسين تجربة البحث الخاصة بك ولا تتم مشاركتها مع جهات خارجية دون موافقتك.';
+  String get locationInformationContent =>
+      'قد نستخدم بيانات موقعك لمساعدتك في العثور على العقارات والخدمات القريبة. تُستخدم هذه البيانات لتحسين تجربة البحث الخاصة بك ولا تتم مشاركتها مع جهات خارجية دون موافقتك.';
 
   @override
   String get changesToPolicy => '7. تغييرات السياسة';
 
   @override
-  String get changesToPolicyContent => 'قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. سنقوم بإعلامك بأي تغييرات عن طريق نشر السياسة الجديدة على هذه الصفحة.';
+  String get changesToPolicyContent =>
+      'قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. سنقوم بإعلامك بأي تغييرات عن طريق نشر السياسة الجديدة على هذه الصفحة.';
 
   @override
   String get contactUs => 'اتصل بنا';
 
   @override
-  String get contactUsContent => 'إذا كان لديك أي أسئلة حول سياسة الخصوصية هذه، يرجى الاتصال بنا على support@propix8.com.';
+  String get contactUsContent =>
+      'إذا كان لديك أي أسئلة حول سياسة الخصوصية هذه، يرجى الاتصال بنا على support@propix8.com.';
 
   @override
   String get settings => 'الإعدادات';
@@ -765,7 +794,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get restartRequired => 'يتطلب إعادة تشغيل';
 
   @override
-  String get restartRequiredMessage => 'سيتم إعادة تشغيل التطبيق لتطبيق اللغة الجديدة. هل تريد المتابعة؟';
+  String get restartRequiredMessage =>
+      'سيتم إعادة تشغيل التطبيق لتطبيق اللغة الجديدة. هل تريد المتابعة؟';
 
   @override
   String get restart => 'إعادة التشغيل';
@@ -828,7 +858,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get deleteAccountConfirmationMessage => 'هل أنت متأكد من حذف حسابك؟';
 
   @override
-  String get deleteAccountWarning => 'سيتم حذف جميع بياناتك بشكل نهائي ولن تتمكن من استرجاعها';
+  String get deleteAccountWarning =>
+      'سيتم حذف جميع بياناتك بشكل نهائي ولن تتمكن من استرجاعها';
 
   @override
   String get confirmDeleteAccount => 'نعم، احذف حسابي';
@@ -840,7 +871,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get maintenance_bookings_card_deleteTitle => 'حذف الحجز';
 
   @override
-  String get maintenance_bookings_card_deleteConfirmation => 'هل أنت متأكد من حذف هذا الحجز؟';
+  String get maintenance_bookings_card_deleteConfirmation =>
+      'هل أنت متأكد من حذف هذا الحجز؟';
 
   @override
   String get maintenance_bookings_card_deleteSuccess => 'تم حذف الحجز بنجاح';
@@ -888,7 +920,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get maintenance_banner_title => 'خدمات متكاملة لإدارة وصيانة العقارات';
 
   @override
-  String get maintenance_banner_subtitle => 'حلول موثوقة تدعم قيمة عقارك وتسهل إدارته.';
+  String get maintenance_banner_subtitle =>
+      'حلول موثوقة تدعم قيمة عقارك وتسهل إدارته.';
 
   @override
   String get unit_details_booking_date => 'التاريخ';
@@ -1020,13 +1053,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get servicePlaceholder => 'اسم الخدمة';
 
   @override
-  String get serviceDescriptionPlaceholder => 'هذا وصف طويل للخدمة لمحاكاة مظهر النص في البطاقة.';
+  String get serviceDescriptionPlaceholder =>
+      'هذا وصف طويل للخدمة لمحاكاة مظهر النص في البطاقة.';
 
   @override
   String get faqQuestionPlaceholder => 'سؤال شائع؟';
 
   @override
-  String get faqAnswerPlaceholder => 'هذه إجابة مفصلة للسؤال لضمان مظهر واقعي للقالب.';
+  String get faqAnswerPlaceholder =>
+      'هذه إجابة مفصلة للسؤال لضمان مظهر واقعي للقالب.';
 
   @override
   String get testimonials => 'تقييمات العملاء';
@@ -1092,13 +1127,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get failedToUpdateFavorite => 'فشل تحديث المفضلة';
 
   @override
-  String get locationServiceDisabled => 'خدمات الموقع متوقفة. يرجى تفعيلها لتحديد موقعك.';
+  String get locationServiceDisabled =>
+      'خدمات الموقع متوقفة. يرجى تفعيلها لتحديد موقعك.';
 
   @override
-  String get locationPermissionDenied => 'تم رفض إذن الوصول للموقع. يرجى منح الإذن لتحديد موقعك.';
+  String get locationPermissionDenied =>
+      'تم رفض إذن الوصول للموقع. يرجى منح الإذن لتحديد موقعك.';
 
   @override
-  String get locationPermissionDeniedForever => 'أذونات الموقع مرفوضة بشكل دائم. يرجى تفعيلها من الإعدادات.';
+  String get locationPermissionDeniedForever =>
+      'أذونات الموقع مرفوضة بشكل دائم. يرجى تفعيلها من الإعدادات.';
 
   @override
   String get enableLocation => 'تفعيل';

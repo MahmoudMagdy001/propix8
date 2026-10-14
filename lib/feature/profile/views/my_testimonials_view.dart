@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:propix8/core/di/locator.dart';
@@ -11,11 +9,12 @@ import 'package:propix8/core/widgets/app_elevated_button.dart';
 import 'package:propix8/core/widgets/custom_back_button.dart';
 import 'package:propix8/feature/auth/viewmodels/auth_cubit.dart';
 import 'package:propix8/feature/auth/viewmodels/auth_state.dart';
-import 'package:propix8/feature/our_services/models/testimonial_model.dart';
-import 'package:propix8/feature/our_services/viewmodels/our_services_cubit.dart';
-import 'package:propix8/feature/our_services/viewmodels/our_services_state.dart';
-import 'package:propix8/feature/our_services/views/widgets/add_testimonial_sheet.dart';
-import 'package:propix8/feature/our_services/views/widgets/testimonial_item.dart';
+import 'package:propix8/feature/our_services/domain/entities/testimonial_entity.dart';
+import 'package:propix8/feature/our_services/presentation/bloc/our_services_bloc.dart';
+import 'package:propix8/feature/our_services/presentation/bloc/our_services_event.dart';
+import 'package:propix8/feature/our_services/presentation/bloc/our_services_state.dart';
+import 'package:propix8/feature/our_services/presentation/widgets/add_testimonial_sheet.dart';
+import 'package:propix8/feature/our_services/presentation/widgets/testimonial_item.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class MyTestimonialsView extends StatelessWidget {
@@ -23,11 +22,13 @@ class MyTestimonialsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BlocProvider(
-    create: (context) {
-      final cubit = locator<OurServicesCubit>();
-      unawaited(cubit.loadData(loadServices: false, loadFaqs: false));
-      return cubit;
-    },
+    create: (context) => locator<OurServicesBloc>()
+      ..add(
+        const OurServicesEvent.dataRequested(
+          loadServices: false,
+          loadFaqs: false,
+        ),
+      ),
     child: const _MyTestimonialsContent(),
   );
 }
@@ -42,7 +43,9 @@ class _MyTestimonialsContent extends StatefulWidget {
 class _MyTestimonialsContentState extends State<_MyTestimonialsContent>
     with ScrollPaginationMixin {
   @override
-  void onPageFetched() => context.read<OurServicesCubit>().loadMore();
+  void onPageFetched() => context.read<OurServicesBloc>().add(
+    const OurServicesEvent.moreTestimonialsRequested(),
+  );
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -52,7 +55,7 @@ class _MyTestimonialsContentState extends State<_MyTestimonialsContent>
     ),
     body: MultiBlocListener(
       listeners: [
-        BlocListener<OurServicesCubit, OurServicesState>(
+        BlocListener<OurServicesBloc, OurServicesState>(
           listenWhen: (p, c) =>
               p.addTestimonialStatus != c.addTestimonialStatus,
           listener: (context, state) {
@@ -67,7 +70,7 @@ class _MyTestimonialsContentState extends State<_MyTestimonialsContent>
             }
           },
         ),
-        BlocListener<OurServicesCubit, OurServicesState>(
+        BlocListener<OurServicesBloc, OurServicesState>(
           listenWhen: (p, c) =>
               p.updateTestimonialStatus != c.updateTestimonialStatus,
           listener: (context, state) {
@@ -79,7 +82,7 @@ class _MyTestimonialsContentState extends State<_MyTestimonialsContent>
             }
           },
         ),
-        BlocListener<OurServicesCubit, OurServicesState>(
+        BlocListener<OurServicesBloc, OurServicesState>(
           listenWhen: (p, c) =>
               p.deleteTestimonialStatus != c.deleteTestimonialStatus,
           listener: (context, state) {
@@ -92,16 +95,15 @@ class _MyTestimonialsContentState extends State<_MyTestimonialsContent>
           },
         ),
       ],
-      child: BlocBuilder<OurServicesCubit, OurServicesState>(
+      child: BlocBuilder<OurServicesBloc, OurServicesState>(
         builder: (context, state) {
           if (state.status == OurServicesStatus.loading &&
               state.testimonials == null) {
             return Skeletonizer(
               child: Padding(
                 padding: EdgeInsets.fromLTRB(6.r, 16.r, 6.r, 80.h),
-
                 child: TestimonialItem(
-                  testimonial: TestimonialModel(
+                  testimonial: TestimonialEntity(
                     id: 0,
                     name: context.l10n.loading,
                     position: context.l10n.loading,
@@ -125,9 +127,11 @@ class _MyTestimonialsContentState extends State<_MyTestimonialsContent>
                   Text(state.errorMessage ?? context.l10n.errorOccurred),
                   SizedBox(height: 16.h),
                   AppElevatedButton(
-                    onPressed: () => context.read<OurServicesCubit>().loadData(
-                      loadServices: false,
-                      loadFaqs: false,
+                    onPressed: () => context.read<OurServicesBloc>().add(
+                      const OurServicesEvent.dataRequested(
+                        loadServices: false,
+                        loadFaqs: false,
+                      ),
                     ),
                     text: context.l10n.retry,
                   ),
@@ -178,10 +182,12 @@ class _MyTestimonialsContentState extends State<_MyTestimonialsContent>
               return Stack(
                 children: [
                   RefreshIndicator(
-                    onRefresh: () => context.read<OurServicesCubit>().loadData(
-                      loadServices: false,
-                      loadFaqs: false,
-                      isRefreshing: true,
+                    onRefresh: () async => context.read<OurServicesBloc>().add(
+                      const OurServicesEvent.dataRequested(
+                        loadServices: false,
+                        loadFaqs: false,
+                        isRefreshing: true,
+                      ),
                     ),
                     child: ListView.separated(
                       controller: scrollController,

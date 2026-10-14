@@ -5,11 +5,11 @@ import 'package:propix8/core/router/app_routes.dart';
 import 'package:propix8/core/utils/context_extensions.dart';
 import 'package:propix8/core/utils/responsive_helper.dart';
 import 'package:propix8/core/widgets/favorite_button.dart';
-import 'package:propix8/feature/home/models/unit_model.dart';
+import 'package:propix8/feature/home/domain/entities/unit_entity.dart';
 
 class UnitGridCard extends StatelessWidget {
   const UnitGridCard({required this.unit, super.key});
-  final UnitModel unit;
+  final UnitEntity unit;
 
   @override
   Widget build(BuildContext context) => Material(

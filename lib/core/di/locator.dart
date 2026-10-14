@@ -3,12 +3,9 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:propix8/core/network/auth_interceptor.dart';
 import 'package:propix8/core/network/dio_client.dart';
-import 'package:propix8/core/public_feature/repositories/pages_repository.dart';
-import 'package:propix8/core/public_feature/services/deep_link_service.dart';
-import 'package:propix8/core/public_feature/services/pages_service.dart';
-import 'package:propix8/core/public_feature/services/storage_service.dart';
-import 'package:propix8/core/public_feature/viewmodels/pages_cubit.dart';
 import 'package:propix8/core/services/booking_event_service.dart';
+import 'package:propix8/core/services/deep_link_service.dart';
+import 'package:propix8/core/storage/storage_service.dart';
 import 'package:propix8/feature/auth/repositories/address_setup_repository.dart';
 import 'package:propix8/feature/auth/repositories/auth_repository.dart';
 import 'package:propix8/feature/auth/services/address_setup_service.dart';
@@ -19,30 +16,52 @@ import 'package:propix8/feature/auth/viewmodels/reset_password_cubit.dart';
 import 'package:propix8/feature/bookings/repositories/booking_repository.dart';
 import 'package:propix8/feature/bookings/services/booking_service.dart';
 import 'package:propix8/feature/bookings/viewmodels/booking_cubit.dart';
-import 'package:propix8/feature/comparison/viewmodels/choose_product_cubit.dart';
-import 'package:propix8/feature/comparison/viewmodels/comparison_cubit.dart';
-import 'package:propix8/feature/compound_details/repositories/compound_repository.dart';
-import 'package:propix8/feature/compound_details/services/compound_service.dart';
-import 'package:propix8/feature/compound_details/viewmodels/compound_units_cubit.dart';
-import 'package:propix8/feature/compounds/repositories/compound_repository.dart';
-import 'package:propix8/feature/compounds/services/compound_service.dart';
-import 'package:propix8/feature/compounds/viewmodels/compound_cubit.dart';
-import 'package:propix8/feature/contact/repositories/contact_repository.dart';
-import 'package:propix8/feature/contact/services/contact_service.dart';
-import 'package:propix8/feature/contact/viewmodels/contact_cubit.dart';
-import 'package:propix8/feature/developer_details/repositories/developer_repository.dart';
-import 'package:propix8/feature/developer_details/services/developer_service.dart';
-import 'package:propix8/feature/developer_details/viewmodels/developer_units_cubit.dart';
-import 'package:propix8/feature/developers/repositories/developer_repository.dart';
-import 'package:propix8/feature/developers/services/developer_service.dart';
-import 'package:propix8/feature/developers/viewmodels/developer_cubit.dart';
-import 'package:propix8/feature/favorites/repositories/favorite_repository.dart';
-import 'package:propix8/feature/favorites/services/favorite_service.dart';
-import 'package:propix8/feature/favorites/viewmodels/favorite_cubit.dart';
-import 'package:propix8/feature/home/repositories/unit_repository.dart';
-import 'package:propix8/feature/home/services/unit_service.dart';
-import 'package:propix8/feature/home/viewmodels/home_cubit.dart';
-import 'package:propix8/feature/home/viewmodels/nearby_units_cubit.dart';
+import 'package:propix8/feature/comparison/domain/usecases/compare_units_usecase.dart';
+import 'package:propix8/feature/comparison/presentation/bloc/choose_product_bloc.dart';
+import 'package:propix8/feature/comparison/presentation/bloc/comparison_bloc.dart';
+import 'package:propix8/feature/compound_details/data/datasources/compound_details_remote_data_source.dart';
+import 'package:propix8/feature/compound_details/data/repositories/compound_details_repository_impl.dart';
+import 'package:propix8/feature/compound_details/domain/repositories/compound_details_repository.dart';
+import 'package:propix8/feature/compound_details/domain/usecases/get_compound_units_usecase.dart';
+import 'package:propix8/feature/compound_details/presentation/bloc/compound_units_bloc.dart';
+import 'package:propix8/feature/compounds/data/datasources/compounds_remote_data_source.dart';
+import 'package:propix8/feature/compounds/data/repositories/compounds_repository_impl.dart';
+import 'package:propix8/feature/compounds/domain/repositories/compounds_repository.dart';
+import 'package:propix8/feature/compounds/domain/usecases/get_compounds_usecase.dart';
+import 'package:propix8/feature/compounds/presentation/bloc/compounds_bloc.dart';
+import 'package:propix8/feature/contact/data/datasources/contact_remote_data_source.dart';
+import 'package:propix8/feature/contact/data/repositories/contact_repository_impl.dart';
+import 'package:propix8/feature/contact/domain/repositories/contact_repository.dart';
+import 'package:propix8/feature/contact/domain/usecases/send_contact_request_usecase.dart';
+import 'package:propix8/feature/contact/presentation/bloc/contact_bloc.dart';
+import 'package:propix8/feature/developer_details/data/datasources/developer_details_remote_data_source.dart';
+import 'package:propix8/feature/developer_details/data/repositories/developer_details_repository_impl.dart';
+import 'package:propix8/feature/developer_details/domain/repositories/developer_details_repository.dart';
+import 'package:propix8/feature/developer_details/domain/usecases/get_developer_units_usecase.dart';
+import 'package:propix8/feature/developer_details/presentation/bloc/developer_units_bloc.dart';
+import 'package:propix8/feature/developers/data/datasources/developers_remote_data_source.dart';
+import 'package:propix8/feature/developers/data/repositories/developers_repository_impl.dart';
+import 'package:propix8/feature/developers/domain/repositories/developers_repository.dart';
+import 'package:propix8/feature/developers/domain/usecases/get_developers_usecase.dart';
+import 'package:propix8/feature/developers/presentation/bloc/developers_bloc.dart';
+import 'package:propix8/feature/favorites/data/datasources/favorites_remote_data_source.dart';
+import 'package:propix8/feature/favorites/data/repositories/favorites_repository_impl.dart';
+import 'package:propix8/feature/favorites/domain/repositories/favorites_repository.dart';
+import 'package:propix8/feature/favorites/domain/usecases/get_favorites_usecase.dart';
+import 'package:propix8/feature/favorites/domain/usecases/toggle_favorite_item_usecase.dart';
+import 'package:propix8/feature/favorites/presentation/bloc/favorite_bloc.dart';
+import 'package:propix8/feature/home/data/datasources/unit_remote_data_source.dart';
+import 'package:propix8/feature/home/data/repositories/unit_repository_impl.dart';
+import 'package:propix8/feature/home/domain/repositories/unit_repository.dart';
+import 'package:propix8/feature/home/domain/usecases/get_all_units_usecase.dart';
+import 'package:propix8/feature/home/domain/usecases/get_banners_usecase.dart';
+import 'package:propix8/feature/home/domain/usecases/get_categories_usecase.dart';
+import 'package:propix8/feature/home/domain/usecases/get_latest_units_usecase.dart';
+import 'package:propix8/feature/home/domain/usecases/get_nearby_units_usecase.dart';
+import 'package:propix8/feature/home/domain/usecases/toggle_favorite_usecase.dart';
+import 'package:propix8/feature/home/presentation/bloc/home_bloc.dart';
+import 'package:propix8/feature/home/presentation/bloc/nearby_units_bloc.dart';
+import 'package:propix8/feature/home/presentation/filter/bloc/filter_bloc.dart';
 import 'package:propix8/feature/maintenance_bookings/repositories/maintenance_booking_repository.dart';
 import 'package:propix8/feature/maintenance_bookings/services/maintenance_booking_service.dart';
 import 'package:propix8/feature/maintenance_bookings/viewmodels/maintenance_bookings_cubit.dart';
@@ -50,21 +69,55 @@ import 'package:propix8/feature/maintenance_services/repositories/maintenance_se
 import 'package:propix8/feature/maintenance_services/services/maintenance_service_source.dart';
 import 'package:propix8/feature/maintenance_services/viewmodels/maintenance_booking_cubit.dart';
 import 'package:propix8/feature/maintenance_services/viewmodels/maintenance_services_cubit.dart';
-import 'package:propix8/feature/onboarding/repositories/onboarding_repository.dart';
-import 'package:propix8/feature/onboarding/viewmodels/onboarding_cubit.dart';
-import 'package:propix8/feature/our_services/repositories/our_services_repository.dart';
-import 'package:propix8/feature/our_services/services/our_services_service.dart';
-import 'package:propix8/feature/our_services/viewmodels/our_services_cubit.dart';
+import 'package:propix8/feature/onboarding/data/datasources/onboarding_local_data_source.dart';
+import 'package:propix8/feature/onboarding/data/repositories/onboarding_repository_impl.dart';
+import 'package:propix8/feature/onboarding/domain/repositories/onboarding_repository.dart';
+import 'package:propix8/feature/onboarding/domain/usecases/complete_onboarding_usecase.dart';
+import 'package:propix8/feature/onboarding/domain/usecases/get_onboarding_pages_usecase.dart';
+import 'package:propix8/feature/onboarding/presentation/bloc/onboarding_bloc.dart';
+import 'package:propix8/feature/our_services/data/datasources/our_services_remote_data_source.dart';
+import 'package:propix8/feature/our_services/data/repositories/our_services_repository_impl.dart';
+import 'package:propix8/feature/our_services/domain/repositories/our_services_repository.dart';
+import 'package:propix8/feature/our_services/domain/usecases/add_testimonial_usecase.dart';
+import 'package:propix8/feature/our_services/domain/usecases/delete_testimonial_usecase.dart';
+import 'package:propix8/feature/our_services/domain/usecases/get_faqs_usecase.dart';
+import 'package:propix8/feature/our_services/domain/usecases/get_services_usecase.dart';
+import 'package:propix8/feature/our_services/domain/usecases/get_testimonials_usecase.dart';
+import 'package:propix8/feature/our_services/domain/usecases/update_testimonial_usecase.dart';
+import 'package:propix8/feature/our_services/presentation/bloc/our_services_bloc.dart';
 import 'package:propix8/feature/profile/repositories/user_profile_repository.dart';
 import 'package:propix8/feature/profile/services/user_profile_service.dart';
 import 'package:propix8/feature/profile/viewmodels/user_profile_cubit.dart';
-import 'package:propix8/feature/search/viewmodels/search_cubit.dart';
-import 'package:propix8/feature/settings/repositories/settings_repository.dart';
-import 'package:propix8/feature/settings/services/settings_service.dart';
-import 'package:propix8/feature/settings/viewmodels/settings_cubit.dart';
-import 'package:propix8/feature/unit_details/repositories/unit_details_repository.dart';
-import 'package:propix8/feature/unit_details/services/unit_details_service.dart';
-import 'package:propix8/feature/unit_details/viewmodels/unit_details_cubit.dart';
+import 'package:propix8/feature/search/domain/usecases/search_units_usecase.dart';
+import 'package:propix8/feature/search/presentation/bloc/search_bloc.dart';
+import 'package:propix8/feature/settings/data/datasources/settings_local_data_source.dart';
+import 'package:propix8/feature/settings/data/datasources/settings_remote_data_source.dart';
+import 'package:propix8/feature/settings/data/repositories/settings_repository_impl.dart';
+import 'package:propix8/feature/settings/domain/repositories/settings_repository.dart';
+import 'package:propix8/feature/settings/domain/usecases/get_locale_usecase.dart';
+import 'package:propix8/feature/settings/domain/usecases/get_site_settings_usecase.dart';
+import 'package:propix8/feature/settings/domain/usecases/get_theme_mode_usecase.dart';
+import 'package:propix8/feature/settings/domain/usecases/save_locale_usecase.dart';
+import 'package:propix8/feature/settings/domain/usecases/save_theme_mode_usecase.dart';
+import 'package:propix8/feature/settings/presentation/bloc/settings_bloc.dart';
+import 'package:propix8/feature/static_pages/data/datasources/pages_remote_data_source.dart';
+import 'package:propix8/feature/static_pages/data/repositories/pages_repository_impl.dart';
+import 'package:propix8/feature/static_pages/domain/repositories/pages_repository.dart';
+import 'package:propix8/feature/static_pages/domain/usecases/get_pages_usecase.dart';
+import 'package:propix8/feature/static_pages/domain/usecases/get_stats_usecase.dart';
+import 'package:propix8/feature/static_pages/presentation/bloc/pages_bloc.dart';
+import 'package:propix8/feature/unit_details/data/datasources/unit_details_remote_data_source.dart';
+import 'package:propix8/feature/unit_details/data/repositories/unit_details_repository_impl.dart';
+import 'package:propix8/feature/unit_details/domain/repositories/unit_details_repository.dart';
+import 'package:propix8/feature/unit_details/domain/usecases/contact_owner_usecase.dart';
+import 'package:propix8/feature/unit_details/domain/usecases/create_unit_booking_usecase.dart';
+import 'package:propix8/feature/unit_details/domain/usecases/delete_unit_review_usecase.dart';
+import 'package:propix8/feature/unit_details/domain/usecases/get_related_units_usecase.dart';
+import 'package:propix8/feature/unit_details/domain/usecases/get_unit_details_usecase.dart';
+import 'package:propix8/feature/unit_details/domain/usecases/get_unit_reviews_usecase.dart';
+import 'package:propix8/feature/unit_details/domain/usecases/submit_unit_review_usecase.dart';
+import 'package:propix8/feature/unit_details/domain/usecases/update_unit_review_usecase.dart';
+import 'package:propix8/feature/unit_details/presentation/bloc/unit_details_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final locator = GetIt.instance;
@@ -83,11 +136,9 @@ Future<void> setupLocator() async {
     ..registerLazySingleton(() => DioClient(Dio(), locator<AuthInterceptor>()))
     // Services
     ..registerLazySingleton(() => AuthService(locator<DioClient>()))
-    ..registerLazySingleton(() => UnitService(locator<DioClient>()))
-    ..registerLazySingleton(() => UnitDetailsService(locator<DioClient>()))
-    ..registerLazySingleton(() => CompoundService(locator<DioClient>()))
-    ..registerLazySingleton(() => DeveloperService(locator<DioClient>()))
-    ..registerLazySingleton(() => FavoriteService(locator<DioClient>()))
+    ..registerLazySingleton<UnitRemoteDataSource>(
+      () => UnitRemoteDataSourceImpl(locator<DioClient>()),
+    )
     ..registerLazySingleton(
       () => MaintenanceServiceSource(locator<DioClient>()),
     )
@@ -95,36 +146,128 @@ Future<void> setupLocator() async {
     ..registerLazySingleton(
       () => MaintenanceBookingService(locator<DioClient>()),
     )
-    ..registerLazySingleton(() => DevelopersService(locator<DioClient>()))
-    ..registerLazySingleton(() => CompoundsService(locator<DioClient>()))
-    ..registerLazySingleton(() => PagesService(locator<DioClient>()))
-    ..registerLazySingleton(() => OurServicesService(locator<DioClient>()))
-    ..registerLazySingleton(() => SettingsService(locator<DioClient>()))
-    ..registerLazySingleton(() => ContactService(locator<DioClient>()))
+    ..registerLazySingleton<DevelopersRemoteDataSource>(
+      () => DevelopersRemoteDataSourceImpl(locator<DioClient>()),
+    )
+    ..registerLazySingleton<CompoundsRemoteDataSource>(
+      () => CompoundsRemoteDataSourceImpl(locator<DioClient>()),
+    )
+    ..registerLazySingleton<PagesRemoteDataSource>(
+      () => PagesRemoteDataSourceImpl(locator<DioClient>()),
+    )
+    ..registerLazySingleton<OurServicesRemoteDataSource>(
+      () => OurServicesRemoteDataSourceImpl(locator<DioClient>()),
+    )
+    ..registerLazySingleton<SettingsRemoteDataSource>(
+      () => SettingsRemoteDataSourceImpl(locator<DioClient>()),
+    )
+    ..registerLazySingleton<SettingsLocalDataSource>(
+      () => SettingsLocalDataSourceImpl(locator<StorageService>()),
+    )
+    ..registerLazySingleton<ContactRemoteDataSource>(
+      () => ContactRemoteDataSourceImpl(locator<DioClient>()),
+    )
+    ..registerLazySingleton<OnboardingLocalDataSource>(
+      () => OnboardingLocalDataSourceImpl(locator<StorageService>()),
+    )
     ..registerLazySingleton<BookingEventService>(BookingEventService.new)
     // Repositories
-    ..registerFactory<OnboardingRepository>(OnboardingRepositoryImpl.new)
+    ..registerFactory<OnboardingRepository>(
+      () => OnboardingRepositoryImpl(locator<OnboardingLocalDataSource>()),
+    )
+    ..registerLazySingleton(
+      () => GetOnboardingPagesUseCase(locator<OnboardingRepository>()),
+    )
+    ..registerLazySingleton(
+      () => CompleteOnboardingUseCase(locator<OnboardingRepository>()),
+    )
     ..registerLazySingleton<AuthRepository>(
       () =>
           AuthRepositoryImpl(locator<AuthService>(), locator<StorageService>()),
     )
     ..registerLazySingleton<UnitRepository>(
-      () => UnitRepositoryImpl(locator<UnitService>()),
+      () => UnitRepositoryImpl(locator<UnitRemoteDataSource>()),
+    )
+    ..registerLazySingleton(() => GetBannersUseCase(locator<UnitRepository>()))
+    ..registerLazySingleton(
+      () => GetCategoriesUseCase(locator<UnitRepository>()),
+    )
+    ..registerLazySingleton(
+      () => GetNearbyUnitsUseCase(locator<UnitRepository>()),
+    )
+    ..registerLazySingleton(
+      () => GetLatestUnitsUseCase(locator<UnitRepository>()),
+    )
+    ..registerLazySingleton(() => GetAllUnitsUseCase(locator<UnitRepository>()))
+    ..registerLazySingleton(
+      () => ToggleFavoriteUseCase(locator<UnitRepository>()),
+    )
+    ..registerLazySingleton<UnitDetailsRemoteDataSource>(
+      () => UnitDetailsRemoteDataSourceImpl(locator<DioClient>()),
     )
     ..registerLazySingleton<UnitDetailsRepository>(
       () => UnitDetailsRepositoryImpl(
-        locator<UnitDetailsService>(),
+        locator<UnitDetailsRemoteDataSource>(),
         locator<BookingEventService>(),
       ),
     )
-    ..registerLazySingleton<CompoundRepository>(
-      () => CompoundRepositoryImpl(locator<CompoundService>()),
+    ..registerLazySingleton(
+      () => GetUnitDetailsUseCase(locator<UnitDetailsRepository>()),
     )
-    ..registerLazySingleton<DeveloperRepository>(
-      () => DeveloperRepositoryImpl(locator<DeveloperService>()),
+    ..registerLazySingleton(
+      () => GetRelatedUnitsUseCase(locator<UnitDetailsRepository>()),
     )
-    ..registerLazySingleton<FavoriteRepository>(
-      () => FavoriteRepositoryImpl(locator<FavoriteService>()),
+    ..registerLazySingleton(
+      () => GetUnitReviewsUseCase(locator<UnitDetailsRepository>()),
+    )
+    ..registerLazySingleton(
+      () => SubmitUnitReviewUseCase(locator<UnitDetailsRepository>()),
+    )
+    ..registerLazySingleton(
+      () => DeleteUnitReviewUseCase(locator<UnitDetailsRepository>()),
+    )
+    ..registerLazySingleton(
+      () => UpdateUnitReviewUseCase(locator<UnitDetailsRepository>()),
+    )
+    ..registerLazySingleton(
+      () => ContactOwnerUseCase(locator<UnitDetailsRepository>()),
+    )
+    ..registerLazySingleton(
+      () => CreateUnitBookingUseCase(locator<UnitDetailsRepository>()),
+    )
+    ..registerLazySingleton<CompoundDetailsRemoteDataSource>(
+      () => CompoundDetailsRemoteDataSourceImpl(locator<DioClient>()),
+    )
+    ..registerLazySingleton<CompoundDetailsRepository>(
+      () => CompoundDetailsRepositoryImpl(
+        locator<CompoundDetailsRemoteDataSource>(),
+      ),
+    )
+    ..registerLazySingleton(
+      () => GetCompoundUnitsUseCase(locator<CompoundDetailsRepository>()),
+    )
+    ..registerLazySingleton<DeveloperDetailsRemoteDataSource>(
+      () => DeveloperDetailsRemoteDataSourceImpl(locator<DioClient>()),
+    )
+    ..registerLazySingleton<DeveloperDetailsRepository>(
+      () => DeveloperDetailsRepositoryImpl(
+        locator<DeveloperDetailsRemoteDataSource>(),
+      ),
+    )
+    ..registerLazySingleton(
+      () => GetDeveloperUnitsUseCase(locator<DeveloperDetailsRepository>()),
+    )
+    ..registerLazySingleton<FavoritesRemoteDataSource>(
+      () => FavoritesRemoteDataSourceImpl(locator<DioClient>()),
+    )
+    ..registerLazySingleton<FavoritesRepository>(
+      () => FavoritesRepositoryImpl(locator<FavoritesRemoteDataSource>()),
+    )
+    ..registerLazySingleton(
+      () => GetFavoritesUseCase(locator<FavoritesRepository>()),
+    )
+    ..registerLazySingleton(
+      () => ToggleFavoriteItemUseCase(locator<FavoritesRepository>()),
     )
     ..registerLazySingleton<MaintenanceServiceRepository>(
       () => MaintenanceServiceRepositoryImpl(
@@ -145,25 +288,77 @@ Future<void> setupLocator() async {
       ),
     )
     ..registerLazySingleton<DevelopersRepository>(
-      () => DevelopersRepositoryImpl(locator<DevelopersService>()),
+      () => DevelopersRepositoryImpl(locator<DevelopersRemoteDataSource>()),
+    )
+    ..registerLazySingleton(
+      () => GetDevelopersUseCase(locator<DevelopersRepository>()),
     )
     ..registerLazySingleton<CompoundsRepository>(
-      () => CompoundsRepositoryImpl(locator<CompoundsService>()),
+      () => CompoundsRepositoryImpl(locator<CompoundsRemoteDataSource>()),
+    )
+    ..registerLazySingleton(
+      () => GetCompoundsUseCase(locator<CompoundsRepository>()),
     )
     ..registerLazySingleton<PagesRepository>(
-      () => PagesRepositoryImpl(locator<PagesService>()),
+      () => PagesRepositoryImpl(locator<PagesRemoteDataSource>()),
     )
+    ..registerLazySingleton(() => GetPagesUseCase(locator<PagesRepository>()))
+    ..registerLazySingleton(() => GetStatsUseCase(locator<PagesRepository>()))
     ..registerLazySingleton<OurServicesRepository>(
-      () => OurServicesRepositoryImpl(locator<OurServicesService>()),
+      () => OurServicesRepositoryImpl(locator<OurServicesRemoteDataSource>()),
+    )
+    ..registerLazySingleton(
+      () => GetServicesUseCase(locator<OurServicesRepository>()),
+    )
+    ..registerLazySingleton(
+      () => GetFaqsUseCase(locator<OurServicesRepository>()),
+    )
+    ..registerLazySingleton(
+      () => GetTestimonialsUseCase(locator<OurServicesRepository>()),
+    )
+    ..registerLazySingleton(
+      () => AddTestimonialUseCase(locator<OurServicesRepository>()),
+    )
+    ..registerLazySingleton(
+      () => UpdateTestimonialUseCase(locator<OurServicesRepository>()),
+    )
+    ..registerLazySingleton(
+      () => DeleteTestimonialUseCase(locator<OurServicesRepository>()),
     )
     ..registerLazySingleton<SettingsRepository>(
-      () => SettingsRepositoryImpl(locator<SettingsService>()),
+      () => SettingsRepositoryImpl(
+        remoteDataSource: locator<SettingsRemoteDataSource>(),
+        localDataSource: locator<SettingsLocalDataSource>(),
+      ),
+    )
+    ..registerLazySingleton(
+      () => GetSiteSettingsUseCase(locator<SettingsRepository>()),
+    )
+    ..registerLazySingleton(
+      () => GetThemeModeUseCase(locator<SettingsRepository>()),
+    )
+    ..registerLazySingleton(
+      () => SaveThemeModeUseCase(locator<SettingsRepository>()),
+    )
+    ..registerLazySingleton(
+      () => GetLocaleUseCase(locator<SettingsRepository>()),
+    )
+    ..registerLazySingleton(
+      () => SaveLocaleUseCase(locator<SettingsRepository>()),
     )
     ..registerLazySingleton<ContactRepository>(
-      () => ContactRepositoryImpl(locator<ContactService>()),
+      () => ContactRepositoryImpl(locator<ContactRemoteDataSource>()),
+    )
+    ..registerLazySingleton(
+      () => SendContactRequestUseCase(locator<ContactRepository>()),
     )
     // ViewModels
-    ..registerFactory(() => OnboardingCubit(locator<OnboardingRepository>()))
+    ..registerFactory(
+      () => OnboardingBloc(
+        getOnboardingPagesUseCase: locator<GetOnboardingPagesUseCase>(),
+        completeOnboardingUseCase: locator<CompleteOnboardingUseCase>(),
+      ),
+    )
     ..registerLazySingleton(
       () => AuthCubit(
         locator<AuthRepository>(),
@@ -171,17 +366,52 @@ Future<void> setupLocator() async {
       ),
     )
     ..registerFactory(() => ResetPasswordCubit(locator<AuthRepository>()))
-    ..registerFactory(() => HomeCubit(locator<UnitRepository>()))
-    ..registerFactory(() => NearbyUnitsCubit(locator<UnitRepository>()))
     ..registerFactory(
-      () => UnitDetailsCubit(
-        locator<UnitDetailsRepository>(),
-        locator<BookingRepository>(),
+      () => HomeBloc(
+        getBannersUseCase: locator<GetBannersUseCase>(),
+        getCategoriesUseCase: locator<GetCategoriesUseCase>(),
+        getNearbyUnitsUseCase: locator<GetNearbyUnitsUseCase>(),
+        getLatestUnitsUseCase: locator<GetLatestUnitsUseCase>(),
+        getAllUnitsUseCase: locator<GetAllUnitsUseCase>(),
+        toggleFavoriteUseCase: locator<ToggleFavoriteUseCase>(),
       ),
     )
-    ..registerFactory(() => SearchCubit(locator<UnitRepository>()))
-    ..registerFactory(() => CompoundUnitsCubit(locator<CompoundRepository>()))
-    ..registerFactory(() => DeveloperUnitsCubit(locator<DeveloperRepository>()))
+    ..registerFactory(
+      () => NearbyUnitsBloc(
+        getNearbyUnitsUseCase: locator<GetNearbyUnitsUseCase>(),
+        toggleFavoriteUseCase: locator<ToggleFavoriteUseCase>(),
+      ),
+    )
+    ..registerFactory(() => FilterBloc(locator<AddressSetupRepository>()))
+    ..registerFactory(
+      () => UnitDetailsBloc(
+        getUnitDetailsUseCase: locator<GetUnitDetailsUseCase>(),
+        getRelatedUnitsUseCase: locator<GetRelatedUnitsUseCase>(),
+        getUnitReviewsUseCase: locator<GetUnitReviewsUseCase>(),
+        submitUnitReviewUseCase: locator<SubmitUnitReviewUseCase>(),
+        deleteUnitReviewUseCase: locator<DeleteUnitReviewUseCase>(),
+        updateUnitReviewUseCase: locator<UpdateUnitReviewUseCase>(),
+        contactOwnerUseCase: locator<ContactOwnerUseCase>(),
+        createUnitBookingUseCase: locator<CreateUnitBookingUseCase>(),
+        bookingRepository: locator<BookingRepository>(),
+      ),
+    )
+    ..registerLazySingleton(
+      () => SearchUnitsUseCase(locator<GetAllUnitsUseCase>()),
+    )
+    ..registerFactory(
+      () => SearchBloc(searchUnitsUseCase: locator<SearchUnitsUseCase>()),
+    )
+    ..registerFactory(
+      () => CompoundUnitsBloc(
+        getCompoundUnitsUseCase: locator<GetCompoundUnitsUseCase>(),
+      ),
+    )
+    ..registerFactory(
+      () => DeveloperUnitsBloc(
+        getDeveloperUnitsUseCase: locator<GetDeveloperUnitsUseCase>(),
+      ),
+    )
     // Profile Feature
     ..registerLazySingleton(() => UserProfileService(locator<DioClient>()))
     ..registerLazySingleton<UserProfileRepository>(
@@ -208,7 +438,12 @@ Future<void> setupLocator() async {
     ..registerFactory(
       () => AddressSetupCubit(locator<AddressSetupRepository>()),
     )
-    ..registerLazySingleton(() => FavoriteCubit(locator<FavoriteRepository>()))
+    ..registerLazySingleton(
+      () => FavoriteBloc(
+        getFavoritesUseCase: locator<GetFavoritesUseCase>(),
+        toggleFavoriteItemUseCase: locator<ToggleFavoriteItemUseCase>(),
+      ),
+    )
     ..registerLazySingleton(
       () => MaintenanceServicesCubit(
         locator<MaintenanceServiceRepository>(),
@@ -222,18 +457,52 @@ Future<void> setupLocator() async {
     ..registerFactory(
       () => MaintenanceBookingsCubit(locator<MaintenanceBookingRepository>()),
     )
-    ..registerFactory(() => DevelopersCubit(locator<DevelopersRepository>()))
-    ..registerFactory(() => CompoundsCubit(locator<CompoundsRepository>()))
-    ..registerFactory(() => PagesCubit(locator<PagesRepository>()))
-    ..registerFactory(() => OurServicesCubit(locator<OurServicesRepository>()))
     ..registerFactory(
-      () => SettingsCubit(
-        locator<StorageService>(),
-        locator<SettingsRepository>(),
+      () =>
+          DevelopersBloc(getDevelopersUseCase: locator<GetDevelopersUseCase>()),
+    )
+    ..registerFactory(
+      () => CompoundsBloc(getCompoundsUseCase: locator<GetCompoundsUseCase>()),
+    )
+    ..registerFactory(
+      () => PagesBloc(
+        getPagesUseCase: locator<GetPagesUseCase>(),
+        getStatsUseCase: locator<GetStatsUseCase>(),
       ),
     )
-    ..registerFactory(() => ComparisonCubit(locator<UnitDetailsRepository>()))
-    ..registerFactory(() => ChooseProductCubit(locator<UnitRepository>()))
-    ..registerFactory(() => ContactCubit(locator<ContactRepository>()))
+    ..registerFactory(
+      () => OurServicesBloc(
+        getServicesUseCase: locator<GetServicesUseCase>(),
+        getFaqsUseCase: locator<GetFaqsUseCase>(),
+        getTestimonialsUseCase: locator<GetTestimonialsUseCase>(),
+        addTestimonialUseCase: locator<AddTestimonialUseCase>(),
+        updateTestimonialUseCase: locator<UpdateTestimonialUseCase>(),
+        deleteTestimonialUseCase: locator<DeleteTestimonialUseCase>(),
+      ),
+    )
+    ..registerLazySingleton(
+      () => SettingsBloc(
+        getSiteSettingsUseCase: locator<GetSiteSettingsUseCase>(),
+        getThemeModeUseCase: locator<GetThemeModeUseCase>(),
+        saveThemeModeUseCase: locator<SaveThemeModeUseCase>(),
+        getLocaleUseCase: locator<GetLocaleUseCase>(),
+        saveLocaleUseCase: locator<SaveLocaleUseCase>(),
+      ),
+    )
+    ..registerLazySingleton(
+      () => CompareUnitsUseCase(locator<GetUnitDetailsUseCase>()),
+    )
+    ..registerFactory(
+      () => ComparisonBloc(compareUnitsUseCase: locator<CompareUnitsUseCase>()),
+    )
+    ..registerFactory(
+      () =>
+          ChooseProductBloc(getAllUnitsUseCase: locator<GetAllUnitsUseCase>()),
+    )
+    ..registerFactory(
+      () => ContactBloc(
+        sendContactRequestUseCase: locator<SendContactRequestUseCase>(),
+      ),
+    )
     ..registerLazySingleton(DeepLinkService.new);
 }
