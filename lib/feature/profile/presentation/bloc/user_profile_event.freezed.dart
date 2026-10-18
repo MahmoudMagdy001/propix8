@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'user_profile_event.dart';
@@ -9,6 +9,7 @@ part of 'user_profile_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -20,7 +21,7 @@ mixin _$UserProfileEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserProfileEvent);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is UserProfileEvent);
 }
 
 
@@ -29,7 +30,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'UserProfileEvent()';
+    return 'UserProfileEvent()';
 }
 
 
@@ -220,16 +221,18 @@ $UserProfileLoadedCopyWith<UserProfileLoaded> get copyWith => _$UserProfileLoade
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserProfileLoaded&&(identical(other.forceRefresh, forceRefresh) || other.forceRefresh == forceRefresh));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is UserProfileLoaded&&(identical(other.forceRefresh, forceRefresh) || other.forceRefresh == forceRefresh));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,forceRefresh);
+int get hashCode {
+    return Object.hash(runtimeType,forceRefresh);
+}
 
 @override
 String toString() {
-  return 'UserProfileEvent.profileLoaded(forceRefresh: $forceRefresh)';
+    return 'UserProfileEvent.profileLoaded(forceRefresh: $forceRefresh)';
 }
 
 
@@ -271,7 +274,7 @@ as bool,
 
 
 class UserProfileUpdated implements UserProfileEvent {
-  const UserProfileUpdated(final  Map<String, dynamic> data, {this.avatarPath}): _data = data;
+  const UserProfileUpdated( Map<String, dynamic> data, {this.avatarPath}): _data = data;
   
 
  final  Map<String, dynamic> _data;
@@ -293,16 +296,18 @@ $UserProfileUpdatedCopyWith<UserProfileUpdated> get copyWith => _$UserProfileUpd
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserProfileUpdated&&const DeepCollectionEquality().equals(other._data, _data)&&(identical(other.avatarPath, avatarPath) || other.avatarPath == avatarPath));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is UserProfileUpdated&&const DeepCollectionEquality().equals(other.data, _data)&&(identical(other.avatarPath, avatarPath) || other.avatarPath == avatarPath));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_data),avatarPath);
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_data),avatarPath);
+}
 
 @override
 String toString() {
-  return 'UserProfileEvent.profileUpdated(data: $data, avatarPath: $avatarPath)';
+    return 'UserProfileEvent.profileUpdated(data: $data, avatarPath: $avatarPath)';
 }
 
 
@@ -355,7 +360,7 @@ class UserProfileCitiesFetched implements UserProfileEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserProfileCitiesFetched);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is UserProfileCitiesFetched);
 }
 
 
@@ -364,7 +369,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'UserProfileEvent.citiesFetched()';
+    return 'UserProfileEvent.citiesFetched()';
 }
 
 
@@ -387,7 +392,7 @@ class UserProfileDeleted implements UserProfileEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserProfileDeleted);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is UserProfileDeleted);
 }
 
 
@@ -396,7 +401,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'UserProfileEvent.profileDeleted()';
+    return 'UserProfileEvent.profileDeleted()';
 }
 
 
@@ -424,16 +429,18 @@ $UserProfileUserChangedCopyWith<UserProfileUserChanged> get copyWith => _$UserPr
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserProfileUserChanged&&(identical(other.user, user) || other.user == user));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is UserProfileUserChanged&&(identical(other.user, user) || other.user == user));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,user);
+int get hashCode {
+    return Object.hash(runtimeType,user);
+}
 
 @override
 String toString() {
-  return 'UserProfileEvent.userChanged(user: $user)';
+    return 'UserProfileEvent.userChanged(user: $user)';
 }
 
 
@@ -494,7 +501,7 @@ class UserProfileBookingCountsRefreshed implements UserProfileEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserProfileBookingCountsRefreshed);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is UserProfileBookingCountsRefreshed);
 }
 
 
@@ -503,7 +510,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'UserProfileEvent.bookingCountsRefreshed()';
+    return 'UserProfileEvent.bookingCountsRefreshed()';
 }
 
 

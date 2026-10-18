@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'site_settings_model.dart';
@@ -9,6 +9,7 @@ part of 'site_settings_model.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -28,16 +29,21 @@ $SiteSettingsModelCopyWith<SiteSettingsModel> get copyWith => _$SiteSettingsMode
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SiteSettingsModel&&const DeepCollectionEquality().equals(other.homeHeroImages, homeHeroImages)&&(identical(other.siteName, siteName) || other.siteName == siteName)&&(identical(other.siteEmail, siteEmail) || other.siteEmail == siteEmail)&&(identical(other.siteLogo, siteLogo) || other.siteLogo == siteLogo)&&(identical(other.sitePhone, sitePhone) || other.sitePhone == sitePhone)&&(identical(other.siteAddress, siteAddress) || other.siteAddress == siteAddress)&&(identical(other.socialFacebook, socialFacebook) || other.socialFacebook == socialFacebook)&&(identical(other.socialInstagram, socialInstagram) || other.socialInstagram == socialInstagram)&&(identical(other.socialTwitter, socialTwitter) || other.socialTwitter == socialTwitter));
+  final _this = this as SiteSettingsModel;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SiteSettingsModel&&const DeepCollectionEquality().equals(other.homeHeroImages, _this.homeHeroImages)&&(identical(other.siteName, _this.siteName) || other.siteName == _this.siteName)&&(identical(other.siteEmail, _this.siteEmail) || other.siteEmail == _this.siteEmail)&&(identical(other.siteLogo, _this.siteLogo) || other.siteLogo == _this.siteLogo)&&(identical(other.sitePhone, _this.sitePhone) || other.sitePhone == _this.sitePhone)&&(identical(other.siteAddress, _this.siteAddress) || other.siteAddress == _this.siteAddress)&&(identical(other.socialFacebook, _this.socialFacebook) || other.socialFacebook == _this.socialFacebook)&&(identical(other.socialInstagram, _this.socialInstagram) || other.socialInstagram == _this.socialInstagram)&&(identical(other.socialTwitter, _this.socialTwitter) || other.socialTwitter == _this.socialTwitter));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(homeHeroImages),siteName,siteEmail,siteLogo,sitePhone,siteAddress,socialFacebook,socialInstagram,socialTwitter);
+int get hashCode {
+  final _this = this as SiteSettingsModel;
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.homeHeroImages),_this.siteName,_this.siteEmail,_this.siteLogo,_this.sitePhone,_this.siteAddress,_this.socialFacebook,_this.socialInstagram,_this.socialTwitter);
+}
 
 @override
 String toString() {
-  return 'SiteSettingsModel(homeHeroImages: $homeHeroImages, siteName: $siteName, siteEmail: $siteEmail, siteLogo: $siteLogo, sitePhone: $sitePhone, siteAddress: $siteAddress, socialFacebook: $socialFacebook, socialInstagram: $socialInstagram, socialTwitter: $socialTwitter)';
+  final _this = this as SiteSettingsModel;
+  return 'SiteSettingsModel(homeHeroImages: ${_this.homeHeroImages}, siteName: ${_this.siteName}, siteEmail: ${_this.siteEmail}, siteLogo: ${_this.siteLogo}, sitePhone: ${_this.sitePhone}, siteAddress: ${_this.siteAddress}, socialFacebook: ${_this.socialFacebook}, socialInstagram: ${_this.socialInstagram}, socialTwitter: ${_this.socialTwitter})';
 }
 
 
@@ -66,7 +72,7 @@ class _$SiteSettingsModelCopyWithImpl<$Res>
 /// Create a copy of SiteSettingsModel
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? homeHeroImages = null,Object? siteName = null,Object? siteEmail = null,Object? siteLogo = null,Object? sitePhone = null,Object? siteAddress = null,Object? socialFacebook = null,Object? socialInstagram = null,Object? socialTwitter = null,}) {
-  return _then(_self.copyWith(
+  return _then(SiteSettingsModel(
 homeHeroImages: null == homeHeroImages ? _self.homeHeroImages : homeHeroImages // ignore: cast_nullable_to_non_nullable
 as List<String>,siteName: null == siteName ? _self.siteName : siteName // ignore: cast_nullable_to_non_nullable
 as String,siteEmail: null == siteEmail ? _self.siteEmail : siteEmail // ignore: cast_nullable_to_non_nullable
@@ -217,7 +223,7 @@ return $default(_that.homeHeroImages,_that.siteName,_that.siteEmail,_that.siteLo
 @JsonSerializable()
 
 class _SiteSettingsModel extends SiteSettingsModel {
-  const _SiteSettingsModel({@JsonKey(name: 'home_hero_image', fromJson: _heroImagesFromJson) final  List<String> homeHeroImages = const [], @JsonKey(name: 'site_name') this.siteName = '', @JsonKey(name: 'site_email') this.siteEmail = '', @JsonKey(name: 'site_logo') this.siteLogo = '', @JsonKey(name: 'site_phone') this.sitePhone = '', @JsonKey(name: 'site_address') this.siteAddress = '', @JsonKey(name: 'social_facebook') this.socialFacebook = '', @JsonKey(name: 'social_instagram') this.socialInstagram = '', @JsonKey(name: 'social_twitter') this.socialTwitter = ''}): _homeHeroImages = homeHeroImages,super._();
+  const _SiteSettingsModel({@JsonKey(name: 'home_hero_image', fromJson: _heroImagesFromJson)  List<String> homeHeroImages = const [], @JsonKey(name: 'site_name') this.siteName = '', @JsonKey(name: 'site_email') this.siteEmail = '', @JsonKey(name: 'site_logo') this.siteLogo = '', @JsonKey(name: 'site_phone') this.sitePhone = '', @JsonKey(name: 'site_address') this.siteAddress = '', @JsonKey(name: 'social_facebook') this.socialFacebook = '', @JsonKey(name: 'social_instagram') this.socialInstagram = '', @JsonKey(name: 'social_twitter') this.socialTwitter = ''}): _homeHeroImages = homeHeroImages,super._();
   factory _SiteSettingsModel.fromJson(Map<String, dynamic> json) => _$SiteSettingsModelFromJson(json);
 
  final  List<String> _homeHeroImages;
@@ -249,16 +255,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SiteSettingsModel&&const DeepCollectionEquality().equals(other._homeHeroImages, _homeHeroImages)&&(identical(other.siteName, siteName) || other.siteName == siteName)&&(identical(other.siteEmail, siteEmail) || other.siteEmail == siteEmail)&&(identical(other.siteLogo, siteLogo) || other.siteLogo == siteLogo)&&(identical(other.sitePhone, sitePhone) || other.sitePhone == sitePhone)&&(identical(other.siteAddress, siteAddress) || other.siteAddress == siteAddress)&&(identical(other.socialFacebook, socialFacebook) || other.socialFacebook == socialFacebook)&&(identical(other.socialInstagram, socialInstagram) || other.socialInstagram == socialInstagram)&&(identical(other.socialTwitter, socialTwitter) || other.socialTwitter == socialTwitter));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SiteSettingsModel&&const DeepCollectionEquality().equals(other.homeHeroImages, _homeHeroImages)&&(identical(other.siteName, siteName) || other.siteName == siteName)&&(identical(other.siteEmail, siteEmail) || other.siteEmail == siteEmail)&&(identical(other.siteLogo, siteLogo) || other.siteLogo == siteLogo)&&(identical(other.sitePhone, sitePhone) || other.sitePhone == sitePhone)&&(identical(other.siteAddress, siteAddress) || other.siteAddress == siteAddress)&&(identical(other.socialFacebook, socialFacebook) || other.socialFacebook == socialFacebook)&&(identical(other.socialInstagram, socialInstagram) || other.socialInstagram == socialInstagram)&&(identical(other.socialTwitter, socialTwitter) || other.socialTwitter == socialTwitter));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_homeHeroImages),siteName,siteEmail,siteLogo,sitePhone,siteAddress,socialFacebook,socialInstagram,socialTwitter);
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_homeHeroImages),siteName,siteEmail,siteLogo,sitePhone,siteAddress,socialFacebook,socialInstagram,socialTwitter);
+}
 
 @override
 String toString() {
-  return 'SiteSettingsModel(homeHeroImages: $homeHeroImages, siteName: $siteName, siteEmail: $siteEmail, siteLogo: $siteLogo, sitePhone: $sitePhone, siteAddress: $siteAddress, socialFacebook: $socialFacebook, socialInstagram: $socialInstagram, socialTwitter: $socialTwitter)';
+    return 'SiteSettingsModel(homeHeroImages: $homeHeroImages, siteName: $siteName, siteEmail: $siteEmail, siteLogo: $siteLogo, sitePhone: $sitePhone, siteAddress: $siteAddress, socialFacebook: $socialFacebook, socialInstagram: $socialInstagram, socialTwitter: $socialTwitter)';
 }
 
 

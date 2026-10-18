@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'contact_request_model.dart';
@@ -9,6 +9,7 @@ part of 'contact_request_model.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -28,16 +29,21 @@ $ContactRequestModelCopyWith<ContactRequestModel> get copyWith => _$ContactReque
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ContactRequestModel&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.address, address) || other.address == address)&&(identical(other.message, message) || other.message == message));
+  final _this = this as ContactRequestModel;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ContactRequestModel&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.email, _this.email) || other.email == _this.email)&&(identical(other.phone, _this.phone) || other.phone == _this.phone)&&(identical(other.address, _this.address) || other.address == _this.address)&&(identical(other.message, _this.message) || other.message == _this.message));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,email,phone,address,message);
+int get hashCode {
+  final _this = this as ContactRequestModel;
+  return Object.hash(runtimeType,_this.name,_this.email,_this.phone,_this.address,_this.message);
+}
 
 @override
 String toString() {
-  return 'ContactRequestModel(name: $name, email: $email, phone: $phone, address: $address, message: $message)';
+  final _this = this as ContactRequestModel;
+  return 'ContactRequestModel(name: ${_this.name}, email: ${_this.email}, phone: ${_this.phone}, address: ${_this.address}, message: ${_this.message})';
 }
 
 
@@ -66,7 +72,7 @@ class _$ContactRequestModelCopyWithImpl<$Res>
 /// Create a copy of ContactRequestModel
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? email = null,Object? phone = null,Object? address = null,Object? message = null,}) {
-  return _then(_self.copyWith(
+  return _then(ContactRequestModel(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String,phone: null == phone ? _self.phone : phone // ignore: cast_nullable_to_non_nullable
@@ -235,16 +241,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ContactRequestModel&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.address, address) || other.address == address)&&(identical(other.message, message) || other.message == message));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ContactRequestModel&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.address, address) || other.address == address)&&(identical(other.message, message) || other.message == message));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,email,phone,address,message);
+int get hashCode {
+    return Object.hash(runtimeType,name,email,phone,address,message);
+}
 
 @override
 String toString() {
-  return 'ContactRequestModel(name: $name, email: $email, phone: $phone, address: $address, message: $message)';
+    return 'ContactRequestModel(name: $name, email: $email, phone: $phone, address: $address, message: $message)';
 }
 
 

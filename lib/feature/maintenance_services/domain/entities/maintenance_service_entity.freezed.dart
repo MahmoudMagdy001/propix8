@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'maintenance_service_entity.dart';
@@ -9,6 +9,7 @@ part of 'maintenance_service_entity.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $MaintenanceServiceEntityCopyWith<MaintenanceServiceEntity> get copyWith => _$Ma
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceServiceEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.category, category) || other.category == category)&&(identical(other.image, image) || other.image == image)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
+  final _this = this as MaintenanceServiceEntity;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceServiceEntity&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.title, _this.title) || other.title == _this.title)&&(identical(other.category, _this.category) || other.category == _this.category)&&(identical(other.image, _this.image) || other.image == _this.image)&&(identical(other.createdAt, _this.createdAt) || other.createdAt == _this.createdAt));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,title,category,image,createdAt);
+int get hashCode {
+  final _this = this as MaintenanceServiceEntity;
+  return Object.hash(runtimeType,_this.id,_this.title,_this.category,_this.image,_this.createdAt);
+}
 
 @override
 String toString() {
-  return 'MaintenanceServiceEntity(id: $id, title: $title, category: $category, image: $image, createdAt: $createdAt)';
+  final _this = this as MaintenanceServiceEntity;
+  return 'MaintenanceServiceEntity(id: ${_this.id}, title: ${_this.title}, category: ${_this.category}, image: ${_this.image}, createdAt: ${_this.createdAt})';
 }
 
 
@@ -63,7 +69,7 @@ class _$MaintenanceServiceEntityCopyWithImpl<$Res>
 /// Create a copy of MaintenanceServiceEntity
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? title = null,Object? category = null,Object? image = null,Object? createdAt = null,}) {
-  return _then(_self.copyWith(
+  return _then(MaintenanceServiceEntity(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,category: null == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
@@ -229,16 +235,18 @@ _$MaintenanceServiceEntityCopyWith<_MaintenanceServiceEntity> get copyWith => __
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MaintenanceServiceEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.category, category) || other.category == category)&&(identical(other.image, image) || other.image == image)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _MaintenanceServiceEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.category, category) || other.category == category)&&(identical(other.image, image) || other.image == image)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,title,category,image,createdAt);
+int get hashCode {
+    return Object.hash(runtimeType,id,title,category,image,createdAt);
+}
 
 @override
 String toString() {
-  return 'MaintenanceServiceEntity(id: $id, title: $title, category: $category, image: $image, createdAt: $createdAt)';
+    return 'MaintenanceServiceEntity(id: $id, title: $title, category: $category, image: $image, createdAt: $createdAt)';
 }
 
 
@@ -294,16 +302,21 @@ $MaintenanceServicesDataEntityCopyWith<MaintenanceServicesDataEntity> get copyWi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceServicesDataEntity&&const DeepCollectionEquality().equals(other.home, home)&&const DeepCollectionEquality().equals(other.technical, technical));
+  final _this = this as MaintenanceServicesDataEntity;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceServicesDataEntity&&const DeepCollectionEquality().equals(other.home, _this.home)&&const DeepCollectionEquality().equals(other.technical, _this.technical));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(home),const DeepCollectionEquality().hash(technical));
+int get hashCode {
+  final _this = this as MaintenanceServicesDataEntity;
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.home),const DeepCollectionEquality().hash(_this.technical));
+}
 
 @override
 String toString() {
-  return 'MaintenanceServicesDataEntity(home: $home, technical: $technical)';
+  final _this = this as MaintenanceServicesDataEntity;
+  return 'MaintenanceServicesDataEntity(home: ${_this.home}, technical: ${_this.technical})';
 }
 
 
@@ -332,7 +345,7 @@ class _$MaintenanceServicesDataEntityCopyWithImpl<$Res>
 /// Create a copy of MaintenanceServicesDataEntity
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? home = null,Object? technical = null,}) {
-  return _then(_self.copyWith(
+  return _then(MaintenanceServicesDataEntity(
 home: null == home ? _self.home : home // ignore: cast_nullable_to_non_nullable
 as List<MaintenanceServiceEntity>,technical: null == technical ? _self.technical : technical // ignore: cast_nullable_to_non_nullable
 as List<MaintenanceServiceEntity>,
@@ -476,7 +489,7 @@ return $default(_that.home,_that.technical);case _:
 
 
 class _MaintenanceServicesDataEntity implements MaintenanceServicesDataEntity {
-  const _MaintenanceServicesDataEntity({required final  List<MaintenanceServiceEntity> home, required final  List<MaintenanceServiceEntity> technical}): _home = home,_technical = technical;
+  const _MaintenanceServicesDataEntity({required  List<MaintenanceServiceEntity> home, required  List<MaintenanceServiceEntity> technical}): _home = home,_technical = technical;
   
 
  final  List<MaintenanceServiceEntity> _home;
@@ -504,16 +517,18 @@ _$MaintenanceServicesDataEntityCopyWith<_MaintenanceServicesDataEntity> get copy
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MaintenanceServicesDataEntity&&const DeepCollectionEquality().equals(other._home, _home)&&const DeepCollectionEquality().equals(other._technical, _technical));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _MaintenanceServicesDataEntity&&const DeepCollectionEquality().equals(other.home, _home)&&const DeepCollectionEquality().equals(other.technical, _technical));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_home),const DeepCollectionEquality().hash(_technical));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_home),const DeepCollectionEquality().hash(_technical));
+}
 
 @override
 String toString() {
-  return 'MaintenanceServicesDataEntity(home: $home, technical: $technical)';
+    return 'MaintenanceServicesDataEntity(home: $home, technical: $technical)';
 }
 
 

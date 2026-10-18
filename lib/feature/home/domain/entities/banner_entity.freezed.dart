@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'banner_entity.dart';
@@ -9,6 +9,7 @@ part of 'banner_entity.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $BannerEntityCopyWith<BannerEntity> get copyWith => _$BannerEntityCopyWithImpl<B
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BannerEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.image, image) || other.image == image)&&(identical(other.url, url) || other.url == url)&&(identical(other.sortOrder, sortOrder) || other.sortOrder == sortOrder));
+  final _this = this as BannerEntity;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BannerEntity&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.image, _this.image) || other.image == _this.image)&&(identical(other.url, _this.url) || other.url == _this.url)&&(identical(other.sortOrder, _this.sortOrder) || other.sortOrder == _this.sortOrder));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,image,url,sortOrder);
+int get hashCode {
+  final _this = this as BannerEntity;
+  return Object.hash(runtimeType,_this.id,_this.image,_this.url,_this.sortOrder);
+}
 
 @override
 String toString() {
-  return 'BannerEntity(id: $id, image: $image, url: $url, sortOrder: $sortOrder)';
+  final _this = this as BannerEntity;
+  return 'BannerEntity(id: ${_this.id}, image: ${_this.image}, url: ${_this.url}, sortOrder: ${_this.sortOrder})';
 }
 
 
@@ -63,7 +69,7 @@ class _$BannerEntityCopyWithImpl<$Res>
 /// Create a copy of BannerEntity
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? image = null,Object? url = null,Object? sortOrder = null,}) {
-  return _then(_self.copyWith(
+  return _then(BannerEntity(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,image: null == image ? _self.image : image // ignore: cast_nullable_to_non_nullable
 as String,url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
@@ -227,16 +233,18 @@ _$BannerEntityCopyWith<_BannerEntity> get copyWith => __$BannerEntityCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BannerEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.image, image) || other.image == image)&&(identical(other.url, url) || other.url == url)&&(identical(other.sortOrder, sortOrder) || other.sortOrder == sortOrder));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _BannerEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.image, image) || other.image == image)&&(identical(other.url, url) || other.url == url)&&(identical(other.sortOrder, sortOrder) || other.sortOrder == sortOrder));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,image,url,sortOrder);
+int get hashCode {
+    return Object.hash(runtimeType,id,image,url,sortOrder);
+}
 
 @override
 String toString() {
-  return 'BannerEntity(id: $id, image: $image, url: $url, sortOrder: $sortOrder)';
+    return 'BannerEntity(id: $id, image: $image, url: $url, sortOrder: $sortOrder)';
 }
 
 

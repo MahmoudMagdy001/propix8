@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'auth_model.dart';
@@ -9,6 +9,7 @@ part of 'auth_model.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -28,16 +29,21 @@ $AuthResponseCopyWith<AuthResponse> get copyWith => _$AuthResponseCopyWithImpl<A
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthResponse&&(identical(other.token, token) || other.token == token)&&(identical(other.user, user) || other.user == user)&&(identical(other.message, message) || other.message == message));
+  final _this = this as AuthResponse;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthResponse&&(identical(other.token, _this.token) || other.token == _this.token)&&(identical(other.user, _this.user) || other.user == _this.user)&&(identical(other.message, _this.message) || other.message == _this.message));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,token,user,message);
+int get hashCode {
+  final _this = this as AuthResponse;
+  return Object.hash(runtimeType,_this.token,_this.user,_this.message);
+}
 
 @override
 String toString() {
-  return 'AuthResponse(token: $token, user: $user, message: $message)';
+  final _this = this as AuthResponse;
+  return 'AuthResponse(token: ${_this.token}, user: ${_this.user}, message: ${_this.message})';
 }
 
 
@@ -66,7 +72,7 @@ class _$AuthResponseCopyWithImpl<$Res>
 /// Create a copy of AuthResponse
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? token = freezed,Object? user = freezed,Object? message = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(AuthResponse(
 token: freezed == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
 as String?,user: freezed == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
 as User?,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
@@ -243,16 +249,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AuthResponse&&(identical(other.token, token) || other.token == token)&&(identical(other.user, user) || other.user == user)&&(identical(other.message, message) || other.message == message));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AuthResponse&&(identical(other.token, token) || other.token == token)&&(identical(other.user, user) || other.user == user)&&(identical(other.message, message) || other.message == message));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,token,user,message);
+int get hashCode {
+    return Object.hash(runtimeType,token,user,message);
+}
 
 @override
 String toString() {
-  return 'AuthResponse(token: $token, user: $user, message: $message)';
+    return 'AuthResponse(token: $token, user: $user, message: $message)';
 }
 
 
@@ -321,16 +329,21 @@ $LoginRequestCopyWith<LoginRequest> get copyWith => _$LoginRequestCopyWithImpl<L
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LoginRequest&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password));
+  final _this = this as LoginRequest;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LoginRequest&&(identical(other.email, _this.email) || other.email == _this.email)&&(identical(other.password, _this.password) || other.password == _this.password));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,email,password);
+int get hashCode {
+  final _this = this as LoginRequest;
+  return Object.hash(runtimeType,_this.email,_this.password);
+}
 
 @override
 String toString() {
-  return 'LoginRequest(email: $email, password: $password)';
+  final _this = this as LoginRequest;
+  return 'LoginRequest(email: ${_this.email}, password: ${_this.password})';
 }
 
 
@@ -359,7 +372,7 @@ class _$LoginRequestCopyWithImpl<$Res>
 /// Create a copy of LoginRequest
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? email = null,Object? password = null,}) {
-  return _then(_self.copyWith(
+  return _then(LoginRequest(
 email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String,password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
 as String,
@@ -522,16 +535,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LoginRequest&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _LoginRequest&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,email,password);
+int get hashCode {
+    return Object.hash(runtimeType,email,password);
+}
 
 @override
 String toString() {
-  return 'LoginRequest(email: $email, password: $password)';
+    return 'LoginRequest(email: $email, password: $password)';
 }
 
 
@@ -587,16 +602,21 @@ $RegisterRequestCopyWith<RegisterRequest> get copyWith => _$RegisterRequestCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is RegisterRequest&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.passwordConfirmation, passwordConfirmation) || other.passwordConfirmation == passwordConfirmation)&&(identical(other.phone, phone) || other.phone == phone));
+  final _this = this as RegisterRequest;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is RegisterRequest&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.email, _this.email) || other.email == _this.email)&&(identical(other.password, _this.password) || other.password == _this.password)&&(identical(other.passwordConfirmation, _this.passwordConfirmation) || other.passwordConfirmation == _this.passwordConfirmation)&&(identical(other.phone, _this.phone) || other.phone == _this.phone));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,email,password,passwordConfirmation,phone);
+int get hashCode {
+  final _this = this as RegisterRequest;
+  return Object.hash(runtimeType,_this.name,_this.email,_this.password,_this.passwordConfirmation,_this.phone);
+}
 
 @override
 String toString() {
-  return 'RegisterRequest(name: $name, email: $email, password: $password, passwordConfirmation: $passwordConfirmation, phone: $phone)';
+  final _this = this as RegisterRequest;
+  return 'RegisterRequest(name: ${_this.name}, email: ${_this.email}, password: ${_this.password}, passwordConfirmation: ${_this.passwordConfirmation}, phone: ${_this.phone})';
 }
 
 
@@ -625,7 +645,7 @@ class _$RegisterRequestCopyWithImpl<$Res>
 /// Create a copy of RegisterRequest
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? email = null,Object? password = null,Object? passwordConfirmation = null,Object? phone = null,}) {
-  return _then(_self.copyWith(
+  return _then(RegisterRequest(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String,password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
@@ -794,16 +814,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RegisterRequest&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.passwordConfirmation, passwordConfirmation) || other.passwordConfirmation == passwordConfirmation)&&(identical(other.phone, phone) || other.phone == phone));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _RegisterRequest&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.passwordConfirmation, passwordConfirmation) || other.passwordConfirmation == passwordConfirmation)&&(identical(other.phone, phone) || other.phone == phone));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,email,password,passwordConfirmation,phone);
+int get hashCode {
+    return Object.hash(runtimeType,name,email,password,passwordConfirmation,phone);
+}
 
 @override
 String toString() {
-  return 'RegisterRequest(name: $name, email: $email, password: $password, passwordConfirmation: $passwordConfirmation, phone: $phone)';
+    return 'RegisterRequest(name: $name, email: $email, password: $password, passwordConfirmation: $passwordConfirmation, phone: $phone)';
 }
 
 
@@ -862,16 +884,21 @@ $ResetPasswordRequestCopyWith<ResetPasswordRequest> get copyWith => _$ResetPassw
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ResetPasswordRequest&&(identical(other.token, token) || other.token == token)&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.passwordConfirmation, passwordConfirmation) || other.passwordConfirmation == passwordConfirmation));
+  final _this = this as ResetPasswordRequest;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ResetPasswordRequest&&(identical(other.token, _this.token) || other.token == _this.token)&&(identical(other.email, _this.email) || other.email == _this.email)&&(identical(other.password, _this.password) || other.password == _this.password)&&(identical(other.passwordConfirmation, _this.passwordConfirmation) || other.passwordConfirmation == _this.passwordConfirmation));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,token,email,password,passwordConfirmation);
+int get hashCode {
+  final _this = this as ResetPasswordRequest;
+  return Object.hash(runtimeType,_this.token,_this.email,_this.password,_this.passwordConfirmation);
+}
 
 @override
 String toString() {
-  return 'ResetPasswordRequest(token: $token, email: $email, password: $password, passwordConfirmation: $passwordConfirmation)';
+  final _this = this as ResetPasswordRequest;
+  return 'ResetPasswordRequest(token: ${_this.token}, email: ${_this.email}, password: ${_this.password}, passwordConfirmation: ${_this.passwordConfirmation})';
 }
 
 
@@ -900,7 +927,7 @@ class _$ResetPasswordRequestCopyWithImpl<$Res>
 /// Create a copy of ResetPasswordRequest
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? token = null,Object? email = null,Object? password = null,Object? passwordConfirmation = null,}) {
-  return _then(_self.copyWith(
+  return _then(ResetPasswordRequest(
 token: null == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
 as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String,password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
@@ -1067,16 +1094,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ResetPasswordRequest&&(identical(other.token, token) || other.token == token)&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.passwordConfirmation, passwordConfirmation) || other.passwordConfirmation == passwordConfirmation));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ResetPasswordRequest&&(identical(other.token, token) || other.token == token)&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.passwordConfirmation, passwordConfirmation) || other.passwordConfirmation == passwordConfirmation));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,token,email,password,passwordConfirmation);
+int get hashCode {
+    return Object.hash(runtimeType,token,email,password,passwordConfirmation);
+}
 
 @override
 String toString() {
-  return 'ResetPasswordRequest(token: $token, email: $email, password: $password, passwordConfirmation: $passwordConfirmation)';
+    return 'ResetPasswordRequest(token: $token, email: $email, password: $password, passwordConfirmation: $passwordConfirmation)';
 }
 
 

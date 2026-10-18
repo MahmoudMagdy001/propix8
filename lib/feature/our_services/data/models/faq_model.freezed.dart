@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'faq_model.dart';
@@ -9,6 +9,7 @@ part of 'faq_model.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -28,16 +29,21 @@ $FaqModelCopyWith<FaqModel> get copyWith => _$FaqModelCopyWithImpl<FaqModel>(thi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FaqModel&&(identical(other.id, id) || other.id == id)&&(identical(other.question, question) || other.question == question)&&(identical(other.answer, answer) || other.answer == answer));
+  final _this = this as FaqModel;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FaqModel&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.question, _this.question) || other.question == _this.question)&&(identical(other.answer, _this.answer) || other.answer == _this.answer));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,question,answer);
+int get hashCode {
+  final _this = this as FaqModel;
+  return Object.hash(runtimeType,_this.id,_this.question,_this.answer);
+}
 
 @override
 String toString() {
-  return 'FaqModel(id: $id, question: $question, answer: $answer)';
+  final _this = this as FaqModel;
+  return 'FaqModel(id: ${_this.id}, question: ${_this.question}, answer: ${_this.answer})';
 }
 
 
@@ -66,7 +72,7 @@ class _$FaqModelCopyWithImpl<$Res>
 /// Create a copy of FaqModel
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? question = null,Object? answer = null,}) {
-  return _then(_self.copyWith(
+  return _then(FaqModel(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,question: null == question ? _self.question : question // ignore: cast_nullable_to_non_nullable
 as String,answer: null == answer ? _self.answer : answer // ignore: cast_nullable_to_non_nullable
@@ -231,16 +237,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FaqModel&&(identical(other.id, id) || other.id == id)&&(identical(other.question, question) || other.question == question)&&(identical(other.answer, answer) || other.answer == answer));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _FaqModel&&(identical(other.id, id) || other.id == id)&&(identical(other.question, question) || other.question == question)&&(identical(other.answer, answer) || other.answer == answer));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,question,answer);
+int get hashCode {
+    return Object.hash(runtimeType,id,question,answer);
+}
 
 @override
 String toString() {
-  return 'FaqModel(id: $id, question: $question, answer: $answer)';
+    return 'FaqModel(id: $id, question: $question, answer: $answer)';
 }
 
 

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'nearby_units_event.dart';
@@ -9,6 +9,7 @@ part of 'nearby_units_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -20,7 +21,7 @@ mixin _$NearbyUnitsEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NearbyUnitsEvent);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is NearbyUnitsEvent);
 }
 
 
@@ -29,7 +30,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'NearbyUnitsEvent()';
+    return 'NearbyUnitsEvent()';
 }
 
 
@@ -209,7 +210,7 @@ class NearbyUnitsRequested implements NearbyUnitsEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NearbyUnitsRequested);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is NearbyUnitsRequested);
 }
 
 
@@ -218,7 +219,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'NearbyUnitsEvent.unitsRequested()';
+    return 'NearbyUnitsEvent.unitsRequested()';
 }
 
 
@@ -241,7 +242,7 @@ class NearbyUnitsMoreUnitsRequested implements NearbyUnitsEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NearbyUnitsMoreUnitsRequested);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is NearbyUnitsMoreUnitsRequested);
 }
 
 
@@ -250,7 +251,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'NearbyUnitsEvent.moreUnitsRequested()';
+    return 'NearbyUnitsEvent.moreUnitsRequested()';
 }
 
 
@@ -273,7 +274,7 @@ class NearbyUnitsViewTypeToggled implements NearbyUnitsEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NearbyUnitsViewTypeToggled);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is NearbyUnitsViewTypeToggled);
 }
 
 
@@ -282,7 +283,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'NearbyUnitsEvent.viewTypeToggled()';
+    return 'NearbyUnitsEvent.viewTypeToggled()';
 }
 
 
@@ -310,16 +311,18 @@ $NearbyUnitsFavoriteToggledCopyWith<NearbyUnitsFavoriteToggled> get copyWith => 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NearbyUnitsFavoriteToggled&&(identical(other.unitId, unitId) || other.unitId == unitId));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is NearbyUnitsFavoriteToggled&&(identical(other.unitId, unitId) || other.unitId == unitId));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,unitId);
+int get hashCode {
+    return Object.hash(runtimeType,unitId);
+}
 
 @override
 String toString() {
-  return 'NearbyUnitsEvent.favoriteToggled(unitId: $unitId)';
+    return 'NearbyUnitsEvent.favoriteToggled(unitId: $unitId)';
 }
 
 
@@ -371,7 +374,7 @@ class NearbyUnitsRefreshed implements NearbyUnitsEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NearbyUnitsRefreshed);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is NearbyUnitsRefreshed);
 }
 
 
@@ -380,7 +383,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'NearbyUnitsEvent.refreshed()';
+    return 'NearbyUnitsEvent.refreshed()';
 }
 
 

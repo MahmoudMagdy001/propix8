@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'address_setup_event.dart';
@@ -9,6 +9,7 @@ part of 'address_setup_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -20,7 +21,7 @@ mixin _$AddressSetupEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressSetupEvent);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressSetupEvent);
 }
 
 
@@ -29,7 +30,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'AddressSetupEvent()';
+    return 'AddressSetupEvent()';
 }
 
 
@@ -203,7 +204,7 @@ class AddressSetupCitiesRequested implements AddressSetupEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressSetupCitiesRequested);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressSetupCitiesRequested);
 }
 
 
@@ -212,7 +213,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'AddressSetupEvent.citiesRequested()';
+    return 'AddressSetupEvent.citiesRequested()';
 }
 
 
@@ -235,7 +236,7 @@ class AddressSetupLocationDetectionRequested implements AddressSetupEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressSetupLocationDetectionRequested);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressSetupLocationDetectionRequested);
 }
 
 
@@ -244,7 +245,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'AddressSetupEvent.locationDetectionRequested()';
+    return 'AddressSetupEvent.locationDetectionRequested()';
 }
 
 
@@ -272,16 +273,18 @@ $AddressSetupCitySelectedCopyWith<AddressSetupCitySelected> get copyWith => _$Ad
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressSetupCitySelected&&(identical(other.cityId, cityId) || other.cityId == cityId));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressSetupCitySelected&&(identical(other.cityId, cityId) || other.cityId == cityId));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,cityId);
+int get hashCode {
+    return Object.hash(runtimeType,cityId);
+}
 
 @override
 String toString() {
-  return 'AddressSetupEvent.citySelected(cityId: $cityId)';
+    return 'AddressSetupEvent.citySelected(cityId: $cityId)';
 }
 
 
@@ -338,16 +341,18 @@ $AddressSetupLocationUpdatedCopyWith<AddressSetupLocationUpdated> get copyWith =
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressSetupLocationUpdated&&(identical(other.location, location) || other.location == location));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressSetupLocationUpdated&&(identical(other.location, location) || other.location == location));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,location);
+int get hashCode {
+    return Object.hash(runtimeType,location);
+}
 
 @override
 String toString() {
-  return 'AddressSetupEvent.locationUpdated(location: $location)';
+    return 'AddressSetupEvent.locationUpdated(location: $location)';
 }
 
 
@@ -399,7 +404,7 @@ class AddressSetupSubmitted implements AddressSetupEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressSetupSubmitted);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressSetupSubmitted);
 }
 
 
@@ -408,7 +413,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'AddressSetupEvent.submitted()';
+    return 'AddressSetupEvent.submitted()';
 }
 
 

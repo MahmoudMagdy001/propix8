@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'unit_details_entity.dart';
@@ -9,6 +9,7 @@ part of 'unit_details_entity.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $UnitDetailsEntityCopyWith<UnitDetailsEntity> get copyWith => _$UnitDetailsEntit
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitDetailsEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.address, address) || other.address == address)&&(identical(other.price, price) || other.price == price)&&(identical(other.pricePerM2, pricePerM2) || other.pricePerM2 == pricePerM2)&&(identical(other.offerType, offerType) || other.offerType == offerType)&&(identical(other.area, area) || other.area == area)&&(identical(other.rooms, rooms) || other.rooms == rooms)&&(identical(other.bathrooms, bathrooms) || other.bathrooms == bathrooms)&&(identical(other.garages, garages) || other.garages == garages)&&(identical(other.buildYear, buildYear) || other.buildYear == buildYear)&&(identical(other.latitude, latitude) || other.latitude == latitude)&&(identical(other.longitude, longitude) || other.longitude == longitude)&&(identical(other.status, status) || other.status == status)&&(identical(other.isFavourite, isFavourite) || other.isFavourite == isFavourite)&&(identical(other.isVisible, isVisible) || other.isVisible == isVisible)&&(identical(other.developmentStatus, developmentStatus) || other.developmentStatus == developmentStatus)&&(identical(other.owner, owner) || other.owner == owner)&&const DeepCollectionEquality().equals(other.media, media)&&(identical(other.city, city) || other.city == city)&&(identical(other.unitType, unitType) || other.unitType == unitType)&&const DeepCollectionEquality().equals(other.amenities, amenities)&&(identical(other.averageRating, averageRating) || other.averageRating == averageRating)&&(identical(other.reviewsCount, reviewsCount) || other.reviewsCount == reviewsCount)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.landArea, landArea) || other.landArea == landArea)&&(identical(other.internalArea, internalArea) || other.internalArea == internalArea)&&(identical(other.compound, compound) || other.compound == compound)&&(identical(other.developer, developer) || other.developer == developer));
+  final _this = this as UnitDetailsEntity;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitDetailsEntity&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.title, _this.title) || other.title == _this.title)&&(identical(other.description, _this.description) || other.description == _this.description)&&(identical(other.address, _this.address) || other.address == _this.address)&&(identical(other.price, _this.price) || other.price == _this.price)&&(identical(other.pricePerM2, _this.pricePerM2) || other.pricePerM2 == _this.pricePerM2)&&(identical(other.offerType, _this.offerType) || other.offerType == _this.offerType)&&(identical(other.area, _this.area) || other.area == _this.area)&&(identical(other.rooms, _this.rooms) || other.rooms == _this.rooms)&&(identical(other.bathrooms, _this.bathrooms) || other.bathrooms == _this.bathrooms)&&(identical(other.garages, _this.garages) || other.garages == _this.garages)&&(identical(other.buildYear, _this.buildYear) || other.buildYear == _this.buildYear)&&(identical(other.latitude, _this.latitude) || other.latitude == _this.latitude)&&(identical(other.longitude, _this.longitude) || other.longitude == _this.longitude)&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.isFavourite, _this.isFavourite) || other.isFavourite == _this.isFavourite)&&(identical(other.isVisible, _this.isVisible) || other.isVisible == _this.isVisible)&&(identical(other.developmentStatus, _this.developmentStatus) || other.developmentStatus == _this.developmentStatus)&&(identical(other.owner, _this.owner) || other.owner == _this.owner)&&const DeepCollectionEquality().equals(other.media, _this.media)&&(identical(other.city, _this.city) || other.city == _this.city)&&(identical(other.unitType, _this.unitType) || other.unitType == _this.unitType)&&const DeepCollectionEquality().equals(other.amenities, _this.amenities)&&(identical(other.averageRating, _this.averageRating) || other.averageRating == _this.averageRating)&&(identical(other.reviewsCount, _this.reviewsCount) || other.reviewsCount == _this.reviewsCount)&&(identical(other.createdAt, _this.createdAt) || other.createdAt == _this.createdAt)&&(identical(other.landArea, _this.landArea) || other.landArea == _this.landArea)&&(identical(other.internalArea, _this.internalArea) || other.internalArea == _this.internalArea)&&(identical(other.compound, _this.compound) || other.compound == _this.compound)&&(identical(other.developer, _this.developer) || other.developer == _this.developer));
 }
 
 
 @override
-int get hashCode => Object.hashAll([runtimeType,id,title,description,address,price,pricePerM2,offerType,area,rooms,bathrooms,garages,buildYear,latitude,longitude,status,isFavourite,isVisible,developmentStatus,owner,const DeepCollectionEquality().hash(media),city,unitType,const DeepCollectionEquality().hash(amenities),averageRating,reviewsCount,createdAt,landArea,internalArea,compound,developer]);
+int get hashCode {
+  final _this = this as UnitDetailsEntity;
+  return Object.hashAll([runtimeType,_this.id,_this.title,_this.description,_this.address,_this.price,_this.pricePerM2,_this.offerType,_this.area,_this.rooms,_this.bathrooms,_this.garages,_this.buildYear,_this.latitude,_this.longitude,_this.status,_this.isFavourite,_this.isVisible,_this.developmentStatus,_this.owner,const DeepCollectionEquality().hash(_this.media),_this.city,_this.unitType,const DeepCollectionEquality().hash(_this.amenities),_this.averageRating,_this.reviewsCount,_this.createdAt,_this.landArea,_this.internalArea,_this.compound,_this.developer]);
+}
 
 @override
 String toString() {
-  return 'UnitDetailsEntity(id: $id, title: $title, description: $description, address: $address, price: $price, pricePerM2: $pricePerM2, offerType: $offerType, area: $area, rooms: $rooms, bathrooms: $bathrooms, garages: $garages, buildYear: $buildYear, latitude: $latitude, longitude: $longitude, status: $status, isFavourite: $isFavourite, isVisible: $isVisible, developmentStatus: $developmentStatus, owner: $owner, media: $media, city: $city, unitType: $unitType, amenities: $amenities, averageRating: $averageRating, reviewsCount: $reviewsCount, createdAt: $createdAt, landArea: $landArea, internalArea: $internalArea, compound: $compound, developer: $developer)';
+  final _this = this as UnitDetailsEntity;
+  return 'UnitDetailsEntity(id: ${_this.id}, title: ${_this.title}, description: ${_this.description}, address: ${_this.address}, price: ${_this.price}, pricePerM2: ${_this.pricePerM2}, offerType: ${_this.offerType}, area: ${_this.area}, rooms: ${_this.rooms}, bathrooms: ${_this.bathrooms}, garages: ${_this.garages}, buildYear: ${_this.buildYear}, latitude: ${_this.latitude}, longitude: ${_this.longitude}, status: ${_this.status}, isFavourite: ${_this.isFavourite}, isVisible: ${_this.isVisible}, developmentStatus: ${_this.developmentStatus}, owner: ${_this.owner}, media: ${_this.media}, city: ${_this.city}, unitType: ${_this.unitType}, amenities: ${_this.amenities}, averageRating: ${_this.averageRating}, reviewsCount: ${_this.reviewsCount}, createdAt: ${_this.createdAt}, landArea: ${_this.landArea}, internalArea: ${_this.internalArea}, compound: ${_this.compound}, developer: ${_this.developer})';
 }
 
 
@@ -63,7 +69,7 @@ class _$UnitDetailsEntityCopyWithImpl<$Res>
 /// Create a copy of UnitDetailsEntity
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? title = null,Object? description = null,Object? address = null,Object? price = null,Object? pricePerM2 = null,Object? offerType = null,Object? area = null,Object? rooms = null,Object? bathrooms = null,Object? garages = null,Object? buildYear = null,Object? latitude = null,Object? longitude = null,Object? status = null,Object? isFavourite = null,Object? isVisible = null,Object? developmentStatus = null,Object? owner = null,Object? media = null,Object? city = null,Object? unitType = null,Object? amenities = null,Object? averageRating = null,Object? reviewsCount = null,Object? createdAt = null,Object? landArea = freezed,Object? internalArea = freezed,Object? compound = freezed,Object? developer = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(UnitDetailsEntity(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
@@ -286,7 +292,7 @@ return $default(_that.id,_that.title,_that.description,_that.address,_that.price
 
 
 class _UnitDetailsEntity extends UnitDetailsEntity {
-  const _UnitDetailsEntity({required this.id, required this.title, required this.description, required this.address, required this.price, required this.pricePerM2, required this.offerType, required this.area, required this.rooms, required this.bathrooms, required this.garages, required this.buildYear, required this.latitude, required this.longitude, required this.status, required this.isFavourite, required this.isVisible, required this.developmentStatus, required this.owner, required final  List<UnitMediaEntity> media, required this.city, required this.unitType, required final  List<UnitAmenityEntity> amenities, required this.averageRating, required this.reviewsCount, required this.createdAt, this.landArea, this.internalArea, this.compound, this.developer}): _media = media,_amenities = amenities,super._();
+  const _UnitDetailsEntity({required this.id, required this.title, required this.description, required this.address, required this.price, required this.pricePerM2, required this.offerType, required this.area, required this.rooms, required this.bathrooms, required this.garages, required this.buildYear, required this.latitude, required this.longitude, required this.status, required this.isFavourite, required this.isVisible, required this.developmentStatus, required this.owner, required  List<UnitMediaEntity> media, required this.city, required this.unitType, required  List<UnitAmenityEntity> amenities, required this.averageRating, required this.reviewsCount, required this.createdAt, this.landArea, this.internalArea, this.compound, this.developer}): _media = media,_amenities = amenities,super._();
   
 
 @override final  int id;
@@ -342,16 +348,18 @@ _$UnitDetailsEntityCopyWith<_UnitDetailsEntity> get copyWith => __$UnitDetailsEn
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitDetailsEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.address, address) || other.address == address)&&(identical(other.price, price) || other.price == price)&&(identical(other.pricePerM2, pricePerM2) || other.pricePerM2 == pricePerM2)&&(identical(other.offerType, offerType) || other.offerType == offerType)&&(identical(other.area, area) || other.area == area)&&(identical(other.rooms, rooms) || other.rooms == rooms)&&(identical(other.bathrooms, bathrooms) || other.bathrooms == bathrooms)&&(identical(other.garages, garages) || other.garages == garages)&&(identical(other.buildYear, buildYear) || other.buildYear == buildYear)&&(identical(other.latitude, latitude) || other.latitude == latitude)&&(identical(other.longitude, longitude) || other.longitude == longitude)&&(identical(other.status, status) || other.status == status)&&(identical(other.isFavourite, isFavourite) || other.isFavourite == isFavourite)&&(identical(other.isVisible, isVisible) || other.isVisible == isVisible)&&(identical(other.developmentStatus, developmentStatus) || other.developmentStatus == developmentStatus)&&(identical(other.owner, owner) || other.owner == owner)&&const DeepCollectionEquality().equals(other._media, _media)&&(identical(other.city, city) || other.city == city)&&(identical(other.unitType, unitType) || other.unitType == unitType)&&const DeepCollectionEquality().equals(other._amenities, _amenities)&&(identical(other.averageRating, averageRating) || other.averageRating == averageRating)&&(identical(other.reviewsCount, reviewsCount) || other.reviewsCount == reviewsCount)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.landArea, landArea) || other.landArea == landArea)&&(identical(other.internalArea, internalArea) || other.internalArea == internalArea)&&(identical(other.compound, compound) || other.compound == compound)&&(identical(other.developer, developer) || other.developer == developer));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitDetailsEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.address, address) || other.address == address)&&(identical(other.price, price) || other.price == price)&&(identical(other.pricePerM2, pricePerM2) || other.pricePerM2 == pricePerM2)&&(identical(other.offerType, offerType) || other.offerType == offerType)&&(identical(other.area, area) || other.area == area)&&(identical(other.rooms, rooms) || other.rooms == rooms)&&(identical(other.bathrooms, bathrooms) || other.bathrooms == bathrooms)&&(identical(other.garages, garages) || other.garages == garages)&&(identical(other.buildYear, buildYear) || other.buildYear == buildYear)&&(identical(other.latitude, latitude) || other.latitude == latitude)&&(identical(other.longitude, longitude) || other.longitude == longitude)&&(identical(other.status, status) || other.status == status)&&(identical(other.isFavourite, isFavourite) || other.isFavourite == isFavourite)&&(identical(other.isVisible, isVisible) || other.isVisible == isVisible)&&(identical(other.developmentStatus, developmentStatus) || other.developmentStatus == developmentStatus)&&(identical(other.owner, owner) || other.owner == owner)&&const DeepCollectionEquality().equals(other.media, _media)&&(identical(other.city, city) || other.city == city)&&(identical(other.unitType, unitType) || other.unitType == unitType)&&const DeepCollectionEquality().equals(other.amenities, _amenities)&&(identical(other.averageRating, averageRating) || other.averageRating == averageRating)&&(identical(other.reviewsCount, reviewsCount) || other.reviewsCount == reviewsCount)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.landArea, landArea) || other.landArea == landArea)&&(identical(other.internalArea, internalArea) || other.internalArea == internalArea)&&(identical(other.compound, compound) || other.compound == compound)&&(identical(other.developer, developer) || other.developer == developer));
 }
 
 
 @override
-int get hashCode => Object.hashAll([runtimeType,id,title,description,address,price,pricePerM2,offerType,area,rooms,bathrooms,garages,buildYear,latitude,longitude,status,isFavourite,isVisible,developmentStatus,owner,const DeepCollectionEquality().hash(_media),city,unitType,const DeepCollectionEquality().hash(_amenities),averageRating,reviewsCount,createdAt,landArea,internalArea,compound,developer]);
+int get hashCode {
+    return Object.hashAll([runtimeType,id,title,description,address,price,pricePerM2,offerType,area,rooms,bathrooms,garages,buildYear,latitude,longitude,status,isFavourite,isVisible,developmentStatus,owner,const DeepCollectionEquality().hash(_media),city,unitType,const DeepCollectionEquality().hash(_amenities),averageRating,reviewsCount,createdAt,landArea,internalArea,compound,developer]);
+}
 
 @override
 String toString() {
-  return 'UnitDetailsEntity(id: $id, title: $title, description: $description, address: $address, price: $price, pricePerM2: $pricePerM2, offerType: $offerType, area: $area, rooms: $rooms, bathrooms: $bathrooms, garages: $garages, buildYear: $buildYear, latitude: $latitude, longitude: $longitude, status: $status, isFavourite: $isFavourite, isVisible: $isVisible, developmentStatus: $developmentStatus, owner: $owner, media: $media, city: $city, unitType: $unitType, amenities: $amenities, averageRating: $averageRating, reviewsCount: $reviewsCount, createdAt: $createdAt, landArea: $landArea, internalArea: $internalArea, compound: $compound, developer: $developer)';
+    return 'UnitDetailsEntity(id: $id, title: $title, description: $description, address: $address, price: $price, pricePerM2: $pricePerM2, offerType: $offerType, area: $area, rooms: $rooms, bathrooms: $bathrooms, garages: $garages, buildYear: $buildYear, latitude: $latitude, longitude: $longitude, status: $status, isFavourite: $isFavourite, isVisible: $isVisible, developmentStatus: $developmentStatus, owner: $owner, media: $media, city: $city, unitType: $unitType, amenities: $amenities, averageRating: $averageRating, reviewsCount: $reviewsCount, createdAt: $createdAt, landArea: $landArea, internalArea: $internalArea, compound: $compound, developer: $developer)';
 }
 
 
@@ -483,16 +491,21 @@ $UnitOwnerEntityCopyWith<UnitOwnerEntity> get copyWith => _$UnitOwnerEntityCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitOwnerEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.address, address) || other.address == address)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.status, status) || other.status == status)&&(identical(other.role, role) || other.role == role)&&(identical(other.city, city) || other.city == city));
+  final _this = this as UnitOwnerEntity;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitOwnerEntity&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.email, _this.email) || other.email == _this.email)&&(identical(other.phone, _this.phone) || other.phone == _this.phone)&&(identical(other.address, _this.address) || other.address == _this.address)&&(identical(other.avatar, _this.avatar) || other.avatar == _this.avatar)&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.role, _this.role) || other.role == _this.role)&&(identical(other.city, _this.city) || other.city == _this.city));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,name,email,phone,address,avatar,status,role,city);
+int get hashCode {
+  final _this = this as UnitOwnerEntity;
+  return Object.hash(runtimeType,_this.id,_this.name,_this.email,_this.phone,_this.address,_this.avatar,_this.status,_this.role,_this.city);
+}
 
 @override
 String toString() {
-  return 'UnitOwnerEntity(id: $id, name: $name, email: $email, phone: $phone, address: $address, avatar: $avatar, status: $status, role: $role, city: $city)';
+  final _this = this as UnitOwnerEntity;
+  return 'UnitOwnerEntity(id: ${_this.id}, name: ${_this.name}, email: ${_this.email}, phone: ${_this.phone}, address: ${_this.address}, avatar: ${_this.avatar}, status: ${_this.status}, role: ${_this.role}, city: ${_this.city})';
 }
 
 
@@ -521,7 +534,7 @@ class _$UnitOwnerEntityCopyWithImpl<$Res>
 /// Create a copy of UnitOwnerEntity
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? email = null,Object? phone = null,Object? address = null,Object? avatar = null,Object? status = null,Object? role = null,Object? city = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(UnitOwnerEntity(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
@@ -707,16 +720,18 @@ _$UnitOwnerEntityCopyWith<_UnitOwnerEntity> get copyWith => __$UnitOwnerEntityCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitOwnerEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.address, address) || other.address == address)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.status, status) || other.status == status)&&(identical(other.role, role) || other.role == role)&&(identical(other.city, city) || other.city == city));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitOwnerEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.address, address) || other.address == address)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.status, status) || other.status == status)&&(identical(other.role, role) || other.role == role)&&(identical(other.city, city) || other.city == city));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,name,email,phone,address,avatar,status,role,city);
+int get hashCode {
+    return Object.hash(runtimeType,id,name,email,phone,address,avatar,status,role,city);
+}
 
 @override
 String toString() {
-  return 'UnitOwnerEntity(id: $id, name: $name, email: $email, phone: $phone, address: $address, avatar: $avatar, status: $status, role: $role, city: $city)';
+    return 'UnitOwnerEntity(id: $id, name: $name, email: $email, phone: $phone, address: $address, avatar: $avatar, status: $status, role: $role, city: $city)';
 }
 
 
@@ -788,16 +803,21 @@ $UnitMediaEntityCopyWith<UnitMediaEntity> get copyWith => _$UnitMediaEntityCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitMediaEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.filePath, filePath) || other.filePath == filePath)&&(identical(other.hlsPath, hlsPath) || other.hlsPath == hlsPath)&&(identical(other.processingStatus, processingStatus) || other.processingStatus == processingStatus)&&(identical(other.type, type) || other.type == type));
+  final _this = this as UnitMediaEntity;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitMediaEntity&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.filePath, _this.filePath) || other.filePath == _this.filePath)&&(identical(other.hlsPath, _this.hlsPath) || other.hlsPath == _this.hlsPath)&&(identical(other.processingStatus, _this.processingStatus) || other.processingStatus == _this.processingStatus)&&(identical(other.type, _this.type) || other.type == _this.type));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,filePath,hlsPath,processingStatus,type);
+int get hashCode {
+  final _this = this as UnitMediaEntity;
+  return Object.hash(runtimeType,_this.id,_this.filePath,_this.hlsPath,_this.processingStatus,_this.type);
+}
 
 @override
 String toString() {
-  return 'UnitMediaEntity(id: $id, filePath: $filePath, hlsPath: $hlsPath, processingStatus: $processingStatus, type: $type)';
+  final _this = this as UnitMediaEntity;
+  return 'UnitMediaEntity(id: ${_this.id}, filePath: ${_this.filePath}, hlsPath: ${_this.hlsPath}, processingStatus: ${_this.processingStatus}, type: ${_this.type})';
 }
 
 
@@ -826,7 +846,7 @@ class _$UnitMediaEntityCopyWithImpl<$Res>
 /// Create a copy of UnitMediaEntity
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? filePath = null,Object? hlsPath = null,Object? processingStatus = null,Object? type = null,}) {
-  return _then(_self.copyWith(
+  return _then(UnitMediaEntity(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,filePath: null == filePath ? _self.filePath : filePath // ignore: cast_nullable_to_non_nullable
 as String,hlsPath: null == hlsPath ? _self.hlsPath : hlsPath // ignore: cast_nullable_to_non_nullable
@@ -992,16 +1012,18 @@ _$UnitMediaEntityCopyWith<_UnitMediaEntity> get copyWith => __$UnitMediaEntityCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitMediaEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.filePath, filePath) || other.filePath == filePath)&&(identical(other.hlsPath, hlsPath) || other.hlsPath == hlsPath)&&(identical(other.processingStatus, processingStatus) || other.processingStatus == processingStatus)&&(identical(other.type, type) || other.type == type));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitMediaEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.filePath, filePath) || other.filePath == filePath)&&(identical(other.hlsPath, hlsPath) || other.hlsPath == hlsPath)&&(identical(other.processingStatus, processingStatus) || other.processingStatus == processingStatus)&&(identical(other.type, type) || other.type == type));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,filePath,hlsPath,processingStatus,type);
+int get hashCode {
+    return Object.hash(runtimeType,id,filePath,hlsPath,processingStatus,type);
+}
 
 @override
 String toString() {
-  return 'UnitMediaEntity(id: $id, filePath: $filePath, hlsPath: $hlsPath, processingStatus: $processingStatus, type: $type)';
+    return 'UnitMediaEntity(id: $id, filePath: $filePath, hlsPath: $hlsPath, processingStatus: $processingStatus, type: $type)';
 }
 
 
@@ -1057,16 +1079,21 @@ $UnitCityEntityCopyWith<UnitCityEntity> get copyWith => _$UnitCityEntityCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitCityEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name));
+  final _this = this as UnitCityEntity;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitCityEntity&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.name, _this.name) || other.name == _this.name));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,name);
+int get hashCode {
+  final _this = this as UnitCityEntity;
+  return Object.hash(runtimeType,_this.id,_this.name);
+}
 
 @override
 String toString() {
-  return 'UnitCityEntity(id: $id, name: $name)';
+  final _this = this as UnitCityEntity;
+  return 'UnitCityEntity(id: ${_this.id}, name: ${_this.name})';
 }
 
 
@@ -1095,7 +1122,7 @@ class _$UnitCityEntityCopyWithImpl<$Res>
 /// Create a copy of UnitCityEntity
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,}) {
-  return _then(_self.copyWith(
+  return _then(UnitCityEntity(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,
@@ -1255,16 +1282,18 @@ _$UnitCityEntityCopyWith<_UnitCityEntity> get copyWith => __$UnitCityEntityCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitCityEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitCityEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,name);
+int get hashCode {
+    return Object.hash(runtimeType,id,name);
+}
 
 @override
 String toString() {
-  return 'UnitCityEntity(id: $id, name: $name)';
+    return 'UnitCityEntity(id: $id, name: $name)';
 }
 
 
@@ -1317,16 +1346,21 @@ $UnitTypeEntityCopyWith<UnitTypeEntity> get copyWith => _$UnitTypeEntityCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitTypeEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.icon, icon) || other.icon == icon));
+  final _this = this as UnitTypeEntity;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitTypeEntity&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.icon, _this.icon) || other.icon == _this.icon));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,name,icon);
+int get hashCode {
+  final _this = this as UnitTypeEntity;
+  return Object.hash(runtimeType,_this.id,_this.name,_this.icon);
+}
 
 @override
 String toString() {
-  return 'UnitTypeEntity(id: $id, name: $name, icon: $icon)';
+  final _this = this as UnitTypeEntity;
+  return 'UnitTypeEntity(id: ${_this.id}, name: ${_this.name}, icon: ${_this.icon})';
 }
 
 
@@ -1355,7 +1389,7 @@ class _$UnitTypeEntityCopyWithImpl<$Res>
 /// Create a copy of UnitTypeEntity
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? icon = null,}) {
-  return _then(_self.copyWith(
+  return _then(UnitTypeEntity(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,icon: null == icon ? _self.icon : icon // ignore: cast_nullable_to_non_nullable
@@ -1517,16 +1551,18 @@ _$UnitTypeEntityCopyWith<_UnitTypeEntity> get copyWith => __$UnitTypeEntityCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitTypeEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.icon, icon) || other.icon == icon));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitTypeEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.icon, icon) || other.icon == icon));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,name,icon);
+int get hashCode {
+    return Object.hash(runtimeType,id,name,icon);
+}
 
 @override
 String toString() {
-  return 'UnitTypeEntity(id: $id, name: $name, icon: $icon)';
+    return 'UnitTypeEntity(id: $id, name: $name, icon: $icon)';
 }
 
 
@@ -1580,16 +1616,21 @@ $UnitAmenityEntityCopyWith<UnitAmenityEntity> get copyWith => _$UnitAmenityEntit
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitAmenityEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.icon, icon) || other.icon == icon));
+  final _this = this as UnitAmenityEntity;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitAmenityEntity&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.icon, _this.icon) || other.icon == _this.icon));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,name,icon);
+int get hashCode {
+  final _this = this as UnitAmenityEntity;
+  return Object.hash(runtimeType,_this.id,_this.name,_this.icon);
+}
 
 @override
 String toString() {
-  return 'UnitAmenityEntity(id: $id, name: $name, icon: $icon)';
+  final _this = this as UnitAmenityEntity;
+  return 'UnitAmenityEntity(id: ${_this.id}, name: ${_this.name}, icon: ${_this.icon})';
 }
 
 
@@ -1618,7 +1659,7 @@ class _$UnitAmenityEntityCopyWithImpl<$Res>
 /// Create a copy of UnitAmenityEntity
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? icon = null,}) {
-  return _then(_self.copyWith(
+  return _then(UnitAmenityEntity(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,icon: null == icon ? _self.icon : icon // ignore: cast_nullable_to_non_nullable
@@ -1780,16 +1821,18 @@ _$UnitAmenityEntityCopyWith<_UnitAmenityEntity> get copyWith => __$UnitAmenityEn
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitAmenityEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.icon, icon) || other.icon == icon));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitAmenityEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.icon, icon) || other.icon == icon));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,name,icon);
+int get hashCode {
+    return Object.hash(runtimeType,id,name,icon);
+}
 
 @override
 String toString() {
-  return 'UnitAmenityEntity(id: $id, name: $name, icon: $icon)';
+    return 'UnitAmenityEntity(id: $id, name: $name, icon: $icon)';
 }
 
 

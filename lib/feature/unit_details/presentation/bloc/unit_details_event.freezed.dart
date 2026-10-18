@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'unit_details_event.dart';
@@ -9,6 +9,7 @@ part of 'unit_details_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -20,7 +21,7 @@ mixin _$UnitDetailsEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitDetailsEvent);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitDetailsEvent);
 }
 
 
@@ -29,7 +30,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'UnitDetailsEvent()';
+    return 'UnitDetailsEvent()';
 }
 
 
@@ -250,16 +251,18 @@ $UnitDetailsRequestedCopyWith<UnitDetailsRequested> get copyWith => _$UnitDetail
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitDetailsRequested&&(identical(other.unitId, unitId) || other.unitId == unitId));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitDetailsRequested&&(identical(other.unitId, unitId) || other.unitId == unitId));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,unitId);
+int get hashCode {
+    return Object.hash(runtimeType,unitId);
+}
 
 @override
 String toString() {
-  return 'UnitDetailsEvent.unitDetailsRequested(unitId: $unitId)';
+    return 'UnitDetailsEvent.unitDetailsRequested(unitId: $unitId)';
 }
 
 
@@ -317,16 +320,18 @@ $ReviewSubmittedCopyWith<ReviewSubmitted> get copyWith => _$ReviewSubmittedCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReviewSubmitted&&(identical(other.rating, rating) || other.rating == rating)&&(identical(other.comment, comment) || other.comment == comment));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ReviewSubmitted&&(identical(other.rating, rating) || other.rating == rating)&&(identical(other.comment, comment) || other.comment == comment));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,rating,comment);
+int get hashCode {
+    return Object.hash(runtimeType,rating,comment);
+}
 
 @override
 String toString() {
-  return 'UnitDetailsEvent.reviewSubmitted(rating: $rating, comment: $comment)';
+    return 'UnitDetailsEvent.reviewSubmitted(rating: $rating, comment: $comment)';
 }
 
 
@@ -386,16 +391,18 @@ $ReviewUpdatedCopyWith<ReviewUpdated> get copyWith => _$ReviewUpdatedCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReviewUpdated&&(identical(other.reviewId, reviewId) || other.reviewId == reviewId)&&(identical(other.rating, rating) || other.rating == rating)&&(identical(other.comment, comment) || other.comment == comment));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ReviewUpdated&&(identical(other.reviewId, reviewId) || other.reviewId == reviewId)&&(identical(other.rating, rating) || other.rating == rating)&&(identical(other.comment, comment) || other.comment == comment));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,reviewId,rating,comment);
+int get hashCode {
+    return Object.hash(runtimeType,reviewId,rating,comment);
+}
 
 @override
 String toString() {
-  return 'UnitDetailsEvent.reviewUpdated(reviewId: $reviewId, rating: $rating, comment: $comment)';
+    return 'UnitDetailsEvent.reviewUpdated(reviewId: $reviewId, rating: $rating, comment: $comment)';
 }
 
 
@@ -454,16 +461,18 @@ $ReviewDeletedCopyWith<ReviewDeleted> get copyWith => _$ReviewDeletedCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReviewDeleted&&(identical(other.reviewId, reviewId) || other.reviewId == reviewId));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ReviewDeleted&&(identical(other.reviewId, reviewId) || other.reviewId == reviewId));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,reviewId);
+int get hashCode {
+    return Object.hash(runtimeType,reviewId);
+}
 
 @override
 String toString() {
-  return 'UnitDetailsEvent.reviewDeleted(reviewId: $reviewId)';
+    return 'UnitDetailsEvent.reviewDeleted(reviewId: $reviewId)';
 }
 
 
@@ -515,7 +524,7 @@ class ReviewsMoreRequested implements UnitDetailsEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReviewsMoreRequested);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ReviewsMoreRequested);
 }
 
 
@@ -524,7 +533,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'UnitDetailsEvent.reviewsMoreRequested()';
+    return 'UnitDetailsEvent.reviewsMoreRequested()';
 }
 
 
@@ -555,16 +564,18 @@ $ContactOwnerSubmittedCopyWith<ContactOwnerSubmitted> get copyWith => _$ContactO
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ContactOwnerSubmitted&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.message, message) || other.message == message));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ContactOwnerSubmitted&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.message, message) || other.message == message));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,name,email,phone,message);
+int get hashCode {
+    return Object.hash(runtimeType,name,email,phone,message);
+}
 
 @override
 String toString() {
-  return 'UnitDetailsEvent.contactOwnerSubmitted(name: $name, email: $email, phone: $phone, message: $message)';
+    return 'UnitDetailsEvent.contactOwnerSubmitted(name: $name, email: $email, phone: $phone, message: $message)';
 }
 
 
@@ -629,16 +640,18 @@ $BookingSubmittedCopyWith<BookingSubmitted> get copyWith => _$BookingSubmittedCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingSubmitted&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.date, date) || other.date == date)&&(identical(other.time, time) || other.time == time)&&(identical(other.notes, notes) || other.notes == notes));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingSubmitted&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.date, date) || other.date == date)&&(identical(other.time, time) || other.time == time)&&(identical(other.notes, notes) || other.notes == notes));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,name,email,phone,date,time,notes);
+int get hashCode {
+    return Object.hash(runtimeType,name,email,phone,date,time,notes);
+}
 
 @override
 String toString() {
-  return 'UnitDetailsEvent.bookingSubmitted(name: $name, email: $email, phone: $phone, date: $date, time: $time, notes: $notes)';
+    return 'UnitDetailsEvent.bookingSubmitted(name: $name, email: $email, phone: $phone, date: $date, time: $time, notes: $notes)';
 }
 
 
@@ -695,7 +708,7 @@ class ReviewStatusReset implements UnitDetailsEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReviewStatusReset);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ReviewStatusReset);
 }
 
 
@@ -704,7 +717,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'UnitDetailsEvent.reviewStatusReset()';
+    return 'UnitDetailsEvent.reviewStatusReset()';
 }
 
 
@@ -727,7 +740,7 @@ class DeleteReviewStatusReset implements UnitDetailsEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeleteReviewStatusReset);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is DeleteReviewStatusReset);
 }
 
 
@@ -736,7 +749,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'UnitDetailsEvent.deleteReviewStatusReset()';
+    return 'UnitDetailsEvent.deleteReviewStatusReset()';
 }
 
 
@@ -759,7 +772,7 @@ class ContactStatusReset implements UnitDetailsEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ContactStatusReset);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ContactStatusReset);
 }
 
 
@@ -768,7 +781,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'UnitDetailsEvent.contactStatusReset()';
+    return 'UnitDetailsEvent.contactStatusReset()';
 }
 
 
@@ -791,7 +804,7 @@ class BookingStatusReset implements UnitDetailsEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingStatusReset);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingStatusReset);
 }
 
 
@@ -800,7 +813,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'UnitDetailsEvent.bookingStatusReset()';
+    return 'UnitDetailsEvent.bookingStatusReset()';
 }
 
 

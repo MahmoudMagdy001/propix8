@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'maintenance_services_event.dart';
@@ -9,6 +9,7 @@ part of 'maintenance_services_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -20,7 +21,7 @@ mixin _$MaintenanceServicesEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceServicesEvent);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceServicesEvent);
 }
 
 
@@ -29,7 +30,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'MaintenanceServicesEvent()';
+    return 'MaintenanceServicesEvent()';
 }
 
 
@@ -203,7 +204,7 @@ class MaintenanceServicesStarted implements MaintenanceServicesEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceServicesStarted);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceServicesStarted);
 }
 
 
@@ -212,7 +213,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'MaintenanceServicesEvent.started()';
+    return 'MaintenanceServicesEvent.started()';
 }
 
 
@@ -235,7 +236,7 @@ class MaintenanceServicesRefreshed implements MaintenanceServicesEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceServicesRefreshed);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceServicesRefreshed);
 }
 
 
@@ -244,7 +245,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'MaintenanceServicesEvent.refreshed()';
+    return 'MaintenanceServicesEvent.refreshed()';
 }
 
 
@@ -272,16 +273,18 @@ $MaintenanceServicesServiceBookedCopyWith<MaintenanceServicesServiceBooked> get 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceServicesServiceBooked&&(identical(other.serviceId, serviceId) || other.serviceId == serviceId));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceServicesServiceBooked&&(identical(other.serviceId, serviceId) || other.serviceId == serviceId));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,serviceId);
+int get hashCode {
+    return Object.hash(runtimeType,serviceId);
+}
 
 @override
 String toString() {
-  return 'MaintenanceServicesEvent.serviceBooked(serviceId: $serviceId)';
+    return 'MaintenanceServicesEvent.serviceBooked(serviceId: $serviceId)';
 }
 
 
@@ -338,16 +341,18 @@ $MaintenanceServicesServiceUnbookedCopyWith<MaintenanceServicesServiceUnbooked> 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceServicesServiceUnbooked&&(identical(other.serviceId, serviceId) || other.serviceId == serviceId));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceServicesServiceUnbooked&&(identical(other.serviceId, serviceId) || other.serviceId == serviceId));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,serviceId);
+int get hashCode {
+    return Object.hash(runtimeType,serviceId);
+}
 
 @override
 String toString() {
-  return 'MaintenanceServicesEvent.serviceUnbooked(serviceId: $serviceId)';
+    return 'MaintenanceServicesEvent.serviceUnbooked(serviceId: $serviceId)';
 }
 
 

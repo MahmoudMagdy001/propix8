@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'unit_entity.dart';
@@ -9,6 +9,7 @@ part of 'unit_entity.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $UnitEntityCopyWith<UnitEntity> get copyWith => _$UnitEntityCopyWithImpl<UnitEnt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.price, price) || other.price == price)&&(identical(other.description, description) || other.description == description)&&(identical(other.address, address) || other.address == address)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl)&&(identical(other.bedrooms, bedrooms) || other.bedrooms == bedrooms)&&(identical(other.bathrooms, bathrooms) || other.bathrooms == bathrooms)&&(identical(other.area, area) || other.area == area)&&(identical(other.isFavorite, isFavorite) || other.isFavorite == isFavorite)&&(identical(other.offerType, offerType) || other.offerType == offerType));
+  final _this = this as UnitEntity;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitEntity&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.title, _this.title) || other.title == _this.title)&&(identical(other.price, _this.price) || other.price == _this.price)&&(identical(other.description, _this.description) || other.description == _this.description)&&(identical(other.address, _this.address) || other.address == _this.address)&&(identical(other.imageUrl, _this.imageUrl) || other.imageUrl == _this.imageUrl)&&(identical(other.bedrooms, _this.bedrooms) || other.bedrooms == _this.bedrooms)&&(identical(other.bathrooms, _this.bathrooms) || other.bathrooms == _this.bathrooms)&&(identical(other.area, _this.area) || other.area == _this.area)&&(identical(other.isFavorite, _this.isFavorite) || other.isFavorite == _this.isFavorite)&&(identical(other.offerType, _this.offerType) || other.offerType == _this.offerType));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,title,price,description,address,imageUrl,bedrooms,bathrooms,area,isFavorite,offerType);
+int get hashCode {
+  final _this = this as UnitEntity;
+  return Object.hash(runtimeType,_this.id,_this.title,_this.price,_this.description,_this.address,_this.imageUrl,_this.bedrooms,_this.bathrooms,_this.area,_this.isFavorite,_this.offerType);
+}
 
 @override
 String toString() {
-  return 'UnitEntity(id: $id, title: $title, price: $price, description: $description, address: $address, imageUrl: $imageUrl, bedrooms: $bedrooms, bathrooms: $bathrooms, area: $area, isFavorite: $isFavorite, offerType: $offerType)';
+  final _this = this as UnitEntity;
+  return 'UnitEntity(id: ${_this.id}, title: ${_this.title}, price: ${_this.price}, description: ${_this.description}, address: ${_this.address}, imageUrl: ${_this.imageUrl}, bedrooms: ${_this.bedrooms}, bathrooms: ${_this.bathrooms}, area: ${_this.area}, isFavorite: ${_this.isFavorite}, offerType: ${_this.offerType})';
 }
 
 
@@ -63,7 +69,7 @@ class _$UnitEntityCopyWithImpl<$Res>
 /// Create a copy of UnitEntity
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? title = null,Object? price = null,Object? description = freezed,Object? address = freezed,Object? imageUrl = freezed,Object? bedrooms = freezed,Object? bathrooms = freezed,Object? area = freezed,Object? isFavorite = freezed,Object? offerType = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(UnitEntity(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,price: null == price ? _self.price : price // ignore: cast_nullable_to_non_nullable
@@ -241,16 +247,18 @@ _$UnitEntityCopyWith<_UnitEntity> get copyWith => __$UnitEntityCopyWithImpl<_Uni
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.price, price) || other.price == price)&&(identical(other.description, description) || other.description == description)&&(identical(other.address, address) || other.address == address)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl)&&(identical(other.bedrooms, bedrooms) || other.bedrooms == bedrooms)&&(identical(other.bathrooms, bathrooms) || other.bathrooms == bathrooms)&&(identical(other.area, area) || other.area == area)&&(identical(other.isFavorite, isFavorite) || other.isFavorite == isFavorite)&&(identical(other.offerType, offerType) || other.offerType == offerType));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.price, price) || other.price == price)&&(identical(other.description, description) || other.description == description)&&(identical(other.address, address) || other.address == address)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl)&&(identical(other.bedrooms, bedrooms) || other.bedrooms == bedrooms)&&(identical(other.bathrooms, bathrooms) || other.bathrooms == bathrooms)&&(identical(other.area, area) || other.area == area)&&(identical(other.isFavorite, isFavorite) || other.isFavorite == isFavorite)&&(identical(other.offerType, offerType) || other.offerType == offerType));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,title,price,description,address,imageUrl,bedrooms,bathrooms,area,isFavorite,offerType);
+int get hashCode {
+    return Object.hash(runtimeType,id,title,price,description,address,imageUrl,bedrooms,bathrooms,area,isFavorite,offerType);
+}
 
 @override
 String toString() {
-  return 'UnitEntity(id: $id, title: $title, price: $price, description: $description, address: $address, imageUrl: $imageUrl, bedrooms: $bedrooms, bathrooms: $bathrooms, area: $area, isFavorite: $isFavorite, offerType: $offerType)';
+    return 'UnitEntity(id: $id, title: $title, price: $price, description: $description, address: $address, imageUrl: $imageUrl, bedrooms: $bedrooms, bathrooms: $bathrooms, area: $area, isFavorite: $isFavorite, offerType: $offerType)';
 }
 
 

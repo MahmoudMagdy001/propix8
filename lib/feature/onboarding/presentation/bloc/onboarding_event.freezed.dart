@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'onboarding_event.dart';
@@ -9,6 +9,7 @@ part of 'onboarding_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -20,7 +21,7 @@ mixin _$OnboardingEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OnboardingEvent);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is OnboardingEvent);
 }
 
 
@@ -29,7 +30,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'OnboardingEvent()';
+    return 'OnboardingEvent()';
 }
 
 
@@ -187,7 +188,7 @@ return onboardingCompleted();case _:
 
 
 class OnboardingPagesLoaded implements OnboardingEvent {
-  const OnboardingPagesLoaded({required this.l10n, final  List<String>? images}): _images = images;
+  const OnboardingPagesLoaded({required this.l10n,  List<String>? images}): _images = images;
   
 
  final  AppLocalizations l10n;
@@ -211,16 +212,18 @@ $OnboardingPagesLoadedCopyWith<OnboardingPagesLoaded> get copyWith => _$Onboardi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OnboardingPagesLoaded&&(identical(other.l10n, l10n) || other.l10n == l10n)&&const DeepCollectionEquality().equals(other._images, _images));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is OnboardingPagesLoaded&&(identical(other.l10n, l10n) || other.l10n == l10n)&&const DeepCollectionEquality().equals(other.images, _images));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,l10n,const DeepCollectionEquality().hash(_images));
+int get hashCode {
+    return Object.hash(runtimeType,l10n,const DeepCollectionEquality().hash(_images));
+}
 
 @override
 String toString() {
-  return 'OnboardingEvent.pagesLoaded(l10n: $l10n, images: $images)';
+    return 'OnboardingEvent.pagesLoaded(l10n: $l10n, images: $images)';
 }
 
 
@@ -278,16 +281,18 @@ $OnboardingPageIndexChangedCopyWith<OnboardingPageIndexChanged> get copyWith => 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OnboardingPageIndexChanged&&(identical(other.index, index) || other.index == index));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is OnboardingPageIndexChanged&&(identical(other.index, index) || other.index == index));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,index);
+int get hashCode {
+    return Object.hash(runtimeType,index);
+}
 
 @override
 String toString() {
-  return 'OnboardingEvent.pageIndexChanged(index: $index)';
+    return 'OnboardingEvent.pageIndexChanged(index: $index)';
 }
 
 
@@ -339,7 +344,7 @@ class OnboardingCompleted implements OnboardingEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OnboardingCompleted);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is OnboardingCompleted);
 }
 
 
@@ -348,7 +353,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'OnboardingEvent.onboardingCompleted()';
+    return 'OnboardingEvent.onboardingCompleted()';
 }
 
 

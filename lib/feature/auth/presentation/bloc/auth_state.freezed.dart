@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'auth_state.dart';
@@ -9,6 +9,7 @@ part of 'auth_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $AuthStateCopyWith<AuthState> get copyWith => _$AuthStateCopyWithImpl<AuthState>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthState&&(identical(other.status, status) || other.status == status)&&(identical(other.authenticationStatus, authenticationStatus) || other.authenticationStatus == authenticationStatus)&&(identical(other.resendStatus, resendStatus) || other.resendStatus == resendStatus)&&(identical(other.verificationStatus, verificationStatus) || other.verificationStatus == verificationStatus)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.resendMessage, resendMessage) || other.resendMessage == resendMessage)&&(identical(other.user, user) || other.user == user));
+  final _this = this as AuthState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthState&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.authenticationStatus, _this.authenticationStatus) || other.authenticationStatus == _this.authenticationStatus)&&(identical(other.resendStatus, _this.resendStatus) || other.resendStatus == _this.resendStatus)&&(identical(other.verificationStatus, _this.verificationStatus) || other.verificationStatus == _this.verificationStatus)&&(identical(other.errorMessage, _this.errorMessage) || other.errorMessage == _this.errorMessage)&&(identical(other.resendMessage, _this.resendMessage) || other.resendMessage == _this.resendMessage)&&(identical(other.user, _this.user) || other.user == _this.user));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,authenticationStatus,resendStatus,verificationStatus,errorMessage,resendMessage,user);
+int get hashCode {
+  final _this = this as AuthState;
+  return Object.hash(runtimeType,_this.status,_this.authenticationStatus,_this.resendStatus,_this.verificationStatus,_this.errorMessage,_this.resendMessage,_this.user);
+}
 
 @override
 String toString() {
-  return 'AuthState(status: $status, authenticationStatus: $authenticationStatus, resendStatus: $resendStatus, verificationStatus: $verificationStatus, errorMessage: $errorMessage, resendMessage: $resendMessage, user: $user)';
+  final _this = this as AuthState;
+  return 'AuthState(status: ${_this.status}, authenticationStatus: ${_this.authenticationStatus}, resendStatus: ${_this.resendStatus}, verificationStatus: ${_this.verificationStatus}, errorMessage: ${_this.errorMessage}, resendMessage: ${_this.resendMessage}, user: ${_this.user})';
 }
 
 
@@ -63,7 +69,7 @@ class _$AuthStateCopyWithImpl<$Res>
 /// Create a copy of AuthState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? authenticationStatus = null,Object? resendStatus = null,Object? verificationStatus = null,Object? errorMessage = freezed,Object? resendMessage = freezed,Object? user = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(AuthState(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as AuthRequestStatus,authenticationStatus: null == authenticationStatus ? _self.authenticationStatus : authenticationStatus // ignore: cast_nullable_to_non_nullable
 as AuthenticationStatus,resendStatus: null == resendStatus ? _self.resendStatus : resendStatus // ignore: cast_nullable_to_non_nullable
@@ -245,16 +251,18 @@ _$AuthStateCopyWith<_AuthState> get copyWith => __$AuthStateCopyWithImpl<_AuthSt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AuthState&&(identical(other.status, status) || other.status == status)&&(identical(other.authenticationStatus, authenticationStatus) || other.authenticationStatus == authenticationStatus)&&(identical(other.resendStatus, resendStatus) || other.resendStatus == resendStatus)&&(identical(other.verificationStatus, verificationStatus) || other.verificationStatus == verificationStatus)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.resendMessage, resendMessage) || other.resendMessage == resendMessage)&&(identical(other.user, user) || other.user == user));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AuthState&&(identical(other.status, status) || other.status == status)&&(identical(other.authenticationStatus, authenticationStatus) || other.authenticationStatus == authenticationStatus)&&(identical(other.resendStatus, resendStatus) || other.resendStatus == resendStatus)&&(identical(other.verificationStatus, verificationStatus) || other.verificationStatus == verificationStatus)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.resendMessage, resendMessage) || other.resendMessage == resendMessage)&&(identical(other.user, user) || other.user == user));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,authenticationStatus,resendStatus,verificationStatus,errorMessage,resendMessage,user);
+int get hashCode {
+    return Object.hash(runtimeType,status,authenticationStatus,resendStatus,verificationStatus,errorMessage,resendMessage,user);
+}
 
 @override
 String toString() {
-  return 'AuthState(status: $status, authenticationStatus: $authenticationStatus, resendStatus: $resendStatus, verificationStatus: $verificationStatus, errorMessage: $errorMessage, resendMessage: $resendMessage, user: $user)';
+    return 'AuthState(status: $status, authenticationStatus: $authenticationStatus, resendStatus: $resendStatus, verificationStatus: $verificationStatus, errorMessage: $errorMessage, resendMessage: $resendMessage, user: $user)';
 }
 
 

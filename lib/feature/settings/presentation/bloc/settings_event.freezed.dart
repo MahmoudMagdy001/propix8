@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'settings_event.dart';
@@ -9,6 +9,7 @@ part of 'settings_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -20,7 +21,7 @@ mixin _$SettingsEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SettingsEvent);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is SettingsEvent);
 }
 
 
@@ -29,7 +30,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'SettingsEvent()';
+    return 'SettingsEvent()';
 }
 
 
@@ -197,7 +198,7 @@ class SettingsStarted implements SettingsEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SettingsStarted);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is SettingsStarted);
 }
 
 
@@ -206,7 +207,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'SettingsEvent.started()';
+    return 'SettingsEvent.started()';
 }
 
 
@@ -229,7 +230,7 @@ class SiteSettingsRequested implements SettingsEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SiteSettingsRequested);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is SiteSettingsRequested);
 }
 
 
@@ -238,7 +239,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'SettingsEvent.siteSettingsRequested()';
+    return 'SettingsEvent.siteSettingsRequested()';
 }
 
 
@@ -266,16 +267,18 @@ $ThemeChangedCopyWith<ThemeChanged> get copyWith => _$ThemeChangedCopyWithImpl<T
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ThemeChanged&&(identical(other.themeMode, themeMode) || other.themeMode == themeMode));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ThemeChanged&&(identical(other.themeMode, themeMode) || other.themeMode == themeMode));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,themeMode);
+int get hashCode {
+    return Object.hash(runtimeType,themeMode);
+}
 
 @override
 String toString() {
-  return 'SettingsEvent.themeChanged(themeMode: $themeMode)';
+    return 'SettingsEvent.themeChanged(themeMode: $themeMode)';
 }
 
 
@@ -332,16 +335,18 @@ $LocaleChangedCopyWith<LocaleChanged> get copyWith => _$LocaleChangedCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LocaleChanged&&(identical(other.locale, locale) || other.locale == locale));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is LocaleChanged&&(identical(other.locale, locale) || other.locale == locale));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,locale);
+int get hashCode {
+    return Object.hash(runtimeType,locale);
+}
 
 @override
 String toString() {
-  return 'SettingsEvent.localeChanged(locale: $locale)';
+    return 'SettingsEvent.localeChanged(locale: $locale)';
 }
 
 

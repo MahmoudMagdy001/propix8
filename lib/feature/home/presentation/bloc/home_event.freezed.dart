@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'home_event.dart';
@@ -9,6 +9,7 @@ part of 'home_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -20,7 +21,7 @@ mixin _$HomeEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeEvent);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeEvent);
 }
 
 
@@ -29,7 +30,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'HomeEvent()';
+    return 'HomeEvent()';
 }
 
 
@@ -263,7 +264,7 @@ class HomeAllDataRequested implements HomeEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeAllDataRequested);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeAllDataRequested);
 }
 
 
@@ -272,7 +273,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'HomeEvent.allDataRequested()';
+    return 'HomeEvent.allDataRequested()';
 }
 
 
@@ -295,7 +296,7 @@ class HomeBannersRequested implements HomeEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeBannersRequested);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeBannersRequested);
 }
 
 
@@ -304,7 +305,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'HomeEvent.bannersRequested()';
+    return 'HomeEvent.bannersRequested()';
 }
 
 
@@ -327,7 +328,7 @@ class HomeCategoriesRequested implements HomeEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeCategoriesRequested);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeCategoriesRequested);
 }
 
 
@@ -336,7 +337,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'HomeEvent.categoriesRequested()';
+    return 'HomeEvent.categoriesRequested()';
 }
 
 
@@ -359,7 +360,7 @@ class HomeNearbyUnitsRequested implements HomeEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeNearbyUnitsRequested);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeNearbyUnitsRequested);
 }
 
 
@@ -368,7 +369,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'HomeEvent.nearbyUnitsRequested()';
+    return 'HomeEvent.nearbyUnitsRequested()';
 }
 
 
@@ -391,7 +392,7 @@ class HomeLatestUnitsRequested implements HomeEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeLatestUnitsRequested);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeLatestUnitsRequested);
 }
 
 
@@ -400,7 +401,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'HomeEvent.latestUnitsRequested()';
+    return 'HomeEvent.latestUnitsRequested()';
 }
 
 
@@ -428,16 +429,18 @@ $HomeAllUnitsRequestedCopyWith<HomeAllUnitsRequested> get copyWith => _$HomeAllU
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeAllUnitsRequested&&(identical(other.page, page) || other.page == page));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeAllUnitsRequested&&(identical(other.page, page) || other.page == page));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,page);
+int get hashCode {
+    return Object.hash(runtimeType,page);
+}
 
 @override
 String toString() {
-  return 'HomeEvent.allUnitsRequested(page: $page)';
+    return 'HomeEvent.allUnitsRequested(page: $page)';
 }
 
 
@@ -489,7 +492,7 @@ class HomeLoadMoreAllUnitsRequested implements HomeEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeLoadMoreAllUnitsRequested);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeLoadMoreAllUnitsRequested);
 }
 
 
@@ -498,7 +501,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'HomeEvent.loadMoreAllUnitsRequested()';
+    return 'HomeEvent.loadMoreAllUnitsRequested()';
 }
 
 
@@ -526,16 +529,18 @@ $HomeCategorySelectedCopyWith<HomeCategorySelected> get copyWith => _$HomeCatego
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeCategorySelected&&(identical(other.categoryId, categoryId) || other.categoryId == categoryId));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeCategorySelected&&(identical(other.categoryId, categoryId) || other.categoryId == categoryId));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,categoryId);
+int get hashCode {
+    return Object.hash(runtimeType,categoryId);
+}
 
 @override
 String toString() {
-  return 'HomeEvent.categorySelected(categoryId: $categoryId)';
+    return 'HomeEvent.categorySelected(categoryId: $categoryId)';
 }
 
 
@@ -592,16 +597,18 @@ $HomeTabChangedCopyWith<HomeTabChanged> get copyWith => _$HomeTabChangedCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeTabChanged&&(identical(other.tab, tab) || other.tab == tab));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeTabChanged&&(identical(other.tab, tab) || other.tab == tab));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,tab);
+int get hashCode {
+    return Object.hash(runtimeType,tab);
+}
 
 @override
 String toString() {
-  return 'HomeEvent.tabChanged(tab: $tab)';
+    return 'HomeEvent.tabChanged(tab: $tab)';
 }
 
 
@@ -658,16 +665,18 @@ $HomeFilterAppliedCopyWith<HomeFilterApplied> get copyWith => _$HomeFilterApplie
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeFilterApplied&&(identical(other.filterState, filterState) || other.filterState == filterState));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeFilterApplied&&(identical(other.filterState, filterState) || other.filterState == filterState));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,filterState);
+int get hashCode {
+    return Object.hash(runtimeType,filterState);
+}
 
 @override
 String toString() {
-  return 'HomeEvent.filterApplied(filterState: $filterState)';
+    return 'HomeEvent.filterApplied(filterState: $filterState)';
 }
 
 
@@ -728,7 +737,7 @@ class HomeFilterCleared implements HomeEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeFilterCleared);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeFilterCleared);
 }
 
 
@@ -737,7 +746,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'HomeEvent.filterCleared()';
+    return 'HomeEvent.filterCleared()';
 }
 
 
@@ -765,16 +774,18 @@ $HomeFavoriteToggledCopyWith<HomeFavoriteToggled> get copyWith => _$HomeFavorite
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeFavoriteToggled&&(identical(other.unitId, unitId) || other.unitId == unitId));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeFavoriteToggled&&(identical(other.unitId, unitId) || other.unitId == unitId));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,unitId);
+int get hashCode {
+    return Object.hash(runtimeType,unitId);
+}
 
 @override
 String toString() {
-  return 'HomeEvent.favoriteToggled(unitId: $unitId)';
+    return 'HomeEvent.favoriteToggled(unitId: $unitId)';
 }
 
 
@@ -826,7 +837,7 @@ class HomeNetworkFailureSet implements HomeEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeNetworkFailureSet);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeNetworkFailureSet);
 }
 
 
@@ -835,7 +846,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'HomeEvent.networkFailureSet()';
+    return 'HomeEvent.networkFailureSet()';
 }
 
 
@@ -858,7 +869,7 @@ class HomeRefreshed implements HomeEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeRefreshed);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeRefreshed);
 }
 
 
@@ -867,7 +878,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'HomeEvent.refreshed()';
+    return 'HomeEvent.refreshed()';
 }
 
 

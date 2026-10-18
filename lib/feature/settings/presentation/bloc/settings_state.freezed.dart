@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'settings_state.dart';
@@ -9,6 +9,7 @@ part of 'settings_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $SettingsStateCopyWith<SettingsState> get copyWith => _$SettingsStateCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SettingsState&&(identical(other.status, status) || other.status == status)&&(identical(other.themeMode, themeMode) || other.themeMode == themeMode)&&(identical(other.locale, locale) || other.locale == locale)&&(identical(other.siteSettings, siteSettings) || other.siteSettings == siteSettings)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
+  final _this = this as SettingsState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SettingsState&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.themeMode, _this.themeMode) || other.themeMode == _this.themeMode)&&(identical(other.locale, _this.locale) || other.locale == _this.locale)&&(identical(other.siteSettings, _this.siteSettings) || other.siteSettings == _this.siteSettings)&&(identical(other.errorMessage, _this.errorMessage) || other.errorMessage == _this.errorMessage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,themeMode,locale,siteSettings,errorMessage);
+int get hashCode {
+  final _this = this as SettingsState;
+  return Object.hash(runtimeType,_this.status,_this.themeMode,_this.locale,_this.siteSettings,_this.errorMessage);
+}
 
 @override
 String toString() {
-  return 'SettingsState(status: $status, themeMode: $themeMode, locale: $locale, siteSettings: $siteSettings, errorMessage: $errorMessage)';
+  final _this = this as SettingsState;
+  return 'SettingsState(status: ${_this.status}, themeMode: ${_this.themeMode}, locale: ${_this.locale}, siteSettings: ${_this.siteSettings}, errorMessage: ${_this.errorMessage})';
 }
 
 
@@ -63,7 +69,7 @@ class _$SettingsStateCopyWithImpl<$Res>
 /// Create a copy of SettingsState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? themeMode = null,Object? locale = null,Object? siteSettings = freezed,Object? errorMessage = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(SettingsState(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as SettingsStatus,themeMode: null == themeMode ? _self.themeMode : themeMode // ignore: cast_nullable_to_non_nullable
 as ThemeMode,locale: null == locale ? _self.locale : locale // ignore: cast_nullable_to_non_nullable
@@ -241,16 +247,18 @@ _$SettingsStateCopyWith<_SettingsState> get copyWith => __$SettingsStateCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SettingsState&&(identical(other.status, status) || other.status == status)&&(identical(other.themeMode, themeMode) || other.themeMode == themeMode)&&(identical(other.locale, locale) || other.locale == locale)&&(identical(other.siteSettings, siteSettings) || other.siteSettings == siteSettings)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SettingsState&&(identical(other.status, status) || other.status == status)&&(identical(other.themeMode, themeMode) || other.themeMode == themeMode)&&(identical(other.locale, locale) || other.locale == locale)&&(identical(other.siteSettings, siteSettings) || other.siteSettings == siteSettings)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,themeMode,locale,siteSettings,errorMessage);
+int get hashCode {
+    return Object.hash(runtimeType,status,themeMode,locale,siteSettings,errorMessage);
+}
 
 @override
 String toString() {
-  return 'SettingsState(status: $status, themeMode: $themeMode, locale: $locale, siteSettings: $siteSettings, errorMessage: $errorMessage)';
+    return 'SettingsState(status: $status, themeMode: $themeMode, locale: $locale, siteSettings: $siteSettings, errorMessage: $errorMessage)';
 }
 
 

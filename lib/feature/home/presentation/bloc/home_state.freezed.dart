@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'home_state.dart';
@@ -9,6 +9,7 @@ part of 'home_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $HomeStateCopyWith<HomeState> get copyWith => _$HomeStateCopyWithImpl<HomeState>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeState&&(identical(other.nearbyStatus, nearbyStatus) || other.nearbyStatus == nearbyStatus)&&(identical(other.latestStatus, latestStatus) || other.latestStatus == latestStatus)&&(identical(other.allStatus, allStatus) || other.allStatus == allStatus)&&(identical(other.categoryStatus, categoryStatus) || other.categoryStatus == categoryStatus)&&(identical(other.bannerStatus, bannerStatus) || other.bannerStatus == bannerStatus)&&(identical(other.loadMoreStatus, loadMoreStatus) || other.loadMoreStatus == loadMoreStatus)&&const DeepCollectionEquality().equals(other.nearbyUnits, nearbyUnits)&&const DeepCollectionEquality().equals(other.latestUnits, latestUnits)&&const DeepCollectionEquality().equals(other.allUnits, allUnits)&&const DeepCollectionEquality().equals(other.categories, categories)&&const DeepCollectionEquality().equals(other.banners, banners)&&(identical(other.activeTab, activeTab) || other.activeTab == activeTab)&&(identical(other.selectedUnitTypeId, selectedUnitTypeId) || other.selectedUnitTypeId == selectedUnitTypeId)&&(identical(other.filterState, filterState) || other.filterState == filterState)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.currentPage, currentPage) || other.currentPage == currentPage)&&(identical(other.lastPage, lastPage) || other.lastPage == lastPage));
+  final _this = this as HomeState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeState&&(identical(other.nearbyStatus, _this.nearbyStatus) || other.nearbyStatus == _this.nearbyStatus)&&(identical(other.latestStatus, _this.latestStatus) || other.latestStatus == _this.latestStatus)&&(identical(other.allStatus, _this.allStatus) || other.allStatus == _this.allStatus)&&(identical(other.categoryStatus, _this.categoryStatus) || other.categoryStatus == _this.categoryStatus)&&(identical(other.bannerStatus, _this.bannerStatus) || other.bannerStatus == _this.bannerStatus)&&(identical(other.loadMoreStatus, _this.loadMoreStatus) || other.loadMoreStatus == _this.loadMoreStatus)&&const DeepCollectionEquality().equals(other.nearbyUnits, _this.nearbyUnits)&&const DeepCollectionEquality().equals(other.latestUnits, _this.latestUnits)&&const DeepCollectionEquality().equals(other.allUnits, _this.allUnits)&&const DeepCollectionEquality().equals(other.categories, _this.categories)&&const DeepCollectionEquality().equals(other.banners, _this.banners)&&(identical(other.activeTab, _this.activeTab) || other.activeTab == _this.activeTab)&&(identical(other.selectedUnitTypeId, _this.selectedUnitTypeId) || other.selectedUnitTypeId == _this.selectedUnitTypeId)&&(identical(other.filterState, _this.filterState) || other.filterState == _this.filterState)&&(identical(other.errorMessage, _this.errorMessage) || other.errorMessage == _this.errorMessage)&&(identical(other.currentPage, _this.currentPage) || other.currentPage == _this.currentPage)&&(identical(other.lastPage, _this.lastPage) || other.lastPage == _this.lastPage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,nearbyStatus,latestStatus,allStatus,categoryStatus,bannerStatus,loadMoreStatus,const DeepCollectionEquality().hash(nearbyUnits),const DeepCollectionEquality().hash(latestUnits),const DeepCollectionEquality().hash(allUnits),const DeepCollectionEquality().hash(categories),const DeepCollectionEquality().hash(banners),activeTab,selectedUnitTypeId,filterState,errorMessage,currentPage,lastPage);
+int get hashCode {
+  final _this = this as HomeState;
+  return Object.hash(runtimeType,_this.nearbyStatus,_this.latestStatus,_this.allStatus,_this.categoryStatus,_this.bannerStatus,_this.loadMoreStatus,const DeepCollectionEquality().hash(_this.nearbyUnits),const DeepCollectionEquality().hash(_this.latestUnits),const DeepCollectionEquality().hash(_this.allUnits),const DeepCollectionEquality().hash(_this.categories),const DeepCollectionEquality().hash(_this.banners),_this.activeTab,_this.selectedUnitTypeId,_this.filterState,_this.errorMessage,_this.currentPage,_this.lastPage);
+}
 
 @override
 String toString() {
-  return 'HomeState(nearbyStatus: $nearbyStatus, latestStatus: $latestStatus, allStatus: $allStatus, categoryStatus: $categoryStatus, bannerStatus: $bannerStatus, loadMoreStatus: $loadMoreStatus, nearbyUnits: $nearbyUnits, latestUnits: $latestUnits, allUnits: $allUnits, categories: $categories, banners: $banners, activeTab: $activeTab, selectedUnitTypeId: $selectedUnitTypeId, filterState: $filterState, errorMessage: $errorMessage, currentPage: $currentPage, lastPage: $lastPage)';
+  final _this = this as HomeState;
+  return 'HomeState(nearbyStatus: ${_this.nearbyStatus}, latestStatus: ${_this.latestStatus}, allStatus: ${_this.allStatus}, categoryStatus: ${_this.categoryStatus}, bannerStatus: ${_this.bannerStatus}, loadMoreStatus: ${_this.loadMoreStatus}, nearbyUnits: ${_this.nearbyUnits}, latestUnits: ${_this.latestUnits}, allUnits: ${_this.allUnits}, categories: ${_this.categories}, banners: ${_this.banners}, activeTab: ${_this.activeTab}, selectedUnitTypeId: ${_this.selectedUnitTypeId}, filterState: ${_this.filterState}, errorMessage: ${_this.errorMessage}, currentPage: ${_this.currentPage}, lastPage: ${_this.lastPage})';
 }
 
 
@@ -63,7 +69,7 @@ class _$HomeStateCopyWithImpl<$Res>
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? nearbyStatus = null,Object? latestStatus = null,Object? allStatus = null,Object? categoryStatus = null,Object? bannerStatus = null,Object? loadMoreStatus = null,Object? nearbyUnits = null,Object? latestUnits = null,Object? allUnits = null,Object? categories = null,Object? banners = null,Object? activeTab = freezed,Object? selectedUnitTypeId = freezed,Object? filterState = freezed,Object? errorMessage = freezed,Object? currentPage = null,Object? lastPage = null,}) {
-  return _then(_self.copyWith(
+  return _then(HomeState(
 nearbyStatus: null == nearbyStatus ? _self.nearbyStatus : nearbyStatus // ignore: cast_nullable_to_non_nullable
 as HomeRequestStatus,latestStatus: null == latestStatus ? _self.latestStatus : latestStatus // ignore: cast_nullable_to_non_nullable
 as HomeRequestStatus,allStatus: null == allStatus ? _self.allStatus : allStatus // ignore: cast_nullable_to_non_nullable
@@ -234,7 +240,7 @@ return $default(_that.nearbyStatus,_that.latestStatus,_that.allStatus,_that.cate
 
 
 class _HomeState extends HomeState {
-  const _HomeState({this.nearbyStatus = HomeRequestStatus.initial, this.latestStatus = HomeRequestStatus.initial, this.allStatus = HomeRequestStatus.initial, this.categoryStatus = HomeRequestStatus.initial, this.bannerStatus = HomeRequestStatus.initial, this.loadMoreStatus = HomeRequestStatus.initial, final  List<UnitEntity> nearbyUnits = const [], final  List<UnitEntity> latestUnits = const [], final  List<UnitEntity> allUnits = const [], final  List<CategoryEntity> categories = const [], final  List<BannerEntity> banners = const [], this.activeTab, this.selectedUnitTypeId, this.filterState, this.errorMessage, this.currentPage = 1, this.lastPage = 1}): _nearbyUnits = nearbyUnits,_latestUnits = latestUnits,_allUnits = allUnits,_categories = categories,_banners = banners,super._();
+  const _HomeState({this.nearbyStatus = HomeRequestStatus.initial, this.latestStatus = HomeRequestStatus.initial, this.allStatus = HomeRequestStatus.initial, this.categoryStatus = HomeRequestStatus.initial, this.bannerStatus = HomeRequestStatus.initial, this.loadMoreStatus = HomeRequestStatus.initial,  List<UnitEntity> nearbyUnits = const [],  List<UnitEntity> latestUnits = const [],  List<UnitEntity> allUnits = const [],  List<CategoryEntity> categories = const [],  List<BannerEntity> banners = const [], this.activeTab, this.selectedUnitTypeId, this.filterState, this.errorMessage, this.currentPage = 1, this.lastPage = 1}): _nearbyUnits = nearbyUnits,_latestUnits = latestUnits,_allUnits = allUnits,_categories = categories,_banners = banners,super._();
   
 
 @override@JsonKey() final  HomeRequestStatus nearbyStatus;
@@ -295,16 +301,18 @@ _$HomeStateCopyWith<_HomeState> get copyWith => __$HomeStateCopyWithImpl<_HomeSt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HomeState&&(identical(other.nearbyStatus, nearbyStatus) || other.nearbyStatus == nearbyStatus)&&(identical(other.latestStatus, latestStatus) || other.latestStatus == latestStatus)&&(identical(other.allStatus, allStatus) || other.allStatus == allStatus)&&(identical(other.categoryStatus, categoryStatus) || other.categoryStatus == categoryStatus)&&(identical(other.bannerStatus, bannerStatus) || other.bannerStatus == bannerStatus)&&(identical(other.loadMoreStatus, loadMoreStatus) || other.loadMoreStatus == loadMoreStatus)&&const DeepCollectionEquality().equals(other._nearbyUnits, _nearbyUnits)&&const DeepCollectionEquality().equals(other._latestUnits, _latestUnits)&&const DeepCollectionEquality().equals(other._allUnits, _allUnits)&&const DeepCollectionEquality().equals(other._categories, _categories)&&const DeepCollectionEquality().equals(other._banners, _banners)&&(identical(other.activeTab, activeTab) || other.activeTab == activeTab)&&(identical(other.selectedUnitTypeId, selectedUnitTypeId) || other.selectedUnitTypeId == selectedUnitTypeId)&&(identical(other.filterState, filterState) || other.filterState == filterState)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.currentPage, currentPage) || other.currentPage == currentPage)&&(identical(other.lastPage, lastPage) || other.lastPage == lastPage));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _HomeState&&(identical(other.nearbyStatus, nearbyStatus) || other.nearbyStatus == nearbyStatus)&&(identical(other.latestStatus, latestStatus) || other.latestStatus == latestStatus)&&(identical(other.allStatus, allStatus) || other.allStatus == allStatus)&&(identical(other.categoryStatus, categoryStatus) || other.categoryStatus == categoryStatus)&&(identical(other.bannerStatus, bannerStatus) || other.bannerStatus == bannerStatus)&&(identical(other.loadMoreStatus, loadMoreStatus) || other.loadMoreStatus == loadMoreStatus)&&const DeepCollectionEquality().equals(other.nearbyUnits, _nearbyUnits)&&const DeepCollectionEquality().equals(other.latestUnits, _latestUnits)&&const DeepCollectionEquality().equals(other.allUnits, _allUnits)&&const DeepCollectionEquality().equals(other.categories, _categories)&&const DeepCollectionEquality().equals(other.banners, _banners)&&(identical(other.activeTab, activeTab) || other.activeTab == activeTab)&&(identical(other.selectedUnitTypeId, selectedUnitTypeId) || other.selectedUnitTypeId == selectedUnitTypeId)&&(identical(other.filterState, filterState) || other.filterState == filterState)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.currentPage, currentPage) || other.currentPage == currentPage)&&(identical(other.lastPage, lastPage) || other.lastPage == lastPage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,nearbyStatus,latestStatus,allStatus,categoryStatus,bannerStatus,loadMoreStatus,const DeepCollectionEquality().hash(_nearbyUnits),const DeepCollectionEquality().hash(_latestUnits),const DeepCollectionEquality().hash(_allUnits),const DeepCollectionEquality().hash(_categories),const DeepCollectionEquality().hash(_banners),activeTab,selectedUnitTypeId,filterState,errorMessage,currentPage,lastPage);
+int get hashCode {
+    return Object.hash(runtimeType,nearbyStatus,latestStatus,allStatus,categoryStatus,bannerStatus,loadMoreStatus,const DeepCollectionEquality().hash(_nearbyUnits),const DeepCollectionEquality().hash(_latestUnits),const DeepCollectionEquality().hash(_allUnits),const DeepCollectionEquality().hash(_categories),const DeepCollectionEquality().hash(_banners),activeTab,selectedUnitTypeId,filterState,errorMessage,currentPage,lastPage);
+}
 
 @override
 String toString() {
-  return 'HomeState(nearbyStatus: $nearbyStatus, latestStatus: $latestStatus, allStatus: $allStatus, categoryStatus: $categoryStatus, bannerStatus: $bannerStatus, loadMoreStatus: $loadMoreStatus, nearbyUnits: $nearbyUnits, latestUnits: $latestUnits, allUnits: $allUnits, categories: $categories, banners: $banners, activeTab: $activeTab, selectedUnitTypeId: $selectedUnitTypeId, filterState: $filterState, errorMessage: $errorMessage, currentPage: $currentPage, lastPage: $lastPage)';
+    return 'HomeState(nearbyStatus: $nearbyStatus, latestStatus: $latestStatus, allStatus: $allStatus, categoryStatus: $categoryStatus, bannerStatus: $bannerStatus, loadMoreStatus: $loadMoreStatus, nearbyUnits: $nearbyUnits, latestUnits: $latestUnits, allUnits: $allUnits, categories: $categories, banners: $banners, activeTab: $activeTab, selectedUnitTypeId: $selectedUnitTypeId, filterState: $filterState, errorMessage: $errorMessage, currentPage: $currentPage, lastPage: $lastPage)';
 }
 
 

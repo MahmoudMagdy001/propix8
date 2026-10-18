@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'favorite_state.dart';
@@ -9,6 +9,7 @@ part of 'favorite_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $FavoriteStateCopyWith<FavoriteState> get copyWith => _$FavoriteStateCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FavoriteState&&(identical(other.status, status) || other.status == status)&&(identical(other.listStatus, listStatus) || other.listStatus == listStatus)&&const DeepCollectionEquality().equals(other.favorites, favorites)&&const DeepCollectionEquality().equals(other.favoriteUnits, favoriteUnits)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.currentPage, currentPage) || other.currentPage == currentPage)&&(identical(other.lastPage, lastPage) || other.lastPage == lastPage)&&(identical(other.viewType, viewType) || other.viewType == viewType));
+  final _this = this as FavoriteState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FavoriteState&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.listStatus, _this.listStatus) || other.listStatus == _this.listStatus)&&const DeepCollectionEquality().equals(other.favorites, _this.favorites)&&const DeepCollectionEquality().equals(other.favoriteUnits, _this.favoriteUnits)&&(identical(other.errorMessage, _this.errorMessage) || other.errorMessage == _this.errorMessage)&&(identical(other.currentPage, _this.currentPage) || other.currentPage == _this.currentPage)&&(identical(other.lastPage, _this.lastPage) || other.lastPage == _this.lastPage)&&(identical(other.viewType, _this.viewType) || other.viewType == _this.viewType));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,listStatus,const DeepCollectionEquality().hash(favorites),const DeepCollectionEquality().hash(favoriteUnits),errorMessage,currentPage,lastPage,viewType);
+int get hashCode {
+  final _this = this as FavoriteState;
+  return Object.hash(runtimeType,_this.status,_this.listStatus,const DeepCollectionEquality().hash(_this.favorites),const DeepCollectionEquality().hash(_this.favoriteUnits),_this.errorMessage,_this.currentPage,_this.lastPage,_this.viewType);
+}
 
 @override
 String toString() {
-  return 'FavoriteState(status: $status, listStatus: $listStatus, favorites: $favorites, favoriteUnits: $favoriteUnits, errorMessage: $errorMessage, currentPage: $currentPage, lastPage: $lastPage, viewType: $viewType)';
+  final _this = this as FavoriteState;
+  return 'FavoriteState(status: ${_this.status}, listStatus: ${_this.listStatus}, favorites: ${_this.favorites}, favoriteUnits: ${_this.favoriteUnits}, errorMessage: ${_this.errorMessage}, currentPage: ${_this.currentPage}, lastPage: ${_this.lastPage}, viewType: ${_this.viewType})';
 }
 
 
@@ -63,7 +69,7 @@ class _$FavoriteStateCopyWithImpl<$Res>
 /// Create a copy of FavoriteState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? listStatus = null,Object? favorites = null,Object? favoriteUnits = null,Object? errorMessage = freezed,Object? currentPage = null,Object? lastPage = null,Object? viewType = null,}) {
-  return _then(_self.copyWith(
+  return _then(FavoriteState(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as FavoriteStatus,listStatus: null == listStatus ? _self.listStatus : listStatus // ignore: cast_nullable_to_non_nullable
 as FavoriteStatus,favorites: null == favorites ? _self.favorites : favorites // ignore: cast_nullable_to_non_nullable
@@ -213,7 +219,7 @@ return $default(_that.status,_that.listStatus,_that.favorites,_that.favoriteUnit
 
 
 class _FavoriteState extends FavoriteState {
-  const _FavoriteState({this.status = FavoriteStatus.initial, this.listStatus = FavoriteStatus.initial, final  Map<int, bool> favorites = const {}, final  List<FavoriteUnitEntity> favoriteUnits = const [], this.errorMessage, this.currentPage = 1, this.lastPage = 1, this.viewType = ViewType.grid}): _favorites = favorites,_favoriteUnits = favoriteUnits,super._();
+  const _FavoriteState({this.status = FavoriteStatus.initial, this.listStatus = FavoriteStatus.initial,  Map<int, bool> favorites = const {},  List<FavoriteUnitEntity> favoriteUnits = const [], this.errorMessage, this.currentPage = 1, this.lastPage = 1, this.viewType = ViewType.grid}): _favorites = favorites,_favoriteUnits = favoriteUnits,super._();
   
 
 @override@JsonKey() final  FavoriteStatus status;
@@ -247,16 +253,18 @@ _$FavoriteStateCopyWith<_FavoriteState> get copyWith => __$FavoriteStateCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FavoriteState&&(identical(other.status, status) || other.status == status)&&(identical(other.listStatus, listStatus) || other.listStatus == listStatus)&&const DeepCollectionEquality().equals(other._favorites, _favorites)&&const DeepCollectionEquality().equals(other._favoriteUnits, _favoriteUnits)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.currentPage, currentPage) || other.currentPage == currentPage)&&(identical(other.lastPage, lastPage) || other.lastPage == lastPage)&&(identical(other.viewType, viewType) || other.viewType == viewType));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _FavoriteState&&(identical(other.status, status) || other.status == status)&&(identical(other.listStatus, listStatus) || other.listStatus == listStatus)&&const DeepCollectionEquality().equals(other.favorites, _favorites)&&const DeepCollectionEquality().equals(other.favoriteUnits, _favoriteUnits)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.currentPage, currentPage) || other.currentPage == currentPage)&&(identical(other.lastPage, lastPage) || other.lastPage == lastPage)&&(identical(other.viewType, viewType) || other.viewType == viewType));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,listStatus,const DeepCollectionEquality().hash(_favorites),const DeepCollectionEquality().hash(_favoriteUnits),errorMessage,currentPage,lastPage,viewType);
+int get hashCode {
+    return Object.hash(runtimeType,status,listStatus,const DeepCollectionEquality().hash(_favorites),const DeepCollectionEquality().hash(_favoriteUnits),errorMessage,currentPage,lastPage,viewType);
+}
 
 @override
 String toString() {
-  return 'FavoriteState(status: $status, listStatus: $listStatus, favorites: $favorites, favoriteUnits: $favoriteUnits, errorMessage: $errorMessage, currentPage: $currentPage, lastPage: $lastPage, viewType: $viewType)';
+    return 'FavoriteState(status: $status, listStatus: $listStatus, favorites: $favorites, favoriteUnits: $favoriteUnits, errorMessage: $errorMessage, currentPage: $currentPage, lastPage: $lastPage, viewType: $viewType)';
 }
 
 

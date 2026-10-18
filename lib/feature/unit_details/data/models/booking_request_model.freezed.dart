@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'booking_request_model.dart';
@@ -9,6 +9,7 @@ part of 'booking_request_model.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -28,16 +29,21 @@ $BookingRequestModelCopyWith<BookingRequestModel> get copyWith => _$BookingReque
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingRequestModel&&(identical(other.unitId, unitId) || other.unitId == unitId)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.date, date) || other.date == date)&&(identical(other.time, time) || other.time == time)&&(identical(other.notes, notes) || other.notes == notes));
+  final _this = this as BookingRequestModel;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingRequestModel&&(identical(other.unitId, _this.unitId) || other.unitId == _this.unitId)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.email, _this.email) || other.email == _this.email)&&(identical(other.phone, _this.phone) || other.phone == _this.phone)&&(identical(other.date, _this.date) || other.date == _this.date)&&(identical(other.time, _this.time) || other.time == _this.time)&&(identical(other.notes, _this.notes) || other.notes == _this.notes));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,unitId,name,email,phone,date,time,notes);
+int get hashCode {
+  final _this = this as BookingRequestModel;
+  return Object.hash(runtimeType,_this.unitId,_this.name,_this.email,_this.phone,_this.date,_this.time,_this.notes);
+}
 
 @override
 String toString() {
-  return 'BookingRequestModel(unitId: $unitId, name: $name, email: $email, phone: $phone, date: $date, time: $time, notes: $notes)';
+  final _this = this as BookingRequestModel;
+  return 'BookingRequestModel(unitId: ${_this.unitId}, name: ${_this.name}, email: ${_this.email}, phone: ${_this.phone}, date: ${_this.date}, time: ${_this.time}, notes: ${_this.notes})';
 }
 
 
@@ -66,7 +72,7 @@ class _$BookingRequestModelCopyWithImpl<$Res>
 /// Create a copy of BookingRequestModel
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? unitId = null,Object? name = null,Object? email = null,Object? phone = null,Object? date = null,Object? time = null,Object? notes = null,}) {
-  return _then(_self.copyWith(
+  return _then(BookingRequestModel(
 unitId: null == unitId ? _self.unitId : unitId // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
@@ -239,16 +245,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookingRequestModel&&(identical(other.unitId, unitId) || other.unitId == unitId)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.date, date) || other.date == date)&&(identical(other.time, time) || other.time == time)&&(identical(other.notes, notes) || other.notes == notes));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookingRequestModel&&(identical(other.unitId, unitId) || other.unitId == unitId)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.date, date) || other.date == date)&&(identical(other.time, time) || other.time == time)&&(identical(other.notes, notes) || other.notes == notes));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,unitId,name,email,phone,date,time,notes);
+int get hashCode {
+    return Object.hash(runtimeType,unitId,name,email,phone,date,time,notes);
+}
 
 @override
 String toString() {
-  return 'BookingRequestModel(unitId: $unitId, name: $name, email: $email, phone: $phone, date: $date, time: $time, notes: $notes)';
+    return 'BookingRequestModel(unitId: $unitId, name: $name, email: $email, phone: $phone, date: $date, time: $time, notes: $notes)';
 }
 
 

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'stat_entity.dart';
@@ -9,6 +9,7 @@ part of 'stat_entity.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $StatEntityCopyWith<StatEntity> get copyWith => _$StatEntityCopyWithImpl<StatEnt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is StatEntity&&(identical(other.label, label) || other.label == label)&&(identical(other.value, value) || other.value == value)&&(identical(other.icon, icon) || other.icon == icon));
+  final _this = this as StatEntity;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StatEntity&&(identical(other.label, _this.label) || other.label == _this.label)&&(identical(other.value, _this.value) || other.value == _this.value)&&(identical(other.icon, _this.icon) || other.icon == _this.icon));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,label,value,icon);
+int get hashCode {
+  final _this = this as StatEntity;
+  return Object.hash(runtimeType,_this.label,_this.value,_this.icon);
+}
 
 @override
 String toString() {
-  return 'StatEntity(label: $label, value: $value, icon: $icon)';
+  final _this = this as StatEntity;
+  return 'StatEntity(label: ${_this.label}, value: ${_this.value}, icon: ${_this.icon})';
 }
 
 
@@ -63,7 +69,7 @@ class _$StatEntityCopyWithImpl<$Res>
 /// Create a copy of StatEntity
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? label = null,Object? value = null,Object? icon = null,}) {
-  return _then(_self.copyWith(
+  return _then(StatEntity(
 label: null == label ? _self.label : label // ignore: cast_nullable_to_non_nullable
 as String,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
 as String,icon: null == icon ? _self.icon : icon // ignore: cast_nullable_to_non_nullable
@@ -225,16 +231,18 @@ _$StatEntityCopyWith<_StatEntity> get copyWith => __$StatEntityCopyWithImpl<_Sta
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _StatEntity&&(identical(other.label, label) || other.label == label)&&(identical(other.value, value) || other.value == value)&&(identical(other.icon, icon) || other.icon == icon));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _StatEntity&&(identical(other.label, label) || other.label == label)&&(identical(other.value, value) || other.value == value)&&(identical(other.icon, icon) || other.icon == icon));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,label,value,icon);
+int get hashCode {
+    return Object.hash(runtimeType,label,value,icon);
+}
 
 @override
 String toString() {
-  return 'StatEntity(label: $label, value: $value, icon: $icon)';
+    return 'StatEntity(label: $label, value: $value, icon: $icon)';
 }
 
 

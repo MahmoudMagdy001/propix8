@@ -5,6 +5,23 @@
 -keep class io.flutter.view.**  { *; }
 -keep class io.flutter.**  { *; }
 -keep class io.flutter.plugins.**  { *; }
+-keep interface io.flutter.plugins.** { *; }
+-keep class io.flutter.plugins.sharedpreferences.** { *; }
+-keep interface io.flutter.plugins.sharedpreferences.** { *; }
+-keep class dev.flutter.pigeon.** { *; }
+-keep interface dev.flutter.pigeon.** { *; }
+-keep class * implements io.flutter.embedding.engine.plugins.FlutterPlugin { *; }
+
+# Kotlin Stdlib & Coroutines
+-dontwarn kotlin.**
+-keep class kotlin.** { *; }
+-keep interface kotlin.** { *; }
+-keep class kotlin.Result { *; }
+-keep class kotlin.Result$* { *; }
+-keepclassmembers class kotlin.Result { *; }
+-dontwarn kotlinx.coroutines.**
+-keep class kotlinx.coroutines.** { *; }
+
 -keep class com.google.firebase.** { *; } # If using Firebase
 
 # Retain generic type information for use by reflection by converters and serialization

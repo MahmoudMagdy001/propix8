@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'booking_event.dart';
@@ -9,6 +9,7 @@ part of 'booking_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -20,7 +21,7 @@ mixin _$BookingEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingEvent);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingEvent);
 }
 
 
@@ -29,7 +30,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'BookingEvent()';
+    return 'BookingEvent()';
 }
 
 
@@ -226,16 +227,18 @@ $BookingFetchRequestedCopyWith<BookingFetchRequested> get copyWith => _$BookingF
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingFetchRequested&&(identical(other.isRefresh, isRefresh) || other.isRefresh == isRefresh));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingFetchRequested&&(identical(other.isRefresh, isRefresh) || other.isRefresh == isRefresh));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,isRefresh);
+int get hashCode {
+    return Object.hash(runtimeType,isRefresh);
+}
 
 @override
 String toString() {
-  return 'BookingEvent.fetchRequested(isRefresh: $isRefresh)';
+    return 'BookingEvent.fetchRequested(isRefresh: $isRefresh)';
 }
 
 
@@ -287,7 +290,7 @@ class BookingLoadMoreRequested implements BookingEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingLoadMoreRequested);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingLoadMoreRequested);
 }
 
 
@@ -296,7 +299,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'BookingEvent.loadMoreRequested()';
+    return 'BookingEvent.loadMoreRequested()';
 }
 
 
@@ -319,7 +322,7 @@ class BookingNetworkFailed implements BookingEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingNetworkFailed);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingNetworkFailed);
 }
 
 
@@ -328,7 +331,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'BookingEvent.networkFailed()';
+    return 'BookingEvent.networkFailed()';
 }
 
 
@@ -356,16 +359,18 @@ $BookingAcceptedCopyWith<BookingAccepted> get copyWith => _$BookingAcceptedCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingAccepted&&(identical(other.bookingId, bookingId) || other.bookingId == bookingId));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingAccepted&&(identical(other.bookingId, bookingId) || other.bookingId == bookingId));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,bookingId);
+int get hashCode {
+    return Object.hash(runtimeType,bookingId);
+}
 
 @override
 String toString() {
-  return 'BookingEvent.bookingAccepted(bookingId: $bookingId)';
+    return 'BookingEvent.bookingAccepted(bookingId: $bookingId)';
 }
 
 
@@ -422,16 +427,18 @@ $BookingCancelledCopyWith<BookingCancelled> get copyWith => _$BookingCancelledCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingCancelled&&(identical(other.bookingId, bookingId) || other.bookingId == bookingId));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingCancelled&&(identical(other.bookingId, bookingId) || other.bookingId == bookingId));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,bookingId);
+int get hashCode {
+    return Object.hash(runtimeType,bookingId);
+}
 
 @override
 String toString() {
-  return 'BookingEvent.bookingCancelled(bookingId: $bookingId)';
+    return 'BookingEvent.bookingCancelled(bookingId: $bookingId)';
 }
 
 
@@ -491,16 +498,18 @@ $BookingNewTimeSuggestedCopyWith<BookingNewTimeSuggested> get copyWith => _$Book
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingNewTimeSuggested&&(identical(other.bookingId, bookingId) || other.bookingId == bookingId)&&(identical(other.date, date) || other.date == date)&&(identical(other.time, time) || other.time == time)&&(identical(other.userMessage, userMessage) || other.userMessage == userMessage));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingNewTimeSuggested&&(identical(other.bookingId, bookingId) || other.bookingId == bookingId)&&(identical(other.date, date) || other.date == date)&&(identical(other.time, time) || other.time == time)&&(identical(other.userMessage, userMessage) || other.userMessage == userMessage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,bookingId,date,time,userMessage);
+int get hashCode {
+    return Object.hash(runtimeType,bookingId,date,time,userMessage);
+}
 
 @override
 String toString() {
-  return 'BookingEvent.newTimeSuggested(bookingId: $bookingId, date: $date, time: $time, userMessage: $userMessage)';
+    return 'BookingEvent.newTimeSuggested(bookingId: $bookingId, date: $date, time: $time, userMessage: $userMessage)';
 }
 
 
@@ -560,16 +569,18 @@ $BookingDeletedCopyWith<BookingDeleted> get copyWith => _$BookingDeletedCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingDeleted&&(identical(other.bookingId, bookingId) || other.bookingId == bookingId));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingDeleted&&(identical(other.bookingId, bookingId) || other.bookingId == bookingId));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,bookingId);
+int get hashCode {
+    return Object.hash(runtimeType,bookingId);
+}
 
 @override
 String toString() {
-  return 'BookingEvent.bookingDeleted(bookingId: $bookingId)';
+    return 'BookingEvent.bookingDeleted(bookingId: $bookingId)';
 }
 
 

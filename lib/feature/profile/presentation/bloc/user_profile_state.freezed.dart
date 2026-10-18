@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'user_profile_state.dart';
@@ -9,6 +9,7 @@ part of 'user_profile_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $UserProfileStateCopyWith<UserProfileState> get copyWith => _$UserProfileStateCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserProfileState&&(identical(other.status, status) || other.status == status)&&(identical(other.user, user) || other.user == user)&&const DeepCollectionEquality().equals(other.cities, cities)&&(identical(other.propertyBookingCount, propertyBookingCount) || other.propertyBookingCount == propertyBookingCount)&&(identical(other.serviceBookingCount, serviceBookingCount) || other.serviceBookingCount == serviceBookingCount)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
+  final _this = this as UserProfileState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserProfileState&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.user, _this.user) || other.user == _this.user)&&const DeepCollectionEquality().equals(other.cities, _this.cities)&&(identical(other.propertyBookingCount, _this.propertyBookingCount) || other.propertyBookingCount == _this.propertyBookingCount)&&(identical(other.serviceBookingCount, _this.serviceBookingCount) || other.serviceBookingCount == _this.serviceBookingCount)&&(identical(other.errorMessage, _this.errorMessage) || other.errorMessage == _this.errorMessage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,user,const DeepCollectionEquality().hash(cities),propertyBookingCount,serviceBookingCount,errorMessage);
+int get hashCode {
+  final _this = this as UserProfileState;
+  return Object.hash(runtimeType,_this.status,_this.user,const DeepCollectionEquality().hash(_this.cities),_this.propertyBookingCount,_this.serviceBookingCount,_this.errorMessage);
+}
 
 @override
 String toString() {
-  return 'UserProfileState(status: $status, user: $user, cities: $cities, propertyBookingCount: $propertyBookingCount, serviceBookingCount: $serviceBookingCount, errorMessage: $errorMessage)';
+  final _this = this as UserProfileState;
+  return 'UserProfileState(status: ${_this.status}, user: ${_this.user}, cities: ${_this.cities}, propertyBookingCount: ${_this.propertyBookingCount}, serviceBookingCount: ${_this.serviceBookingCount}, errorMessage: ${_this.errorMessage})';
 }
 
 
@@ -63,7 +69,7 @@ class _$UserProfileStateCopyWithImpl<$Res>
 /// Create a copy of UserProfileState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? user = freezed,Object? cities = null,Object? propertyBookingCount = null,Object? serviceBookingCount = null,Object? errorMessage = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(UserProfileState(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as UserProfileStatus,user: freezed == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
 as User?,cities: null == cities ? _self.cities : cities // ignore: cast_nullable_to_non_nullable
@@ -223,7 +229,7 @@ return $default(_that.status,_that.user,_that.cities,_that.propertyBookingCount,
 
 
 class _UserProfileState extends UserProfileState {
-  const _UserProfileState({this.status = UserProfileStatus.initial, this.user, final  List<City> cities = const <City>[], this.propertyBookingCount = 0, this.serviceBookingCount = 0, this.errorMessage}): _cities = cities,super._();
+  const _UserProfileState({this.status = UserProfileStatus.initial, this.user,  List<City> cities = const <City>[], this.propertyBookingCount = 0, this.serviceBookingCount = 0, this.errorMessage}): _cities = cities,super._();
   
 
 @override@JsonKey() final  UserProfileStatus status;
@@ -249,16 +255,18 @@ _$UserProfileStateCopyWith<_UserProfileState> get copyWith => __$UserProfileStat
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserProfileState&&(identical(other.status, status) || other.status == status)&&(identical(other.user, user) || other.user == user)&&const DeepCollectionEquality().equals(other._cities, _cities)&&(identical(other.propertyBookingCount, propertyBookingCount) || other.propertyBookingCount == propertyBookingCount)&&(identical(other.serviceBookingCount, serviceBookingCount) || other.serviceBookingCount == serviceBookingCount)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserProfileState&&(identical(other.status, status) || other.status == status)&&(identical(other.user, user) || other.user == user)&&const DeepCollectionEquality().equals(other.cities, _cities)&&(identical(other.propertyBookingCount, propertyBookingCount) || other.propertyBookingCount == propertyBookingCount)&&(identical(other.serviceBookingCount, serviceBookingCount) || other.serviceBookingCount == serviceBookingCount)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,user,const DeepCollectionEquality().hash(_cities),propertyBookingCount,serviceBookingCount,errorMessage);
+int get hashCode {
+    return Object.hash(runtimeType,status,user,const DeepCollectionEquality().hash(_cities),propertyBookingCount,serviceBookingCount,errorMessage);
+}
 
 @override
 String toString() {
-  return 'UserProfileState(status: $status, user: $user, cities: $cities, propertyBookingCount: $propertyBookingCount, serviceBookingCount: $serviceBookingCount, errorMessage: $errorMessage)';
+    return 'UserProfileState(status: $status, user: $user, cities: $cities, propertyBookingCount: $propertyBookingCount, serviceBookingCount: $serviceBookingCount, errorMessage: $errorMessage)';
 }
 
 

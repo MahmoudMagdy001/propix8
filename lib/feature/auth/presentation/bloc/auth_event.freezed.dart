@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'auth_event.dart';
@@ -9,6 +9,7 @@ part of 'auth_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -20,7 +21,7 @@ mixin _$AuthEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthEvent);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthEvent);
 }
 
 
@@ -29,7 +30,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'AuthEvent()';
+    return 'AuthEvent()';
 }
 
 
@@ -227,7 +228,7 @@ class CheckAuthStatusRequested implements AuthEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CheckAuthStatusRequested);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is CheckAuthStatusRequested);
 }
 
 
@@ -236,7 +237,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'AuthEvent.checkAuthStatusRequested()';
+    return 'AuthEvent.checkAuthStatusRequested()';
 }
 
 
@@ -265,16 +266,18 @@ $LoginRequestedCopyWith<LoginRequested> get copyWith => _$LoginRequestedCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LoginRequested&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is LoginRequested&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,email,password);
+int get hashCode {
+    return Object.hash(runtimeType,email,password);
+}
 
 @override
 String toString() {
-  return 'AuthEvent.loginRequested(email: $email, password: $password)';
+    return 'AuthEvent.loginRequested(email: $email, password: $password)';
 }
 
 
@@ -332,16 +335,18 @@ $RegisterRequestedCopyWith<RegisterRequested> get copyWith => _$RegisterRequeste
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is RegisterRequested&&(identical(other.request, request) || other.request == request));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is RegisterRequested&&(identical(other.request, request) || other.request == request));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,request);
+int get hashCode {
+    return Object.hash(runtimeType,request);
+}
 
 @override
 String toString() {
-  return 'AuthEvent.registerRequested(request: $request)';
+    return 'AuthEvent.registerRequested(request: $request)';
 }
 
 
@@ -402,7 +407,7 @@ class LogoutRequested implements AuthEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LogoutRequested);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is LogoutRequested);
 }
 
 
@@ -411,7 +416,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'AuthEvent.logoutRequested()';
+    return 'AuthEvent.logoutRequested()';
 }
 
 
@@ -434,7 +439,7 @@ class ClearLocalSessionRequested implements AuthEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ClearLocalSessionRequested);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ClearLocalSessionRequested);
 }
 
 
@@ -443,7 +448,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'AuthEvent.clearLocalSessionRequested()';
+    return 'AuthEvent.clearLocalSessionRequested()';
 }
 
 
@@ -471,16 +476,18 @@ $ResendVerificationEmailRequestedCopyWith<ResendVerificationEmailRequested> get 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ResendVerificationEmailRequested&&(identical(other.email, email) || other.email == email));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ResendVerificationEmailRequested&&(identical(other.email, email) || other.email == email));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,email);
+int get hashCode {
+    return Object.hash(runtimeType,email);
+}
 
 @override
 String toString() {
-  return 'AuthEvent.resendVerificationEmailRequested(email: $email)';
+    return 'AuthEvent.resendVerificationEmailRequested(email: $email)';
 }
 
 
@@ -537,16 +544,18 @@ $VerifyEmailRequestedCopyWith<VerifyEmailRequested> get copyWith => _$VerifyEmai
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is VerifyEmailRequested&&(identical(other.url, url) || other.url == url));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is VerifyEmailRequested&&(identical(other.url, url) || other.url == url));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,url);
+int get hashCode {
+    return Object.hash(runtimeType,url);
+}
 
 @override
 String toString() {
-  return 'AuthEvent.verifyEmailRequested(url: $url)';
+    return 'AuthEvent.verifyEmailRequested(url: $url)';
 }
 
 
@@ -603,16 +612,18 @@ $AuthUserUpdatedCopyWith<AuthUserUpdated> get copyWith => _$AuthUserUpdatedCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthUserUpdated&&(identical(other.user, user) || other.user == user));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthUserUpdated&&(identical(other.user, user) || other.user == user));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,user);
+int get hashCode {
+    return Object.hash(runtimeType,user);
+}
 
 @override
 String toString() {
-  return 'AuthEvent.authUserUpdated(user: $user)';
+    return 'AuthEvent.authUserUpdated(user: $user)';
 }
 
 
@@ -678,16 +689,18 @@ $CheckUserProfileRequestedCopyWith<CheckUserProfileRequested> get copyWith => _$
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CheckUserProfileRequested&&(identical(other.isBackgroundSync, isBackgroundSync) || other.isBackgroundSync == isBackgroundSync));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is CheckUserProfileRequested&&(identical(other.isBackgroundSync, isBackgroundSync) || other.isBackgroundSync == isBackgroundSync));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,isBackgroundSync);
+int get hashCode {
+    return Object.hash(runtimeType,isBackgroundSync);
+}
 
 @override
 String toString() {
-  return 'AuthEvent.checkUserProfileRequested(isBackgroundSync: $isBackgroundSync)';
+    return 'AuthEvent.checkUserProfileRequested(isBackgroundSync: $isBackgroundSync)';
 }
 
 

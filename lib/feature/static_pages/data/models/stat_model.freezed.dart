@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'stat_model.dart';
@@ -9,6 +9,7 @@ part of 'stat_model.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -28,16 +29,21 @@ $StatModelCopyWith<StatModel> get copyWith => _$StatModelCopyWithImpl<StatModel>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is StatModel&&(identical(other.label, label) || other.label == label)&&(identical(other.value, value) || other.value == value)&&(identical(other.icon, icon) || other.icon == icon));
+  final _this = this as StatModel;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StatModel&&(identical(other.label, _this.label) || other.label == _this.label)&&(identical(other.value, _this.value) || other.value == _this.value)&&(identical(other.icon, _this.icon) || other.icon == _this.icon));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,label,value,icon);
+int get hashCode {
+  final _this = this as StatModel;
+  return Object.hash(runtimeType,_this.label,_this.value,_this.icon);
+}
 
 @override
 String toString() {
-  return 'StatModel(label: $label, value: $value, icon: $icon)';
+  final _this = this as StatModel;
+  return 'StatModel(label: ${_this.label}, value: ${_this.value}, icon: ${_this.icon})';
 }
 
 
@@ -66,7 +72,7 @@ class _$StatModelCopyWithImpl<$Res>
 /// Create a copy of StatModel
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? label = null,Object? value = null,Object? icon = null,}) {
-  return _then(_self.copyWith(
+  return _then(StatModel(
 label: null == label ? _self.label : label // ignore: cast_nullable_to_non_nullable
 as String,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
 as String,icon: null == icon ? _self.icon : icon // ignore: cast_nullable_to_non_nullable
@@ -231,16 +237,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _StatModel&&(identical(other.label, label) || other.label == label)&&(identical(other.value, value) || other.value == value)&&(identical(other.icon, icon) || other.icon == icon));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _StatModel&&(identical(other.label, label) || other.label == label)&&(identical(other.value, value) || other.value == value)&&(identical(other.icon, icon) || other.icon == icon));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,label,value,icon);
+int get hashCode {
+    return Object.hash(runtimeType,label,value,icon);
+}
 
 @override
 String toString() {
-  return 'StatModel(label: $label, value: $value, icon: $icon)';
+    return 'StatModel(label: $label, value: $value, icon: $icon)';
 }
 
 

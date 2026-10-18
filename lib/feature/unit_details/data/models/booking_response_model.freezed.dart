@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'booking_response_model.dart';
@@ -9,6 +9,7 @@ part of 'booking_response_model.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -28,16 +29,21 @@ $BookingResponseModelCopyWith<BookingResponseModel> get copyWith => _$BookingRes
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingResponseModel&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&(identical(other.data, data) || other.data == data));
+  final _this = this as BookingResponseModel;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingResponseModel&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.message, _this.message) || other.message == _this.message)&&(identical(other.data, _this.data) || other.data == _this.data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,status,message,data);
+int get hashCode {
+  final _this = this as BookingResponseModel;
+  return Object.hash(runtimeType,_this.status,_this.message,_this.data);
+}
 
 @override
 String toString() {
-  return 'BookingResponseModel(status: $status, message: $message, data: $data)';
+  final _this = this as BookingResponseModel;
+  return 'BookingResponseModel(status: ${_this.status}, message: ${_this.message}, data: ${_this.data})';
 }
 
 
@@ -66,7 +72,7 @@ class _$BookingResponseModelCopyWithImpl<$Res>
 /// Create a copy of BookingResponseModel
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? message = null,Object? data = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(BookingResponseModel(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as bool,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
@@ -243,16 +249,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookingResponseModel&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&(identical(other.data, data) || other.data == data));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookingResponseModel&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&(identical(other.data, data) || other.data == data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,status,message,data);
+int get hashCode {
+    return Object.hash(runtimeType,status,message,data);
+}
 
 @override
 String toString() {
-  return 'BookingResponseModel(status: $status, message: $message, data: $data)';
+    return 'BookingResponseModel(status: $status, message: $message, data: $data)';
 }
 
 
@@ -321,16 +329,21 @@ $BookingDataModelCopyWith<BookingDataModel> get copyWith => _$BookingDataModelCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingDataModel&&(identical(other.id, id) || other.id == id)&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.date, date) || other.date == date)&&(identical(other.time, time) || other.time == time)&&(identical(other.status, status) || other.status == status)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.unit, unit) || other.unit == unit));
+  final _this = this as BookingDataModel;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingDataModel&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.userId, _this.userId) || other.userId == _this.userId)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.email, _this.email) || other.email == _this.email)&&(identical(other.phone, _this.phone) || other.phone == _this.phone)&&(identical(other.date, _this.date) || other.date == _this.date)&&(identical(other.time, _this.time) || other.time == _this.time)&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.notes, _this.notes) || other.notes == _this.notes)&&(identical(other.createdAt, _this.createdAt) || other.createdAt == _this.createdAt)&&(identical(other.unit, _this.unit) || other.unit == _this.unit));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,userId,name,email,phone,date,time,status,notes,createdAt,unit);
+int get hashCode {
+  final _this = this as BookingDataModel;
+  return Object.hash(runtimeType,_this.id,_this.userId,_this.name,_this.email,_this.phone,_this.date,_this.time,_this.status,_this.notes,_this.createdAt,_this.unit);
+}
 
 @override
 String toString() {
-  return 'BookingDataModel(id: $id, userId: $userId, name: $name, email: $email, phone: $phone, date: $date, time: $time, status: $status, notes: $notes, createdAt: $createdAt, unit: $unit)';
+  final _this = this as BookingDataModel;
+  return 'BookingDataModel(id: ${_this.id}, userId: ${_this.userId}, name: ${_this.name}, email: ${_this.email}, phone: ${_this.phone}, date: ${_this.date}, time: ${_this.time}, status: ${_this.status}, notes: ${_this.notes}, createdAt: ${_this.createdAt}, unit: ${_this.unit})';
 }
 
 
@@ -359,7 +372,7 @@ class _$BookingDataModelCopyWithImpl<$Res>
 /// Create a copy of BookingDataModel
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? userId = null,Object? name = null,Object? email = null,Object? phone = null,Object? date = null,Object? time = null,Object? status = null,Object? notes = null,Object? createdAt = null,Object? unit = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(BookingDataModel(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,userId: null == userId ? _self.userId : userId // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -552,16 +565,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookingDataModel&&(identical(other.id, id) || other.id == id)&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.date, date) || other.date == date)&&(identical(other.time, time) || other.time == time)&&(identical(other.status, status) || other.status == status)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.unit, unit) || other.unit == unit));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookingDataModel&&(identical(other.id, id) || other.id == id)&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.date, date) || other.date == date)&&(identical(other.time, time) || other.time == time)&&(identical(other.status, status) || other.status == status)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.unit, unit) || other.unit == unit));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,userId,name,email,phone,date,time,status,notes,createdAt,unit);
+int get hashCode {
+    return Object.hash(runtimeType,id,userId,name,email,phone,date,time,status,notes,createdAt,unit);
+}
 
 @override
 String toString() {
-  return 'BookingDataModel(id: $id, userId: $userId, name: $name, email: $email, phone: $phone, date: $date, time: $time, status: $status, notes: $notes, createdAt: $createdAt, unit: $unit)';
+    return 'BookingDataModel(id: $id, userId: $userId, name: $name, email: $email, phone: $phone, date: $date, time: $time, status: $status, notes: $notes, createdAt: $createdAt, unit: $unit)';
 }
 
 

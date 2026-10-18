@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'favorite_response_model.dart';
@@ -9,6 +9,7 @@ part of 'favorite_response_model.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $FavoriteResponseModelCopyWith<FavoriteResponseModel> get copyWith => _$Favorite
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FavoriteResponseModel&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.data, data)&&(identical(other.pagination, pagination) || other.pagination == pagination));
+  final _this = this as FavoriteResponseModel;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FavoriteResponseModel&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.message, _this.message) || other.message == _this.message)&&const DeepCollectionEquality().equals(other.data, _this.data)&&(identical(other.pagination, _this.pagination) || other.pagination == _this.pagination));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,message,const DeepCollectionEquality().hash(data),pagination);
+int get hashCode {
+  final _this = this as FavoriteResponseModel;
+  return Object.hash(runtimeType,_this.status,_this.message,const DeepCollectionEquality().hash(_this.data),_this.pagination);
+}
 
 @override
 String toString() {
-  return 'FavoriteResponseModel(status: $status, message: $message, data: $data, pagination: $pagination)';
+  final _this = this as FavoriteResponseModel;
+  return 'FavoriteResponseModel(status: ${_this.status}, message: ${_this.message}, data: ${_this.data}, pagination: ${_this.pagination})';
 }
 
 
@@ -63,7 +69,7 @@ class _$FavoriteResponseModelCopyWithImpl<$Res>
 /// Create a copy of FavoriteResponseModel
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? message = null,Object? data = null,Object? pagination = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(FavoriteResponseModel(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as bool,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
@@ -221,7 +227,7 @@ return $default(_that.status,_that.message,_that.data,_that.pagination);case _:
 
 
 class _FavoriteResponseModel extends FavoriteResponseModel {
-  const _FavoriteResponseModel({this.status = false, this.message = '', final  List<FavoriteUnitModel> data = const [], this.pagination}): _data = data,super._();
+  const _FavoriteResponseModel({this.status = false, this.message = '',  List<FavoriteUnitModel> data = const [], this.pagination}): _data = data,super._();
   
 
 @override@JsonKey() final  bool status;
@@ -245,16 +251,18 @@ _$FavoriteResponseModelCopyWith<_FavoriteResponseModel> get copyWith => __$Favor
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FavoriteResponseModel&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._data, _data)&&(identical(other.pagination, pagination) || other.pagination == pagination));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _FavoriteResponseModel&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.data, _data)&&(identical(other.pagination, pagination) || other.pagination == pagination));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,message,const DeepCollectionEquality().hash(_data),pagination);
+int get hashCode {
+    return Object.hash(runtimeType,status,message,const DeepCollectionEquality().hash(_data),pagination);
+}
 
 @override
 String toString() {
-  return 'FavoriteResponseModel(status: $status, message: $message, data: $data, pagination: $pagination)';
+    return 'FavoriteResponseModel(status: $status, message: $message, data: $data, pagination: $pagination)';
 }
 
 

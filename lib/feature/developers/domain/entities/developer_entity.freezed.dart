@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'developer_entity.dart';
@@ -9,6 +9,7 @@ part of 'developer_entity.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $DeveloperEntityCopyWith<DeveloperEntity> get copyWith => _$DeveloperEntityCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeveloperEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.logo, logo) || other.logo == logo)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.address, address) || other.address == address));
+  final _this = this as DeveloperEntity;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeveloperEntity&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.logo, _this.logo) || other.logo == _this.logo)&&(identical(other.email, _this.email) || other.email == _this.email)&&(identical(other.phone, _this.phone) || other.phone == _this.phone)&&(identical(other.address, _this.address) || other.address == _this.address));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,name,logo,email,phone,address);
+int get hashCode {
+  final _this = this as DeveloperEntity;
+  return Object.hash(runtimeType,_this.id,_this.name,_this.logo,_this.email,_this.phone,_this.address);
+}
 
 @override
 String toString() {
-  return 'DeveloperEntity(id: $id, name: $name, logo: $logo, email: $email, phone: $phone, address: $address)';
+  final _this = this as DeveloperEntity;
+  return 'DeveloperEntity(id: ${_this.id}, name: ${_this.name}, logo: ${_this.logo}, email: ${_this.email}, phone: ${_this.phone}, address: ${_this.address})';
 }
 
 
@@ -63,7 +69,7 @@ class _$DeveloperEntityCopyWithImpl<$Res>
 /// Create a copy of DeveloperEntity
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? logo = null,Object? email = freezed,Object? phone = freezed,Object? address = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(DeveloperEntity(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,logo: null == logo ? _self.logo : logo // ignore: cast_nullable_to_non_nullable
@@ -231,16 +237,18 @@ _$DeveloperEntityCopyWith<_DeveloperEntity> get copyWith => __$DeveloperEntityCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DeveloperEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.logo, logo) || other.logo == logo)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.address, address) || other.address == address));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _DeveloperEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.logo, logo) || other.logo == logo)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.address, address) || other.address == address));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,name,logo,email,phone,address);
+int get hashCode {
+    return Object.hash(runtimeType,id,name,logo,email,phone,address);
+}
 
 @override
 String toString() {
-  return 'DeveloperEntity(id: $id, name: $name, logo: $logo, email: $email, phone: $phone, address: $address)';
+    return 'DeveloperEntity(id: $id, name: $name, logo: $logo, email: $email, phone: $phone, address: $address)';
 }
 
 

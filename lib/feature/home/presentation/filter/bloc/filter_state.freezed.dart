@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'filter_state.dart';
@@ -9,6 +9,7 @@ part of 'filter_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $FilterStateCopyWith<FilterState> get copyWith => _$FilterStateCopyWithImpl<Filt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterState&&(identical(other.status, status) || other.status == status)&&(identical(other.activeTab, activeTab) || other.activeTab == activeTab)&&(identical(other.developmentStatus, developmentStatus) || other.developmentStatus == developmentStatus)&&(identical(other.location, location) || other.location == location)&&(identical(other.selectedCityId, selectedCityId) || other.selectedCityId == selectedCityId)&&(identical(other.minPrice, minPrice) || other.minPrice == minPrice)&&(identical(other.maxPrice, maxPrice) || other.maxPrice == maxPrice)&&(identical(other.bedrooms, bedrooms) || other.bedrooms == bedrooms)&&(identical(other.bathrooms, bathrooms) || other.bathrooms == bathrooms)&&(identical(other.rooms, rooms) || other.rooms == rooms)&&(identical(other.minArea, minArea) || other.minArea == minArea)&&(identical(other.maxArea, maxArea) || other.maxArea == maxArea)&&const DeepCollectionEquality().equals(other.cities, cities)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
+  final _this = this as FilterState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterState&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.activeTab, _this.activeTab) || other.activeTab == _this.activeTab)&&(identical(other.developmentStatus, _this.developmentStatus) || other.developmentStatus == _this.developmentStatus)&&(identical(other.location, _this.location) || other.location == _this.location)&&(identical(other.selectedCityId, _this.selectedCityId) || other.selectedCityId == _this.selectedCityId)&&(identical(other.minPrice, _this.minPrice) || other.minPrice == _this.minPrice)&&(identical(other.maxPrice, _this.maxPrice) || other.maxPrice == _this.maxPrice)&&(identical(other.bedrooms, _this.bedrooms) || other.bedrooms == _this.bedrooms)&&(identical(other.bathrooms, _this.bathrooms) || other.bathrooms == _this.bathrooms)&&(identical(other.rooms, _this.rooms) || other.rooms == _this.rooms)&&(identical(other.minArea, _this.minArea) || other.minArea == _this.minArea)&&(identical(other.maxArea, _this.maxArea) || other.maxArea == _this.maxArea)&&const DeepCollectionEquality().equals(other.cities, _this.cities)&&(identical(other.errorMessage, _this.errorMessage) || other.errorMessage == _this.errorMessage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,activeTab,developmentStatus,location,selectedCityId,minPrice,maxPrice,bedrooms,bathrooms,rooms,minArea,maxArea,const DeepCollectionEquality().hash(cities),errorMessage);
+int get hashCode {
+  final _this = this as FilterState;
+  return Object.hash(runtimeType,_this.status,_this.activeTab,_this.developmentStatus,_this.location,_this.selectedCityId,_this.minPrice,_this.maxPrice,_this.bedrooms,_this.bathrooms,_this.rooms,_this.minArea,_this.maxArea,const DeepCollectionEquality().hash(_this.cities),_this.errorMessage);
+}
 
 @override
 String toString() {
-  return 'FilterState(status: $status, activeTab: $activeTab, developmentStatus: $developmentStatus, location: $location, selectedCityId: $selectedCityId, minPrice: $minPrice, maxPrice: $maxPrice, bedrooms: $bedrooms, bathrooms: $bathrooms, rooms: $rooms, minArea: $minArea, maxArea: $maxArea, cities: $cities, errorMessage: $errorMessage)';
+  final _this = this as FilterState;
+  return 'FilterState(status: ${_this.status}, activeTab: ${_this.activeTab}, developmentStatus: ${_this.developmentStatus}, location: ${_this.location}, selectedCityId: ${_this.selectedCityId}, minPrice: ${_this.minPrice}, maxPrice: ${_this.maxPrice}, bedrooms: ${_this.bedrooms}, bathrooms: ${_this.bathrooms}, rooms: ${_this.rooms}, minArea: ${_this.minArea}, maxArea: ${_this.maxArea}, cities: ${_this.cities}, errorMessage: ${_this.errorMessage})';
 }
 
 
@@ -63,7 +69,7 @@ class _$FilterStateCopyWithImpl<$Res>
 /// Create a copy of FilterState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? activeTab = freezed,Object? developmentStatus = freezed,Object? location = freezed,Object? selectedCityId = freezed,Object? minPrice = null,Object? maxPrice = null,Object? bedrooms = null,Object? bathrooms = null,Object? rooms = null,Object? minArea = null,Object? maxArea = null,Object? cities = null,Object? errorMessage = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(FilterState(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as FilterStatus,activeTab: freezed == activeTab ? _self.activeTab : activeTab // ignore: cast_nullable_to_non_nullable
 as PropertyTab?,developmentStatus: freezed == developmentStatus ? _self.developmentStatus : developmentStatus // ignore: cast_nullable_to_non_nullable
@@ -219,7 +225,7 @@ return $default(_that.status,_that.activeTab,_that.developmentStatus,_that.locat
 
 
 class _FilterState extends FilterState {
-  const _FilterState({this.status = FilterStatus.initial, this.activeTab, this.developmentStatus, this.location, this.selectedCityId, this.minPrice = 0.0, this.maxPrice = 1000000.0, this.bedrooms = 0, this.bathrooms = 0, this.rooms = 0, this.minArea = 0.0, this.maxArea = 1000.0, final  List<City> cities = const [], this.errorMessage}): _cities = cities,super._();
+  const _FilterState({this.status = FilterStatus.initial, this.activeTab, this.developmentStatus, this.location, this.selectedCityId, this.minPrice = 0.0, this.maxPrice = 1000000.0, this.bedrooms = 0, this.bathrooms = 0, this.rooms = 0, this.minArea = 0.0, this.maxArea = 1000.0,  List<City> cities = const [], this.errorMessage}): _cities = cities,super._();
   
 
 @override@JsonKey() final  FilterStatus status;
@@ -253,16 +259,18 @@ _$FilterStateCopyWith<_FilterState> get copyWith => __$FilterStateCopyWithImpl<_
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FilterState&&(identical(other.status, status) || other.status == status)&&(identical(other.activeTab, activeTab) || other.activeTab == activeTab)&&(identical(other.developmentStatus, developmentStatus) || other.developmentStatus == developmentStatus)&&(identical(other.location, location) || other.location == location)&&(identical(other.selectedCityId, selectedCityId) || other.selectedCityId == selectedCityId)&&(identical(other.minPrice, minPrice) || other.minPrice == minPrice)&&(identical(other.maxPrice, maxPrice) || other.maxPrice == maxPrice)&&(identical(other.bedrooms, bedrooms) || other.bedrooms == bedrooms)&&(identical(other.bathrooms, bathrooms) || other.bathrooms == bathrooms)&&(identical(other.rooms, rooms) || other.rooms == rooms)&&(identical(other.minArea, minArea) || other.minArea == minArea)&&(identical(other.maxArea, maxArea) || other.maxArea == maxArea)&&const DeepCollectionEquality().equals(other._cities, _cities)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _FilterState&&(identical(other.status, status) || other.status == status)&&(identical(other.activeTab, activeTab) || other.activeTab == activeTab)&&(identical(other.developmentStatus, developmentStatus) || other.developmentStatus == developmentStatus)&&(identical(other.location, location) || other.location == location)&&(identical(other.selectedCityId, selectedCityId) || other.selectedCityId == selectedCityId)&&(identical(other.minPrice, minPrice) || other.minPrice == minPrice)&&(identical(other.maxPrice, maxPrice) || other.maxPrice == maxPrice)&&(identical(other.bedrooms, bedrooms) || other.bedrooms == bedrooms)&&(identical(other.bathrooms, bathrooms) || other.bathrooms == bathrooms)&&(identical(other.rooms, rooms) || other.rooms == rooms)&&(identical(other.minArea, minArea) || other.minArea == minArea)&&(identical(other.maxArea, maxArea) || other.maxArea == maxArea)&&const DeepCollectionEquality().equals(other.cities, _cities)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,activeTab,developmentStatus,location,selectedCityId,minPrice,maxPrice,bedrooms,bathrooms,rooms,minArea,maxArea,const DeepCollectionEquality().hash(_cities),errorMessage);
+int get hashCode {
+    return Object.hash(runtimeType,status,activeTab,developmentStatus,location,selectedCityId,minPrice,maxPrice,bedrooms,bathrooms,rooms,minArea,maxArea,const DeepCollectionEquality().hash(_cities),errorMessage);
+}
 
 @override
 String toString() {
-  return 'FilterState(status: $status, activeTab: $activeTab, developmentStatus: $developmentStatus, location: $location, selectedCityId: $selectedCityId, minPrice: $minPrice, maxPrice: $maxPrice, bedrooms: $bedrooms, bathrooms: $bathrooms, rooms: $rooms, minArea: $minArea, maxArea: $maxArea, cities: $cities, errorMessage: $errorMessage)';
+    return 'FilterState(status: $status, activeTab: $activeTab, developmentStatus: $developmentStatus, location: $location, selectedCityId: $selectedCityId, minPrice: $minPrice, maxPrice: $maxPrice, bedrooms: $bedrooms, bathrooms: $bathrooms, rooms: $rooms, minArea: $minArea, maxArea: $maxArea, cities: $cities, errorMessage: $errorMessage)';
 }
 
 

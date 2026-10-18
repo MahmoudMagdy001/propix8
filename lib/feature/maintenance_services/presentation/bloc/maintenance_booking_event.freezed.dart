@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'maintenance_booking_event.dart';
@@ -9,6 +9,7 @@ part of 'maintenance_booking_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -20,7 +21,7 @@ mixin _$MaintenanceBookingEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceBookingEvent);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceBookingEvent);
 }
 
 
@@ -29,7 +30,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'MaintenanceBookingEvent()';
+    return 'MaintenanceBookingEvent()';
 }
 
 
@@ -199,16 +200,18 @@ $MaintenanceBookingSubmittedCopyWith<MaintenanceBookingSubmitted> get copyWith =
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceBookingSubmitted&&(identical(other.maintenanceServiceId, maintenanceServiceId) || other.maintenanceServiceId == maintenanceServiceId)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.address, address) || other.address == address)&&(identical(other.message, message) || other.message == message));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceBookingSubmitted&&(identical(other.maintenanceServiceId, maintenanceServiceId) || other.maintenanceServiceId == maintenanceServiceId)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.address, address) || other.address == address)&&(identical(other.message, message) || other.message == message));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,maintenanceServiceId,phone,address,message);
+int get hashCode {
+    return Object.hash(runtimeType,maintenanceServiceId,phone,address,message);
+}
 
 @override
 String toString() {
-  return 'MaintenanceBookingEvent.submitted(maintenanceServiceId: $maintenanceServiceId, phone: $phone, address: $address, message: $message)';
+    return 'MaintenanceBookingEvent.submitted(maintenanceServiceId: $maintenanceServiceId, phone: $phone, address: $address, message: $message)';
 }
 
 
@@ -263,7 +266,7 @@ class MaintenanceBookingReset implements MaintenanceBookingEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceBookingReset);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceBookingReset);
 }
 
 
@@ -272,7 +275,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'MaintenanceBookingEvent.reset()';
+    return 'MaintenanceBookingEvent.reset()';
 }
 
 

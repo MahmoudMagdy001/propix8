@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'maintenance_service_dto.dart';
@@ -9,6 +9,7 @@ part of 'maintenance_service_dto.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -28,16 +29,21 @@ $MaintenanceServiceDtoCopyWith<MaintenanceServiceDto> get copyWith => _$Maintena
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceServiceDto&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.category, category) || other.category == category)&&(identical(other.image, image) || other.image == image)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
+  final _this = this as MaintenanceServiceDto;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceServiceDto&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.title, _this.title) || other.title == _this.title)&&(identical(other.category, _this.category) || other.category == _this.category)&&(identical(other.image, _this.image) || other.image == _this.image)&&(identical(other.createdAt, _this.createdAt) || other.createdAt == _this.createdAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,title,category,image,createdAt);
+int get hashCode {
+  final _this = this as MaintenanceServiceDto;
+  return Object.hash(runtimeType,_this.id,_this.title,_this.category,_this.image,_this.createdAt);
+}
 
 @override
 String toString() {
-  return 'MaintenanceServiceDto(id: $id, title: $title, category: $category, image: $image, createdAt: $createdAt)';
+  final _this = this as MaintenanceServiceDto;
+  return 'MaintenanceServiceDto(id: ${_this.id}, title: ${_this.title}, category: ${_this.category}, image: ${_this.image}, createdAt: ${_this.createdAt})';
 }
 
 
@@ -66,7 +72,7 @@ class _$MaintenanceServiceDtoCopyWithImpl<$Res>
 /// Create a copy of MaintenanceServiceDto
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? title = null,Object? category = null,Object? image = null,Object? createdAt = null,}) {
-  return _then(_self.copyWith(
+  return _then(MaintenanceServiceDto(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,category: null == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
@@ -235,16 +241,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MaintenanceServiceDto&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.category, category) || other.category == category)&&(identical(other.image, image) || other.image == image)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _MaintenanceServiceDto&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.category, category) || other.category == category)&&(identical(other.image, image) || other.image == image)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,title,category,image,createdAt);
+int get hashCode {
+    return Object.hash(runtimeType,id,title,category,image,createdAt);
+}
 
 @override
 String toString() {
-  return 'MaintenanceServiceDto(id: $id, title: $title, category: $category, image: $image, createdAt: $createdAt)';
+    return 'MaintenanceServiceDto(id: $id, title: $title, category: $category, image: $image, createdAt: $createdAt)';
 }
 
 
@@ -303,16 +311,21 @@ $MaintenanceDataDtoCopyWith<MaintenanceDataDto> get copyWith => _$MaintenanceDat
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceDataDto&&const DeepCollectionEquality().equals(other.home, home)&&const DeepCollectionEquality().equals(other.technical, technical));
+  final _this = this as MaintenanceDataDto;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceDataDto&&const DeepCollectionEquality().equals(other.home, _this.home)&&const DeepCollectionEquality().equals(other.technical, _this.technical));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(home),const DeepCollectionEquality().hash(technical));
+int get hashCode {
+  final _this = this as MaintenanceDataDto;
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.home),const DeepCollectionEquality().hash(_this.technical));
+}
 
 @override
 String toString() {
-  return 'MaintenanceDataDto(home: $home, technical: $technical)';
+  final _this = this as MaintenanceDataDto;
+  return 'MaintenanceDataDto(home: ${_this.home}, technical: ${_this.technical})';
 }
 
 
@@ -341,7 +354,7 @@ class _$MaintenanceDataDtoCopyWithImpl<$Res>
 /// Create a copy of MaintenanceDataDto
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? home = null,Object? technical = null,}) {
-  return _then(_self.copyWith(
+  return _then(MaintenanceDataDto(
 home: null == home ? _self.home : home // ignore: cast_nullable_to_non_nullable
 as List<MaintenanceServiceDto>,technical: null == technical ? _self.technical : technical // ignore: cast_nullable_to_non_nullable
 as List<MaintenanceServiceDto>,
@@ -485,7 +498,7 @@ return $default(_that.home,_that.technical);case _:
 @JsonSerializable()
 
 class _MaintenanceDataDto implements MaintenanceDataDto {
-  const _MaintenanceDataDto({final  List<MaintenanceServiceDto> home = const <MaintenanceServiceDto>[], final  List<MaintenanceServiceDto> technical = const <MaintenanceServiceDto>[]}): _home = home,_technical = technical;
+  const _MaintenanceDataDto({ List<MaintenanceServiceDto> home = const <MaintenanceServiceDto>[],  List<MaintenanceServiceDto> technical = const <MaintenanceServiceDto>[]}): _home = home,_technical = technical;
   factory _MaintenanceDataDto.fromJson(Map<String, dynamic> json) => _$MaintenanceDataDtoFromJson(json);
 
  final  List<MaintenanceServiceDto> _home;
@@ -516,16 +529,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MaintenanceDataDto&&const DeepCollectionEquality().equals(other._home, _home)&&const DeepCollectionEquality().equals(other._technical, _technical));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _MaintenanceDataDto&&const DeepCollectionEquality().equals(other.home, _home)&&const DeepCollectionEquality().equals(other.technical, _technical));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_home),const DeepCollectionEquality().hash(_technical));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_home),const DeepCollectionEquality().hash(_technical));
+}
 
 @override
 String toString() {
-  return 'MaintenanceDataDto(home: $home, technical: $technical)';
+    return 'MaintenanceDataDto(home: $home, technical: $technical)';
 }
 
 
@@ -581,16 +596,21 @@ $MaintenanceServicesResponseDtoCopyWith<MaintenanceServicesResponseDto> get copy
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceServicesResponseDto&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&(identical(other.data, data) || other.data == data));
+  final _this = this as MaintenanceServicesResponseDto;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceServicesResponseDto&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.message, _this.message) || other.message == _this.message)&&(identical(other.data, _this.data) || other.data == _this.data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,status,message,data);
+int get hashCode {
+  final _this = this as MaintenanceServicesResponseDto;
+  return Object.hash(runtimeType,_this.status,_this.message,_this.data);
+}
 
 @override
 String toString() {
-  return 'MaintenanceServicesResponseDto(status: $status, message: $message, data: $data)';
+  final _this = this as MaintenanceServicesResponseDto;
+  return 'MaintenanceServicesResponseDto(status: ${_this.status}, message: ${_this.message}, data: ${_this.data})';
 }
 
 
@@ -619,7 +639,7 @@ class _$MaintenanceServicesResponseDtoCopyWithImpl<$Res>
 /// Create a copy of MaintenanceServicesResponseDto
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? message = null,Object? data = null,}) {
-  return _then(_self.copyWith(
+  return _then(MaintenanceServicesResponseDto(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as bool,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
@@ -793,16 +813,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MaintenanceServicesResponseDto&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&(identical(other.data, data) || other.data == data));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _MaintenanceServicesResponseDto&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&(identical(other.data, data) || other.data == data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,status,message,data);
+int get hashCode {
+    return Object.hash(runtimeType,status,message,data);
+}
 
 @override
 String toString() {
-  return 'MaintenanceServicesResponseDto(status: $status, message: $message, data: $data)';
+    return 'MaintenanceServicesResponseDto(status: $status, message: $message, data: $data)';
 }
 
 
@@ -868,16 +890,21 @@ $MaintenanceBookingResponseDtoCopyWith<MaintenanceBookingResponseDto> get copyWi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceBookingResponseDto&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.data, data));
+  final _this = this as MaintenanceBookingResponseDto;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceBookingResponseDto&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.message, _this.message) || other.message == _this.message)&&const DeepCollectionEquality().equals(other.data, _this.data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,status,message,const DeepCollectionEquality().hash(data));
+int get hashCode {
+  final _this = this as MaintenanceBookingResponseDto;
+  return Object.hash(runtimeType,_this.status,_this.message,const DeepCollectionEquality().hash(_this.data));
+}
 
 @override
 String toString() {
-  return 'MaintenanceBookingResponseDto(status: $status, message: $message, data: $data)';
+  final _this = this as MaintenanceBookingResponseDto;
+  return 'MaintenanceBookingResponseDto(status: ${_this.status}, message: ${_this.message}, data: ${_this.data})';
 }
 
 
@@ -906,7 +933,7 @@ class _$MaintenanceBookingResponseDtoCopyWithImpl<$Res>
 /// Create a copy of MaintenanceBookingResponseDto
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? message = null,Object? data = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(MaintenanceBookingResponseDto(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as bool,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
@@ -1051,7 +1078,7 @@ return $default(_that.status,_that.message,_that.data);case _:
 @JsonSerializable()
 
 class _MaintenanceBookingResponseDto implements MaintenanceBookingResponseDto {
-  const _MaintenanceBookingResponseDto({this.status = false, this.message = '', final  Map<String, dynamic>? data}): _data = data;
+  const _MaintenanceBookingResponseDto({this.status = false, this.message = '',  Map<String, dynamic>? data}): _data = data;
   factory _MaintenanceBookingResponseDto.fromJson(Map<String, dynamic> json) => _$MaintenanceBookingResponseDtoFromJson(json);
 
 @override@JsonKey() final  bool status;
@@ -1079,16 +1106,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MaintenanceBookingResponseDto&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._data, _data));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _MaintenanceBookingResponseDto&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.data, _data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,status,message,const DeepCollectionEquality().hash(_data));
+int get hashCode {
+    return Object.hash(runtimeType,status,message,const DeepCollectionEquality().hash(_data));
+}
 
 @override
 String toString() {
-  return 'MaintenanceBookingResponseDto(status: $status, message: $message, data: $data)';
+    return 'MaintenanceBookingResponseDto(status: $status, message: $message, data: $data)';
 }
 
 

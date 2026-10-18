@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'unit_booking_entity.dart';
@@ -9,6 +9,7 @@ part of 'unit_booking_entity.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $UnitBookingResponseEntityCopyWith<UnitBookingResponseEntity> get copyWith => _$
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitBookingResponseEntity&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&(identical(other.data, data) || other.data == data));
+  final _this = this as UnitBookingResponseEntity;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitBookingResponseEntity&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.message, _this.message) || other.message == _this.message)&&(identical(other.data, _this.data) || other.data == _this.data));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,message,data);
+int get hashCode {
+  final _this = this as UnitBookingResponseEntity;
+  return Object.hash(runtimeType,_this.status,_this.message,_this.data);
+}
 
 @override
 String toString() {
-  return 'UnitBookingResponseEntity(status: $status, message: $message, data: $data)';
+  final _this = this as UnitBookingResponseEntity;
+  return 'UnitBookingResponseEntity(status: ${_this.status}, message: ${_this.message}, data: ${_this.data})';
 }
 
 
@@ -63,7 +69,7 @@ class _$UnitBookingResponseEntityCopyWithImpl<$Res>
 /// Create a copy of UnitBookingResponseEntity
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? message = null,Object? data = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(UnitBookingResponseEntity(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as bool,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
@@ -237,16 +243,18 @@ _$UnitBookingResponseEntityCopyWith<_UnitBookingResponseEntity> get copyWith => 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitBookingResponseEntity&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&(identical(other.data, data) || other.data == data));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitBookingResponseEntity&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&(identical(other.data, data) || other.data == data));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,message,data);
+int get hashCode {
+    return Object.hash(runtimeType,status,message,data);
+}
 
 @override
 String toString() {
-  return 'UnitBookingResponseEntity(status: $status, message: $message, data: $data)';
+    return 'UnitBookingResponseEntity(status: $status, message: $message, data: $data)';
 }
 
 
@@ -312,16 +320,21 @@ $UnitBookingEntityCopyWith<UnitBookingEntity> get copyWith => _$UnitBookingEntit
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitBookingEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.date, date) || other.date == date)&&(identical(other.time, time) || other.time == time)&&(identical(other.status, status) || other.status == status)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.unit, unit) || other.unit == unit));
+  final _this = this as UnitBookingEntity;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitBookingEntity&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.userId, _this.userId) || other.userId == _this.userId)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.email, _this.email) || other.email == _this.email)&&(identical(other.phone, _this.phone) || other.phone == _this.phone)&&(identical(other.date, _this.date) || other.date == _this.date)&&(identical(other.time, _this.time) || other.time == _this.time)&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.notes, _this.notes) || other.notes == _this.notes)&&(identical(other.createdAt, _this.createdAt) || other.createdAt == _this.createdAt)&&(identical(other.unit, _this.unit) || other.unit == _this.unit));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,userId,name,email,phone,date,time,status,notes,createdAt,unit);
+int get hashCode {
+  final _this = this as UnitBookingEntity;
+  return Object.hash(runtimeType,_this.id,_this.userId,_this.name,_this.email,_this.phone,_this.date,_this.time,_this.status,_this.notes,_this.createdAt,_this.unit);
+}
 
 @override
 String toString() {
-  return 'UnitBookingEntity(id: $id, userId: $userId, name: $name, email: $email, phone: $phone, date: $date, time: $time, status: $status, notes: $notes, createdAt: $createdAt, unit: $unit)';
+  final _this = this as UnitBookingEntity;
+  return 'UnitBookingEntity(id: ${_this.id}, userId: ${_this.userId}, name: ${_this.name}, email: ${_this.email}, phone: ${_this.phone}, date: ${_this.date}, time: ${_this.time}, status: ${_this.status}, notes: ${_this.notes}, createdAt: ${_this.createdAt}, unit: ${_this.unit})';
 }
 
 
@@ -350,7 +363,7 @@ class _$UnitBookingEntityCopyWithImpl<$Res>
 /// Create a copy of UnitBookingEntity
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? userId = null,Object? name = null,Object? email = null,Object? phone = null,Object? date = null,Object? time = null,Object? status = null,Object? notes = null,Object? createdAt = null,Object? unit = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(UnitBookingEntity(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,userId: null == userId ? _self.userId : userId // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -540,16 +553,18 @@ _$UnitBookingEntityCopyWith<_UnitBookingEntity> get copyWith => __$UnitBookingEn
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitBookingEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.date, date) || other.date == date)&&(identical(other.time, time) || other.time == time)&&(identical(other.status, status) || other.status == status)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.unit, unit) || other.unit == unit));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitBookingEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.date, date) || other.date == date)&&(identical(other.time, time) || other.time == time)&&(identical(other.status, status) || other.status == status)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.unit, unit) || other.unit == unit));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,userId,name,email,phone,date,time,status,notes,createdAt,unit);
+int get hashCode {
+    return Object.hash(runtimeType,id,userId,name,email,phone,date,time,status,notes,createdAt,unit);
+}
 
 @override
 String toString() {
-  return 'UnitBookingEntity(id: $id, userId: $userId, name: $name, email: $email, phone: $phone, date: $date, time: $time, status: $status, notes: $notes, createdAt: $createdAt, unit: $unit)';
+    return 'UnitBookingEntity(id: $id, userId: $userId, name: $name, email: $email, phone: $phone, date: $date, time: $time, status: $status, notes: $notes, createdAt: $createdAt, unit: $unit)';
 }
 
 

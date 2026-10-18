@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'onboarding_page_entity.dart';
@@ -9,6 +9,7 @@ part of 'onboarding_page_entity.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $OnboardingPageEntityCopyWith<OnboardingPageEntity> get copyWith => _$Onboarding
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OnboardingPageEntity&&(identical(other.title, title) || other.title == title)&&(identical(other.subtitle, subtitle) || other.subtitle == subtitle)&&(identical(other.imagePath, imagePath) || other.imagePath == imagePath));
+  final _this = this as OnboardingPageEntity;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is OnboardingPageEntity&&(identical(other.title, _this.title) || other.title == _this.title)&&(identical(other.subtitle, _this.subtitle) || other.subtitle == _this.subtitle)&&(identical(other.imagePath, _this.imagePath) || other.imagePath == _this.imagePath));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,title,subtitle,imagePath);
+int get hashCode {
+  final _this = this as OnboardingPageEntity;
+  return Object.hash(runtimeType,_this.title,_this.subtitle,_this.imagePath);
+}
 
 @override
 String toString() {
-  return 'OnboardingPageEntity(title: $title, subtitle: $subtitle, imagePath: $imagePath)';
+  final _this = this as OnboardingPageEntity;
+  return 'OnboardingPageEntity(title: ${_this.title}, subtitle: ${_this.subtitle}, imagePath: ${_this.imagePath})';
 }
 
 
@@ -63,7 +69,7 @@ class _$OnboardingPageEntityCopyWithImpl<$Res>
 /// Create a copy of OnboardingPageEntity
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? title = null,Object? subtitle = null,Object? imagePath = null,}) {
-  return _then(_self.copyWith(
+  return _then(OnboardingPageEntity(
 title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,subtitle: null == subtitle ? _self.subtitle : subtitle // ignore: cast_nullable_to_non_nullable
 as String,imagePath: null == imagePath ? _self.imagePath : imagePath // ignore: cast_nullable_to_non_nullable
@@ -225,16 +231,18 @@ _$OnboardingPageEntityCopyWith<_OnboardingPageEntity> get copyWith => __$Onboard
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OnboardingPageEntity&&(identical(other.title, title) || other.title == title)&&(identical(other.subtitle, subtitle) || other.subtitle == subtitle)&&(identical(other.imagePath, imagePath) || other.imagePath == imagePath));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _OnboardingPageEntity&&(identical(other.title, title) || other.title == title)&&(identical(other.subtitle, subtitle) || other.subtitle == subtitle)&&(identical(other.imagePath, imagePath) || other.imagePath == imagePath));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,title,subtitle,imagePath);
+int get hashCode {
+    return Object.hash(runtimeType,title,subtitle,imagePath);
+}
 
 @override
 String toString() {
-  return 'OnboardingPageEntity(title: $title, subtitle: $subtitle, imagePath: $imagePath)';
+    return 'OnboardingPageEntity(title: $title, subtitle: $subtitle, imagePath: $imagePath)';
 }
 
 

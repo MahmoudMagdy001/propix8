@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'page_entity.dart';
@@ -9,6 +9,7 @@ part of 'page_entity.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $TeamMemberEntityCopyWith<TeamMemberEntity> get copyWith => _$TeamMemberEntityCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is TeamMemberEntity&&(identical(other.name, name) || other.name == name)&&(identical(other.position, position) || other.position == position)&&(identical(other.photo, photo) || other.photo == photo));
+  final _this = this as TeamMemberEntity;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TeamMemberEntity&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.position, _this.position) || other.position == _this.position)&&(identical(other.photo, _this.photo) || other.photo == _this.photo));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,name,position,photo);
+int get hashCode {
+  final _this = this as TeamMemberEntity;
+  return Object.hash(runtimeType,_this.name,_this.position,_this.photo);
+}
 
 @override
 String toString() {
-  return 'TeamMemberEntity(name: $name, position: $position, photo: $photo)';
+  final _this = this as TeamMemberEntity;
+  return 'TeamMemberEntity(name: ${_this.name}, position: ${_this.position}, photo: ${_this.photo})';
 }
 
 
@@ -63,7 +69,7 @@ class _$TeamMemberEntityCopyWithImpl<$Res>
 /// Create a copy of TeamMemberEntity
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? position = null,Object? photo = null,}) {
-  return _then(_self.copyWith(
+  return _then(TeamMemberEntity(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,position: null == position ? _self.position : position // ignore: cast_nullable_to_non_nullable
 as String,photo: null == photo ? _self.photo : photo // ignore: cast_nullable_to_non_nullable
@@ -225,16 +231,18 @@ _$TeamMemberEntityCopyWith<_TeamMemberEntity> get copyWith => __$TeamMemberEntit
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TeamMemberEntity&&(identical(other.name, name) || other.name == name)&&(identical(other.position, position) || other.position == position)&&(identical(other.photo, photo) || other.photo == photo));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _TeamMemberEntity&&(identical(other.name, name) || other.name == name)&&(identical(other.position, position) || other.position == position)&&(identical(other.photo, photo) || other.photo == photo));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,name,position,photo);
+int get hashCode {
+    return Object.hash(runtimeType,name,position,photo);
+}
 
 @override
 String toString() {
-  return 'TeamMemberEntity(name: $name, position: $position, photo: $photo)';
+    return 'TeamMemberEntity(name: $name, position: $position, photo: $photo)';
 }
 
 
@@ -288,16 +296,21 @@ $SectionEntityCopyWith<SectionEntity> get copyWith => _$SectionEntityCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SectionEntity&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other.content, content));
+  final _this = this as SectionEntity;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SectionEntity&&(identical(other.title, _this.title) || other.title == _this.title)&&const DeepCollectionEquality().equals(other.content, _this.content));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,title,const DeepCollectionEquality().hash(content));
+int get hashCode {
+  final _this = this as SectionEntity;
+  return Object.hash(runtimeType,_this.title,const DeepCollectionEquality().hash(_this.content));
+}
 
 @override
 String toString() {
-  return 'SectionEntity(title: $title, content: $content)';
+  final _this = this as SectionEntity;
+  return 'SectionEntity(title: ${_this.title}, content: ${_this.content})';
 }
 
 
@@ -326,7 +339,7 @@ class _$SectionEntityCopyWithImpl<$Res>
 /// Create a copy of SectionEntity
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? title = null,Object? content = null,}) {
-  return _then(_self.copyWith(
+  return _then(SectionEntity(
 title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
 as List<String>,
@@ -470,7 +483,7 @@ return $default(_that.title,_that.content);case _:
 
 
 class _SectionEntity implements SectionEntity {
-  const _SectionEntity({required this.title, required final  List<String> content}): _content = content;
+  const _SectionEntity({required this.title, required  List<String> content}): _content = content;
   
 
 @override final  String title;
@@ -492,16 +505,18 @@ _$SectionEntityCopyWith<_SectionEntity> get copyWith => __$SectionEntityCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SectionEntity&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other._content, _content));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SectionEntity&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other.content, _content));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,title,const DeepCollectionEquality().hash(_content));
+int get hashCode {
+    return Object.hash(runtimeType,title,const DeepCollectionEquality().hash(_content));
+}
 
 @override
 String toString() {
-  return 'SectionEntity(title: $title, content: $content)';
+    return 'SectionEntity(title: $title, content: $content)';
 }
 
 
@@ -554,16 +569,21 @@ $PageEntityCopyWith<PageEntity> get copyWith => _$PageEntityCopyWithImpl<PageEnt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is PageEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.slug, slug) || other.slug == slug)&&(identical(other.image, image) || other.image == image)&&(identical(other.title, title) || other.title == title)&&(identical(other.content, content) || other.content == content)&&const DeepCollectionEquality().equals(other.teamMembers, teamMembers)&&const DeepCollectionEquality().equals(other.sections, sections));
+  final _this = this as PageEntity;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PageEntity&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.slug, _this.slug) || other.slug == _this.slug)&&(identical(other.image, _this.image) || other.image == _this.image)&&(identical(other.title, _this.title) || other.title == _this.title)&&(identical(other.content, _this.content) || other.content == _this.content)&&const DeepCollectionEquality().equals(other.teamMembers, _this.teamMembers)&&const DeepCollectionEquality().equals(other.sections, _this.sections));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,slug,image,title,content,const DeepCollectionEquality().hash(teamMembers),const DeepCollectionEquality().hash(sections));
+int get hashCode {
+  final _this = this as PageEntity;
+  return Object.hash(runtimeType,_this.id,_this.slug,_this.image,_this.title,_this.content,const DeepCollectionEquality().hash(_this.teamMembers),const DeepCollectionEquality().hash(_this.sections));
+}
 
 @override
 String toString() {
-  return 'PageEntity(id: $id, slug: $slug, image: $image, title: $title, content: $content, teamMembers: $teamMembers, sections: $sections)';
+  final _this = this as PageEntity;
+  return 'PageEntity(id: ${_this.id}, slug: ${_this.slug}, image: ${_this.image}, title: ${_this.title}, content: ${_this.content}, teamMembers: ${_this.teamMembers}, sections: ${_this.sections})';
 }
 
 
@@ -592,7 +612,7 @@ class _$PageEntityCopyWithImpl<$Res>
 /// Create a copy of PageEntity
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? slug = null,Object? image = null,Object? title = null,Object? content = null,Object? teamMembers = null,Object? sections = null,}) {
-  return _then(_self.copyWith(
+  return _then(PageEntity(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,slug: null == slug ? _self.slug : slug // ignore: cast_nullable_to_non_nullable
 as String,image: null == image ? _self.image : image // ignore: cast_nullable_to_non_nullable
@@ -741,7 +761,7 @@ return $default(_that.id,_that.slug,_that.image,_that.title,_that.content,_that.
 
 
 class _PageEntity implements PageEntity {
-  const _PageEntity({required this.id, required this.slug, required this.image, required this.title, required this.content, required final  List<TeamMemberEntity> teamMembers, required final  List<SectionEntity> sections}): _teamMembers = teamMembers,_sections = sections;
+  const _PageEntity({required this.id, required this.slug, required this.image, required this.title, required this.content, required  List<TeamMemberEntity> teamMembers, required  List<SectionEntity> sections}): _teamMembers = teamMembers,_sections = sections;
   
 
 @override final  int id;
@@ -774,16 +794,18 @@ _$PageEntityCopyWith<_PageEntity> get copyWith => __$PageEntityCopyWithImpl<_Pag
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PageEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.slug, slug) || other.slug == slug)&&(identical(other.image, image) || other.image == image)&&(identical(other.title, title) || other.title == title)&&(identical(other.content, content) || other.content == content)&&const DeepCollectionEquality().equals(other._teamMembers, _teamMembers)&&const DeepCollectionEquality().equals(other._sections, _sections));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _PageEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.slug, slug) || other.slug == slug)&&(identical(other.image, image) || other.image == image)&&(identical(other.title, title) || other.title == title)&&(identical(other.content, content) || other.content == content)&&const DeepCollectionEquality().equals(other.teamMembers, _teamMembers)&&const DeepCollectionEquality().equals(other.sections, _sections));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,slug,image,title,content,const DeepCollectionEquality().hash(_teamMembers),const DeepCollectionEquality().hash(_sections));
+int get hashCode {
+    return Object.hash(runtimeType,id,slug,image,title,content,const DeepCollectionEquality().hash(_teamMembers),const DeepCollectionEquality().hash(_sections));
+}
 
 @override
 String toString() {
-  return 'PageEntity(id: $id, slug: $slug, image: $image, title: $title, content: $content, teamMembers: $teamMembers, sections: $sections)';
+    return 'PageEntity(id: $id, slug: $slug, image: $image, title: $title, content: $content, teamMembers: $teamMembers, sections: $sections)';
 }
 
 

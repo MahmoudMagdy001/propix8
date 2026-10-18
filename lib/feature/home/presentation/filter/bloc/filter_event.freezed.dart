@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'filter_event.dart';
@@ -9,6 +9,7 @@ part of 'filter_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -20,7 +21,7 @@ mixin _$FilterEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterEvent);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterEvent);
 }
 
 
@@ -29,7 +30,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'FilterEvent()';
+    return 'FilterEvent()';
 }
 
 
@@ -245,7 +246,7 @@ class FilterCitiesRequested implements FilterEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterCitiesRequested);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterCitiesRequested);
 }
 
 
@@ -254,7 +255,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'FilterEvent.citiesRequested()';
+    return 'FilterEvent.citiesRequested()';
 }
 
 
@@ -282,16 +283,18 @@ $FilterCitySelectedCopyWith<FilterCitySelected> get copyWith => _$FilterCitySele
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterCitySelected&&(identical(other.cityId, cityId) || other.cityId == cityId));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterCitySelected&&(identical(other.cityId, cityId) || other.cityId == cityId));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,cityId);
+int get hashCode {
+    return Object.hash(runtimeType,cityId);
+}
 
 @override
 String toString() {
-  return 'FilterEvent.citySelected(cityId: $cityId)';
+    return 'FilterEvent.citySelected(cityId: $cityId)';
 }
 
 
@@ -348,16 +351,18 @@ $FilterTabChangedCopyWith<FilterTabChanged> get copyWith => _$FilterTabChangedCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterTabChanged&&(identical(other.tab, tab) || other.tab == tab));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterTabChanged&&(identical(other.tab, tab) || other.tab == tab));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,tab);
+int get hashCode {
+    return Object.hash(runtimeType,tab);
+}
 
 @override
 String toString() {
-  return 'FilterEvent.tabChanged(tab: $tab)';
+    return 'FilterEvent.tabChanged(tab: $tab)';
 }
 
 
@@ -414,16 +419,18 @@ $FilterDevelopmentStatusChangedCopyWith<FilterDevelopmentStatusChanged> get copy
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterDevelopmentStatusChanged&&(identical(other.status, status) || other.status == status));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterDevelopmentStatusChanged&&(identical(other.status, status) || other.status == status));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status);
+int get hashCode {
+    return Object.hash(runtimeType,status);
+}
 
 @override
 String toString() {
-  return 'FilterEvent.developmentStatusChanged(status: $status)';
+    return 'FilterEvent.developmentStatusChanged(status: $status)';
 }
 
 
@@ -480,16 +487,18 @@ $FilterLocationUpdatedCopyWith<FilterLocationUpdated> get copyWith => _$FilterLo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterLocationUpdated&&(identical(other.location, location) || other.location == location));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterLocationUpdated&&(identical(other.location, location) || other.location == location));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,location);
+int get hashCode {
+    return Object.hash(runtimeType,location);
+}
 
 @override
 String toString() {
-  return 'FilterEvent.locationUpdated(location: $location)';
+    return 'FilterEvent.locationUpdated(location: $location)';
 }
 
 
@@ -547,16 +556,18 @@ $FilterPriceRangeUpdatedCopyWith<FilterPriceRangeUpdated> get copyWith => _$Filt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterPriceRangeUpdated&&(identical(other.min, min) || other.min == min)&&(identical(other.max, max) || other.max == max));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterPriceRangeUpdated&&(identical(other.min, min) || other.min == min)&&(identical(other.max, max) || other.max == max));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,min,max);
+int get hashCode {
+    return Object.hash(runtimeType,min,max);
+}
 
 @override
 String toString() {
-  return 'FilterEvent.priceRangeUpdated(min: $min, max: $max)';
+    return 'FilterEvent.priceRangeUpdated(min: $min, max: $max)';
 }
 
 
@@ -614,16 +625,18 @@ $FilterBedroomsUpdatedCopyWith<FilterBedroomsUpdated> get copyWith => _$FilterBe
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterBedroomsUpdated&&(identical(other.count, count) || other.count == count));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterBedroomsUpdated&&(identical(other.count, count) || other.count == count));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,count);
+int get hashCode {
+    return Object.hash(runtimeType,count);
+}
 
 @override
 String toString() {
-  return 'FilterEvent.bedroomsUpdated(count: $count)';
+    return 'FilterEvent.bedroomsUpdated(count: $count)';
 }
 
 
@@ -680,16 +693,18 @@ $FilterBathroomsUpdatedCopyWith<FilterBathroomsUpdated> get copyWith => _$Filter
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterBathroomsUpdated&&(identical(other.count, count) || other.count == count));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterBathroomsUpdated&&(identical(other.count, count) || other.count == count));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,count);
+int get hashCode {
+    return Object.hash(runtimeType,count);
+}
 
 @override
 String toString() {
-  return 'FilterEvent.bathroomsUpdated(count: $count)';
+    return 'FilterEvent.bathroomsUpdated(count: $count)';
 }
 
 
@@ -746,16 +761,18 @@ $FilterRoomsUpdatedCopyWith<FilterRoomsUpdated> get copyWith => _$FilterRoomsUpd
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterRoomsUpdated&&(identical(other.count, count) || other.count == count));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterRoomsUpdated&&(identical(other.count, count) || other.count == count));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,count);
+int get hashCode {
+    return Object.hash(runtimeType,count);
+}
 
 @override
 String toString() {
-  return 'FilterEvent.roomsUpdated(count: $count)';
+    return 'FilterEvent.roomsUpdated(count: $count)';
 }
 
 
@@ -813,16 +830,18 @@ $FilterAreaRangeUpdatedCopyWith<FilterAreaRangeUpdated> get copyWith => _$Filter
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterAreaRangeUpdated&&(identical(other.min, min) || other.min == min)&&(identical(other.max, max) || other.max == max));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterAreaRangeUpdated&&(identical(other.min, min) || other.min == min)&&(identical(other.max, max) || other.max == max));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,min,max);
+int get hashCode {
+    return Object.hash(runtimeType,min,max);
+}
 
 @override
 String toString() {
-  return 'FilterEvent.areaRangeUpdated(min: $min, max: $max)';
+    return 'FilterEvent.areaRangeUpdated(min: $min, max: $max)';
 }
 
 
@@ -875,7 +894,7 @@ class FilterReset implements FilterEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterReset);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterReset);
 }
 
 
@@ -884,7 +903,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'FilterEvent.reset()';
+    return 'FilterEvent.reset()';
 }
 
 

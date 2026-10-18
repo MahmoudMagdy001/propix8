@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'compound_response_model.dart';
@@ -9,6 +9,7 @@ part of 'compound_response_model.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -28,16 +29,21 @@ $CompoundResponseModelCopyWith<CompoundResponseModel> get copyWith => _$Compound
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CompoundResponseModel&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.data, data));
+  final _this = this as CompoundResponseModel;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CompoundResponseModel&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.message, _this.message) || other.message == _this.message)&&const DeepCollectionEquality().equals(other.data, _this.data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,status,message,const DeepCollectionEquality().hash(data));
+int get hashCode {
+  final _this = this as CompoundResponseModel;
+  return Object.hash(runtimeType,_this.status,_this.message,const DeepCollectionEquality().hash(_this.data));
+}
 
 @override
 String toString() {
-  return 'CompoundResponseModel(status: $status, message: $message, data: $data)';
+  final _this = this as CompoundResponseModel;
+  return 'CompoundResponseModel(status: ${_this.status}, message: ${_this.message}, data: ${_this.data})';
 }
 
 
@@ -66,7 +72,7 @@ class _$CompoundResponseModelCopyWithImpl<$Res>
 /// Create a copy of CompoundResponseModel
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? message = null,Object? data = null,}) {
-  return _then(_self.copyWith(
+  return _then(CompoundResponseModel(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as bool,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
@@ -211,7 +217,7 @@ return $default(_that.status,_that.message,_that.data);case _:
 @JsonSerializable()
 
 class _CompoundResponseModel implements CompoundResponseModel {
-  const _CompoundResponseModel({this.status = false, this.message = '', final  List<CompoundModel> data = const []}): _data = data;
+  const _CompoundResponseModel({this.status = false, this.message = '',  List<CompoundModel> data = const []}): _data = data;
   factory _CompoundResponseModel.fromJson(Map<String, dynamic> json) => _$CompoundResponseModelFromJson(json);
 
 @override@JsonKey() final  bool status;
@@ -237,16 +243,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CompoundResponseModel&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._data, _data));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _CompoundResponseModel&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.data, _data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,status,message,const DeepCollectionEquality().hash(_data));
+int get hashCode {
+    return Object.hash(runtimeType,status,message,const DeepCollectionEquality().hash(_data));
+}
 
 @override
 String toString() {
-  return 'CompoundResponseModel(status: $status, message: $message, data: $data)';
+    return 'CompoundResponseModel(status: $status, message: $message, data: $data)';
 }
 
 

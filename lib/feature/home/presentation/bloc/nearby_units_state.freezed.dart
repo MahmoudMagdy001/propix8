@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'nearby_units_state.dart';
@@ -9,6 +9,7 @@ part of 'nearby_units_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $NearbyUnitsStateCopyWith<NearbyUnitsState> get copyWith => _$NearbyUnitsStateCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NearbyUnitsState&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.units, units)&&(identical(other.pagination, pagination) || other.pagination == pagination)&&(identical(other.viewType, viewType) || other.viewType == viewType)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.isLoadingMore, isLoadingMore) || other.isLoadingMore == isLoadingMore));
+  final _this = this as NearbyUnitsState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NearbyUnitsState&&(identical(other.status, _this.status) || other.status == _this.status)&&const DeepCollectionEquality().equals(other.units, _this.units)&&(identical(other.pagination, _this.pagination) || other.pagination == _this.pagination)&&(identical(other.viewType, _this.viewType) || other.viewType == _this.viewType)&&(identical(other.errorMessage, _this.errorMessage) || other.errorMessage == _this.errorMessage)&&(identical(other.isLoadingMore, _this.isLoadingMore) || other.isLoadingMore == _this.isLoadingMore));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(units),pagination,viewType,errorMessage,isLoadingMore);
+int get hashCode {
+  final _this = this as NearbyUnitsState;
+  return Object.hash(runtimeType,_this.status,const DeepCollectionEquality().hash(_this.units),_this.pagination,_this.viewType,_this.errorMessage,_this.isLoadingMore);
+}
 
 @override
 String toString() {
-  return 'NearbyUnitsState(status: $status, units: $units, pagination: $pagination, viewType: $viewType, errorMessage: $errorMessage, isLoadingMore: $isLoadingMore)';
+  final _this = this as NearbyUnitsState;
+  return 'NearbyUnitsState(status: ${_this.status}, units: ${_this.units}, pagination: ${_this.pagination}, viewType: ${_this.viewType}, errorMessage: ${_this.errorMessage}, isLoadingMore: ${_this.isLoadingMore})';
 }
 
 
@@ -63,7 +69,7 @@ class _$NearbyUnitsStateCopyWithImpl<$Res>
 /// Create a copy of NearbyUnitsState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? units = null,Object? pagination = freezed,Object? viewType = null,Object? errorMessage = freezed,Object? isLoadingMore = null,}) {
-  return _then(_self.copyWith(
+  return _then(NearbyUnitsState(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as HomeRequestStatus,units: null == units ? _self.units : units // ignore: cast_nullable_to_non_nullable
 as List<UnitEntity>,pagination: freezed == pagination ? _self.pagination : pagination // ignore: cast_nullable_to_non_nullable
@@ -223,7 +229,7 @@ return $default(_that.status,_that.units,_that.pagination,_that.viewType,_that.e
 
 
 class _NearbyUnitsState extends NearbyUnitsState {
-  const _NearbyUnitsState({this.status = HomeRequestStatus.initial, final  List<UnitEntity> units = const [], this.pagination, this.viewType = ViewType.list, this.errorMessage, this.isLoadingMore = false}): _units = units,super._();
+  const _NearbyUnitsState({this.status = HomeRequestStatus.initial,  List<UnitEntity> units = const [], this.pagination, this.viewType = ViewType.list, this.errorMessage, this.isLoadingMore = false}): _units = units,super._();
   
 
 @override@JsonKey() final  HomeRequestStatus status;
@@ -249,16 +255,18 @@ _$NearbyUnitsStateCopyWith<_NearbyUnitsState> get copyWith => __$NearbyUnitsStat
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _NearbyUnitsState&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other._units, _units)&&(identical(other.pagination, pagination) || other.pagination == pagination)&&(identical(other.viewType, viewType) || other.viewType == viewType)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.isLoadingMore, isLoadingMore) || other.isLoadingMore == isLoadingMore));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _NearbyUnitsState&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.units, _units)&&(identical(other.pagination, pagination) || other.pagination == pagination)&&(identical(other.viewType, viewType) || other.viewType == viewType)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.isLoadingMore, isLoadingMore) || other.isLoadingMore == isLoadingMore));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(_units),pagination,viewType,errorMessage,isLoadingMore);
+int get hashCode {
+    return Object.hash(runtimeType,status,const DeepCollectionEquality().hash(_units),pagination,viewType,errorMessage,isLoadingMore);
+}
 
 @override
 String toString() {
-  return 'NearbyUnitsState(status: $status, units: $units, pagination: $pagination, viewType: $viewType, errorMessage: $errorMessage, isLoadingMore: $isLoadingMore)';
+    return 'NearbyUnitsState(status: $status, units: $units, pagination: $pagination, viewType: $viewType, errorMessage: $errorMessage, isLoadingMore: $isLoadingMore)';
 }
 
 

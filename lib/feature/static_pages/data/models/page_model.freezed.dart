@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'page_model.dart';
@@ -9,6 +9,7 @@ part of 'page_model.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -28,16 +29,21 @@ $TeamMemberModelCopyWith<TeamMemberModel> get copyWith => _$TeamMemberModelCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is TeamMemberModel&&(identical(other.name, name) || other.name == name)&&(identical(other.position, position) || other.position == position)&&(identical(other.photo, photo) || other.photo == photo));
+  final _this = this as TeamMemberModel;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TeamMemberModel&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.position, _this.position) || other.position == _this.position)&&(identical(other.photo, _this.photo) || other.photo == _this.photo));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,position,photo);
+int get hashCode {
+  final _this = this as TeamMemberModel;
+  return Object.hash(runtimeType,_this.name,_this.position,_this.photo);
+}
 
 @override
 String toString() {
-  return 'TeamMemberModel(name: $name, position: $position, photo: $photo)';
+  final _this = this as TeamMemberModel;
+  return 'TeamMemberModel(name: ${_this.name}, position: ${_this.position}, photo: ${_this.photo})';
 }
 
 
@@ -66,7 +72,7 @@ class _$TeamMemberModelCopyWithImpl<$Res>
 /// Create a copy of TeamMemberModel
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? position = null,Object? photo = null,}) {
-  return _then(_self.copyWith(
+  return _then(TeamMemberModel(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,position: null == position ? _self.position : position // ignore: cast_nullable_to_non_nullable
 as String,photo: null == photo ? _self.photo : photo // ignore: cast_nullable_to_non_nullable
@@ -231,16 +237,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TeamMemberModel&&(identical(other.name, name) || other.name == name)&&(identical(other.position, position) || other.position == position)&&(identical(other.photo, photo) || other.photo == photo));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _TeamMemberModel&&(identical(other.name, name) || other.name == name)&&(identical(other.position, position) || other.position == position)&&(identical(other.photo, photo) || other.photo == photo));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,position,photo);
+int get hashCode {
+    return Object.hash(runtimeType,name,position,photo);
+}
 
 @override
 String toString() {
-  return 'TeamMemberModel(name: $name, position: $position, photo: $photo)';
+    return 'TeamMemberModel(name: $name, position: $position, photo: $photo)';
 }
 
 
@@ -297,16 +305,21 @@ $SectionModelCopyWith<SectionModel> get copyWith => _$SectionModelCopyWithImpl<S
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SectionModel&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other.content, content));
+  final _this = this as SectionModel;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SectionModel&&(identical(other.title, _this.title) || other.title == _this.title)&&const DeepCollectionEquality().equals(other.content, _this.content));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,title,const DeepCollectionEquality().hash(content));
+int get hashCode {
+  final _this = this as SectionModel;
+  return Object.hash(runtimeType,_this.title,const DeepCollectionEquality().hash(_this.content));
+}
 
 @override
 String toString() {
-  return 'SectionModel(title: $title, content: $content)';
+  final _this = this as SectionModel;
+  return 'SectionModel(title: ${_this.title}, content: ${_this.content})';
 }
 
 
@@ -335,7 +348,7 @@ class _$SectionModelCopyWithImpl<$Res>
 /// Create a copy of SectionModel
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? title = null,Object? content = null,}) {
-  return _then(_self.copyWith(
+  return _then(SectionModel(
 title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
 as List<String>,
@@ -479,7 +492,7 @@ return $default(_that.title,_that.content);case _:
 @JsonSerializable()
 
 class _SectionModel extends SectionModel {
-  const _SectionModel({this.title = '', final  List<String> content = const []}): _content = content,super._();
+  const _SectionModel({this.title = '',  List<String> content = const []}): _content = content,super._();
   factory _SectionModel.fromJson(Map<String, dynamic> json) => _$SectionModelFromJson(json);
 
 @override@JsonKey() final  String title;
@@ -504,16 +517,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SectionModel&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other._content, _content));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SectionModel&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other.content, _content));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,title,const DeepCollectionEquality().hash(_content));
+int get hashCode {
+    return Object.hash(runtimeType,title,const DeepCollectionEquality().hash(_content));
+}
 
 @override
 String toString() {
-  return 'SectionModel(title: $title, content: $content)';
+    return 'SectionModel(title: $title, content: $content)';
 }
 
 
@@ -569,16 +584,21 @@ $PageModelCopyWith<PageModel> get copyWith => _$PageModelCopyWithImpl<PageModel>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is PageModel&&(identical(other.id, id) || other.id == id)&&(identical(other.slug, slug) || other.slug == slug)&&(identical(other.image, image) || other.image == image)&&(identical(other.title, title) || other.title == title)&&(identical(other.content, content) || other.content == content)&&const DeepCollectionEquality().equals(other.teamMembers, teamMembers)&&const DeepCollectionEquality().equals(other.sections, sections));
+  final _this = this as PageModel;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PageModel&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.slug, _this.slug) || other.slug == _this.slug)&&(identical(other.image, _this.image) || other.image == _this.image)&&(identical(other.title, _this.title) || other.title == _this.title)&&(identical(other.content, _this.content) || other.content == _this.content)&&const DeepCollectionEquality().equals(other.teamMembers, _this.teamMembers)&&const DeepCollectionEquality().equals(other.sections, _this.sections));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,slug,image,title,content,const DeepCollectionEquality().hash(teamMembers),const DeepCollectionEquality().hash(sections));
+int get hashCode {
+  final _this = this as PageModel;
+  return Object.hash(runtimeType,_this.id,_this.slug,_this.image,_this.title,_this.content,const DeepCollectionEquality().hash(_this.teamMembers),const DeepCollectionEquality().hash(_this.sections));
+}
 
 @override
 String toString() {
-  return 'PageModel(id: $id, slug: $slug, image: $image, title: $title, content: $content, teamMembers: $teamMembers, sections: $sections)';
+  final _this = this as PageModel;
+  return 'PageModel(id: ${_this.id}, slug: ${_this.slug}, image: ${_this.image}, title: ${_this.title}, content: ${_this.content}, teamMembers: ${_this.teamMembers}, sections: ${_this.sections})';
 }
 
 
@@ -607,7 +627,7 @@ class _$PageModelCopyWithImpl<$Res>
 /// Create a copy of PageModel
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? slug = null,Object? image = null,Object? title = null,Object? content = null,Object? teamMembers = null,Object? sections = null,}) {
-  return _then(_self.copyWith(
+  return _then(PageModel(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,slug: null == slug ? _self.slug : slug // ignore: cast_nullable_to_non_nullable
 as String,image: null == image ? _self.image : image // ignore: cast_nullable_to_non_nullable
@@ -756,7 +776,7 @@ return $default(_that.id,_that.slug,_that.image,_that.title,_that.content,_that.
 @JsonSerializable()
 
 class _PageModel extends PageModel {
-  const _PageModel({this.id = 0, this.slug = '', this.image = '', this.title = '', this.content = '', @JsonKey(name: 'team_members') final  List<TeamMemberModel> teamMembers = const [], final  List<SectionModel> sections = const []}): _teamMembers = teamMembers,_sections = sections,super._();
+  const _PageModel({this.id = 0, this.slug = '', this.image = '', this.title = '', this.content = '', @JsonKey(name: 'team_members')  List<TeamMemberModel> teamMembers = const [],  List<SectionModel> sections = const []}): _teamMembers = teamMembers,_sections = sections,super._();
   factory _PageModel.fromJson(Map<String, dynamic> json) => _$PageModelFromJson(json);
 
 @override@JsonKey() final  int id;
@@ -792,16 +812,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PageModel&&(identical(other.id, id) || other.id == id)&&(identical(other.slug, slug) || other.slug == slug)&&(identical(other.image, image) || other.image == image)&&(identical(other.title, title) || other.title == title)&&(identical(other.content, content) || other.content == content)&&const DeepCollectionEquality().equals(other._teamMembers, _teamMembers)&&const DeepCollectionEquality().equals(other._sections, _sections));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _PageModel&&(identical(other.id, id) || other.id == id)&&(identical(other.slug, slug) || other.slug == slug)&&(identical(other.image, image) || other.image == image)&&(identical(other.title, title) || other.title == title)&&(identical(other.content, content) || other.content == content)&&const DeepCollectionEquality().equals(other.teamMembers, _teamMembers)&&const DeepCollectionEquality().equals(other.sections, _sections));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,slug,image,title,content,const DeepCollectionEquality().hash(_teamMembers),const DeepCollectionEquality().hash(_sections));
+int get hashCode {
+    return Object.hash(runtimeType,id,slug,image,title,content,const DeepCollectionEquality().hash(_teamMembers),const DeepCollectionEquality().hash(_sections));
+}
 
 @override
 String toString() {
-  return 'PageModel(id: $id, slug: $slug, image: $image, title: $title, content: $content, teamMembers: $teamMembers, sections: $sections)';
+    return 'PageModel(id: $id, slug: $slug, image: $image, title: $title, content: $content, teamMembers: $teamMembers, sections: $sections)';
 }
 
 

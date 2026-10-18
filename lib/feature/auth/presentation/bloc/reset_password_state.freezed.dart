@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'reset_password_state.dart';
@@ -9,6 +9,7 @@ part of 'reset_password_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $ResetPasswordStateCopyWith<ResetPasswordState> get copyWith => _$ResetPasswordS
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ResetPasswordState&&(identical(other.status, status) || other.status == status)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.successMessage, successMessage) || other.successMessage == successMessage)&&(identical(other.token, token) || other.token == token));
+  final _this = this as ResetPasswordState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ResetPasswordState&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.errorMessage, _this.errorMessage) || other.errorMessage == _this.errorMessage)&&(identical(other.successMessage, _this.successMessage) || other.successMessage == _this.successMessage)&&(identical(other.token, _this.token) || other.token == _this.token));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,errorMessage,successMessage,token);
+int get hashCode {
+  final _this = this as ResetPasswordState;
+  return Object.hash(runtimeType,_this.status,_this.errorMessage,_this.successMessage,_this.token);
+}
 
 @override
 String toString() {
-  return 'ResetPasswordState(status: $status, errorMessage: $errorMessage, successMessage: $successMessage, token: $token)';
+  final _this = this as ResetPasswordState;
+  return 'ResetPasswordState(status: ${_this.status}, errorMessage: ${_this.errorMessage}, successMessage: ${_this.successMessage}, token: ${_this.token})';
 }
 
 
@@ -63,7 +69,7 @@ class _$ResetPasswordStateCopyWithImpl<$Res>
 /// Create a copy of ResetPasswordState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? errorMessage = freezed,Object? successMessage = freezed,Object? token = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ResetPasswordState(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as ResetPasswordStatus,errorMessage: freezed == errorMessage ? _self.errorMessage : errorMessage // ignore: cast_nullable_to_non_nullable
 as String?,successMessage: freezed == successMessage ? _self.successMessage : successMessage // ignore: cast_nullable_to_non_nullable
@@ -227,16 +233,18 @@ _$ResetPasswordStateCopyWith<_ResetPasswordState> get copyWith => __$ResetPasswo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ResetPasswordState&&(identical(other.status, status) || other.status == status)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.successMessage, successMessage) || other.successMessage == successMessage)&&(identical(other.token, token) || other.token == token));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ResetPasswordState&&(identical(other.status, status) || other.status == status)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.successMessage, successMessage) || other.successMessage == successMessage)&&(identical(other.token, token) || other.token == token));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,errorMessage,successMessage,token);
+int get hashCode {
+    return Object.hash(runtimeType,status,errorMessage,successMessage,token);
+}
 
 @override
 String toString() {
-  return 'ResetPasswordState(status: $status, errorMessage: $errorMessage, successMessage: $successMessage, token: $token)';
+    return 'ResetPasswordState(status: $status, errorMessage: $errorMessage, successMessage: $successMessage, token: $token)';
 }
 
 

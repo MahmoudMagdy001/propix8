@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'search_state.dart';
@@ -9,6 +9,7 @@ part of 'search_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $SearchStateCopyWith<SearchState> get copyWith => _$SearchStateCopyWithImpl<Sear
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SearchState&&(identical(other.status, status) || other.status == status)&&(identical(other.loadMoreStatus, loadMoreStatus) || other.loadMoreStatus == loadMoreStatus)&&const DeepCollectionEquality().equals(other.results, results)&&(identical(other.query, query) || other.query == query)&&(identical(other.currentPage, currentPage) || other.currentPage == currentPage)&&(identical(other.lastPage, lastPage) || other.lastPage == lastPage)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.viewType, viewType) || other.viewType == viewType));
+  final _this = this as SearchState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SearchState&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.loadMoreStatus, _this.loadMoreStatus) || other.loadMoreStatus == _this.loadMoreStatus)&&const DeepCollectionEquality().equals(other.results, _this.results)&&(identical(other.query, _this.query) || other.query == _this.query)&&(identical(other.currentPage, _this.currentPage) || other.currentPage == _this.currentPage)&&(identical(other.lastPage, _this.lastPage) || other.lastPage == _this.lastPage)&&(identical(other.errorMessage, _this.errorMessage) || other.errorMessage == _this.errorMessage)&&(identical(other.viewType, _this.viewType) || other.viewType == _this.viewType));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,loadMoreStatus,const DeepCollectionEquality().hash(results),query,currentPage,lastPage,errorMessage,viewType);
+int get hashCode {
+  final _this = this as SearchState;
+  return Object.hash(runtimeType,_this.status,_this.loadMoreStatus,const DeepCollectionEquality().hash(_this.results),_this.query,_this.currentPage,_this.lastPage,_this.errorMessage,_this.viewType);
+}
 
 @override
 String toString() {
-  return 'SearchState(status: $status, loadMoreStatus: $loadMoreStatus, results: $results, query: $query, currentPage: $currentPage, lastPage: $lastPage, errorMessage: $errorMessage, viewType: $viewType)';
+  final _this = this as SearchState;
+  return 'SearchState(status: ${_this.status}, loadMoreStatus: ${_this.loadMoreStatus}, results: ${_this.results}, query: ${_this.query}, currentPage: ${_this.currentPage}, lastPage: ${_this.lastPage}, errorMessage: ${_this.errorMessage}, viewType: ${_this.viewType})';
 }
 
 
@@ -63,7 +69,7 @@ class _$SearchStateCopyWithImpl<$Res>
 /// Create a copy of SearchState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? loadMoreStatus = null,Object? results = null,Object? query = null,Object? currentPage = null,Object? lastPage = null,Object? errorMessage = freezed,Object? viewType = null,}) {
-  return _then(_self.copyWith(
+  return _then(SearchState(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as HomeRequestStatus,loadMoreStatus: null == loadMoreStatus ? _self.loadMoreStatus : loadMoreStatus // ignore: cast_nullable_to_non_nullable
 as HomeRequestStatus,results: null == results ? _self.results : results // ignore: cast_nullable_to_non_nullable
@@ -213,7 +219,7 @@ return $default(_that.status,_that.loadMoreStatus,_that.results,_that.query,_tha
 
 
 class _SearchState extends SearchState {
-  const _SearchState({this.status = HomeRequestStatus.initial, this.loadMoreStatus = HomeRequestStatus.initial, final  List<UnitEntity> results = const <UnitEntity>[], this.query = '', this.currentPage = 1, this.lastPage = 1, this.errorMessage, this.viewType = ViewType.grid}): _results = results,super._();
+  const _SearchState({this.status = HomeRequestStatus.initial, this.loadMoreStatus = HomeRequestStatus.initial,  List<UnitEntity> results = const <UnitEntity>[], this.query = '', this.currentPage = 1, this.lastPage = 1, this.errorMessage, this.viewType = ViewType.grid}): _results = results,super._();
   
 
 @override@JsonKey() final  HomeRequestStatus status;
@@ -241,16 +247,18 @@ _$SearchStateCopyWith<_SearchState> get copyWith => __$SearchStateCopyWithImpl<_
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SearchState&&(identical(other.status, status) || other.status == status)&&(identical(other.loadMoreStatus, loadMoreStatus) || other.loadMoreStatus == loadMoreStatus)&&const DeepCollectionEquality().equals(other._results, _results)&&(identical(other.query, query) || other.query == query)&&(identical(other.currentPage, currentPage) || other.currentPage == currentPage)&&(identical(other.lastPage, lastPage) || other.lastPage == lastPage)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.viewType, viewType) || other.viewType == viewType));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SearchState&&(identical(other.status, status) || other.status == status)&&(identical(other.loadMoreStatus, loadMoreStatus) || other.loadMoreStatus == loadMoreStatus)&&const DeepCollectionEquality().equals(other.results, _results)&&(identical(other.query, query) || other.query == query)&&(identical(other.currentPage, currentPage) || other.currentPage == currentPage)&&(identical(other.lastPage, lastPage) || other.lastPage == lastPage)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.viewType, viewType) || other.viewType == viewType));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,loadMoreStatus,const DeepCollectionEquality().hash(_results),query,currentPage,lastPage,errorMessage,viewType);
+int get hashCode {
+    return Object.hash(runtimeType,status,loadMoreStatus,const DeepCollectionEquality().hash(_results),query,currentPage,lastPage,errorMessage,viewType);
+}
 
 @override
 String toString() {
-  return 'SearchState(status: $status, loadMoreStatus: $loadMoreStatus, results: $results, query: $query, currentPage: $currentPage, lastPage: $lastPage, errorMessage: $errorMessage, viewType: $viewType)';
+    return 'SearchState(status: $status, loadMoreStatus: $loadMoreStatus, results: $results, query: $query, currentPage: $currentPage, lastPage: $lastPage, errorMessage: $errorMessage, viewType: $viewType)';
 }
 
 

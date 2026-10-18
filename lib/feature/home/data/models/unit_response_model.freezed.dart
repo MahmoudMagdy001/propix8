@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'unit_response_model.dart';
@@ -9,6 +9,7 @@ part of 'unit_response_model.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $UnitResponseModelCopyWith<UnitResponseModel> get copyWith => _$UnitResponseMode
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitResponseModel&&const DeepCollectionEquality().equals(other.units, units)&&(identical(other.pagination, pagination) || other.pagination == pagination));
+  final _this = this as UnitResponseModel;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitResponseModel&&const DeepCollectionEquality().equals(other.units, _this.units)&&(identical(other.pagination, _this.pagination) || other.pagination == _this.pagination));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(units),pagination);
+int get hashCode {
+  final _this = this as UnitResponseModel;
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.units),_this.pagination);
+}
 
 @override
 String toString() {
-  return 'UnitResponseModel(units: $units, pagination: $pagination)';
+  final _this = this as UnitResponseModel;
+  return 'UnitResponseModel(units: ${_this.units}, pagination: ${_this.pagination})';
 }
 
 
@@ -63,7 +69,7 @@ class _$UnitResponseModelCopyWithImpl<$Res>
 /// Create a copy of UnitResponseModel
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? units = null,Object? pagination = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(UnitResponseModel(
 units: null == units ? _self.units : units // ignore: cast_nullable_to_non_nullable
 as List<UnitModel>,pagination: freezed == pagination ? _self.pagination : pagination // ignore: cast_nullable_to_non_nullable
 as PaginationModel?,
@@ -219,7 +225,7 @@ return $default(_that.units,_that.pagination);case _:
 
 
 class _UnitResponseModel extends UnitResponseModel {
-  const _UnitResponseModel({final  List<UnitModel> units = const [], this.pagination}): _units = units,super._();
+  const _UnitResponseModel({ List<UnitModel> units = const [], this.pagination}): _units = units,super._();
   
 
  final  List<UnitModel> _units;
@@ -241,16 +247,18 @@ _$UnitResponseModelCopyWith<_UnitResponseModel> get copyWith => __$UnitResponseM
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitResponseModel&&const DeepCollectionEquality().equals(other._units, _units)&&(identical(other.pagination, pagination) || other.pagination == pagination));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitResponseModel&&const DeepCollectionEquality().equals(other.units, _units)&&(identical(other.pagination, pagination) || other.pagination == pagination));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_units),pagination);
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_units),pagination);
+}
 
 @override
 String toString() {
-  return 'UnitResponseModel(units: $units, pagination: $pagination)';
+    return 'UnitResponseModel(units: $units, pagination: $pagination)';
 }
 
 

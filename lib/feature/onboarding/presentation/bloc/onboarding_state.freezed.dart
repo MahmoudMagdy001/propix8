@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'onboarding_state.dart';
@@ -9,6 +9,7 @@ part of 'onboarding_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $OnboardingStateCopyWith<OnboardingState> get copyWith => _$OnboardingStateCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OnboardingState&&(identical(other.pageIndex, pageIndex) || other.pageIndex == pageIndex)&&const DeepCollectionEquality().equals(other.pages, pages)&&(identical(other.isCompleted, isCompleted) || other.isCompleted == isCompleted));
+  final _this = this as OnboardingState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is OnboardingState&&(identical(other.pageIndex, _this.pageIndex) || other.pageIndex == _this.pageIndex)&&const DeepCollectionEquality().equals(other.pages, _this.pages)&&(identical(other.isCompleted, _this.isCompleted) || other.isCompleted == _this.isCompleted));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,pageIndex,const DeepCollectionEquality().hash(pages),isCompleted);
+int get hashCode {
+  final _this = this as OnboardingState;
+  return Object.hash(runtimeType,_this.pageIndex,const DeepCollectionEquality().hash(_this.pages),_this.isCompleted);
+}
 
 @override
 String toString() {
-  return 'OnboardingState(pageIndex: $pageIndex, pages: $pages, isCompleted: $isCompleted)';
+  final _this = this as OnboardingState;
+  return 'OnboardingState(pageIndex: ${_this.pageIndex}, pages: ${_this.pages}, isCompleted: ${_this.isCompleted})';
 }
 
 
@@ -63,7 +69,7 @@ class _$OnboardingStateCopyWithImpl<$Res>
 /// Create a copy of OnboardingState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? pageIndex = null,Object? pages = null,Object? isCompleted = null,}) {
-  return _then(_self.copyWith(
+  return _then(OnboardingState(
 pageIndex: null == pageIndex ? _self.pageIndex : pageIndex // ignore: cast_nullable_to_non_nullable
 as int,pages: null == pages ? _self.pages : pages // ignore: cast_nullable_to_non_nullable
 as List<OnboardingPageEntity>,isCompleted: null == isCompleted ? _self.isCompleted : isCompleted // ignore: cast_nullable_to_non_nullable
@@ -208,7 +214,7 @@ return $default(_that.pageIndex,_that.pages,_that.isCompleted);case _:
 
 
 class _OnboardingState extends OnboardingState {
-  const _OnboardingState({this.pageIndex = 0, final  List<OnboardingPageEntity> pages = const [], this.isCompleted = false}): _pages = pages,super._();
+  const _OnboardingState({this.pageIndex = 0,  List<OnboardingPageEntity> pages = const [], this.isCompleted = false}): _pages = pages,super._();
   
 
 @override@JsonKey() final  int pageIndex;
@@ -231,16 +237,18 @@ _$OnboardingStateCopyWith<_OnboardingState> get copyWith => __$OnboardingStateCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OnboardingState&&(identical(other.pageIndex, pageIndex) || other.pageIndex == pageIndex)&&const DeepCollectionEquality().equals(other._pages, _pages)&&(identical(other.isCompleted, isCompleted) || other.isCompleted == isCompleted));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _OnboardingState&&(identical(other.pageIndex, pageIndex) || other.pageIndex == pageIndex)&&const DeepCollectionEquality().equals(other.pages, _pages)&&(identical(other.isCompleted, isCompleted) || other.isCompleted == isCompleted));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,pageIndex,const DeepCollectionEquality().hash(_pages),isCompleted);
+int get hashCode {
+    return Object.hash(runtimeType,pageIndex,const DeepCollectionEquality().hash(_pages),isCompleted);
+}
 
 @override
 String toString() {
-  return 'OnboardingState(pageIndex: $pageIndex, pages: $pages, isCompleted: $isCompleted)';
+    return 'OnboardingState(pageIndex: $pageIndex, pages: $pages, isCompleted: $isCompleted)';
 }
 
 

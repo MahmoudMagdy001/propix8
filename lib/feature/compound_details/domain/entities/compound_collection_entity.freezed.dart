@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'compound_collection_entity.dart';
@@ -9,6 +9,7 @@ part of 'compound_collection_entity.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $CompoundCollectionEntityCopyWith<CompoundCollectionEntity> get copyWith => _$Co
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CompoundCollectionEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.units, units)&&(identical(other.pagination, pagination) || other.pagination == pagination));
+  final _this = this as CompoundCollectionEntity;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CompoundCollectionEntity&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.description, _this.description) || other.description == _this.description)&&const DeepCollectionEquality().equals(other.units, _this.units)&&(identical(other.pagination, _this.pagination) || other.pagination == _this.pagination));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,name,description,const DeepCollectionEquality().hash(units),pagination);
+int get hashCode {
+  final _this = this as CompoundCollectionEntity;
+  return Object.hash(runtimeType,_this.id,_this.name,_this.description,const DeepCollectionEquality().hash(_this.units),_this.pagination);
+}
 
 @override
 String toString() {
-  return 'CompoundCollectionEntity(id: $id, name: $name, description: $description, units: $units, pagination: $pagination)';
+  final _this = this as CompoundCollectionEntity;
+  return 'CompoundCollectionEntity(id: ${_this.id}, name: ${_this.name}, description: ${_this.description}, units: ${_this.units}, pagination: ${_this.pagination})';
 }
 
 
@@ -63,7 +69,7 @@ class _$CompoundCollectionEntityCopyWithImpl<$Res>
 /// Create a copy of CompoundCollectionEntity
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? description = null,Object? units = null,Object? pagination = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(CompoundCollectionEntity(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
@@ -222,7 +228,7 @@ return $default(_that.id,_that.name,_that.description,_that.units,_that.paginati
 
 
 class _CompoundCollectionEntity extends CompoundCollectionEntity {
-  const _CompoundCollectionEntity({required this.id, required this.name, required this.description, required final  List<UnitEntity> units, this.pagination}): _units = units,super._();
+  const _CompoundCollectionEntity({required this.id, required this.name, required this.description, required  List<UnitEntity> units, this.pagination}): _units = units,super._();
   
 
 @override final  int id;
@@ -247,16 +253,18 @@ _$CompoundCollectionEntityCopyWith<_CompoundCollectionEntity> get copyWith => __
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CompoundCollectionEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other._units, _units)&&(identical(other.pagination, pagination) || other.pagination == pagination));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _CompoundCollectionEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.units, _units)&&(identical(other.pagination, pagination) || other.pagination == pagination));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,name,description,const DeepCollectionEquality().hash(_units),pagination);
+int get hashCode {
+    return Object.hash(runtimeType,id,name,description,const DeepCollectionEquality().hash(_units),pagination);
+}
 
 @override
 String toString() {
-  return 'CompoundCollectionEntity(id: $id, name: $name, description: $description, units: $units, pagination: $pagination)';
+    return 'CompoundCollectionEntity(id: $id, name: $name, description: $description, units: $units, pagination: $pagination)';
 }
 
 

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'compound_units_state.dart';
@@ -9,6 +9,7 @@ part of 'compound_units_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $CompoundUnitsStateCopyWith<CompoundUnitsState> get copyWith => _$CompoundUnitsS
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CompoundUnitsState&&(identical(other.status, status) || other.status == status)&&(identical(other.compound, compound) || other.compound == compound)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.viewType, viewType) || other.viewType == viewType)&&(identical(other.isLoadingMore, isLoadingMore) || other.isLoadingMore == isLoadingMore));
+  final _this = this as CompoundUnitsState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CompoundUnitsState&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.compound, _this.compound) || other.compound == _this.compound)&&(identical(other.errorMessage, _this.errorMessage) || other.errorMessage == _this.errorMessage)&&(identical(other.viewType, _this.viewType) || other.viewType == _this.viewType)&&(identical(other.isLoadingMore, _this.isLoadingMore) || other.isLoadingMore == _this.isLoadingMore));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,compound,errorMessage,viewType,isLoadingMore);
+int get hashCode {
+  final _this = this as CompoundUnitsState;
+  return Object.hash(runtimeType,_this.status,_this.compound,_this.errorMessage,_this.viewType,_this.isLoadingMore);
+}
 
 @override
 String toString() {
-  return 'CompoundUnitsState(status: $status, compound: $compound, errorMessage: $errorMessage, viewType: $viewType, isLoadingMore: $isLoadingMore)';
+  final _this = this as CompoundUnitsState;
+  return 'CompoundUnitsState(status: ${_this.status}, compound: ${_this.compound}, errorMessage: ${_this.errorMessage}, viewType: ${_this.viewType}, isLoadingMore: ${_this.isLoadingMore})';
 }
 
 
@@ -63,7 +69,7 @@ class _$CompoundUnitsStateCopyWithImpl<$Res>
 /// Create a copy of CompoundUnitsState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? compound = freezed,Object? errorMessage = freezed,Object? viewType = null,Object? isLoadingMore = null,}) {
-  return _then(_self.copyWith(
+  return _then(CompoundUnitsState(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as HomeRequestStatus,compound: freezed == compound ? _self.compound : compound // ignore: cast_nullable_to_non_nullable
 as CompoundCollectionEntity?,errorMessage: freezed == errorMessage ? _self.errorMessage : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -241,16 +247,18 @@ _$CompoundUnitsStateCopyWith<_CompoundUnitsState> get copyWith => __$CompoundUni
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CompoundUnitsState&&(identical(other.status, status) || other.status == status)&&(identical(other.compound, compound) || other.compound == compound)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.viewType, viewType) || other.viewType == viewType)&&(identical(other.isLoadingMore, isLoadingMore) || other.isLoadingMore == isLoadingMore));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _CompoundUnitsState&&(identical(other.status, status) || other.status == status)&&(identical(other.compound, compound) || other.compound == compound)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.viewType, viewType) || other.viewType == viewType)&&(identical(other.isLoadingMore, isLoadingMore) || other.isLoadingMore == isLoadingMore));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,compound,errorMessage,viewType,isLoadingMore);
+int get hashCode {
+    return Object.hash(runtimeType,status,compound,errorMessage,viewType,isLoadingMore);
+}
 
 @override
 String toString() {
-  return 'CompoundUnitsState(status: $status, compound: $compound, errorMessage: $errorMessage, viewType: $viewType, isLoadingMore: $isLoadingMore)';
+    return 'CompoundUnitsState(status: $status, compound: $compound, errorMessage: $errorMessage, viewType: $viewType, isLoadingMore: $isLoadingMore)';
 }
 
 

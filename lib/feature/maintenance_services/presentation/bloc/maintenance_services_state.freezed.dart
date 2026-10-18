@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'maintenance_services_state.dart';
@@ -9,6 +9,7 @@ part of 'maintenance_services_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $MaintenanceServicesStateCopyWith<MaintenanceServicesState> get copyWith => _$Ma
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceServicesState&&(identical(other.status, status) || other.status == status)&&(identical(other.data, data) || other.data == data)&&const DeepCollectionEquality().equals(other.bookedServiceIds, bookedServiceIds)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
+  final _this = this as MaintenanceServicesState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceServicesState&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.data, _this.data) || other.data == _this.data)&&const DeepCollectionEquality().equals(other.bookedServiceIds, _this.bookedServiceIds)&&(identical(other.errorMessage, _this.errorMessage) || other.errorMessage == _this.errorMessage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,data,const DeepCollectionEquality().hash(bookedServiceIds),errorMessage);
+int get hashCode {
+  final _this = this as MaintenanceServicesState;
+  return Object.hash(runtimeType,_this.status,_this.data,const DeepCollectionEquality().hash(_this.bookedServiceIds),_this.errorMessage);
+}
 
 @override
 String toString() {
-  return 'MaintenanceServicesState(status: $status, data: $data, bookedServiceIds: $bookedServiceIds, errorMessage: $errorMessage)';
+  final _this = this as MaintenanceServicesState;
+  return 'MaintenanceServicesState(status: ${_this.status}, data: ${_this.data}, bookedServiceIds: ${_this.bookedServiceIds}, errorMessage: ${_this.errorMessage})';
 }
 
 
@@ -63,7 +69,7 @@ class _$MaintenanceServicesStateCopyWithImpl<$Res>
 /// Create a copy of MaintenanceServicesState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? data = freezed,Object? bookedServiceIds = null,Object? errorMessage = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(MaintenanceServicesState(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as MaintenanceRequestStatus,data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as MaintenanceServicesDataEntity?,bookedServiceIds: null == bookedServiceIds ? _self.bookedServiceIds : bookedServiceIds // ignore: cast_nullable_to_non_nullable
@@ -221,7 +227,7 @@ return $default(_that.status,_that.data,_that.bookedServiceIds,_that.errorMessag
 
 
 class _MaintenanceServicesState implements MaintenanceServicesState {
-  const _MaintenanceServicesState({this.status = MaintenanceRequestStatus.initial, this.data, final  Set<int> bookedServiceIds = const <int>{}, this.errorMessage}): _bookedServiceIds = bookedServiceIds;
+  const _MaintenanceServicesState({this.status = MaintenanceRequestStatus.initial, this.data,  Set<int> bookedServiceIds = const <int>{}, this.errorMessage}): _bookedServiceIds = bookedServiceIds;
   
 
 @override@JsonKey() final  MaintenanceRequestStatus status;
@@ -245,16 +251,18 @@ _$MaintenanceServicesStateCopyWith<_MaintenanceServicesState> get copyWith => __
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MaintenanceServicesState&&(identical(other.status, status) || other.status == status)&&(identical(other.data, data) || other.data == data)&&const DeepCollectionEquality().equals(other._bookedServiceIds, _bookedServiceIds)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _MaintenanceServicesState&&(identical(other.status, status) || other.status == status)&&(identical(other.data, data) || other.data == data)&&const DeepCollectionEquality().equals(other.bookedServiceIds, _bookedServiceIds)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,data,const DeepCollectionEquality().hash(_bookedServiceIds),errorMessage);
+int get hashCode {
+    return Object.hash(runtimeType,status,data,const DeepCollectionEquality().hash(_bookedServiceIds),errorMessage);
+}
 
 @override
 String toString() {
-  return 'MaintenanceServicesState(status: $status, data: $data, bookedServiceIds: $bookedServiceIds, errorMessage: $errorMessage)';
+    return 'MaintenanceServicesState(status: $status, data: $data, bookedServiceIds: $bookedServiceIds, errorMessage: $errorMessage)';
 }
 
 

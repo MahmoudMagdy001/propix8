@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'maintenance_bookings_state.dart';
@@ -9,6 +9,7 @@ part of 'maintenance_bookings_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $MaintenanceBookingsStateCopyWith<MaintenanceBookingsState> get copyWith => _$Ma
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceBookingsState&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.bookings, bookings)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.currentPage, currentPage) || other.currentPage == currentPage)&&(identical(other.lastPage, lastPage) || other.lastPage == lastPage));
+  final _this = this as MaintenanceBookingsState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MaintenanceBookingsState&&(identical(other.status, _this.status) || other.status == _this.status)&&const DeepCollectionEquality().equals(other.bookings, _this.bookings)&&(identical(other.errorMessage, _this.errorMessage) || other.errorMessage == _this.errorMessage)&&(identical(other.currentPage, _this.currentPage) || other.currentPage == _this.currentPage)&&(identical(other.lastPage, _this.lastPage) || other.lastPage == _this.lastPage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(bookings),errorMessage,currentPage,lastPage);
+int get hashCode {
+  final _this = this as MaintenanceBookingsState;
+  return Object.hash(runtimeType,_this.status,const DeepCollectionEquality().hash(_this.bookings),_this.errorMessage,_this.currentPage,_this.lastPage);
+}
 
 @override
 String toString() {
-  return 'MaintenanceBookingsState(status: $status, bookings: $bookings, errorMessage: $errorMessage, currentPage: $currentPage, lastPage: $lastPage)';
+  final _this = this as MaintenanceBookingsState;
+  return 'MaintenanceBookingsState(status: ${_this.status}, bookings: ${_this.bookings}, errorMessage: ${_this.errorMessage}, currentPage: ${_this.currentPage}, lastPage: ${_this.lastPage})';
 }
 
 
@@ -63,7 +69,7 @@ class _$MaintenanceBookingsStateCopyWithImpl<$Res>
 /// Create a copy of MaintenanceBookingsState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? bookings = null,Object? errorMessage = freezed,Object? currentPage = null,Object? lastPage = null,}) {
-  return _then(_self.copyWith(
+  return _then(MaintenanceBookingsState(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as MaintenanceBookingsStatus,bookings: null == bookings ? _self.bookings : bookings // ignore: cast_nullable_to_non_nullable
 as List<MaintenanceBookingEntity>,errorMessage: freezed == errorMessage ? _self.errorMessage : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -210,7 +216,7 @@ return $default(_that.status,_that.bookings,_that.errorMessage,_that.currentPage
 
 
 class _MaintenanceBookingsState extends MaintenanceBookingsState {
-  const _MaintenanceBookingsState({this.status = MaintenanceBookingsStatus.initial, final  List<MaintenanceBookingEntity> bookings = const [], this.errorMessage, this.currentPage = 1, this.lastPage = 1}): _bookings = bookings,super._();
+  const _MaintenanceBookingsState({this.status = MaintenanceBookingsStatus.initial,  List<MaintenanceBookingEntity> bookings = const [], this.errorMessage, this.currentPage = 1, this.lastPage = 1}): _bookings = bookings,super._();
   
 
 @override@JsonKey() final  MaintenanceBookingsStatus status;
@@ -235,16 +241,18 @@ _$MaintenanceBookingsStateCopyWith<_MaintenanceBookingsState> get copyWith => __
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MaintenanceBookingsState&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other._bookings, _bookings)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.currentPage, currentPage) || other.currentPage == currentPage)&&(identical(other.lastPage, lastPage) || other.lastPage == lastPage));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _MaintenanceBookingsState&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.bookings, _bookings)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.currentPage, currentPage) || other.currentPage == currentPage)&&(identical(other.lastPage, lastPage) || other.lastPage == lastPage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(_bookings),errorMessage,currentPage,lastPage);
+int get hashCode {
+    return Object.hash(runtimeType,status,const DeepCollectionEquality().hash(_bookings),errorMessage,currentPage,lastPage);
+}
 
 @override
 String toString() {
-  return 'MaintenanceBookingsState(status: $status, bookings: $bookings, errorMessage: $errorMessage, currentPage: $currentPage, lastPage: $lastPage)';
+    return 'MaintenanceBookingsState(status: $status, bookings: $bookings, errorMessage: $errorMessage, currentPage: $currentPage, lastPage: $lastPage)';
 }
 
 

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'booking_dto.dart';
@@ -9,6 +9,7 @@ part of 'booking_dto.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -28,16 +29,21 @@ $BookingUserDtoCopyWith<BookingUserDto> get copyWith => _$BookingUserDtoCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingUserDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email));
+  final _this = this as BookingUserDto;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingUserDto&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.email, _this.email) || other.email == _this.email));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,email);
+int get hashCode {
+  final _this = this as BookingUserDto;
+  return Object.hash(runtimeType,_this.id,_this.name,_this.email);
+}
 
 @override
 String toString() {
-  return 'BookingUserDto(id: $id, name: $name, email: $email)';
+  final _this = this as BookingUserDto;
+  return 'BookingUserDto(id: ${_this.id}, name: ${_this.name}, email: ${_this.email})';
 }
 
 
@@ -66,7 +72,7 @@ class _$BookingUserDtoCopyWithImpl<$Res>
 /// Create a copy of BookingUserDto
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? email = null,}) {
-  return _then(_self.copyWith(
+  return _then(BookingUserDto(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
@@ -231,16 +237,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookingUserDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookingUserDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,email);
+int get hashCode {
+    return Object.hash(runtimeType,id,name,email);
+}
 
 @override
 String toString() {
-  return 'BookingUserDto(id: $id, name: $name, email: $email)';
+    return 'BookingUserDto(id: $id, name: $name, email: $email)';
 }
 
 
@@ -297,16 +305,21 @@ $BookingCityDtoCopyWith<BookingCityDto> get copyWith => _$BookingCityDtoCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingCityDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name));
+  final _this = this as BookingCityDto;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingCityDto&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.name, _this.name) || other.name == _this.name));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name);
+int get hashCode {
+  final _this = this as BookingCityDto;
+  return Object.hash(runtimeType,_this.id,_this.name);
+}
 
 @override
 String toString() {
-  return 'BookingCityDto(id: $id, name: $name)';
+  final _this = this as BookingCityDto;
+  return 'BookingCityDto(id: ${_this.id}, name: ${_this.name})';
 }
 
 
@@ -335,7 +348,7 @@ class _$BookingCityDtoCopyWithImpl<$Res>
 /// Create a copy of BookingCityDto
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,}) {
-  return _then(_self.copyWith(
+  return _then(BookingCityDto(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,
@@ -498,16 +511,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookingCityDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookingCityDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name);
+int get hashCode {
+    return Object.hash(runtimeType,id,name);
+}
 
 @override
 String toString() {
-  return 'BookingCityDto(id: $id, name: $name)';
+    return 'BookingCityDto(id: $id, name: $name)';
 }
 
 
@@ -563,16 +578,21 @@ $BookingCompoundDtoCopyWith<BookingCompoundDto> get copyWith => _$BookingCompoun
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingCompoundDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name));
+  final _this = this as BookingCompoundDto;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingCompoundDto&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.name, _this.name) || other.name == _this.name));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name);
+int get hashCode {
+  final _this = this as BookingCompoundDto;
+  return Object.hash(runtimeType,_this.id,_this.name);
+}
 
 @override
 String toString() {
-  return 'BookingCompoundDto(id: $id, name: $name)';
+  final _this = this as BookingCompoundDto;
+  return 'BookingCompoundDto(id: ${_this.id}, name: ${_this.name})';
 }
 
 
@@ -601,7 +621,7 @@ class _$BookingCompoundDtoCopyWithImpl<$Res>
 /// Create a copy of BookingCompoundDto
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,}) {
-  return _then(_self.copyWith(
+  return _then(BookingCompoundDto(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,
@@ -764,16 +784,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookingCompoundDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookingCompoundDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name);
+int get hashCode {
+    return Object.hash(runtimeType,id,name);
+}
 
 @override
 String toString() {
-  return 'BookingCompoundDto(id: $id, name: $name)';
+    return 'BookingCompoundDto(id: $id, name: $name)';
 }
 
 
@@ -829,16 +851,21 @@ $BookingDeveloperDtoCopyWith<BookingDeveloperDto> get copyWith => _$BookingDevel
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingDeveloperDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name));
+  final _this = this as BookingDeveloperDto;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingDeveloperDto&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.name, _this.name) || other.name == _this.name));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name);
+int get hashCode {
+  final _this = this as BookingDeveloperDto;
+  return Object.hash(runtimeType,_this.id,_this.name);
+}
 
 @override
 String toString() {
-  return 'BookingDeveloperDto(id: $id, name: $name)';
+  final _this = this as BookingDeveloperDto;
+  return 'BookingDeveloperDto(id: ${_this.id}, name: ${_this.name})';
 }
 
 
@@ -867,7 +894,7 @@ class _$BookingDeveloperDtoCopyWithImpl<$Res>
 /// Create a copy of BookingDeveloperDto
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,}) {
-  return _then(_self.copyWith(
+  return _then(BookingDeveloperDto(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,
@@ -1030,16 +1057,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookingDeveloperDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookingDeveloperDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name);
+int get hashCode {
+    return Object.hash(runtimeType,id,name);
+}
 
 @override
 String toString() {
-  return 'BookingDeveloperDto(id: $id, name: $name)';
+    return 'BookingDeveloperDto(id: $id, name: $name)';
 }
 
 
@@ -1095,16 +1124,21 @@ $BookingUnitTypeDtoCopyWith<BookingUnitTypeDto> get copyWith => _$BookingUnitTyp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingUnitTypeDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.icon, icon) || other.icon == icon));
+  final _this = this as BookingUnitTypeDto;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingUnitTypeDto&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.icon, _this.icon) || other.icon == _this.icon));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,icon);
+int get hashCode {
+  final _this = this as BookingUnitTypeDto;
+  return Object.hash(runtimeType,_this.id,_this.name,_this.icon);
+}
 
 @override
 String toString() {
-  return 'BookingUnitTypeDto(id: $id, name: $name, icon: $icon)';
+  final _this = this as BookingUnitTypeDto;
+  return 'BookingUnitTypeDto(id: ${_this.id}, name: ${_this.name}, icon: ${_this.icon})';
 }
 
 
@@ -1133,7 +1167,7 @@ class _$BookingUnitTypeDtoCopyWithImpl<$Res>
 /// Create a copy of BookingUnitTypeDto
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? icon = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(BookingUnitTypeDto(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,icon: freezed == icon ? _self.icon : icon // ignore: cast_nullable_to_non_nullable
@@ -1298,16 +1332,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookingUnitTypeDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.icon, icon) || other.icon == icon));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookingUnitTypeDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.icon, icon) || other.icon == icon));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,icon);
+int get hashCode {
+    return Object.hash(runtimeType,id,name,icon);
+}
 
 @override
 String toString() {
-  return 'BookingUnitTypeDto(id: $id, name: $name, icon: $icon)';
+    return 'BookingUnitTypeDto(id: $id, name: $name, icon: $icon)';
 }
 
 
@@ -1364,16 +1400,21 @@ $BookingUnitDtoCopyWith<BookingUnitDto> get copyWith => _$BookingUnitDtoCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingUnitDto&&(identical(other.city, city) || other.city == city)&&(identical(other.unitType, unitType) || other.unitType == unitType)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.isVisible, isVisible) || other.isVisible == isVisible)&&(identical(other.isFavourite, isFavourite) || other.isFavourite == isFavourite)&&(identical(other.address, address) || other.address == address)&&(identical(other.price, price) || other.price == price)&&(identical(other.offerType, offerType) || other.offerType == offerType)&&(identical(other.area, area) || other.area == area)&&(identical(other.rooms, rooms) || other.rooms == rooms)&&(identical(other.bathrooms, bathrooms) || other.bathrooms == bathrooms)&&(identical(other.mainImage, mainImage) || other.mainImage == mainImage)&&(identical(other.averageRating, averageRating) || other.averageRating == averageRating)&&(identical(other.reviewsCount, reviewsCount) || other.reviewsCount == reviewsCount)&&(identical(other.compound, compound) || other.compound == compound)&&(identical(other.developer, developer) || other.developer == developer));
+  final _this = this as BookingUnitDto;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingUnitDto&&(identical(other.city, _this.city) || other.city == _this.city)&&(identical(other.unitType, _this.unitType) || other.unitType == _this.unitType)&&(identical(other.createdAt, _this.createdAt) || other.createdAt == _this.createdAt)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.title, _this.title) || other.title == _this.title)&&(identical(other.isVisible, _this.isVisible) || other.isVisible == _this.isVisible)&&(identical(other.isFavourite, _this.isFavourite) || other.isFavourite == _this.isFavourite)&&(identical(other.address, _this.address) || other.address == _this.address)&&(identical(other.price, _this.price) || other.price == _this.price)&&(identical(other.offerType, _this.offerType) || other.offerType == _this.offerType)&&(identical(other.area, _this.area) || other.area == _this.area)&&(identical(other.rooms, _this.rooms) || other.rooms == _this.rooms)&&(identical(other.bathrooms, _this.bathrooms) || other.bathrooms == _this.bathrooms)&&(identical(other.mainImage, _this.mainImage) || other.mainImage == _this.mainImage)&&(identical(other.averageRating, _this.averageRating) || other.averageRating == _this.averageRating)&&(identical(other.reviewsCount, _this.reviewsCount) || other.reviewsCount == _this.reviewsCount)&&(identical(other.compound, _this.compound) || other.compound == _this.compound)&&(identical(other.developer, _this.developer) || other.developer == _this.developer));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,city,unitType,createdAt,id,title,isVisible,isFavourite,address,price,offerType,area,rooms,bathrooms,mainImage,averageRating,reviewsCount,compound,developer);
+int get hashCode {
+  final _this = this as BookingUnitDto;
+  return Object.hash(runtimeType,_this.city,_this.unitType,_this.createdAt,_this.id,_this.title,_this.isVisible,_this.isFavourite,_this.address,_this.price,_this.offerType,_this.area,_this.rooms,_this.bathrooms,_this.mainImage,_this.averageRating,_this.reviewsCount,_this.compound,_this.developer);
+}
 
 @override
 String toString() {
-  return 'BookingUnitDto(city: $city, unitType: $unitType, createdAt: $createdAt, id: $id, title: $title, isVisible: $isVisible, isFavourite: $isFavourite, address: $address, price: $price, offerType: $offerType, area: $area, rooms: $rooms, bathrooms: $bathrooms, mainImage: $mainImage, averageRating: $averageRating, reviewsCount: $reviewsCount, compound: $compound, developer: $developer)';
+  final _this = this as BookingUnitDto;
+  return 'BookingUnitDto(city: ${_this.city}, unitType: ${_this.unitType}, createdAt: ${_this.createdAt}, id: ${_this.id}, title: ${_this.title}, isVisible: ${_this.isVisible}, isFavourite: ${_this.isFavourite}, address: ${_this.address}, price: ${_this.price}, offerType: ${_this.offerType}, area: ${_this.area}, rooms: ${_this.rooms}, bathrooms: ${_this.bathrooms}, mainImage: ${_this.mainImage}, averageRating: ${_this.averageRating}, reviewsCount: ${_this.reviewsCount}, compound: ${_this.compound}, developer: ${_this.developer})';
 }
 
 
@@ -1402,7 +1443,7 @@ class _$BookingUnitDtoCopyWithImpl<$Res>
 /// Create a copy of BookingUnitDto
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? city = null,Object? unitType = null,Object? createdAt = null,Object? id = null,Object? title = null,Object? isVisible = null,Object? isFavourite = null,Object? address = null,Object? price = null,Object? offerType = null,Object? area = null,Object? rooms = null,Object? bathrooms = null,Object? mainImage = null,Object? averageRating = null,Object? reviewsCount = null,Object? compound = freezed,Object? developer = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(BookingUnitDto(
 city: null == city ? _self.city : city // ignore: cast_nullable_to_non_nullable
 as BookingCityDto,unitType: null == unitType ? _self.unitType : unitType // ignore: cast_nullable_to_non_nullable
 as BookingUnitTypeDto,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
@@ -1639,16 +1680,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookingUnitDto&&(identical(other.city, city) || other.city == city)&&(identical(other.unitType, unitType) || other.unitType == unitType)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.isVisible, isVisible) || other.isVisible == isVisible)&&(identical(other.isFavourite, isFavourite) || other.isFavourite == isFavourite)&&(identical(other.address, address) || other.address == address)&&(identical(other.price, price) || other.price == price)&&(identical(other.offerType, offerType) || other.offerType == offerType)&&(identical(other.area, area) || other.area == area)&&(identical(other.rooms, rooms) || other.rooms == rooms)&&(identical(other.bathrooms, bathrooms) || other.bathrooms == bathrooms)&&(identical(other.mainImage, mainImage) || other.mainImage == mainImage)&&(identical(other.averageRating, averageRating) || other.averageRating == averageRating)&&(identical(other.reviewsCount, reviewsCount) || other.reviewsCount == reviewsCount)&&(identical(other.compound, compound) || other.compound == compound)&&(identical(other.developer, developer) || other.developer == developer));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookingUnitDto&&(identical(other.city, city) || other.city == city)&&(identical(other.unitType, unitType) || other.unitType == unitType)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.isVisible, isVisible) || other.isVisible == isVisible)&&(identical(other.isFavourite, isFavourite) || other.isFavourite == isFavourite)&&(identical(other.address, address) || other.address == address)&&(identical(other.price, price) || other.price == price)&&(identical(other.offerType, offerType) || other.offerType == offerType)&&(identical(other.area, area) || other.area == area)&&(identical(other.rooms, rooms) || other.rooms == rooms)&&(identical(other.bathrooms, bathrooms) || other.bathrooms == bathrooms)&&(identical(other.mainImage, mainImage) || other.mainImage == mainImage)&&(identical(other.averageRating, averageRating) || other.averageRating == averageRating)&&(identical(other.reviewsCount, reviewsCount) || other.reviewsCount == reviewsCount)&&(identical(other.compound, compound) || other.compound == compound)&&(identical(other.developer, developer) || other.developer == developer));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,city,unitType,createdAt,id,title,isVisible,isFavourite,address,price,offerType,area,rooms,bathrooms,mainImage,averageRating,reviewsCount,compound,developer);
+int get hashCode {
+    return Object.hash(runtimeType,city,unitType,createdAt,id,title,isVisible,isFavourite,address,price,offerType,area,rooms,bathrooms,mainImage,averageRating,reviewsCount,compound,developer);
+}
 
 @override
 String toString() {
-  return 'BookingUnitDto(city: $city, unitType: $unitType, createdAt: $createdAt, id: $id, title: $title, isVisible: $isVisible, isFavourite: $isFavourite, address: $address, price: $price, offerType: $offerType, area: $area, rooms: $rooms, bathrooms: $bathrooms, mainImage: $mainImage, averageRating: $averageRating, reviewsCount: $reviewsCount, compound: $compound, developer: $developer)';
+    return 'BookingUnitDto(city: $city, unitType: $unitType, createdAt: $createdAt, id: $id, title: $title, isVisible: $isVisible, isFavourite: $isFavourite, address: $address, price: $price, offerType: $offerType, area: $area, rooms: $rooms, bathrooms: $bathrooms, mainImage: $mainImage, averageRating: $averageRating, reviewsCount: $reviewsCount, compound: $compound, developer: $developer)';
 }
 
 
@@ -1762,16 +1805,21 @@ $BookingDtoCopyWith<BookingDto> get copyWith => _$BookingDtoCopyWithImpl<Booking
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingDto&&(identical(other.user, user) || other.user == user)&&(identical(other.unit, unit) || other.unit == unit)&&(identical(other.id, id) || other.id == id)&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.date, date) || other.date == date)&&(identical(other.time, time) || other.time == time)&&(identical(other.status, status) || other.status == status)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.userMessage, userMessage) || other.userMessage == userMessage));
+  final _this = this as BookingDto;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingDto&&(identical(other.user, _this.user) || other.user == _this.user)&&(identical(other.unit, _this.unit) || other.unit == _this.unit)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.userId, _this.userId) || other.userId == _this.userId)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.email, _this.email) || other.email == _this.email)&&(identical(other.phone, _this.phone) || other.phone == _this.phone)&&(identical(other.date, _this.date) || other.date == _this.date)&&(identical(other.time, _this.time) || other.time == _this.time)&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.createdAt, _this.createdAt) || other.createdAt == _this.createdAt)&&(identical(other.updatedAt, _this.updatedAt) || other.updatedAt == _this.updatedAt)&&(identical(other.notes, _this.notes) || other.notes == _this.notes)&&(identical(other.userMessage, _this.userMessage) || other.userMessage == _this.userMessage));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,user,unit,id,userId,name,email,phone,date,time,status,createdAt,updatedAt,notes,userMessage);
+int get hashCode {
+  final _this = this as BookingDto;
+  return Object.hash(runtimeType,_this.user,_this.unit,_this.id,_this.userId,_this.name,_this.email,_this.phone,_this.date,_this.time,_this.status,_this.createdAt,_this.updatedAt,_this.notes,_this.userMessage);
+}
 
 @override
 String toString() {
-  return 'BookingDto(user: $user, unit: $unit, id: $id, userId: $userId, name: $name, email: $email, phone: $phone, date: $date, time: $time, status: $status, createdAt: $createdAt, updatedAt: $updatedAt, notes: $notes, userMessage: $userMessage)';
+  final _this = this as BookingDto;
+  return 'BookingDto(user: ${_this.user}, unit: ${_this.unit}, id: ${_this.id}, userId: ${_this.userId}, name: ${_this.name}, email: ${_this.email}, phone: ${_this.phone}, date: ${_this.date}, time: ${_this.time}, status: ${_this.status}, createdAt: ${_this.createdAt}, updatedAt: ${_this.updatedAt}, notes: ${_this.notes}, userMessage: ${_this.userMessage})';
 }
 
 
@@ -1800,7 +1848,7 @@ class _$BookingDtoCopyWithImpl<$Res>
 /// Create a copy of BookingDto
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? user = null,Object? unit = null,Object? id = null,Object? userId = null,Object? name = null,Object? email = null,Object? phone = null,Object? date = null,Object? time = null,Object? status = null,Object? createdAt = null,Object? updatedAt = null,Object? notes = freezed,Object? userMessage = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(BookingDto(
 user: null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
 as BookingUserDto,unit: null == unit ? _self.unit : unit // ignore: cast_nullable_to_non_nullable
 as BookingUnitDto,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
@@ -2005,16 +2053,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookingDto&&(identical(other.user, user) || other.user == user)&&(identical(other.unit, unit) || other.unit == unit)&&(identical(other.id, id) || other.id == id)&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.date, date) || other.date == date)&&(identical(other.time, time) || other.time == time)&&(identical(other.status, status) || other.status == status)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.userMessage, userMessage) || other.userMessage == userMessage));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookingDto&&(identical(other.user, user) || other.user == user)&&(identical(other.unit, unit) || other.unit == unit)&&(identical(other.id, id) || other.id == id)&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.date, date) || other.date == date)&&(identical(other.time, time) || other.time == time)&&(identical(other.status, status) || other.status == status)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.userMessage, userMessage) || other.userMessage == userMessage));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,user,unit,id,userId,name,email,phone,date,time,status,createdAt,updatedAt,notes,userMessage);
+int get hashCode {
+    return Object.hash(runtimeType,user,unit,id,userId,name,email,phone,date,time,status,createdAt,updatedAt,notes,userMessage);
+}
 
 @override
 String toString() {
-  return 'BookingDto(user: $user, unit: $unit, id: $id, userId: $userId, name: $name, email: $email, phone: $phone, date: $date, time: $time, status: $status, createdAt: $createdAt, updatedAt: $updatedAt, notes: $notes, userMessage: $userMessage)';
+    return 'BookingDto(user: $user, unit: $unit, id: $id, userId: $userId, name: $name, email: $email, phone: $phone, date: $date, time: $time, status: $status, createdAt: $createdAt, updatedAt: $updatedAt, notes: $notes, userMessage: $userMessage)';
 }
 
 
@@ -2100,16 +2150,21 @@ $BookingResponseDtoCopyWith<BookingResponseDto> get copyWith => _$BookingRespons
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingResponseDto&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.data, data)&&(identical(other.pagination, pagination) || other.pagination == pagination));
+  final _this = this as BookingResponseDto;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookingResponseDto&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.message, _this.message) || other.message == _this.message)&&const DeepCollectionEquality().equals(other.data, _this.data)&&(identical(other.pagination, _this.pagination) || other.pagination == _this.pagination));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,status,message,const DeepCollectionEquality().hash(data),pagination);
+int get hashCode {
+  final _this = this as BookingResponseDto;
+  return Object.hash(runtimeType,_this.status,_this.message,const DeepCollectionEquality().hash(_this.data),_this.pagination);
+}
 
 @override
 String toString() {
-  return 'BookingResponseDto(status: $status, message: $message, data: $data, pagination: $pagination)';
+  final _this = this as BookingResponseDto;
+  return 'BookingResponseDto(status: ${_this.status}, message: ${_this.message}, data: ${_this.data}, pagination: ${_this.pagination})';
 }
 
 
@@ -2138,7 +2193,7 @@ class _$BookingResponseDtoCopyWithImpl<$Res>
 /// Create a copy of BookingResponseDto
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? message = null,Object? data = null,Object? pagination = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(BookingResponseDto(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as bool,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
@@ -2296,7 +2351,7 @@ return $default(_that.status,_that.message,_that.data,_that.pagination);case _:
 @JsonSerializable()
 
 class _BookingResponseDto implements BookingResponseDto {
-  const _BookingResponseDto({this.status = false, this.message = '', final  List<BookingDto> data = const <BookingDto>[], this.pagination}): _data = data;
+  const _BookingResponseDto({this.status = false, this.message = '',  List<BookingDto> data = const <BookingDto>[], this.pagination}): _data = data;
   factory _BookingResponseDto.fromJson(Map<String, dynamic> json) => _$BookingResponseDtoFromJson(json);
 
 @override@JsonKey() final  bool status;
@@ -2323,16 +2378,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookingResponseDto&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._data, _data)&&(identical(other.pagination, pagination) || other.pagination == pagination));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookingResponseDto&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.data, _data)&&(identical(other.pagination, pagination) || other.pagination == pagination));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,status,message,const DeepCollectionEquality().hash(_data),pagination);
+int get hashCode {
+    return Object.hash(runtimeType,status,message,const DeepCollectionEquality().hash(_data),pagination);
+}
 
 @override
 String toString() {
-  return 'BookingResponseDto(status: $status, message: $message, data: $data, pagination: $pagination)';
+    return 'BookingResponseDto(status: $status, message: $message, data: $data, pagination: $pagination)';
 }
 
 

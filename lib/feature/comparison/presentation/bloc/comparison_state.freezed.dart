@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'comparison_state.dart';
@@ -9,6 +9,7 @@ part of 'comparison_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $ComparisonStateCopyWith<ComparisonState> get copyWith => _$ComparisonStateCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ComparisonState&&(identical(other.status, status) || other.status == status)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.baseUnit, baseUnit) || other.baseUnit == baseUnit)&&(identical(other.selectedUnit, selectedUnit) || other.selectedUnit == selectedUnit)&&const DeepCollectionEquality().equals(other.comparisonItems, comparisonItems));
+  final _this = this as ComparisonState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ComparisonState&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.errorMessage, _this.errorMessage) || other.errorMessage == _this.errorMessage)&&(identical(other.baseUnit, _this.baseUnit) || other.baseUnit == _this.baseUnit)&&(identical(other.selectedUnit, _this.selectedUnit) || other.selectedUnit == _this.selectedUnit)&&const DeepCollectionEquality().equals(other.comparisonItems, _this.comparisonItems));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,errorMessage,baseUnit,selectedUnit,const DeepCollectionEquality().hash(comparisonItems));
+int get hashCode {
+  final _this = this as ComparisonState;
+  return Object.hash(runtimeType,_this.status,_this.errorMessage,_this.baseUnit,_this.selectedUnit,const DeepCollectionEquality().hash(_this.comparisonItems));
+}
 
 @override
 String toString() {
-  return 'ComparisonState(status: $status, errorMessage: $errorMessage, baseUnit: $baseUnit, selectedUnit: $selectedUnit, comparisonItems: $comparisonItems)';
+  final _this = this as ComparisonState;
+  return 'ComparisonState(status: ${_this.status}, errorMessage: ${_this.errorMessage}, baseUnit: ${_this.baseUnit}, selectedUnit: ${_this.selectedUnit}, comparisonItems: ${_this.comparisonItems})';
 }
 
 
@@ -63,7 +69,7 @@ class _$ComparisonStateCopyWithImpl<$Res>
 /// Create a copy of ComparisonState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? errorMessage = freezed,Object? baseUnit = freezed,Object? selectedUnit = freezed,Object? comparisonItems = null,}) {
-  return _then(_self.copyWith(
+  return _then(ComparisonState(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as ComparisonStatus,errorMessage: freezed == errorMessage ? _self.errorMessage : errorMessage // ignore: cast_nullable_to_non_nullable
 as String?,baseUnit: freezed == baseUnit ? _self.baseUnit : baseUnit // ignore: cast_nullable_to_non_nullable
@@ -234,7 +240,7 @@ return $default(_that.status,_that.errorMessage,_that.baseUnit,_that.selectedUni
 
 
 class _ComparisonState implements ComparisonState {
-  const _ComparisonState({this.status = ComparisonStatus.initial, this.errorMessage, this.baseUnit, this.selectedUnit, final  List<ComparisonItem> comparisonItems = const []}): _comparisonItems = comparisonItems;
+  const _ComparisonState({this.status = ComparisonStatus.initial, this.errorMessage, this.baseUnit, this.selectedUnit,  List<ComparisonItem> comparisonItems = const []}): _comparisonItems = comparisonItems;
   
 
 @override@JsonKey() final  ComparisonStatus status;
@@ -259,16 +265,18 @@ _$ComparisonStateCopyWith<_ComparisonState> get copyWith => __$ComparisonStateCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ComparisonState&&(identical(other.status, status) || other.status == status)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.baseUnit, baseUnit) || other.baseUnit == baseUnit)&&(identical(other.selectedUnit, selectedUnit) || other.selectedUnit == selectedUnit)&&const DeepCollectionEquality().equals(other._comparisonItems, _comparisonItems));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ComparisonState&&(identical(other.status, status) || other.status == status)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.baseUnit, baseUnit) || other.baseUnit == baseUnit)&&(identical(other.selectedUnit, selectedUnit) || other.selectedUnit == selectedUnit)&&const DeepCollectionEquality().equals(other.comparisonItems, _comparisonItems));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,errorMessage,baseUnit,selectedUnit,const DeepCollectionEquality().hash(_comparisonItems));
+int get hashCode {
+    return Object.hash(runtimeType,status,errorMessage,baseUnit,selectedUnit,const DeepCollectionEquality().hash(_comparisonItems));
+}
 
 @override
 String toString() {
-  return 'ComparisonState(status: $status, errorMessage: $errorMessage, baseUnit: $baseUnit, selectedUnit: $selectedUnit, comparisonItems: $comparisonItems)';
+    return 'ComparisonState(status: $status, errorMessage: $errorMessage, baseUnit: $baseUnit, selectedUnit: $selectedUnit, comparisonItems: $comparisonItems)';
 }
 
 

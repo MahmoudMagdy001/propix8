@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'our_services_state.dart';
@@ -9,6 +9,7 @@ part of 'our_services_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $OurServicesStateCopyWith<OurServicesState> get copyWith => _$OurServicesStateCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OurServicesState&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.services, services)&&const DeepCollectionEquality().equals(other.faqs, faqs)&&(identical(other.testimonials, testimonials) || other.testimonials == testimonials)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.isMoreLoading, isMoreLoading) || other.isMoreLoading == isMoreLoading)&&(identical(other.isRefreshing, isRefreshing) || other.isRefreshing == isRefreshing)&&(identical(other.addTestimonialStatus, addTestimonialStatus) || other.addTestimonialStatus == addTestimonialStatus)&&(identical(other.addTestimonialError, addTestimonialError) || other.addTestimonialError == addTestimonialError)&&(identical(other.updateTestimonialStatus, updateTestimonialStatus) || other.updateTestimonialStatus == updateTestimonialStatus)&&(identical(other.deleteTestimonialStatus, deleteTestimonialStatus) || other.deleteTestimonialStatus == deleteTestimonialStatus));
+  final _this = this as OurServicesState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is OurServicesState&&(identical(other.status, _this.status) || other.status == _this.status)&&const DeepCollectionEquality().equals(other.services, _this.services)&&const DeepCollectionEquality().equals(other.faqs, _this.faqs)&&(identical(other.testimonials, _this.testimonials) || other.testimonials == _this.testimonials)&&(identical(other.errorMessage, _this.errorMessage) || other.errorMessage == _this.errorMessage)&&(identical(other.isMoreLoading, _this.isMoreLoading) || other.isMoreLoading == _this.isMoreLoading)&&(identical(other.isRefreshing, _this.isRefreshing) || other.isRefreshing == _this.isRefreshing)&&(identical(other.addTestimonialStatus, _this.addTestimonialStatus) || other.addTestimonialStatus == _this.addTestimonialStatus)&&(identical(other.addTestimonialError, _this.addTestimonialError) || other.addTestimonialError == _this.addTestimonialError)&&(identical(other.updateTestimonialStatus, _this.updateTestimonialStatus) || other.updateTestimonialStatus == _this.updateTestimonialStatus)&&(identical(other.deleteTestimonialStatus, _this.deleteTestimonialStatus) || other.deleteTestimonialStatus == _this.deleteTestimonialStatus));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(services),const DeepCollectionEquality().hash(faqs),testimonials,errorMessage,isMoreLoading,isRefreshing,addTestimonialStatus,addTestimonialError,updateTestimonialStatus,deleteTestimonialStatus);
+int get hashCode {
+  final _this = this as OurServicesState;
+  return Object.hash(runtimeType,_this.status,const DeepCollectionEquality().hash(_this.services),const DeepCollectionEquality().hash(_this.faqs),_this.testimonials,_this.errorMessage,_this.isMoreLoading,_this.isRefreshing,_this.addTestimonialStatus,_this.addTestimonialError,_this.updateTestimonialStatus,_this.deleteTestimonialStatus);
+}
 
 @override
 String toString() {
-  return 'OurServicesState(status: $status, services: $services, faqs: $faqs, testimonials: $testimonials, errorMessage: $errorMessage, isMoreLoading: $isMoreLoading, isRefreshing: $isRefreshing, addTestimonialStatus: $addTestimonialStatus, addTestimonialError: $addTestimonialError, updateTestimonialStatus: $updateTestimonialStatus, deleteTestimonialStatus: $deleteTestimonialStatus)';
+  final _this = this as OurServicesState;
+  return 'OurServicesState(status: ${_this.status}, services: ${_this.services}, faqs: ${_this.faqs}, testimonials: ${_this.testimonials}, errorMessage: ${_this.errorMessage}, isMoreLoading: ${_this.isMoreLoading}, isRefreshing: ${_this.isRefreshing}, addTestimonialStatus: ${_this.addTestimonialStatus}, addTestimonialError: ${_this.addTestimonialError}, updateTestimonialStatus: ${_this.updateTestimonialStatus}, deleteTestimonialStatus: ${_this.deleteTestimonialStatus})';
 }
 
 
@@ -63,7 +69,7 @@ class _$OurServicesStateCopyWithImpl<$Res>
 /// Create a copy of OurServicesState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? services = null,Object? faqs = null,Object? testimonials = freezed,Object? errorMessage = freezed,Object? isMoreLoading = null,Object? isRefreshing = null,Object? addTestimonialStatus = null,Object? addTestimonialError = freezed,Object? updateTestimonialStatus = null,Object? deleteTestimonialStatus = null,}) {
-  return _then(_self.copyWith(
+  return _then(OurServicesState(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as OurServicesStatus,services: null == services ? _self.services : services // ignore: cast_nullable_to_non_nullable
 as List<ServiceEntity>,faqs: null == faqs ? _self.faqs : faqs // ignore: cast_nullable_to_non_nullable
@@ -228,7 +234,7 @@ return $default(_that.status,_that.services,_that.faqs,_that.testimonials,_that.
 
 
 class _OurServicesState extends OurServicesState {
-  const _OurServicesState({this.status = OurServicesStatus.initial, final  List<ServiceEntity> services = const [], final  List<FaqEntity> faqs = const [], this.testimonials, this.errorMessage, this.isMoreLoading = false, this.isRefreshing = false, this.addTestimonialStatus = OurServicesStatus.initial, this.addTestimonialError, this.updateTestimonialStatus = OurServicesStatus.initial, this.deleteTestimonialStatus = OurServicesStatus.initial}): _services = services,_faqs = faqs,super._();
+  const _OurServicesState({this.status = OurServicesStatus.initial,  List<ServiceEntity> services = const [],  List<FaqEntity> faqs = const [], this.testimonials, this.errorMessage, this.isMoreLoading = false, this.isRefreshing = false, this.addTestimonialStatus = OurServicesStatus.initial, this.addTestimonialError, this.updateTestimonialStatus = OurServicesStatus.initial, this.deleteTestimonialStatus = OurServicesStatus.initial}): _services = services,_faqs = faqs,super._();
   
 
 @override@JsonKey() final  OurServicesStatus status;
@@ -265,16 +271,18 @@ _$OurServicesStateCopyWith<_OurServicesState> get copyWith => __$OurServicesStat
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OurServicesState&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other._services, _services)&&const DeepCollectionEquality().equals(other._faqs, _faqs)&&(identical(other.testimonials, testimonials) || other.testimonials == testimonials)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.isMoreLoading, isMoreLoading) || other.isMoreLoading == isMoreLoading)&&(identical(other.isRefreshing, isRefreshing) || other.isRefreshing == isRefreshing)&&(identical(other.addTestimonialStatus, addTestimonialStatus) || other.addTestimonialStatus == addTestimonialStatus)&&(identical(other.addTestimonialError, addTestimonialError) || other.addTestimonialError == addTestimonialError)&&(identical(other.updateTestimonialStatus, updateTestimonialStatus) || other.updateTestimonialStatus == updateTestimonialStatus)&&(identical(other.deleteTestimonialStatus, deleteTestimonialStatus) || other.deleteTestimonialStatus == deleteTestimonialStatus));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _OurServicesState&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.services, _services)&&const DeepCollectionEquality().equals(other.faqs, _faqs)&&(identical(other.testimonials, testimonials) || other.testimonials == testimonials)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.isMoreLoading, isMoreLoading) || other.isMoreLoading == isMoreLoading)&&(identical(other.isRefreshing, isRefreshing) || other.isRefreshing == isRefreshing)&&(identical(other.addTestimonialStatus, addTestimonialStatus) || other.addTestimonialStatus == addTestimonialStatus)&&(identical(other.addTestimonialError, addTestimonialError) || other.addTestimonialError == addTestimonialError)&&(identical(other.updateTestimonialStatus, updateTestimonialStatus) || other.updateTestimonialStatus == updateTestimonialStatus)&&(identical(other.deleteTestimonialStatus, deleteTestimonialStatus) || other.deleteTestimonialStatus == deleteTestimonialStatus));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(_services),const DeepCollectionEquality().hash(_faqs),testimonials,errorMessage,isMoreLoading,isRefreshing,addTestimonialStatus,addTestimonialError,updateTestimonialStatus,deleteTestimonialStatus);
+int get hashCode {
+    return Object.hash(runtimeType,status,const DeepCollectionEquality().hash(_services),const DeepCollectionEquality().hash(_faqs),testimonials,errorMessage,isMoreLoading,isRefreshing,addTestimonialStatus,addTestimonialError,updateTestimonialStatus,deleteTestimonialStatus);
+}
 
 @override
 String toString() {
-  return 'OurServicesState(status: $status, services: $services, faqs: $faqs, testimonials: $testimonials, errorMessage: $errorMessage, isMoreLoading: $isMoreLoading, isRefreshing: $isRefreshing, addTestimonialStatus: $addTestimonialStatus, addTestimonialError: $addTestimonialError, updateTestimonialStatus: $updateTestimonialStatus, deleteTestimonialStatus: $deleteTestimonialStatus)';
+    return 'OurServicesState(status: $status, services: $services, faqs: $faqs, testimonials: $testimonials, errorMessage: $errorMessage, isMoreLoading: $isMoreLoading, isRefreshing: $isRefreshing, addTestimonialStatus: $addTestimonialStatus, addTestimonialError: $addTestimonialError, updateTestimonialStatus: $updateTestimonialStatus, deleteTestimonialStatus: $deleteTestimonialStatus)';
 }
 
 

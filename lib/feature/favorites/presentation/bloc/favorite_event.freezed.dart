@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'favorite_event.dart';
@@ -9,6 +9,7 @@ part of 'favorite_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -20,7 +21,7 @@ mixin _$FavoriteEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FavoriteEvent);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is FavoriteEvent);
 }
 
 
@@ -29,7 +30,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'FavoriteEvent()';
+    return 'FavoriteEvent()';
 }
 
 
@@ -215,16 +216,18 @@ $GetFavoritesRequestedCopyWith<GetFavoritesRequested> get copyWith => _$GetFavor
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is GetFavoritesRequested&&(identical(other.isLoadMore, isLoadMore) || other.isLoadMore == isLoadMore)&&(identical(other.forceRefresh, forceRefresh) || other.forceRefresh == forceRefresh));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is GetFavoritesRequested&&(identical(other.isLoadMore, isLoadMore) || other.isLoadMore == isLoadMore)&&(identical(other.forceRefresh, forceRefresh) || other.forceRefresh == forceRefresh));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,isLoadMore,forceRefresh);
+int get hashCode {
+    return Object.hash(runtimeType,isLoadMore,forceRefresh);
+}
 
 @override
 String toString() {
-  return 'FavoriteEvent.getFavoritesRequested(isLoadMore: $isLoadMore, forceRefresh: $forceRefresh)';
+    return 'FavoriteEvent.getFavoritesRequested(isLoadMore: $isLoadMore, forceRefresh: $forceRefresh)';
 }
 
 
@@ -282,16 +285,18 @@ $FavoriteToggledCopyWith<FavoriteToggled> get copyWith => _$FavoriteToggledCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FavoriteToggled&&(identical(other.unit, unit) || other.unit == unit));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is FavoriteToggled&&(identical(other.unit, unit) || other.unit == unit));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,unit);
+int get hashCode {
+    return Object.hash(runtimeType,unit);
+}
 
 @override
 String toString() {
-  return 'FavoriteEvent.favoriteToggled(unit: $unit)';
+    return 'FavoriteEvent.favoriteToggled(unit: $unit)';
 }
 
 
@@ -358,16 +363,18 @@ $FavoriteStatusUpdatedCopyWith<FavoriteStatusUpdated> get copyWith => _$Favorite
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FavoriteStatusUpdated&&(identical(other.unitId, unitId) || other.unitId == unitId)&&(identical(other.isFavorite, isFavorite) || other.isFavorite == isFavorite));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is FavoriteStatusUpdated&&(identical(other.unitId, unitId) || other.unitId == unitId)&&(identical(other.isFavorite, isFavorite) || other.isFavorite == isFavorite));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,unitId,isFavorite);
+int get hashCode {
+    return Object.hash(runtimeType,unitId,isFavorite);
+}
 
 @override
 String toString() {
-  return 'FavoriteEvent.favoriteStatusUpdated(unitId: $unitId, isFavorite: $isFavorite)';
+    return 'FavoriteEvent.favoriteStatusUpdated(unitId: $unitId, isFavorite: $isFavorite)';
 }
 
 
@@ -410,7 +417,7 @@ as bool,
 
 
 class FavoritesInitialized implements FavoriteEvent {
-  const FavoritesInitialized(final  Map<int, bool> initialFavorites): _initialFavorites = initialFavorites;
+  const FavoritesInitialized( Map<int, bool> initialFavorites): _initialFavorites = initialFavorites;
   
 
  final  Map<int, bool> _initialFavorites;
@@ -431,16 +438,18 @@ $FavoritesInitializedCopyWith<FavoritesInitialized> get copyWith => _$FavoritesI
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FavoritesInitialized&&const DeepCollectionEquality().equals(other._initialFavorites, _initialFavorites));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is FavoritesInitialized&&const DeepCollectionEquality().equals(other.initialFavorites, _initialFavorites));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_initialFavorites));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_initialFavorites));
+}
 
 @override
 String toString() {
-  return 'FavoriteEvent.favoritesInitialized(initialFavorites: $initialFavorites)';
+    return 'FavoriteEvent.favoritesInitialized(initialFavorites: $initialFavorites)';
 }
 
 
@@ -492,7 +501,7 @@ class FavoriteViewTypeToggled implements FavoriteEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FavoriteViewTypeToggled);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is FavoriteViewTypeToggled);
 }
 
 
@@ -501,7 +510,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'FavoriteEvent.favoriteViewTypeToggled()';
+    return 'FavoriteEvent.favoriteViewTypeToggled()';
 }
 
 

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'comparison_item.dart';
@@ -9,6 +9,7 @@ part of 'comparison_item.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $ComparisonItemCopyWith<ComparisonItem> get copyWith => _$ComparisonItemCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ComparisonItem&&(identical(other.label, label) || other.label == label)&&(identical(other.value1, value1) || other.value1 == value1)&&(identical(other.value2, value2) || other.value2 == value2)&&(identical(other.isDifferent, isDifferent) || other.isDifferent == isDifferent)&&(identical(other.advantage, advantage) || other.advantage == advantage)&&(identical(other.icon, icon) || other.icon == icon));
+  final _this = this as ComparisonItem;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ComparisonItem&&(identical(other.label, _this.label) || other.label == _this.label)&&(identical(other.value1, _this.value1) || other.value1 == _this.value1)&&(identical(other.value2, _this.value2) || other.value2 == _this.value2)&&(identical(other.isDifferent, _this.isDifferent) || other.isDifferent == _this.isDifferent)&&(identical(other.advantage, _this.advantage) || other.advantage == _this.advantage)&&(identical(other.icon, _this.icon) || other.icon == _this.icon));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,label,value1,value2,isDifferent,advantage,icon);
+int get hashCode {
+  final _this = this as ComparisonItem;
+  return Object.hash(runtimeType,_this.label,_this.value1,_this.value2,_this.isDifferent,_this.advantage,_this.icon);
+}
 
 @override
 String toString() {
-  return 'ComparisonItem(label: $label, value1: $value1, value2: $value2, isDifferent: $isDifferent, advantage: $advantage, icon: $icon)';
+  final _this = this as ComparisonItem;
+  return 'ComparisonItem(label: ${_this.label}, value1: ${_this.value1}, value2: ${_this.value2}, isDifferent: ${_this.isDifferent}, advantage: ${_this.advantage}, icon: ${_this.icon})';
 }
 
 
@@ -63,7 +69,7 @@ class _$ComparisonItemCopyWithImpl<$Res>
 /// Create a copy of ComparisonItem
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? label = null,Object? value1 = null,Object? value2 = null,Object? isDifferent = null,Object? advantage = null,Object? icon = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ComparisonItem(
 label: null == label ? _self.label : label // ignore: cast_nullable_to_non_nullable
 as String,value1: null == value1 ? _self.value1 : value1 // ignore: cast_nullable_to_non_nullable
 as String,value2: null == value2 ? _self.value2 : value2 // ignore: cast_nullable_to_non_nullable
@@ -231,16 +237,18 @@ _$ComparisonItemCopyWith<_ComparisonItem> get copyWith => __$ComparisonItemCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ComparisonItem&&(identical(other.label, label) || other.label == label)&&(identical(other.value1, value1) || other.value1 == value1)&&(identical(other.value2, value2) || other.value2 == value2)&&(identical(other.isDifferent, isDifferent) || other.isDifferent == isDifferent)&&(identical(other.advantage, advantage) || other.advantage == advantage)&&(identical(other.icon, icon) || other.icon == icon));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ComparisonItem&&(identical(other.label, label) || other.label == label)&&(identical(other.value1, value1) || other.value1 == value1)&&(identical(other.value2, value2) || other.value2 == value2)&&(identical(other.isDifferent, isDifferent) || other.isDifferent == isDifferent)&&(identical(other.advantage, advantage) || other.advantage == advantage)&&(identical(other.icon, icon) || other.icon == icon));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,label,value1,value2,isDifferent,advantage,icon);
+int get hashCode {
+    return Object.hash(runtimeType,label,value1,value2,isDifferent,advantage,icon);
+}
 
 @override
 String toString() {
-  return 'ComparisonItem(label: $label, value1: $value1, value2: $value2, isDifferent: $isDifferent, advantage: $advantage, icon: $icon)';
+    return 'ComparisonItem(label: $label, value1: $value1, value2: $value2, isDifferent: $isDifferent, advantage: $advantage, icon: $icon)';
 }
 
 

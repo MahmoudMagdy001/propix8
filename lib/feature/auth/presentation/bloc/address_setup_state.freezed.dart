@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'address_setup_state.dart';
@@ -9,6 +9,7 @@ part of 'address_setup_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $AddressSetupStateCopyWith<AddressSetupState> get copyWith => _$AddressSetupStat
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressSetupState&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.cities, cities)&&(identical(other.selectedCityId, selectedCityId) || other.selectedCityId == selectedCityId)&&(identical(other.selectedLocation, selectedLocation) || other.selectedLocation == selectedLocation)&&(identical(other.address, address) || other.address == address)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
+  final _this = this as AddressSetupState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressSetupState&&(identical(other.status, _this.status) || other.status == _this.status)&&const DeepCollectionEquality().equals(other.cities, _this.cities)&&(identical(other.selectedCityId, _this.selectedCityId) || other.selectedCityId == _this.selectedCityId)&&(identical(other.selectedLocation, _this.selectedLocation) || other.selectedLocation == _this.selectedLocation)&&(identical(other.address, _this.address) || other.address == _this.address)&&(identical(other.errorMessage, _this.errorMessage) || other.errorMessage == _this.errorMessage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(cities),selectedCityId,selectedLocation,address,errorMessage);
+int get hashCode {
+  final _this = this as AddressSetupState;
+  return Object.hash(runtimeType,_this.status,const DeepCollectionEquality().hash(_this.cities),_this.selectedCityId,_this.selectedLocation,_this.address,_this.errorMessage);
+}
 
 @override
 String toString() {
-  return 'AddressSetupState(status: $status, cities: $cities, selectedCityId: $selectedCityId, selectedLocation: $selectedLocation, address: $address, errorMessage: $errorMessage)';
+  final _this = this as AddressSetupState;
+  return 'AddressSetupState(status: ${_this.status}, cities: ${_this.cities}, selectedCityId: ${_this.selectedCityId}, selectedLocation: ${_this.selectedLocation}, address: ${_this.address}, errorMessage: ${_this.errorMessage})';
 }
 
 
@@ -63,7 +69,7 @@ class _$AddressSetupStateCopyWithImpl<$Res>
 /// Create a copy of AddressSetupState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? cities = null,Object? selectedCityId = freezed,Object? selectedLocation = freezed,Object? address = null,Object? errorMessage = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(AddressSetupState(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as AddressSetupStatus,cities: null == cities ? _self.cities : cities // ignore: cast_nullable_to_non_nullable
 as List<City>,selectedCityId: freezed == selectedCityId ? _self.selectedCityId : selectedCityId // ignore: cast_nullable_to_non_nullable
@@ -211,7 +217,7 @@ return $default(_that.status,_that.cities,_that.selectedCityId,_that.selectedLoc
 
 
 class _AddressSetupState extends AddressSetupState {
-  const _AddressSetupState({this.status = AddressSetupStatus.initial, final  List<City> cities = const <City>[], this.selectedCityId, this.selectedLocation, this.address = '', this.errorMessage}): _cities = cities,super._();
+  const _AddressSetupState({this.status = AddressSetupStatus.initial,  List<City> cities = const <City>[], this.selectedCityId, this.selectedLocation, this.address = '', this.errorMessage}): _cities = cities,super._();
   
 
 @override@JsonKey() final  AddressSetupStatus status;
@@ -237,16 +243,18 @@ _$AddressSetupStateCopyWith<_AddressSetupState> get copyWith => __$AddressSetupS
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AddressSetupState&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other._cities, _cities)&&(identical(other.selectedCityId, selectedCityId) || other.selectedCityId == selectedCityId)&&(identical(other.selectedLocation, selectedLocation) || other.selectedLocation == selectedLocation)&&(identical(other.address, address) || other.address == address)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AddressSetupState&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.cities, _cities)&&(identical(other.selectedCityId, selectedCityId) || other.selectedCityId == selectedCityId)&&(identical(other.selectedLocation, selectedLocation) || other.selectedLocation == selectedLocation)&&(identical(other.address, address) || other.address == address)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(_cities),selectedCityId,selectedLocation,address,errorMessage);
+int get hashCode {
+    return Object.hash(runtimeType,status,const DeepCollectionEquality().hash(_cities),selectedCityId,selectedLocation,address,errorMessage);
+}
 
 @override
 String toString() {
-  return 'AddressSetupState(status: $status, cities: $cities, selectedCityId: $selectedCityId, selectedLocation: $selectedLocation, address: $address, errorMessage: $errorMessage)';
+    return 'AddressSetupState(status: $status, cities: $cities, selectedCityId: $selectedCityId, selectedLocation: $selectedLocation, address: $address, errorMessage: $errorMessage)';
 }
 
 
