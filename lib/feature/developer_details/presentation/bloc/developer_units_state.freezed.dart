@@ -49,7 +49,7 @@ $Res call({
 });
 
 
-
+$DeveloperCollectionEntityCopyWith<$Res>? get developer;
 
 }
 /// @nodoc
@@ -72,7 +72,19 @@ as ViewType,isLoadingMore: null == isLoadingMore ? _self.isLoadingMore : isLoadi
 as bool,
   ));
 }
+/// Create a copy of DeveloperUnitsState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$DeveloperCollectionEntityCopyWith<$Res>? get developer {
+    if (_self.developer == null) {
+    return null;
+  }
 
+  return $DeveloperCollectionEntityCopyWith<$Res>(_self.developer!, (value) {
+    return _then(_self.copyWith(developer: value));
+  });
+}
 }
 
 
@@ -253,7 +265,7 @@ $Res call({
 });
 
 
-
+@override $DeveloperCollectionEntityCopyWith<$Res>? get developer;
 
 }
 /// @nodoc
@@ -277,7 +289,19 @@ as bool,
   ));
 }
 
+/// Create a copy of DeveloperUnitsState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$DeveloperCollectionEntityCopyWith<$Res>? get developer {
+    if (_self.developer == null) {
+    return null;
+  }
 
+  return $DeveloperCollectionEntityCopyWith<$Res>(_self.developer!, (value) {
+    return _then(_self.copyWith(developer: value));
+  });
+}
 }
 
 // dart format on

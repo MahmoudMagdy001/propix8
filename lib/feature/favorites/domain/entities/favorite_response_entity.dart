@@ -1,16 +1,15 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:propix8/core/models/pagination_model.dart';
 import 'package:propix8/feature/favorites/domain/entities/favorite_unit_entity.dart';
 
-class FavoriteResponseEntity {
-  const FavoriteResponseEntity({
-    required this.status,
-    required this.message,
-    required this.data,
-    this.pagination,
-  });
+part 'favorite_response_entity.freezed.dart';
 
-  final bool status;
-  final String message;
-  final List<FavoriteUnitEntity> data;
-  final PaginationModel? pagination;
+@freezed
+abstract class FavoriteResponseEntity with _$FavoriteResponseEntity {
+  const factory FavoriteResponseEntity({
+    required bool status,
+    required String message,
+    required List<FavoriteUnitEntity> data,
+    PaginationModel? pagination,
+  }) = _FavoriteResponseEntity;
 }

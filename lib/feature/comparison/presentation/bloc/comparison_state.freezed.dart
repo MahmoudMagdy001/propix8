@@ -49,7 +49,7 @@ $Res call({
 });
 
 
-
+$UnitDetailsEntityCopyWith<$Res>? get baseUnit;$UnitDetailsEntityCopyWith<$Res>? get selectedUnit;
 
 }
 /// @nodoc
@@ -72,7 +72,31 @@ as UnitDetailsEntity?,comparisonItems: null == comparisonItems ? _self.compariso
 as List<ComparisonItem>,
   ));
 }
+/// Create a copy of ComparisonState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UnitDetailsEntityCopyWith<$Res>? get baseUnit {
+    if (_self.baseUnit == null) {
+    return null;
+  }
 
+  return $UnitDetailsEntityCopyWith<$Res>(_self.baseUnit!, (value) {
+    return _then(_self.copyWith(baseUnit: value));
+  });
+}/// Create a copy of ComparisonState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UnitDetailsEntityCopyWith<$Res>? get selectedUnit {
+    if (_self.selectedUnit == null) {
+    return null;
+  }
+
+  return $UnitDetailsEntityCopyWith<$Res>(_self.selectedUnit!, (value) {
+    return _then(_self.copyWith(selectedUnit: value));
+  });
+}
 }
 
 
@@ -259,7 +283,7 @@ $Res call({
 });
 
 
-
+@override $UnitDetailsEntityCopyWith<$Res>? get baseUnit;@override $UnitDetailsEntityCopyWith<$Res>? get selectedUnit;
 
 }
 /// @nodoc
@@ -283,7 +307,31 @@ as List<ComparisonItem>,
   ));
 }
 
+/// Create a copy of ComparisonState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UnitDetailsEntityCopyWith<$Res>? get baseUnit {
+    if (_self.baseUnit == null) {
+    return null;
+  }
 
+  return $UnitDetailsEntityCopyWith<$Res>(_self.baseUnit!, (value) {
+    return _then(_self.copyWith(baseUnit: value));
+  });
+}/// Create a copy of ComparisonState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UnitDetailsEntityCopyWith<$Res>? get selectedUnit {
+    if (_self.selectedUnit == null) {
+    return null;
+  }
+
+  return $UnitDetailsEntityCopyWith<$Res>(_self.selectedUnit!, (value) {
+    return _then(_self.copyWith(selectedUnit: value));
+  });
+}
 }
 
 // dart format on

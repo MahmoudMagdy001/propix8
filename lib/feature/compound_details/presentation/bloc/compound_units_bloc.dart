@@ -1,4 +1,3 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 import 'package:propix8/core/utils/enums.dart';
 import 'package:propix8/feature/compound_details/domain/entities/compound_collection_entity.dart';

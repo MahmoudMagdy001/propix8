@@ -1,8 +1,7 @@
 import 'dart:async';
 
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:propix8/core/shared/bloc/safe_bloc.dart';
-import 'package:propix8/feature/auth/repositories/address_setup_repository.dart';
+import 'package:propix8/feature/auth/domain/repositories/address_setup_repository.dart';
 import 'package:propix8/feature/home/presentation/filter/bloc/filter_event.dart';
 import 'package:propix8/feature/home/presentation/filter/bloc/filter_state.dart';
 
@@ -31,7 +30,7 @@ class FilterBloc extends SafeBloc<FilterEvent, FilterState> {
     final result = await _addressSetupRepository.getCities();
     result.fold(
       (error) => emit(
-        state.copyWith(status: FilterStatus.failure, errorMessage: error),
+        state.copyWith(status: FilterStatus.failure, errorMessage: error.message),
       ),
       (cities) => emit(
         state.copyWith(status: FilterStatus.citiesLoaded, cities: cities),

@@ -1,4 +1,3 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 import 'package:propix8/feature/compounds/domain/usecases/get_compounds_usecase.dart';
 import 'package:propix8/feature/compounds/presentation/bloc/compounds_event.dart';

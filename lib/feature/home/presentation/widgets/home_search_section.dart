@@ -7,7 +7,6 @@ import 'package:propix8/core/utils/context_extensions.dart';
 import 'package:propix8/core/utils/responsive_helper.dart';
 import 'package:propix8/core/widgets/app_modal_sheet.dart';
 import 'package:propix8/core/widgets/app_segmented_toggle.dart';
-import 'package:propix8/feature/auth/repositories/address_setup_repository.dart';
 import 'package:propix8/feature/home/presentation/bloc/home_bloc.dart';
 import 'package:propix8/feature/home/presentation/bloc/home_event.dart';
 import 'package:propix8/feature/home/presentation/bloc/home_state.dart';
@@ -151,14 +150,10 @@ class HomeSearchSection extends StatelessWidget {
                                               value: homeBloc,
                                             ),
                                             BlocProvider(
-                                              create: (context) => FilterBloc(
-                                                locator<
-                                                  AddressSetupRepository
-                                                >(),
-                                              )..add(
-                                                const FilterEvent
-                                                    .citiesRequested(),
-                                              ),
+                                              create: (context) => locator<FilterBloc>()
+                                                ..add(
+                                                  const FilterEvent.citiesRequested(),
+                                                ),
                                             ),
                                           ],
                                           child: Builder(

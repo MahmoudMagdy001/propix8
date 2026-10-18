@@ -1,6 +1,6 @@
-import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:propix8/core/error/failures.dart';
+import 'package:propix8/core/functional/result.dart';
 import 'package:propix8/feature/favorites/data/datasources/favorites_remote_data_source.dart';
 import 'package:propix8/feature/favorites/domain/entities/favorite_response_entity.dart';
 import 'package:propix8/feature/favorites/domain/repositories/favorites_repository.dart';
@@ -11,28 +11,28 @@ class FavoritesRepositoryImpl implements FavoritesRepository {
   final FavoritesRemoteDataSource _remoteDataSource;
 
   @override
-  Future<Either<Failure, FavoriteResponseEntity>> getFavorites({
+  ResultFuture<FavoriteResponseEntity> getFavorites({
     int page = 1,
   }) async {
     try {
       final response = await _remoteDataSource.getFavorites(page: page);
-      return Right(response);
+      return right(response.toEntity());
     } on DioException catch (e) {
-      return Left(ServerFailure(e.message ?? 'Server error'));
+      return left(ServerFailure(e.message ?? 'Server error'));
     } on Object catch (e) {
-      return Left(ServerFailure(e.toString()));
+      return left(ServerFailure(e.toString()));
     }
   }
 
   @override
-  Future<Either<Failure, bool>> toggleFavorite(int unitId) async {
+  ResultFuture<bool> toggleFavorite(int unitId) async {
     try {
       final result = await _remoteDataSource.toggleFavorite(unitId);
-      return Right(result);
+      return right(result);
     } on DioException catch (e) {
-      return Left(ServerFailure(e.message ?? 'Server error'));
+      return left(ServerFailure(e.message ?? 'Server error'));
     } on Object catch (e) {
-      return Left(ServerFailure(e.toString()));
+      return left(ServerFailure(e.toString()));
     }
   }
 }

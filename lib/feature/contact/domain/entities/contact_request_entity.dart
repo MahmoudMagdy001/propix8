@@ -1,15 +1,14 @@
-class ContactRequestEntity {
-  const ContactRequestEntity({
-    required this.name,
-    required this.email,
-    required this.phone,
-    required this.address,
-    required this.message,
-  });
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  final String name;
-  final String email;
-  final String phone;
-  final String address;
-  final String message;
+part 'contact_request_entity.freezed.dart';
+
+@freezed
+abstract class ContactRequestEntity with _$ContactRequestEntity {
+  const factory ContactRequestEntity({
+    required String name,
+    required String email,
+    required String phone,
+    required String address,
+    required String message,
+  }) = _ContactRequestEntity;
 }

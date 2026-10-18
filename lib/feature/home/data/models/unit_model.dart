@@ -19,7 +19,7 @@ double? _parseDoubleNullable(dynamic value) {
 }
 
 @freezed
-abstract class UnitModel with _$UnitModel implements UnitEntity {
+abstract class UnitModel with _$UnitModel {
   const UnitModel._();
 
   const factory UnitModel({
@@ -84,8 +84,7 @@ abstract class UnitModel with _$UnitModel implements UnitEntity {
     offerType: offerType,
   );
 
-  @override
-  UnitEntity copyWithUnit({
+  UnitModel copyWithUnit({
     int? id,
     String? title,
     double? price,

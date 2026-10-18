@@ -1,11 +1,12 @@
-class OnboardingPageEntity {
-  const OnboardingPageEntity({
-    required this.title,
-    required this.subtitle,
-    required this.imagePath,
-  });
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  final String title;
-  final String subtitle;
-  final String imagePath;
+part 'onboarding_page_entity.freezed.dart';
+
+@freezed
+abstract class OnboardingPageEntity with _$OnboardingPageEntity {
+  const factory OnboardingPageEntity({
+    required String title,
+    required String subtitle,
+    required String imagePath,
+  }) = _OnboardingPageEntity;
 }

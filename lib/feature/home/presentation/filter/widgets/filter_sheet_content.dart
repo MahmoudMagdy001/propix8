@@ -4,7 +4,7 @@ import 'package:propix8/core/theme/app_colors.dart';
 import 'package:propix8/core/utils/context_extensions.dart';
 import 'package:propix8/core/utils/responsive_helper.dart';
 import 'package:propix8/core/widgets/app_elevated_button.dart';
-import 'package:propix8/feature/auth/models/city_model.dart';
+import 'package:propix8/feature/auth/data/models/city_model.dart';
 import 'package:propix8/feature/home/presentation/filter/bloc/filter_bloc.dart';
 import 'package:propix8/feature/home/presentation/filter/bloc/filter_event.dart';
 import 'package:propix8/feature/home/presentation/filter/bloc/filter_state.dart';

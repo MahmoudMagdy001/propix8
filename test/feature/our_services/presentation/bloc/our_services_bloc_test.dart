@@ -1,6 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:propix8/core/error/failures.dart';
 import 'package:propix8/core/models/pagination_model.dart';
@@ -94,7 +94,6 @@ void main() {
       ),
     ],
     pagination: const PaginationModel(
-      currentPage: 1,
       perPage: 1,
       total: 2,
       lastPage: 2,
@@ -252,7 +251,7 @@ void main() {
       build: () {
         when(
           () => mockAddTestimonialUseCase('Great app!'),
-        ).thenAnswer((_) async => const Right(null));
+        ).thenAnswer((_) async => const Right(unit));
         when(
           () => mockGetTestimonialsUseCase(),
         ).thenAnswer((_) async => Right(tTestimonials));

@@ -1,29 +1,24 @@
-class UnitEntity {
-  const UnitEntity({
-    required this.id,
-    required this.title,
-    required this.price,
-    this.description,
-    this.address,
-    this.imageUrl,
-    this.bedrooms,
-    this.bathrooms,
-    this.area,
-    this.isFavorite,
-    this.offerType,
-  });
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  final int id;
-  final String title;
-  final double price;
-  final String? description;
-  final String? address;
-  final String? imageUrl;
-  final int? bedrooms;
-  final int? bathrooms;
-  final double? area;
-  final bool? isFavorite;
-  final String? offerType;
+part 'unit_entity.freezed.dart';
+
+@freezed
+abstract class UnitEntity with _$UnitEntity {
+  const UnitEntity._();
+
+  const factory UnitEntity({
+    required int id,
+    required String title,
+    required double price,
+    String? description,
+    String? address,
+    String? imageUrl,
+    int? bedrooms,
+    int? bathrooms,
+    double? area,
+    bool? isFavorite,
+    String? offerType,
+  }) = _UnitEntity;
 
   UnitEntity copyWithUnit({
     int? id,
@@ -38,7 +33,7 @@ class UnitEntity {
     bool? isFavorite,
     String? offerType,
   }) =>
-      UnitEntity(
+      copyWith(
         id: id ?? this.id,
         title: title ?? this.title,
         price: price ?? this.price,
@@ -51,38 +46,6 @@ class UnitEntity {
         isFavorite: isFavorite ?? this.isFavorite,
         offerType: offerType ?? this.offerType,
       );
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is UnitEntity &&
-          runtimeType == other.runtimeType &&
-          id == other.id &&
-          title == other.title &&
-          price == other.price &&
-          description == other.description &&
-          address == other.address &&
-          imageUrl == other.imageUrl &&
-          bedrooms == other.bedrooms &&
-          bathrooms == other.bathrooms &&
-          area == other.area &&
-          isFavorite == other.isFavorite &&
-          offerType == other.offerType;
-
-  @override
-  int get hashCode => Object.hash(
-    id,
-    title,
-    price,
-    description,
-    address,
-    imageUrl,
-    bedrooms,
-    bathrooms,
-    area,
-    isFavorite,
-    offerType,
-  );
 
   static List<UnitEntity> get dummyUnits => List.generate(
     5,

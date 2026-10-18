@@ -1,11 +1,11 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:propix8/core/error/failures.dart';
 import 'package:propix8/core/models/pagination_model.dart';
-import 'package:propix8/feature/bookings/models/booking_model.dart';
-import 'package:propix8/feature/bookings/repositories/booking_repository.dart';
+import 'package:propix8/feature/bookings/domain/entities/booking_entity.dart';
+import 'package:propix8/feature/bookings/domain/repositories/booking_repository.dart';
 import 'package:propix8/feature/home/domain/entities/unit_entity.dart';
 import 'package:propix8/feature/home/presentation/bloc/home_state.dart';
 import 'package:propix8/feature/unit_details/domain/entities/review_entity.dart';
@@ -111,9 +111,6 @@ void main() {
   ];
 
   const tPagination = PaginationModel(
-    currentPage: 1,
-    lastPage: 1,
-    perPage: 10,
     total: 1,
   );
 
@@ -125,7 +122,7 @@ void main() {
   const tBookingResponse = BookingResponse(
     status: true,
     message: 'Success',
-    data: [],
+    data: <BookingEntity>[],
   );
 
   setUp(() {
@@ -269,10 +266,7 @@ void main() {
 
   group('DeleteReviewRequested', () {
     const tEmptyPagination = PaginationModel(
-      currentPage: 1,
-      lastPage: 1,
-      perPage: 10,
-      total: 0,
+      
     );
 
     blocTest<UnitDetailsBloc, UnitDetailsState>(
@@ -284,7 +278,7 @@ void main() {
       ),
       build: () {
         when(() => mockDeleteUnitReviewUseCase(1))
-            .thenAnswer((_) async => const Right(null));
+            .thenAnswer((_) async => const Right(unit));
         when(() => mockGetUnitDetailsUseCase(1))
             .thenAnswer((_) async => Right(tUnitDetails));
         when(() => mockGetUnitReviewsUseCase(1)).thenAnswer(
@@ -331,7 +325,7 @@ void main() {
             message: 'Hello',
             unitId: 1,
           ),
-        ).thenAnswer((_) async => const Right(null));
+        ).thenAnswer((_) async => const Right(unit));
         return bloc;
       },
       act: (bloc) => bloc.add(

@@ -306,7 +306,7 @@ $Res call({
 });
 
 
-
+$UnitEntityCopyWith<$Res> get unit;
 
 }
 /// @nodoc
@@ -326,7 +326,16 @@ as UnitEntity,
   ));
 }
 
-
+/// Create a copy of FavoriteEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UnitEntityCopyWith<$Res> get unit {
+  
+  return $UnitEntityCopyWith<$Res>(_self.unit, (value) {
+    return _then(_self.copyWith(unit: value));
+  });
+}
 }
 
 /// @nodoc

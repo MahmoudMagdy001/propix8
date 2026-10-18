@@ -220,7 +220,7 @@ $Res call({
 });
 
 
-
+$ContactRequestEntityCopyWith<$Res> get request;
 
 }
 /// @nodoc
@@ -240,7 +240,16 @@ as ContactRequestEntity,
   ));
 }
 
-
+/// Create a copy of ContactEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ContactRequestEntityCopyWith<$Res> get request {
+  
+  return $ContactRequestEntityCopyWith<$Res>(_self.request, (value) {
+    return _then(_self.copyWith(request: value));
+  });
+}
 }
 
 /// @nodoc

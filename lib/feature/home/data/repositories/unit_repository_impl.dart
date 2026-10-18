@@ -1,6 +1,6 @@
-import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:propix8/core/error/failures.dart';
+import 'package:propix8/core/functional/result.dart';
 import 'package:propix8/core/models/pagination_model.dart';
 import 'package:propix8/feature/home/data/datasources/unit_remote_data_source.dart';
 import 'package:propix8/feature/home/domain/entities/banner_entity.dart';
@@ -14,7 +14,7 @@ class UnitRepositoryImpl implements UnitRepository {
   final UnitRemoteDataSource _remoteDataSource;
 
   @override
-  Future<Either<Failure, PaginatedResponse<UnitEntity>>> getNearbyUnits({
+  ResultFuture<PaginatedResponse<UnitEntity>> getNearbyUnits({
     int page = 1,
   }) async {
     try {
@@ -33,7 +33,7 @@ class UnitRepositoryImpl implements UnitRepository {
   }
 
   @override
-  Future<Either<Failure, List<UnitEntity>>> getLatestUnits() async {
+  ResultFuture<List<UnitEntity>> getLatestUnits() async {
     try {
       final models = await _remoteDataSource.getLatestUnits();
       return Right(models.map((u) => u.toDomain()).toList());
@@ -45,7 +45,7 @@ class UnitRepositoryImpl implements UnitRepository {
   }
 
   @override
-  Future<Either<Failure, PaginatedResponse<UnitEntity>>> getAllUnits({
+  ResultFuture<PaginatedResponse<UnitEntity>> getAllUnits({
     int page = 1,
     int? unitTypeId,
     String? offerType,
@@ -88,7 +88,7 @@ class UnitRepositoryImpl implements UnitRepository {
   }
 
   @override
-  Future<Either<Failure, List<CategoryEntity>>> getCategories() async {
+  ResultFuture<List<CategoryEntity>> getCategories() async {
     try {
       final models = await _remoteDataSource.getCategories();
       return Right(models.map((c) => c.toDomain()).toList());
@@ -100,7 +100,7 @@ class UnitRepositoryImpl implements UnitRepository {
   }
 
   @override
-  Future<Either<Failure, List<BannerEntity>>> getBanners() async {
+  ResultFuture<List<BannerEntity>> getBanners() async {
     try {
       final models = await _remoteDataSource.getBanners();
       return Right(models.map((b) => b.toDomain()).toList());
@@ -112,7 +112,7 @@ class UnitRepositoryImpl implements UnitRepository {
   }
 
   @override
-  Future<Either<Failure, bool>> toggleFavorite(int unitId) async {
+  ResultFuture<bool> toggleFavorite(int unitId) async {
     try {
       final isFav = await _remoteDataSource.toggleFavorite(unitId);
       return Right(isFav);

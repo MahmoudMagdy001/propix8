@@ -6,16 +6,33 @@ import 'package:propix8/core/network/dio_client.dart';
 import 'package:propix8/core/services/booking_event_service.dart';
 import 'package:propix8/core/services/deep_link_service.dart';
 import 'package:propix8/core/storage/storage_service.dart';
-import 'package:propix8/feature/auth/repositories/address_setup_repository.dart';
-import 'package:propix8/feature/auth/repositories/auth_repository.dart';
-import 'package:propix8/feature/auth/services/address_setup_service.dart';
-import 'package:propix8/feature/auth/services/auth_service.dart';
-import 'package:propix8/feature/auth/viewmodels/address_setup_cubit.dart';
-import 'package:propix8/feature/auth/viewmodels/auth_cubit.dart';
-import 'package:propix8/feature/auth/viewmodels/reset_password_cubit.dart';
-import 'package:propix8/feature/bookings/repositories/booking_repository.dart';
-import 'package:propix8/feature/bookings/services/booking_service.dart';
-import 'package:propix8/feature/bookings/viewmodels/booking_cubit.dart';
+import 'package:propix8/feature/auth/data/datasources/address_setup_remote_data_source.dart';
+import 'package:propix8/feature/auth/data/datasources/auth_remote_data_source.dart';
+import 'package:propix8/feature/auth/data/repositories/address_setup_repository_impl.dart';
+import 'package:propix8/feature/auth/data/repositories/auth_repository_impl.dart';
+import 'package:propix8/feature/auth/domain/repositories/address_setup_repository.dart';
+import 'package:propix8/feature/auth/domain/repositories/auth_repository.dart';
+import 'package:propix8/feature/auth/domain/usecases/forgot_password_usecase.dart';
+import 'package:propix8/feature/auth/domain/usecases/get_auth_profile_usecase.dart';
+import 'package:propix8/feature/auth/domain/usecases/get_cities_usecase.dart';
+import 'package:propix8/feature/auth/domain/usecases/login_usecase.dart';
+import 'package:propix8/feature/auth/domain/usecases/logout_usecase.dart';
+import 'package:propix8/feature/auth/domain/usecases/register_usecase.dart';
+import 'package:propix8/feature/auth/domain/usecases/resend_verification_email_usecase.dart';
+import 'package:propix8/feature/auth/domain/usecases/reset_password_usecase.dart';
+import 'package:propix8/feature/auth/domain/usecases/update_address_profile_usecase.dart';
+import 'package:propix8/feature/auth/domain/usecases/verify_email_usecase.dart';
+import 'package:propix8/feature/auth/presentation/bloc/address_setup_bloc.dart';
+import 'package:propix8/feature/auth/presentation/bloc/auth_bloc.dart';
+import 'package:propix8/feature/auth/presentation/bloc/reset_password_bloc.dart';
+import 'package:propix8/feature/bookings/data/datasources/booking_remote_data_source.dart';
+import 'package:propix8/feature/bookings/data/repositories/booking_repository_impl.dart';
+import 'package:propix8/feature/bookings/domain/repositories/booking_repository.dart';
+import 'package:propix8/feature/bookings/domain/usecases/delete_booking_usecase.dart';
+import 'package:propix8/feature/bookings/domain/usecases/get_bookings_usecase.dart';
+import 'package:propix8/feature/bookings/domain/usecases/suggest_new_time_usecase.dart';
+import 'package:propix8/feature/bookings/domain/usecases/update_booking_status_usecase.dart';
+import 'package:propix8/feature/bookings/presentation/bloc/booking_bloc.dart';
 import 'package:propix8/feature/comparison/domain/usecases/compare_units_usecase.dart';
 import 'package:propix8/feature/comparison/presentation/bloc/choose_product_bloc.dart';
 import 'package:propix8/feature/comparison/presentation/bloc/comparison_bloc.dart';
@@ -62,13 +79,20 @@ import 'package:propix8/feature/home/domain/usecases/toggle_favorite_usecase.dar
 import 'package:propix8/feature/home/presentation/bloc/home_bloc.dart';
 import 'package:propix8/feature/home/presentation/bloc/nearby_units_bloc.dart';
 import 'package:propix8/feature/home/presentation/filter/bloc/filter_bloc.dart';
-import 'package:propix8/feature/maintenance_bookings/repositories/maintenance_booking_repository.dart';
-import 'package:propix8/feature/maintenance_bookings/services/maintenance_booking_service.dart';
-import 'package:propix8/feature/maintenance_bookings/viewmodels/maintenance_bookings_cubit.dart';
-import 'package:propix8/feature/maintenance_services/repositories/maintenance_service_repository.dart';
-import 'package:propix8/feature/maintenance_services/services/maintenance_service_source.dart';
-import 'package:propix8/feature/maintenance_services/viewmodels/maintenance_booking_cubit.dart';
-import 'package:propix8/feature/maintenance_services/viewmodels/maintenance_services_cubit.dart';
+import 'package:propix8/feature/maintenance_bookings/data/datasources/maintenance_booking_remote_data_source.dart';
+import 'package:propix8/feature/maintenance_bookings/data/repositories/maintenance_booking_repository_impl.dart';
+import 'package:propix8/feature/maintenance_bookings/domain/repositories/maintenance_booking_repository.dart';
+import 'package:propix8/feature/maintenance_bookings/domain/usecases/delete_maintenance_booking_usecase.dart';
+import 'package:propix8/feature/maintenance_bookings/domain/usecases/get_maintenance_bookings_usecase.dart';
+import 'package:propix8/feature/maintenance_bookings/domain/usecases/update_maintenance_booking_usecase.dart';
+import 'package:propix8/feature/maintenance_bookings/presentation/bloc/maintenance_bookings_bloc.dart';
+import 'package:propix8/feature/maintenance_services/data/datasources/maintenance_service_remote_data_source.dart';
+import 'package:propix8/feature/maintenance_services/data/repositories/maintenance_service_repository_impl.dart';
+import 'package:propix8/feature/maintenance_services/domain/repositories/maintenance_service_repository.dart';
+import 'package:propix8/feature/maintenance_services/domain/usecases/book_maintenance_service_usecase.dart';
+import 'package:propix8/feature/maintenance_services/domain/usecases/get_maintenance_services_usecase.dart';
+import 'package:propix8/feature/maintenance_services/presentation/bloc/maintenance_booking_bloc.dart';
+import 'package:propix8/feature/maintenance_services/presentation/bloc/maintenance_services_bloc.dart';
 import 'package:propix8/feature/onboarding/data/datasources/onboarding_local_data_source.dart';
 import 'package:propix8/feature/onboarding/data/repositories/onboarding_repository_impl.dart';
 import 'package:propix8/feature/onboarding/domain/repositories/onboarding_repository.dart';
@@ -85,9 +109,14 @@ import 'package:propix8/feature/our_services/domain/usecases/get_services_usecas
 import 'package:propix8/feature/our_services/domain/usecases/get_testimonials_usecase.dart';
 import 'package:propix8/feature/our_services/domain/usecases/update_testimonial_usecase.dart';
 import 'package:propix8/feature/our_services/presentation/bloc/our_services_bloc.dart';
-import 'package:propix8/feature/profile/repositories/user_profile_repository.dart';
-import 'package:propix8/feature/profile/services/user_profile_service.dart';
-import 'package:propix8/feature/profile/viewmodels/user_profile_cubit.dart';
+import 'package:propix8/feature/profile/data/datasources/user_profile_remote_data_source.dart';
+import 'package:propix8/feature/profile/data/repositories/user_profile_repository_impl.dart';
+import 'package:propix8/feature/profile/domain/repositories/user_profile_repository.dart';
+import 'package:propix8/feature/profile/domain/usecases/delete_user_profile_usecase.dart';
+import 'package:propix8/feature/profile/domain/usecases/get_profile_cities_usecase.dart';
+import 'package:propix8/feature/profile/domain/usecases/get_user_profile_usecase.dart';
+import 'package:propix8/feature/profile/domain/usecases/update_user_profile_usecase.dart';
+import 'package:propix8/feature/profile/presentation/bloc/user_profile_bloc.dart';
 import 'package:propix8/feature/search/domain/usecases/search_units_usecase.dart';
 import 'package:propix8/feature/search/presentation/bloc/search_bloc.dart';
 import 'package:propix8/feature/settings/data/datasources/settings_local_data_source.dart';
@@ -134,17 +163,24 @@ Future<void> setupLocator() async {
     ..registerLazySingleton(() => storageService)
     ..registerLazySingleton(() => AuthInterceptor(locator<StorageService>()))
     ..registerLazySingleton(() => DioClient(Dio(), locator<AuthInterceptor>()))
-    // Services
-    ..registerLazySingleton(() => AuthService(locator<DioClient>()))
+    // Data Sources & Services
+    ..registerLazySingleton<AuthRemoteDataSource>(
+      () => AuthRemoteDataSourceImpl(locator<DioClient>()),
+    )
+    ..registerLazySingleton<AddressSetupRemoteDataSource>(
+      () => AddressSetupRemoteDataSourceImpl(locator<DioClient>()),
+    )
     ..registerLazySingleton<UnitRemoteDataSource>(
       () => UnitRemoteDataSourceImpl(locator<DioClient>()),
     )
-    ..registerLazySingleton(
-      () => MaintenanceServiceSource(locator<DioClient>()),
+    ..registerLazySingleton<MaintenanceServiceRemoteDataSource>(
+      () => MaintenanceServiceRemoteDataSourceImpl(locator<DioClient>()),
     )
-    ..registerLazySingleton(() => BookingService(locator<DioClient>()))
-    ..registerLazySingleton(
-      () => MaintenanceBookingService(locator<DioClient>()),
+    ..registerLazySingleton<BookingRemoteDataSource>(
+      () => BookingRemoteDataSourceImpl(locator<DioClient>()),
+    )
+    ..registerLazySingleton<MaintenanceBookingRemoteDataSource>(
+      () => MaintenanceBookingRemoteDataSourceImpl(locator<DioClient>()),
     )
     ..registerLazySingleton<DevelopersRemoteDataSource>(
       () => DevelopersRemoteDataSourceImpl(locator<DioClient>()),
@@ -182,8 +218,39 @@ Future<void> setupLocator() async {
       () => CompleteOnboardingUseCase(locator<OnboardingRepository>()),
     )
     ..registerLazySingleton<AuthRepository>(
-      () =>
-          AuthRepositoryImpl(locator<AuthService>(), locator<StorageService>()),
+      () => AuthRepositoryImpl(
+        locator<AuthRemoteDataSource>(),
+        locator<StorageService>(),
+      ),
+    )
+    ..registerLazySingleton<AddressSetupRepository>(
+      () => AddressSetupRepositoryImpl(
+        locator<AddressSetupRemoteDataSource>(),
+        locator<StorageService>(),
+      ),
+    )
+    // Auth Use Cases
+    ..registerLazySingleton(() => LoginUseCase(locator<AuthRepository>()))
+    ..registerLazySingleton(() => RegisterUseCase(locator<AuthRepository>()))
+    ..registerLazySingleton(() => LogoutUseCase(locator<AuthRepository>()))
+    ..registerLazySingleton(
+      () => ForgotPasswordUseCase(locator<AuthRepository>()),
+    )
+    ..registerLazySingleton(
+      () => ResetPasswordUseCase(locator<AuthRepository>()),
+    )
+    ..registerLazySingleton(
+      () => ResendVerificationEmailUseCase(locator<AuthRepository>()),
+    )
+    ..registerLazySingleton(() => VerifyEmailUseCase(locator<AuthRepository>()))
+    ..registerLazySingleton(
+      () => GetAuthProfileUseCase(locator<AddressSetupRepository>()),
+    )
+    ..registerLazySingleton(
+      () => GetCitiesUseCase(locator<AddressSetupRepository>()),
+    )
+    ..registerLazySingleton(
+      () => UpdateAddressProfileUseCase(locator<AddressSetupRepository>()),
     )
     ..registerLazySingleton<UnitRepository>(
       () => UnitRepositoryImpl(locator<UnitRemoteDataSource>()),
@@ -271,21 +338,52 @@ Future<void> setupLocator() async {
     )
     ..registerLazySingleton<MaintenanceServiceRepository>(
       () => MaintenanceServiceRepositoryImpl(
-        locator<MaintenanceServiceSource>(),
+        locator<MaintenanceServiceRemoteDataSource>(),
         locator<BookingEventService>(),
+      ),
+    )
+    ..registerLazySingleton(
+      () => GetMaintenanceServicesUseCase(
+        locator<MaintenanceServiceRepository>(),
+      ),
+    )
+    ..registerLazySingleton(
+      () => BookMaintenanceServiceUseCase(
+        locator<MaintenanceServiceRepository>(),
       ),
     )
     ..registerLazySingleton<BookingRepository>(
       () => BookingRepositoryImpl(
-        locator<BookingService>(),
+        locator<BookingRemoteDataSource>(),
         locator<BookingEventService>(),
       ),
     )
+    ..registerLazySingleton(
+      () => GetBookingsUseCase(locator<BookingRepository>()),
+    )
+    ..registerLazySingleton(
+      () => UpdateBookingStatusUseCase(locator<BookingRepository>()),
+    )
+    ..registerLazySingleton(
+      () => SuggestNewTimeUseCase(locator<BookingRepository>()),
+    )
+    ..registerLazySingleton(
+      () => DeleteBookingUseCase(locator<BookingRepository>()),
+    )
     ..registerLazySingleton<MaintenanceBookingRepository>(
       () => MaintenanceBookingRepositoryImpl(
-        locator<MaintenanceBookingService>(),
+        locator<MaintenanceBookingRemoteDataSource>(),
         locator<BookingEventService>(),
       ),
+    )
+    ..registerLazySingleton(
+      () => GetMaintenanceBookingsUseCase(locator<MaintenanceBookingRepository>()),
+    )
+    ..registerLazySingleton(
+      () => DeleteMaintenanceBookingUseCase(locator<MaintenanceBookingRepository>()),
+    )
+    ..registerLazySingleton(
+      () => UpdateMaintenanceBookingUseCase(locator<MaintenanceBookingRepository>()),
     )
     ..registerLazySingleton<DevelopersRepository>(
       () => DevelopersRepositoryImpl(locator<DevelopersRemoteDataSource>()),
@@ -360,12 +458,25 @@ Future<void> setupLocator() async {
       ),
     )
     ..registerLazySingleton(
-      () => AuthCubit(
-        locator<AuthRepository>(),
-        locator<AddressSetupRepository>(),
+      () => AuthBloc(
+        authRepository: locator<AuthRepository>(),
+        addressSetupRepository: locator<AddressSetupRepository>(),
+        loginUseCase: locator<LoginUseCase>(),
+        registerUseCase: locator<RegisterUseCase>(),
+        logoutUseCase: locator<LogoutUseCase>(),
+        resendVerificationEmailUseCase:
+            locator<ResendVerificationEmailUseCase>(),
+        verifyEmailUseCase: locator<VerifyEmailUseCase>(),
+        getAuthProfileUseCase: locator<GetAuthProfileUseCase>(),
       ),
     )
-    ..registerFactory(() => ResetPasswordCubit(locator<AuthRepository>()))
+    ..registerFactory(
+      () => ResetPasswordBloc(
+        authRepository: locator<AuthRepository>(),
+        forgotPasswordUseCase: locator<ForgotPasswordUseCase>(),
+        resetPasswordUseCase: locator<ResetPasswordUseCase>(),
+      ),
+    )
     ..registerFactory(
       () => HomeBloc(
         getBannersUseCase: locator<GetBannersUseCase>(),
@@ -413,30 +524,46 @@ Future<void> setupLocator() async {
       ),
     )
     // Profile Feature
-    ..registerLazySingleton(() => UserProfileService(locator<DioClient>()))
+    ..registerLazySingleton<UserProfileRemoteDataSource>(
+      () => UserProfileRemoteDataSourceImpl(locator<DioClient>()),
+    )
     ..registerLazySingleton<UserProfileRepository>(
       () => UserProfileRepositoryImpl(
-        locator<UserProfileService>(),
+        locator<UserProfileRemoteDataSource>(),
         locator<StorageService>(),
       ),
     )
     ..registerLazySingleton(
-      () => UserProfileCubit(
-        locator<UserProfileRepository>(),
-        locator<BookingRepository>(),
-        locator<MaintenanceBookingRepository>(),
-        locator<BookingEventService>(),
-      ),
+      () => GetUserProfileUseCase(locator<UserProfileRepository>()),
     )
-    ..registerLazySingleton(() => AddressSetupService(locator<DioClient>()))
-    ..registerLazySingleton<AddressSetupRepository>(
-      () => AddressSetupRepositoryImpl(
-        locator<AddressSetupService>(),
-        locator<StorageService>(),
+    ..registerLazySingleton(
+      () => UpdateUserProfileUseCase(locator<UserProfileRepository>()),
+    )
+    ..registerLazySingleton(
+      () => GetProfileCitiesUseCase(locator<UserProfileRepository>()),
+    )
+    ..registerLazySingleton(
+      () => DeleteUserProfileUseCase(locator<UserProfileRepository>()),
+    )
+    ..registerLazySingleton(
+      () => UserProfileBloc(
+        getUserProfileUseCase: locator<GetUserProfileUseCase>(),
+        updateUserProfileUseCase: locator<UpdateUserProfileUseCase>(),
+        getProfileCitiesUseCase: locator<GetProfileCitiesUseCase>(),
+        deleteUserProfileUseCase: locator<DeleteUserProfileUseCase>(),
+        bookingRepository: locator<BookingRepository>(),
+        maintenanceBookingRepository: locator<MaintenanceBookingRepository>(),
+        bookingEventService: locator<BookingEventService>(),
+        onUserUpdated: (user) => locator<AuthBloc>().updateUser(user),
       ),
     )
     ..registerFactory(
-      () => AddressSetupCubit(locator<AddressSetupRepository>()),
+      () => AddressSetupBloc(
+        addressSetupRepository: locator<AddressSetupRepository>(),
+        authBloc: locator<AuthBloc>(),
+        getCitiesUseCase: locator<GetCitiesUseCase>(),
+        updateAddressProfileUseCase: locator<UpdateAddressProfileUseCase>(),
+      ),
     )
     ..registerLazySingleton(
       () => FavoriteBloc(
@@ -445,17 +572,29 @@ Future<void> setupLocator() async {
       ),
     )
     ..registerLazySingleton(
-      () => MaintenanceServicesCubit(
-        locator<MaintenanceServiceRepository>(),
-        locator<MaintenanceBookingRepository>(),
+      () => MaintenanceServicesBloc(
+        getMaintenanceServicesUseCase:
+            locator<GetMaintenanceServicesUseCase>(),
+        maintenanceBookingRepository: locator<MaintenanceBookingRepository>(),
       ),
     )
     ..registerFactory(
-      () => MaintenanceBookingCubit(locator<MaintenanceServiceRepository>()),
+      () => MaintenanceBookingBloc(locator<BookMaintenanceServiceUseCase>()),
     )
-    ..registerFactory(() => BookingCubit(locator<BookingRepository>()))
     ..registerFactory(
-      () => MaintenanceBookingsCubit(locator<MaintenanceBookingRepository>()),
+      () => BookingBloc(
+        getBookingsUseCase: locator<GetBookingsUseCase>(),
+        updateBookingStatusUseCase: locator<UpdateBookingStatusUseCase>(),
+        suggestNewTimeUseCase: locator<SuggestNewTimeUseCase>(),
+        deleteBookingUseCase: locator<DeleteBookingUseCase>(),
+      ),
+    )
+    ..registerFactory(
+      () => MaintenanceBookingsBloc(
+        getMaintenanceBookingsUseCase: locator<GetMaintenanceBookingsUseCase>(),
+        deleteMaintenanceBookingUseCase: locator<DeleteMaintenanceBookingUseCase>(),
+        updateMaintenanceBookingUseCase: locator<UpdateMaintenanceBookingUseCase>(),
+      ),
     )
     ..registerFactory(
       () =>

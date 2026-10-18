@@ -1,52 +1,42 @@
-import 'package:equatable/equatable.dart';
-import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class PaginationModel extends Equatable {
-  const PaginationModel({
-    required this.currentPage,
-    required this.perPage,
-    required this.total,
-    required this.lastPage,
-  });
+part 'pagination_model.freezed.dart';
+part 'pagination_model.g.dart';
 
-  factory PaginationModel.fromJson(Map<String, dynamic>? json) {
+@freezed
+abstract class PaginationModel with _$PaginationModel {
+  const PaginationModel._();
+
+  const factory PaginationModel({
+    @JsonKey(name: 'current_page') @Default(1) int currentPage,
+    @JsonKey(name: 'per_page') @Default(10) int perPage,
+    @Default(0) int total,
+    @JsonKey(name: 'last_page') @Default(1) int lastPage,
+  }) = _PaginationModel;
+
+  factory PaginationModel.fromJson(Map<String, dynamic> json) =>
+      _$PaginationModelFromJson(json);
+
+  factory PaginationModel.fromNullableJson(Map<String, dynamic>? json) {
     if (json == null) return PaginationModel.empty();
-    return PaginationModel(
-      currentPage: (json['current_page'] as int?) ?? 1,
-      perPage: (json['per_page'] as int?) ?? 10,
-      total: (json['total'] as int?) ?? 0,
-      lastPage: (json['last_page'] as int?) ?? 1,
-    );
+    return PaginationModel.fromJson(json);
   }
 
-  factory PaginationModel.empty() =>
-      const PaginationModel(currentPage: 1, perPage: 10, total: 0, lastPage: 1);
-
-  final int currentPage;
-  final int perPage;
-  final int total;
-  final int lastPage;
+  factory PaginationModel.empty() => const PaginationModel();
 
   bool get hasMorePages => currentPage < lastPage;
-
-  @override
-  List<Object?> get props => [currentPage, perPage, total, lastPage];
 }
 
-class PaginatedResponse<T> {
-  const PaginatedResponse({required this.data, required this.pagination});
+@Freezed(genericArgumentFactories: true)
+abstract class PaginatedResponse<T> with _$PaginatedResponse<T> {
+  const factory PaginatedResponse({
+    required List<T> data,
+    required PaginationModel pagination,
+  }) = _PaginatedResponse<T>;
 
-  final List<T> data;
-  final PaginationModel pagination;
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is PaginatedResponse<T> &&
-          runtimeType == other.runtimeType &&
-          listEquals(data, other.data) &&
-          pagination == other.pagination;
-
-  @override
-  int get hashCode => Object.hash(Object.hashAll(data), pagination);
+  factory PaginatedResponse.fromJson(
+    Map<String, dynamic> json,
+    T Function(Object? json) fromJsonT,
+  ) =>
+      _$PaginatedResponseFromJson(json, fromJsonT);
 }

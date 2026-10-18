@@ -56,7 +56,7 @@ class OurServicesRemoteDataSourceImpl implements OurServicesRemoteDataSource {
             (json) => TestimonialModel.fromJson(json as Map<String, dynamic>),
           )
           .toList(),
-      pagination: PaginationModel.fromJson(paginationJson),
+      pagination: PaginationModel.fromNullableJson(paginationJson),
     );
   }
 

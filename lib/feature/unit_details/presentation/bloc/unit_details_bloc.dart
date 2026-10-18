@@ -1,10 +1,9 @@
-import 'package:dartz/dartz.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:propix8/core/error/failures.dart';
 import 'package:propix8/core/models/pagination_model.dart';
 import 'package:propix8/core/shared/bloc/safe_bloc.dart';
-import 'package:propix8/feature/bookings/models/booking_model.dart';
-import 'package:propix8/feature/bookings/repositories/booking_repository.dart';
+import 'package:propix8/feature/bookings/domain/entities/booking_entity.dart';
+import 'package:propix8/feature/bookings/domain/repositories/booking_repository.dart';
 import 'package:propix8/feature/home/domain/entities/unit_entity.dart';
 import 'package:propix8/feature/home/presentation/bloc/home_state.dart';
 import 'package:propix8/feature/unit_details/domain/entities/review_entity.dart';

@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:propix8/core/utils/context_extensions.dart';
 import 'package:propix8/core/utils/responsive_helper.dart';
 import 'package:propix8/core/widgets/app_confirmation_dialog.dart';
-import 'package:propix8/feature/auth/viewmodels/auth_cubit.dart';
-import 'package:propix8/feature/auth/viewmodels/auth_state.dart';
+import 'package:propix8/feature/auth/presentation/bloc/auth_bloc.dart';
+import 'package:propix8/feature/auth/presentation/bloc/auth_state.dart';
 import 'package:propix8/feature/our_services/domain/entities/testimonial_entity.dart';
 import 'package:propix8/feature/our_services/presentation/bloc/our_services_bloc.dart';
 import 'package:propix8/feature/our_services/presentation/bloc/our_services_event.dart';
@@ -96,7 +96,7 @@ class TestimonialItem extends StatelessWidget {
                 ],
               ),
             ),
-            BlocSelector<AuthCubit, AuthState, int?>(
+            BlocSelector<AuthBloc, AuthState, int?>(
               selector: (state) => state.user?.id,
               builder: (context, userId) {
                 if (userId != null && userId == testimonial.userId) {

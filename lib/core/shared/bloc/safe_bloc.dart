@@ -2,38 +2,11 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+export 'package:flutter_bloc/flutter_bloc.dart';
+
 /// Symbol used to store and retrieve the [CancelToken] from the current [Zone].
 const Symbol blocCancelKey = #blocCancelKey;
 
-/// A Cubit that provides emission safety (preventing emission after close)
-/// and automatic request cancellation via a [CancelToken] associated with the Cubit's lifetime.
-abstract class SafeCubit<State> extends Cubit<State> {
-  SafeCubit(super.initialState);
-
-  /// The [CancelToken] associated with this Cubit.
-  final CancelToken cancelToken = CancelToken();
-
-  /// Runs an asynchronous [computation] within a [Zone] containing this Cubit's [CancelToken].
-  /// Any network request made via [DioClient] within this block will automatically
-  /// inherit and use this [CancelToken] if no explicit token is passed.
-  Future<T> runSafe<T>(FutureOr<T> Function() computation) => runZoned(
-    () async => await computation(),
-    zoneValues: {blocCancelKey: cancelToken},
-  );
-
-  @override
-  void emit(State state) {
-    if (!isClosed) {
-      super.emit(state);
-    }
-  }
-
-  @override
-  Future<void> close() {
-    cancelToken.cancel('Cubit closed');
-    return super.close();
-  }
-}
 
 /// A Bloc that provides emission safety (preventing emission after close)
 /// and automatic request cancellation via a [CancelToken] associated with the Bloc's lifetime.

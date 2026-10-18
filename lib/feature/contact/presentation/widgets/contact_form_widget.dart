@@ -8,7 +8,7 @@ import 'package:propix8/core/utils/snackbar_utils.dart';
 import 'package:propix8/core/widgets/app_elevated_button.dart';
 import 'package:propix8/core/widgets/app_form.dart';
 import 'package:propix8/core/widgets/app_text_form_field.dart';
-import 'package:propix8/feature/auth/models/auth_model.dart';
+import 'package:propix8/feature/auth/data/models/auth_model.dart';
 import 'package:propix8/feature/contact/domain/entities/contact_request_entity.dart';
 import 'package:propix8/feature/contact/presentation/bloc/contact_bloc.dart';
 import 'package:propix8/feature/contact/presentation/bloc/contact_event.dart';

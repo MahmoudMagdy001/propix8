@@ -1,4 +1,3 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 import 'package:propix8/feature/comparison/domain/entities/comparison_item.dart';
 import 'package:propix8/feature/comparison/domain/usecases/compare_units_usecase.dart';

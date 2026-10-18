@@ -6,8 +6,9 @@ import 'package:propix8/feature/home/data/models/unit_model.dart';
 part 'developer_collection_model.freezed.dart';
 
 @Freezed(toJson: false, fromJson: false)
-abstract class DeveloperCollectionModel with _$DeveloperCollectionModel
-    implements DeveloperCollectionEntity {
+abstract class DeveloperCollectionModel with _$DeveloperCollectionModel {
+  const DeveloperCollectionModel._();
+
   const factory DeveloperCollectionModel({
     required int id,
     required String name,
@@ -19,6 +20,18 @@ abstract class DeveloperCollectionModel with _$DeveloperCollectionModel
     required List<UnitModel> units,
     PaginationModel? pagination,
   }) = _DeveloperCollectionModel;
+
+  DeveloperCollectionEntity toEntity() => DeveloperCollectionEntity(
+        id: id,
+        name: name,
+        description: description,
+        logo: logo,
+        email: email,
+        phone: phone,
+        address: address,
+        units: units.map((u) => u.toDomain()).toList(),
+        pagination: pagination,
+      );
 
   factory DeveloperCollectionModel.fromJson(
     Map<String, dynamic> json, {

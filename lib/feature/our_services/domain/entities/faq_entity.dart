@@ -1,23 +1,12 @@
-class FaqEntity {
-  const FaqEntity({
-    required this.id,
-    required this.question,
-    required this.answer,
-  });
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  final int id;
-  final String question;
-  final String answer;
+part 'faq_entity.freezed.dart';
 
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is FaqEntity &&
-          runtimeType == other.runtimeType &&
-          id == other.id &&
-          question == other.question &&
-          answer == other.answer;
-
-  @override
-  int get hashCode => Object.hash(id, question, answer);
+@freezed
+abstract class FaqEntity with _$FaqEntity {
+  const factory FaqEntity({
+    required int id,
+    required String question,
+    required String answer,
+  }) = _FaqEntity;
 }

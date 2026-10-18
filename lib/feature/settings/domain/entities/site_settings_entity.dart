@@ -1,23 +1,18 @@
-class SiteSettingsEntity {
-  const SiteSettingsEntity({
-    this.homeHeroImages = const [],
-    this.siteName = '',
-    this.siteEmail = '',
-    this.siteLogo = '',
-    this.sitePhone = '',
-    this.siteAddress = '',
-    this.socialFacebook = '',
-    this.socialInstagram = '',
-    this.socialTwitter = '',
-  });
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  final List<String> homeHeroImages;
-  final String siteName;
-  final String siteEmail;
-  final String siteLogo;
-  final String sitePhone;
-  final String siteAddress;
-  final String socialFacebook;
-  final String socialInstagram;
-  final String socialTwitter;
+part 'site_settings_entity.freezed.dart';
+
+@freezed
+abstract class SiteSettingsEntity with _$SiteSettingsEntity {
+  const factory SiteSettingsEntity({
+    @Default([]) List<String> homeHeroImages,
+    @Default('') String siteName,
+    @Default('') String siteEmail,
+    @Default('') String siteLogo,
+    @Default('') String sitePhone,
+    @Default('') String siteAddress,
+    @Default('') String socialFacebook,
+    @Default('') String socialInstagram,
+    @Default('') String socialTwitter,
+  }) = _SiteSettingsEntity;
 }

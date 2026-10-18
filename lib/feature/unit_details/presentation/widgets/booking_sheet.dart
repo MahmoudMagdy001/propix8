@@ -13,7 +13,7 @@ import 'package:propix8/core/widgets/app_form.dart';
 import 'package:propix8/core/widgets/app_modal_sheet.dart';
 import 'package:propix8/core/widgets/app_text_form_field.dart';
 import 'package:propix8/core/widgets/terms_checkbox.dart';
-import 'package:propix8/feature/auth/models/auth_model.dart';
+import 'package:propix8/feature/auth/data/models/auth_model.dart';
 import 'package:propix8/feature/home/presentation/bloc/home_state.dart';
 import 'package:propix8/feature/unit_details/presentation/bloc/unit_details_bloc.dart';
 import 'package:propix8/feature/unit_details/presentation/bloc/unit_details_event.dart';

@@ -1,11 +1,12 @@
-class CompoundEntity {
-  const CompoundEntity({
-    required this.id,
-    required this.name,
-    required this.description,
-  });
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  final int id;
-  final String name;
-  final String description;
+part 'compound_entity.freezed.dart';
+
+@freezed
+abstract class CompoundEntity with _$CompoundEntity {
+  const factory CompoundEntity({
+    required int id,
+    required String name,
+    required String description,
+  }) = _CompoundEntity;
 }

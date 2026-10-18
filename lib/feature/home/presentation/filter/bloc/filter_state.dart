@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:propix8/feature/auth/models/city_model.dart';
+import 'package:propix8/feature/auth/data/models/city_model.dart';
 
 part 'filter_state.freezed.dart';
 

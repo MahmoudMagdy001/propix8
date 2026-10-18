@@ -1,5 +1,4 @@
-import 'package:dartz/dartz.dart';
-import 'package:propix8/core/error/failures.dart';
+import 'package:propix8/core/functional/result.dart';
 import 'package:propix8/feature/compound_details/domain/entities/compound_collection_entity.dart';
 import 'package:propix8/feature/compound_details/domain/repositories/compound_details_repository.dart';
 
@@ -8,7 +7,7 @@ class GetCompoundUnitsUseCase {
 
   final CompoundDetailsRepository _repository;
 
-  Future<Either<Failure, CompoundCollectionEntity>> call(
+  ResultFuture<CompoundCollectionEntity> call(
     int id, {
     int? page,
   }) =>

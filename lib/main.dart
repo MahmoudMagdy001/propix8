@@ -11,7 +11,7 @@ import 'package:propix8/core/services/deep_link_service.dart';
 import 'package:propix8/core/theme/app_theme.dart';
 import 'package:propix8/core/utils/auth_constants.dart';
 import 'package:propix8/core/utils/auth_logger.dart';
-import 'package:propix8/feature/auth/viewmodels/auth_cubit.dart';
+import 'package:propix8/feature/auth/presentation/bloc/auth_bloc.dart';
 import 'package:propix8/feature/favorites/presentation/bloc/favorite_bloc.dart';
 import 'package:propix8/feature/settings/presentation/bloc/settings_bloc.dart';
 import 'package:propix8/feature/settings/presentation/bloc/settings_state.dart';
@@ -36,7 +36,7 @@ void main() async {
   await InternetStateManagerInitializer.initialize();
 
   try {
-    await locator<AuthCubit>().checkAuthStatus().timeout(AuthConstants.authCheckTimeout);
+    await locator<AuthBloc>().checkAuthStatus().timeout(AuthConstants.authCheckTimeout);
     AuthLogger.info('Auth check completed');
   } on Object catch (e) {
     AuthLogger.error('Auth check timed out or failed', e);
@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
     builder: (context, child) => MultiBlocProvider(
       providers: [
         BlocProvider.value(value: locator<FavoriteBloc>()),
-        BlocProvider.value(value: locator<AuthCubit>()),
+        BlocProvider.value(value: locator<AuthBloc>()),
         BlocProvider.value(value: locator<SettingsBloc>()),
       ],
       child: BlocSelector<SettingsBloc, SettingsState, (ThemeMode, Locale)>(

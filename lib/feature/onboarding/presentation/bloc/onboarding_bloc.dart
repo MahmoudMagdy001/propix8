@@ -1,4 +1,3 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 import 'package:propix8/feature/onboarding/domain/usecases/complete_onboarding_usecase.dart';
 import 'package:propix8/feature/onboarding/domain/usecases/get_onboarding_pages_usecase.dart';

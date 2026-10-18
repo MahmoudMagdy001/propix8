@@ -1,6 +1,6 @@
-import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:propix8/core/error/failures.dart';
+import 'package:propix8/core/functional/result.dart';
 import 'package:propix8/feature/contact/data/datasources/contact_remote_data_source.dart';
 import 'package:propix8/feature/contact/data/models/contact_request_model.dart';
 import 'package:propix8/feature/contact/domain/entities/contact_request_entity.dart';
@@ -12,13 +12,13 @@ class ContactRepositoryImpl implements ContactRepository {
   final ContactRemoteDataSource _remoteDataSource;
 
   @override
-  Future<Either<Failure, void>> sendContactRequest(
+  ResultUnit sendContactRequest(
     ContactRequestEntity request,
   ) async {
     try {
       final model = ContactRequestModel.fromDomain(request);
       await _remoteDataSource.sendContactRequest(model);
-      return const Right(null);
+      return const Right(unit);
     } on DioException catch (e) {
       return Left(_handleDioError(e));
     } on Object catch (e) {

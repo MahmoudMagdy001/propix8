@@ -28,12 +28,12 @@ $UnitModelCopyWith<UnitModel> get copyWith => _$UnitModelCopyWithImpl<UnitModel>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitModel&&super == other&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.price, price) || other.price == price)&&(identical(other.description, description) || other.description == description)&&(identical(other.address, address) || other.address == address)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl)&&(identical(other.bedrooms, bedrooms) || other.bedrooms == bedrooms)&&(identical(other.bathrooms, bathrooms) || other.bathrooms == bathrooms)&&(identical(other.area, area) || other.area == area)&&(identical(other.isFavorite, isFavorite) || other.isFavorite == isFavorite)&&(identical(other.offerType, offerType) || other.offerType == offerType));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitModel&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.price, price) || other.price == price)&&(identical(other.description, description) || other.description == description)&&(identical(other.address, address) || other.address == address)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl)&&(identical(other.bedrooms, bedrooms) || other.bedrooms == bedrooms)&&(identical(other.bathrooms, bathrooms) || other.bathrooms == bathrooms)&&(identical(other.area, area) || other.area == area)&&(identical(other.isFavorite, isFavorite) || other.isFavorite == isFavorite)&&(identical(other.offerType, offerType) || other.offerType == offerType));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,super.hashCode,id,title,price,description,address,imageUrl,bedrooms,bathrooms,area,isFavorite,offerType);
+int get hashCode => Object.hash(runtimeType,id,title,price,description,address,imageUrl,bedrooms,bathrooms,area,isFavorite,offerType);
 
 @override
 String toString() {
@@ -247,12 +247,12 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitModel&&super == other&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.price, price) || other.price == price)&&(identical(other.description, description) || other.description == description)&&(identical(other.address, address) || other.address == address)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl)&&(identical(other.bedrooms, bedrooms) || other.bedrooms == bedrooms)&&(identical(other.bathrooms, bathrooms) || other.bathrooms == bathrooms)&&(identical(other.area, area) || other.area == area)&&(identical(other.isFavorite, isFavorite) || other.isFavorite == isFavorite)&&(identical(other.offerType, offerType) || other.offerType == offerType));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitModel&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.price, price) || other.price == price)&&(identical(other.description, description) || other.description == description)&&(identical(other.address, address) || other.address == address)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl)&&(identical(other.bedrooms, bedrooms) || other.bedrooms == bedrooms)&&(identical(other.bathrooms, bathrooms) || other.bathrooms == bathrooms)&&(identical(other.area, area) || other.area == area)&&(identical(other.isFavorite, isFavorite) || other.isFavorite == isFavorite)&&(identical(other.offerType, offerType) || other.offerType == offerType));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,super.hashCode,id,title,price,description,address,imageUrl,bedrooms,bathrooms,area,isFavorite,offerType);
+int get hashCode => Object.hash(runtimeType,id,title,price,description,address,imageUrl,bedrooms,bathrooms,area,isFavorite,offerType);
 
 @override
 String toString() {

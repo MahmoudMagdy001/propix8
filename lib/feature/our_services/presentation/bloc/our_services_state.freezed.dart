@@ -49,7 +49,7 @@ $Res call({
 });
 
 
-
+$PaginatedResponseCopyWith<TestimonialEntity, $Res>? get testimonials;
 
 }
 /// @nodoc
@@ -78,7 +78,19 @@ as OurServicesStatus,deleteTestimonialStatus: null == deleteTestimonialStatus ? 
 as OurServicesStatus,
   ));
 }
+/// Create a copy of OurServicesState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PaginatedResponseCopyWith<TestimonialEntity, $Res>? get testimonials {
+    if (_self.testimonials == null) {
+    return null;
+  }
 
+  return $PaginatedResponseCopyWith<TestimonialEntity, $Res>(_self.testimonials!, (value) {
+    return _then(_self.copyWith(testimonials: value));
+  });
+}
 }
 
 
@@ -277,7 +289,7 @@ $Res call({
 });
 
 
-
+@override $PaginatedResponseCopyWith<TestimonialEntity, $Res>? get testimonials;
 
 }
 /// @nodoc
@@ -307,7 +319,19 @@ as OurServicesStatus,
   ));
 }
 
+/// Create a copy of OurServicesState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PaginatedResponseCopyWith<TestimonialEntity, $Res>? get testimonials {
+    if (_self.testimonials == null) {
+    return null;
+  }
 
+  return $PaginatedResponseCopyWith<TestimonialEntity, $Res>(_self.testimonials!, (value) {
+    return _then(_self.copyWith(testimonials: value));
+  });
+}
 }
 
 // dart format on

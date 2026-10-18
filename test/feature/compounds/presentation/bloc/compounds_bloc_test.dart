@@ -1,8 +1,8 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:propix8/core/error/failures.dart';
+import 'package:propix8/core/functional/result.dart';
 import 'package:propix8/feature/compounds/domain/entities/compound_entity.dart';
 import 'package:propix8/feature/compounds/domain/usecases/get_compounds_usecase.dart';
 import 'package:propix8/feature/compounds/presentation/bloc/compounds_bloc.dart';

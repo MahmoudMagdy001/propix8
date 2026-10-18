@@ -1,6 +1,6 @@
-import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:propix8/core/error/failures.dart';
+import 'package:propix8/core/functional/result.dart';
 import 'package:propix8/core/models/pagination_model.dart';
 import 'package:propix8/core/services/booking_event_service.dart';
 import 'package:propix8/feature/home/domain/entities/unit_entity.dart';
@@ -22,7 +22,7 @@ class UnitDetailsRepositoryImpl implements UnitDetailsRepository {
   final BookingEventService _bookingEventService;
 
   @override
-  Future<Either<Failure, UnitDetailsEntity>> getUnitDetails(int unitId) async {
+  ResultFuture<UnitDetailsEntity> getUnitDetails(int unitId) async {
     try {
       final model = await _remoteDataSource.getUnitDetails(unitId);
       return Right(model.toEntity());
@@ -34,7 +34,7 @@ class UnitDetailsRepositoryImpl implements UnitDetailsRepository {
   }
 
   @override
-  Future<Either<Failure, List<UnitEntity>>> getRelatedUnits(int unitId) async {
+  ResultFuture<List<UnitEntity>> getRelatedUnits(int unitId) async {
     try {
       final models = await _remoteDataSource.getRelatedUnits(unitId);
       return Right(models.map((m) => m.toDomain()).toList());
@@ -46,7 +46,7 @@ class UnitDetailsRepositoryImpl implements UnitDetailsRepository {
   }
 
   @override
-  Future<Either<Failure, PaginatedResponse<ReviewEntity>>> getReviews(
+  ResultFuture<PaginatedResponse<ReviewEntity>> getReviews(
     int unitId, {
     int page = 1,
   }) async {
@@ -57,7 +57,7 @@ class UnitDetailsRepositoryImpl implements UnitDetailsRepository {
               ?.map((r) => ReviewModel.fromJson(r as Map<String, dynamic>).toEntity())
               .toList() ??
           [];
-      final pagination = PaginationModel.fromJson(
+      final pagination = PaginationModel.fromNullableJson(
         json['pagination'] as Map<String, dynamic>?,
       );
       return Right(PaginatedResponse(data: reviews, pagination: pagination));
@@ -69,7 +69,7 @@ class UnitDetailsRepositoryImpl implements UnitDetailsRepository {
   }
 
   @override
-  Future<Either<Failure, ReviewEntity>> submitReview(
+  ResultFuture<ReviewEntity> submitReview(
     int unitId,
     int rating,
     String? comment,
@@ -89,10 +89,10 @@ class UnitDetailsRepositoryImpl implements UnitDetailsRepository {
   }
 
   @override
-  Future<Either<Failure, void>> deleteReview(int reviewId) async {
+  ResultUnit deleteReview(int reviewId) async {
     try {
       await _remoteDataSource.deleteReview(reviewId);
-      return const Right(null);
+      return const Right(unit);
     } on DioException catch (e) {
       return Left(ServerFailure(e.message ?? 'Server error'));
     } on Object catch (e) {
@@ -101,7 +101,7 @@ class UnitDetailsRepositoryImpl implements UnitDetailsRepository {
   }
 
   @override
-  Future<Either<Failure, ReviewEntity>> updateReview(
+  ResultFuture<ReviewEntity> updateReview(
     int reviewId,
     int rating,
     String? comment,
@@ -121,7 +121,7 @@ class UnitDetailsRepositoryImpl implements UnitDetailsRepository {
   }
 
   @override
-  Future<Either<Failure, void>> contactOwner({
+  ResultUnit contactOwner({
     required String name,
     required String email,
     required String phone,
@@ -136,7 +136,7 @@ class UnitDetailsRepositoryImpl implements UnitDetailsRepository {
         message: message,
         unitId: unitId,
       );
-      return const Right(null);
+      return const Right(unit);
     } on DioException catch (e) {
       return Left(ServerFailure(e.message ?? 'Server error'));
     } on Object catch (e) {
@@ -145,7 +145,7 @@ class UnitDetailsRepositoryImpl implements UnitDetailsRepository {
   }
 
   @override
-  Future<Either<Failure, UnitBookingResponseEntity>> createBooking({
+  ResultFuture<UnitBookingResponseEntity> createBooking({
     required int unitId,
     required String name,
     required String email,

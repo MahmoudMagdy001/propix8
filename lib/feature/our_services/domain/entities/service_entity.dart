@@ -1,26 +1,13 @@
-class ServiceEntity {
-  const ServiceEntity({
-    required this.id,
-    required this.name,
-    required this.description,
-    required this.icon,
-  });
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  final int id;
-  final String name;
-  final String description;
-  final String icon;
+part 'service_entity.freezed.dart';
 
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is ServiceEntity &&
-          runtimeType == other.runtimeType &&
-          id == other.id &&
-          name == other.name &&
-          description == other.description &&
-          icon == other.icon;
-
-  @override
-  int get hashCode => Object.hash(id, name, description, icon);
+@freezed
+abstract class ServiceEntity with _$ServiceEntity {
+  const factory ServiceEntity({
+    required int id,
+    required String name,
+    required String description,
+    required String icon,
+  }) = _ServiceEntity;
 }

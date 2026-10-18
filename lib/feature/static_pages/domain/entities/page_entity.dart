@@ -1,38 +1,33 @@
-class TeamMemberEntity {
-  const TeamMemberEntity({
-    required this.name,
-    required this.position,
-    required this.photo,
-  });
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  final String name;
-  final String position;
-  final String photo;
+part 'page_entity.freezed.dart';
+
+@freezed
+abstract class TeamMemberEntity with _$TeamMemberEntity {
+  const factory TeamMemberEntity({
+    required String name,
+    required String position,
+    required String photo,
+  }) = _TeamMemberEntity;
 }
 
-class SectionEntity {
-  const SectionEntity({required this.title, required this.content});
-
-  final String title;
-  final List<String> content;
+@freezed
+abstract class SectionEntity with _$SectionEntity {
+  const factory SectionEntity({
+    required String title,
+    required List<String> content,
+  }) = _SectionEntity;
 }
 
-class PageEntity {
-  const PageEntity({
-    required this.id,
-    required this.slug,
-    required this.image,
-    required this.title,
-    required this.content,
-    required this.teamMembers,
-    required this.sections,
-  });
-
-  final int id;
-  final String slug;
-  final String image;
-  final String title;
-  final String content;
-  final List<TeamMemberEntity> teamMembers;
-  final List<SectionEntity> sections;
+@freezed
+abstract class PageEntity with _$PageEntity {
+  const factory PageEntity({
+    required int id,
+    required String slug,
+    required String image,
+    required String title,
+    required String content,
+    required List<TeamMemberEntity> teamMembers,
+    required List<SectionEntity> sections,
+  }) = _PageEntity;
 }

@@ -25,12 +25,12 @@ $CompoundCollectionModelCopyWith<CompoundCollectionModel> get copyWith => _$Comp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CompoundCollectionModel&&super == other&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.units, units)&&(identical(other.pagination, pagination) || other.pagination == pagination));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CompoundCollectionModel&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.units, units)&&(identical(other.pagination, pagination) || other.pagination == pagination));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,super.hashCode,id,name,description,const DeepCollectionEquality().hash(units),pagination);
+int get hashCode => Object.hash(runtimeType,id,name,description,const DeepCollectionEquality().hash(units),pagination);
 
 @override
 String toString() {
@@ -49,7 +49,7 @@ $Res call({
 });
 
 
-
+$PaginationModelCopyWith<$Res>? get pagination;
 
 }
 /// @nodoc
@@ -72,7 +72,19 @@ as List<UnitModel>,pagination: freezed == pagination ? _self.pagination : pagina
 as PaginationModel?,
   ));
 }
+/// Create a copy of CompoundCollectionModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PaginationModelCopyWith<$Res>? get pagination {
+    if (_self.pagination == null) {
+    return null;
+  }
 
+  return $PaginationModelCopyWith<$Res>(_self.pagination!, (value) {
+    return _then(_self.copyWith(pagination: value));
+  });
+}
 }
 
 
@@ -209,8 +221,8 @@ return $default(_that.id,_that.name,_that.description,_that.units,_that.paginati
 /// @nodoc
 
 
-class _CompoundCollectionModel implements CompoundCollectionModel {
-  const _CompoundCollectionModel({required this.id, required this.name, required this.description, required final  List<UnitModel> units, this.pagination}): _units = units;
+class _CompoundCollectionModel extends CompoundCollectionModel {
+  const _CompoundCollectionModel({required this.id, required this.name, required this.description, required final  List<UnitModel> units, this.pagination}): _units = units,super._();
   
 
 @override final  int id;
@@ -235,12 +247,12 @@ _$CompoundCollectionModelCopyWith<_CompoundCollectionModel> get copyWith => __$C
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CompoundCollectionModel&&super == other&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other._units, _units)&&(identical(other.pagination, pagination) || other.pagination == pagination));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CompoundCollectionModel&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other._units, _units)&&(identical(other.pagination, pagination) || other.pagination == pagination));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,super.hashCode,id,name,description,const DeepCollectionEquality().hash(_units),pagination);
+int get hashCode => Object.hash(runtimeType,id,name,description,const DeepCollectionEquality().hash(_units),pagination);
 
 @override
 String toString() {
@@ -259,7 +271,7 @@ $Res call({
 });
 
 
-
+@override $PaginationModelCopyWith<$Res>? get pagination;
 
 }
 /// @nodoc
@@ -283,7 +295,19 @@ as PaginationModel?,
   ));
 }
 
+/// Create a copy of CompoundCollectionModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PaginationModelCopyWith<$Res>? get pagination {
+    if (_self.pagination == null) {
+    return null;
+  }
 
+  return $PaginationModelCopyWith<$Res>(_self.pagination!, (value) {
+    return _then(_self.copyWith(pagination: value));
+  });
+}
 }
 
 // dart format on

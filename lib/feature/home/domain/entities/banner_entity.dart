@@ -1,26 +1,13 @@
-class BannerEntity {
-  const BannerEntity({
-    required this.id,
-    required this.image,
-    required this.url,
-    required this.sortOrder,
-  });
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  final int id;
-  final String image;
-  final String url;
-  final int sortOrder;
+part 'banner_entity.freezed.dart';
 
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is BannerEntity &&
-          runtimeType == other.runtimeType &&
-          id == other.id &&
-          image == other.image &&
-          url == other.url &&
-          sortOrder == other.sortOrder;
-
-  @override
-  int get hashCode => Object.hash(id, image, url, sortOrder);
+@freezed
+abstract class BannerEntity with _$BannerEntity {
+  const factory BannerEntity({
+    required int id,
+    required String image,
+    required String url,
+    required int sortOrder,
+  }) = _BannerEntity;
 }

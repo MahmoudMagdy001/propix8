@@ -1,6 +1,6 @@
-import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:propix8/core/error/failures.dart';
+import 'package:propix8/core/functional/result.dart';
 import 'package:propix8/feature/developers/data/datasources/developers_remote_data_source.dart';
 import 'package:propix8/feature/developers/domain/entities/developer_entity.dart';
 import 'package:propix8/feature/developers/domain/repositories/developers_repository.dart';
@@ -11,17 +11,17 @@ class DevelopersRepositoryImpl implements DevelopersRepository {
   final DevelopersRemoteDataSource _remoteDataSource;
 
   @override
-  Future<Either<Failure, List<DeveloperEntity>>> getDevelopers() async {
+  ResultFuture<List<DeveloperEntity>> getDevelopers() async {
     try {
       final response = await _remoteDataSource.getDevelopers();
       if (response.status) {
-        return Right(response.data.map((m) => m.toDomain()).toList());
+        return right(response.data.map((m) => m.toDomain()).toList());
       }
-      return Left(ServerFailure(response.message));
+      return left(ServerFailure(response.message));
     } on DioException catch (e) {
-      return Left(ServerFailure(e.message ?? 'Server error'));
+      return left(ServerFailure(e.message ?? 'Server error'));
     } on Object catch (e) {
-      return Left(ServerFailure(e.toString()));
+      return left(ServerFailure(e.toString()));
     }
   }
 }

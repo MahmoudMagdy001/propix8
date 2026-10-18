@@ -25,12 +25,12 @@ $FavoriteUnitModelCopyWith<FavoriteUnitModel> get copyWith => _$FavoriteUnitMode
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FavoriteUnitModel&&super == other&&(identical(other.id, id) || other.id == id)&&(identical(other.unit, unit) || other.unit == unit)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FavoriteUnitModel&&(identical(other.id, id) || other.id == id)&&(identical(other.unit, unit) || other.unit == unit)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,super.hashCode,id,unit,createdAt);
+int get hashCode => Object.hash(runtimeType,id,unit,createdAt);
 
 @override
 String toString() {
@@ -216,8 +216,8 @@ return $default(_that.id,_that.unit,_that.createdAt);case _:
 /// @nodoc
 
 
-class _FavoriteUnitModel implements FavoriteUnitModel {
-  const _FavoriteUnitModel({required this.id, required this.unit, required this.createdAt});
+class _FavoriteUnitModel extends FavoriteUnitModel {
+  const _FavoriteUnitModel({required this.id, required this.unit, required this.createdAt}): super._();
   
 
 @override final  int id;
@@ -234,12 +234,12 @@ _$FavoriteUnitModelCopyWith<_FavoriteUnitModel> get copyWith => __$FavoriteUnitM
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FavoriteUnitModel&&super == other&&(identical(other.id, id) || other.id == id)&&(identical(other.unit, unit) || other.unit == unit)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FavoriteUnitModel&&(identical(other.id, id) || other.id == id)&&(identical(other.unit, unit) || other.unit == unit)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,super.hashCode,id,unit,createdAt);
+int get hashCode => Object.hash(runtimeType,id,unit,createdAt);
 
 @override
 String toString() {

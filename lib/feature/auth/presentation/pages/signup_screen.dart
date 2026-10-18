@@ -1,0 +1,222 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/router/app_routes.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/utils/snackbar_utils.dart';
+import 'package:propix8/core/widgets/app_elevated_button.dart';
+import 'package:propix8/core/widgets/app_form.dart';
+import 'package:propix8/core/widgets/app_text_form_field.dart';
+import 'package:propix8/core/widgets/terms_checkbox.dart';
+import 'package:propix8/feature/auth/data/models/auth_model.dart';
+import 'package:propix8/feature/auth/presentation/bloc/auth_bloc.dart';
+import 'package:propix8/feature/auth/presentation/bloc/auth_state.dart';
+import 'package:propix8/feature/auth/presentation/widgets/auth_widgets.dart';
+
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({super.key});
+
+  @override
+  State<SignupScreen> createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
+  final _formKey = GlobalKey<FormState>();
+  final _nameController = TextEditingController();
+  final _nameFocusNode = FocusNode();
+  final _emailController = TextEditingController();
+  final _emailFocusNode = FocusNode();
+  final _phoneController = TextEditingController();
+  final _phoneFocusNode = FocusNode();
+  final _passwordController = TextEditingController();
+  final _passwordFocusNode = FocusNode();
+  final _confirmPasswordController = TextEditingController();
+  final _confirmPasswordFocusNode = FocusNode();
+  final _appFormKey = GlobalKey<AppFormState>();
+  bool _agreedToTerms = false;
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _nameFocusNode.dispose();
+    _emailController.dispose();
+    _emailFocusNode.dispose();
+    _phoneController.dispose();
+    _phoneFocusNode.dispose();
+    _passwordController.dispose();
+    _passwordFocusNode.dispose();
+    _confirmPasswordController.dispose();
+    _confirmPasswordFocusNode.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
+    return BlocProvider.value(
+      value: locator<AuthBloc>(),
+      child: Scaffold(
+        body: BlocListener<AuthBloc, AuthState>(
+          listener: (context, state) {
+            if (state.status == AuthRequestStatus.success) {
+              context.showSuccessSnackbar(l10n.signupSuccess);
+              if (mounted) {
+                context.goNamed(AppRoutes.login);
+              }
+            } else if (state.status == AuthRequestStatus.failure) {
+              context.showErrorSnackbar(state.errorMessage ?? l10n.error);
+            }
+          },
+          child: AppForm(
+            key: _appFormKey,
+            formKey: _formKey,
+            padding: EdgeInsets.all(24.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                SizedBox(height: 50.h),
+                Text(
+                  l10n.signup,
+                  style: context.typography.h2.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: context.colors.primary,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 32.h),
+                AppTextFormField(
+                  focusNode: _nameFocusNode,
+                  controller: _nameController,
+                  label: l10n.name,
+                  prefixIcon: const Icon(Icons.person_outline),
+                  validator: (value) =>
+                      value?.isEmpty ?? true ? l10n.fieldRequired : null,
+                ),
+                SizedBox(height: 16.h),
+                AppTextFormField(
+                  focusNode: _emailFocusNode,
+                  controller: _emailController,
+                  label: l10n.email,
+                  keyboardType: TextInputType.emailAddress,
+                  prefixIcon: const Icon(Icons.email_outlined),
+                  validator: (value) {
+                    if (value?.isEmpty ?? true) return l10n.fieldRequired;
+                    if (!RegExp(
+                      r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
+                    ).hasMatch(value!)) {
+                      return l10n.invalidEmail;
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(height: 16.h),
+                AppTextFormField(
+                  focusNode: _phoneFocusNode,
+                  controller: _phoneController,
+                  label: l10n.phone,
+                  keyboardType: TextInputType.phone,
+                  prefixIcon: const Icon(Icons.phone_outlined),
+                  validator: (value) =>
+                      value?.isEmpty ?? true ? l10n.fieldRequired : null,
+                ),
+                SizedBox(height: 16.h),
+                AppTextFormField(
+                  focusNode: _passwordFocusNode,
+                  controller: _passwordController,
+                  label: l10n.password,
+                  isPassword: true,
+                  prefixIcon: const Icon(Icons.lock_outline),
+                  onFieldSubmitted: (v) => setState(() {}),
+                  validator: (value) {
+                    if (value?.isEmpty ?? true) return l10n.fieldRequired;
+                    if (value!.length < 8) return l10n.passwordTooShort;
+                    return null;
+                  },
+                ),
+                ValueListenableBuilder(
+                  valueListenable: _passwordController,
+                  builder: (context, value, child) {
+                    if (value.text.isEmpty) {
+                      return const SizedBox.shrink();
+                    }
+                    return Padding(
+                      padding: EdgeInsets.only(top: 8.h),
+                      child: PasswordStrengthIndicator(password: value.text),
+                    );
+                  },
+                ),
+                SizedBox(height: 16.h),
+                AppTextFormField(
+                  focusNode: _confirmPasswordFocusNode,
+                  controller: _confirmPasswordController,
+                  label: l10n.confirmPassword,
+                  isPassword: true,
+                  prefixIcon: const Icon(Icons.lock_reset_outlined),
+                  validator: (value) {
+                    if (value?.isEmpty ?? true) return l10n.fieldRequired;
+                    if (value != _passwordController.text) {
+                      return l10n.passwordsDoNotMatch;
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(height: 16.h),
+                TermsCheckbox(
+                  value: _agreedToTerms,
+                  onChanged: (value) {
+                    setState(() {
+                      _agreedToTerms = value ?? false;
+                    });
+                  },
+                ),
+                SizedBox(height: 32.h),
+                BlocSelector<AuthBloc, AuthState, AuthRequestStatus>(
+                  selector: (state) => state.status,
+                  builder: (context, status) {
+                    final isLoading = status == AuthRequestStatus.loading;
+                    return AppElevatedButton(
+                      onPressed: () async {
+                        if (_appFormKey.currentState?.validateAndScroll() ??
+                            false) {
+                          await context.read<AuthBloc>().register(
+                            RegisterRequest(
+                              name: _nameController.text,
+                              email: _emailController.text,
+                              phone: _phoneController.text,
+                              password: _passwordController.text,
+                              passwordConfirmation:
+                                  _confirmPasswordController.text,
+                            ),
+                          );
+                        }
+                      },
+                      isLoading: isLoading,
+                      enabled: _agreedToTerms,
+                      text: l10n.signup_Button,
+                    );
+                  },
+                ),
+                SizedBox(height: 24.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(l10n.alreadyHaveAccount),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text(l10n.login),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

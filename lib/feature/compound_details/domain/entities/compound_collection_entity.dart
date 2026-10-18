@@ -1,34 +1,20 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:propix8/core/models/pagination_model.dart';
 import 'package:propix8/feature/home/domain/entities/unit_entity.dart';
 
-class CompoundCollectionEntity {
-  const CompoundCollectionEntity({
-    required this.id,
-    required this.name,
-    required this.description,
-    required this.units,
-    this.pagination,
-  });
+part 'compound_collection_entity.freezed.dart';
 
-  final int id;
-  final String name;
-  final String description;
-  final List<UnitEntity> units;
-  final PaginationModel? pagination;
+@freezed
+abstract class CompoundCollectionEntity with _$CompoundCollectionEntity {
+  const CompoundCollectionEntity._();
 
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is CompoundCollectionEntity &&
-          runtimeType == other.runtimeType &&
-          id == other.id &&
-          name == other.name &&
-          description == other.description &&
-          units == other.units &&
-          pagination == other.pagination;
-
-  @override
-  int get hashCode => Object.hash(id, name, description, units, pagination);
+  const factory CompoundCollectionEntity({
+    required int id,
+    required String name,
+    required String description,
+    required List<UnitEntity> units,
+    PaginationModel? pagination,
+  }) = _CompoundCollectionEntity;
 
   static CompoundCollectionEntity dummy() => CompoundCollectionEntity(
         id: 0,

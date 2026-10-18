@@ -1,6 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:propix8/core/error/failures.dart';
 import 'package:propix8/feature/contact/domain/entities/contact_request_entity.dart';
@@ -59,7 +59,7 @@ void main() {
       build: () {
         when(
           () => mockSendContactRequestUseCase(any()),
-        ).thenAnswer((_) async => const Right(null));
+        ).thenAnswer((_) async => const Right(unit));
         return bloc;
       },
       act: (bloc) =>

@@ -1,5 +1,4 @@
-import 'package:dartz/dartz.dart';
-import 'package:propix8/core/error/failures.dart';
+import 'package:propix8/core/functional/result.dart';
 import 'package:propix8/core/models/pagination_model.dart';
 import 'package:propix8/feature/home/domain/entities/unit_entity.dart';
 import 'package:propix8/feature/home/domain/usecases/get_all_units_usecase.dart';
@@ -9,7 +8,7 @@ class SearchUnitsUseCase {
 
   final GetAllUnitsUseCase _getAllUnitsUseCase;
 
-  Future<Either<Failure, PaginatedResponse<UnitEntity>>> call({
+  ResultFuture<PaginatedResponse<UnitEntity>> call({
     required String query,
     int page = 1,
   }) =>

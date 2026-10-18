@@ -1,9 +1,10 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:propix8/feature/auth/models/city_model.dart';
-import 'package:propix8/feature/auth/repositories/address_setup_repository.dart';
+import 'package:propix8/core/error/failures.dart';
+import 'package:propix8/feature/auth/data/models/city_model.dart';
+import 'package:propix8/feature/auth/domain/repositories/address_setup_repository.dart';
 import 'package:propix8/feature/home/presentation/filter/bloc/filter_bloc.dart';
 import 'package:propix8/feature/home/presentation/filter/bloc/filter_event.dart';
 import 'package:propix8/feature/home/presentation/filter/bloc/filter_state.dart';
@@ -54,7 +55,7 @@ void main() {
       build: () {
         when(
           () => mockAddressSetupRepository.getCities(),
-        ).thenAnswer((_) async => const Left('Failed to load cities'));
+        ).thenAnswer((_) async => const Left(ServerFailure('Failed to load cities')));
         return filterBloc;
       },
       act: (bloc) => bloc.add(const FilterEvent.citiesRequested()),

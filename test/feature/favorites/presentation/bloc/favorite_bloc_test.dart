@@ -1,8 +1,8 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:propix8/core/error/failures.dart';
+import 'package:propix8/core/functional/result.dart';
 import 'package:propix8/core/models/pagination_model.dart';
 import 'package:propix8/core/utils/enums.dart';
 import 'package:propix8/feature/favorites/domain/entities/favorite_response_entity.dart';
@@ -47,9 +47,7 @@ void main() {
     message: 'Success',
     data: [testFavoriteUnit],
     pagination: const PaginationModel(
-      currentPage: 1,
       lastPage: 2,
-      perPage: 10,
       total: 20,
     ),
   );
@@ -157,7 +155,6 @@ void main() {
           pagination: const PaginationModel(
             currentPage: 2,
             lastPage: 2,
-            perPage: 10,
             total: 20,
           ),
         );

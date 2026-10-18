@@ -1,5 +1,4 @@
-import 'package:dartz/dartz.dart';
-import 'package:propix8/core/error/failures.dart';
+import 'package:propix8/core/functional/result.dart';
 import 'package:propix8/feature/unit_details/domain/entities/unit_booking_entity.dart';
 import 'package:propix8/feature/unit_details/domain/repositories/unit_details_repository.dart';
 
@@ -7,7 +6,7 @@ class CreateUnitBookingUseCase {
   const CreateUnitBookingUseCase(this._repository);
   final UnitDetailsRepository _repository;
 
-  Future<Either<Failure, UnitBookingResponseEntity>> call({
+  ResultFuture<UnitBookingResponseEntity> call({
     required int unitId,
     required String name,
     required String email,

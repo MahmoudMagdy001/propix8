@@ -49,7 +49,7 @@ $Res call({
 });
 
 
-
+$PaginationModelCopyWith<$Res>? get pagination;
 
 }
 /// @nodoc
@@ -73,7 +73,19 @@ as String?,isLoadingMore: null == isLoadingMore ? _self.isLoadingMore : isLoadin
 as bool,
   ));
 }
+/// Create a copy of NearbyUnitsState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PaginationModelCopyWith<$Res>? get pagination {
+    if (_self.pagination == null) {
+    return null;
+  }
 
+  return $PaginationModelCopyWith<$Res>(_self.pagination!, (value) {
+    return _then(_self.copyWith(pagination: value));
+  });
+}
 }
 
 
@@ -261,7 +273,7 @@ $Res call({
 });
 
 
-
+@override $PaginationModelCopyWith<$Res>? get pagination;
 
 }
 /// @nodoc
@@ -286,7 +298,19 @@ as bool,
   ));
 }
 
+/// Create a copy of NearbyUnitsState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PaginationModelCopyWith<$Res>? get pagination {
+    if (_self.pagination == null) {
+    return null;
+  }
 
+  return $PaginationModelCopyWith<$Res>(_self.pagination!, (value) {
+    return _then(_self.copyWith(pagination: value));
+  });
+}
 }
 
 // dart format on

@@ -49,7 +49,7 @@ $Res call({
 });
 
 
-
+$PaginationModelCopyWith<$Res>? get pagination;
 
 }
 /// @nodoc
@@ -71,7 +71,19 @@ as List<FavoriteUnitModel>,pagination: freezed == pagination ? _self.pagination 
 as PaginationModel?,
   ));
 }
+/// Create a copy of FavoriteResponseModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PaginationModelCopyWith<$Res>? get pagination {
+    if (_self.pagination == null) {
+    return null;
+  }
 
+  return $PaginationModelCopyWith<$Res>(_self.pagination!, (value) {
+    return _then(_self.copyWith(pagination: value));
+  });
+}
 }
 
 
@@ -208,8 +220,8 @@ return $default(_that.status,_that.message,_that.data,_that.pagination);case _:
 /// @nodoc
 
 
-class _FavoriteResponseModel implements FavoriteResponseModel {
-  const _FavoriteResponseModel({this.status = false, this.message = '', final  List<FavoriteUnitModel> data = const [], this.pagination}): _data = data;
+class _FavoriteResponseModel extends FavoriteResponseModel {
+  const _FavoriteResponseModel({this.status = false, this.message = '', final  List<FavoriteUnitModel> data = const [], this.pagination}): _data = data,super._();
   
 
 @override@JsonKey() final  bool status;
@@ -257,7 +269,7 @@ $Res call({
 });
 
 
-
+@override $PaginationModelCopyWith<$Res>? get pagination;
 
 }
 /// @nodoc
@@ -280,7 +292,19 @@ as PaginationModel?,
   ));
 }
 
+/// Create a copy of FavoriteResponseModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PaginationModelCopyWith<$Res>? get pagination {
+    if (_self.pagination == null) {
+    return null;
+  }
 
+  return $PaginationModelCopyWith<$Res>(_self.pagination!, (value) {
+    return _then(_self.copyWith(pagination: value));
+  });
+}
 }
 
 // dart format on

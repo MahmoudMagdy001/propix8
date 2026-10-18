@@ -1,57 +1,24 @@
-import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:propix8/core/models/pagination_model.dart';
 import 'package:propix8/feature/home/domain/entities/unit_entity.dart';
 
-class DeveloperCollectionEntity {
-  const DeveloperCollectionEntity({
-    required this.id,
-    required this.name,
-    required this.description,
-    required this.logo,
-    required this.email,
-    required this.phone,
-    required this.address,
-    required this.units,
-    this.pagination,
-  });
+part 'developer_collection_entity.freezed.dart';
 
-  final int id;
-  final String name;
-  final String description;
-  final String logo;
-  final String email;
-  final String phone;
-  final String address;
-  final List<UnitEntity> units;
-  final PaginationModel? pagination;
+@freezed
+abstract class DeveloperCollectionEntity with _$DeveloperCollectionEntity {
+  const DeveloperCollectionEntity._();
 
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is DeveloperCollectionEntity &&
-          runtimeType == other.runtimeType &&
-          id == other.id &&
-          name == other.name &&
-          description == other.description &&
-          logo == other.logo &&
-          email == other.email &&
-          phone == other.phone &&
-          address == other.address &&
-          listEquals(units, other.units) &&
-          pagination == other.pagination;
-
-  @override
-  int get hashCode => Object.hash(
-        id,
-        name,
-        description,
-        logo,
-        email,
-        phone,
-        address,
-        units,
-        pagination,
-      );
+  const factory DeveloperCollectionEntity({
+    required int id,
+    required String name,
+    required String description,
+    required String logo,
+    required String email,
+    required String phone,
+    required String address,
+    required List<UnitEntity> units,
+    PaginationModel? pagination,
+  }) = _DeveloperCollectionEntity;
 
   static DeveloperCollectionEntity dummy() => DeveloperCollectionEntity(
         id: 0,

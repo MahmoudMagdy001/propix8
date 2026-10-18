@@ -1,6 +1,6 @@
-import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:propix8/core/error/failures.dart';
+import 'package:propix8/core/functional/result.dart';
 import 'package:propix8/feature/static_pages/data/datasources/pages_remote_data_source.dart';
 import 'package:propix8/feature/static_pages/domain/entities/page_entity.dart';
 import 'package:propix8/feature/static_pages/domain/entities/stat_entity.dart';
@@ -12,7 +12,7 @@ class PagesRepositoryImpl implements PagesRepository {
   final PagesRemoteDataSource _remoteDataSource;
 
   @override
-  Future<Either<Failure, List<PageEntity>>> getPages() async {
+  ResultFuture<List<PageEntity>> getPages() async {
     try {
       final models = await _remoteDataSource.getPages();
       return Right(models.map((m) => m.toDomain()).toList());
@@ -29,7 +29,7 @@ class PagesRepositoryImpl implements PagesRepository {
   }
 
   @override
-  Future<Either<Failure, List<StatEntity>>> getStats() async {
+  ResultFuture<List<StatEntity>> getStats() async {
     try {
       final models = await _remoteDataSource.getStats();
       return Right(models.map((m) => m.toDomain()).toList());

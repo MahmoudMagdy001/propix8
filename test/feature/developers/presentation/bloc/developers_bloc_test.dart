@@ -1,8 +1,8 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:propix8/core/error/failures.dart';
+import 'package:propix8/core/functional/result.dart';
 import 'package:propix8/feature/developers/domain/entities/developer_entity.dart';
 import 'package:propix8/feature/developers/domain/usecases/get_developers_usecase.dart';
 import 'package:propix8/feature/developers/presentation/bloc/developers_bloc.dart';

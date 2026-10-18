@@ -6,17 +6,17 @@ import 'package:go_router/go_router.dart';
 import 'package:propix8/core/di/locator.dart';
 import 'package:propix8/core/router/app_routes.dart';
 import 'package:propix8/core/storage/storage_service.dart';
-import 'package:propix8/feature/auth/models/auth_model.dart';
-import 'package:propix8/feature/auth/viewmodels/auth_cubit.dart';
-import 'package:propix8/feature/auth/viewmodels/auth_state.dart';
-import 'package:propix8/feature/auth/views/address_setup_view.dart';
-import 'package:propix8/feature/auth/views/email_verification_handler.dart';
-import 'package:propix8/feature/auth/views/forgot_password_screen.dart';
-import 'package:propix8/feature/auth/views/login_screen.dart';
-import 'package:propix8/feature/auth/views/reset_password_screen.dart';
-import 'package:propix8/feature/auth/views/signup_screen.dart';
-import 'package:propix8/feature/auth/views/widgets/password_success_screen.dart';
-import 'package:propix8/feature/bookings/views/bookings_view.dart';
+import 'package:propix8/feature/auth/domain/entities/user_entity.dart';
+import 'package:propix8/feature/auth/presentation/bloc/auth_bloc.dart';
+import 'package:propix8/feature/auth/presentation/bloc/auth_state.dart';
+import 'package:propix8/feature/auth/presentation/pages/address_setup_view.dart';
+import 'package:propix8/feature/auth/presentation/pages/email_verification_handler.dart';
+import 'package:propix8/feature/auth/presentation/pages/forgot_password_screen.dart';
+import 'package:propix8/feature/auth/presentation/pages/login_screen.dart';
+import 'package:propix8/feature/auth/presentation/pages/password_success_screen.dart';
+import 'package:propix8/feature/auth/presentation/pages/reset_password_screen.dart';
+import 'package:propix8/feature/auth/presentation/pages/signup_screen.dart';
+import 'package:propix8/feature/bookings/presentation/pages/bookings_view.dart';
 import 'package:propix8/feature/comparison/presentation/pages/choose_product_view.dart';
 import 'package:propix8/feature/comparison/presentation/pages/comparison_view.dart';
 import 'package:propix8/feature/compound_details/presentation/pages/compound_units_view.dart';
@@ -26,15 +26,15 @@ import 'package:propix8/feature/developers/presentation/pages/developers_view.da
 import 'package:propix8/feature/favorites/presentation/pages/favorites_view.dart';
 import 'package:propix8/feature/home/presentation/pages/show_all_nearby_view.dart';
 import 'package:propix8/feature/layout/layout_view.dart';
-import 'package:propix8/feature/maintenance_bookings/views/maintenance_bookings_view.dart';
+import 'package:propix8/feature/maintenance_bookings/presentation/pages/maintenance_bookings_view.dart';
 import 'package:propix8/feature/onboarding/presentation/pages/onboarding_view.dart';
 import 'package:propix8/feature/onboarding/presentation/pages/splash_view.dart';
 import 'package:propix8/feature/our_services/presentation/pages/our_services_view.dart';
-import 'package:propix8/feature/profile/viewmodels/user_profile_cubit.dart';
-import 'package:propix8/feature/profile/views/change_password_view.dart';
-import 'package:propix8/feature/profile/views/edit_account_view.dart';
-import 'package:propix8/feature/profile/views/edit_profile_data_view.dart';
-import 'package:propix8/feature/profile/views/my_testimonials_view.dart';
+import 'package:propix8/feature/profile/presentation/bloc/user_profile_bloc.dart';
+import 'package:propix8/feature/profile/presentation/pages/change_password_view.dart';
+import 'package:propix8/feature/profile/presentation/pages/edit_account_view.dart';
+import 'package:propix8/feature/profile/presentation/pages/edit_profile_data_view.dart';
+import 'package:propix8/feature/profile/presentation/pages/my_testimonials_view.dart';
 import 'package:propix8/feature/search/presentation/pages/search_view.dart';
 import 'package:propix8/feature/settings/presentation/bloc/settings_bloc.dart';
 import 'package:propix8/feature/settings/presentation/bloc/settings_state.dart';
@@ -52,9 +52,9 @@ class AppRouter {
     navigatorKey: rootNavigatorKey,
     initialLocation: AppRoutes.splashPath,
     refreshListenable: GoRouterRefreshStream(
-      [locator<AuthCubit>().stream, locator<SettingsBloc>().stream],
-      initialAuthStatus: locator<AuthCubit>().state.authenticationStatus,
-      initialHasCity: locator<AuthCubit>().state.user?.cityId != null,
+      [locator<AuthBloc>().stream, locator<SettingsBloc>().stream],
+      initialAuthStatus: locator<AuthBloc>().state.authenticationStatus,
+      initialHasCity: locator<AuthBloc>().state.user?.cityId != null,
       initialLocale: locator<SettingsBloc>().state.locale.languageCode,
     ),
     debugLogDiagnostics: true,
@@ -184,7 +184,7 @@ class AppRouter {
         path: AppRoutes.editAccountPath,
         name: AppRoutes.editAccount,
         builder: (context, state) => BlocProvider.value(
-          value: locator<UserProfileCubit>(),
+          value: locator<UserProfileBloc>(),
           child: const EditAccountView(),
         ),
       ),
@@ -192,7 +192,7 @@ class AppRouter {
         path: AppRoutes.editProfileDataPath,
         name: AppRoutes.editProfileData,
         builder: (context, state) => BlocProvider.value(
-          value: locator<UserProfileCubit>(),
+          value: locator<UserProfileBloc>(),
           child: const EditProfileDataView(),
         ),
       ),
@@ -200,7 +200,7 @@ class AppRouter {
         path: AppRoutes.changePasswordPath,
         name: AppRoutes.changePassword,
         builder: (context, state) => BlocProvider.value(
-          value: locator<UserProfileCubit>(),
+          value: locator<UserProfileBloc>(),
           child: const ChangePasswordView(),
         ),
       ),
@@ -320,7 +320,7 @@ class AppRouter {
       ),
     ],
     redirect: (context, state) {
-      final authState = locator<AuthCubit>().state;
+      final authState = locator<AuthBloc>().state;
       return _handleRedirect(
         context,
         state,

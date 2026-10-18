@@ -22,14 +22,7 @@ abstract class UnitDetailsState with _$UnitDetailsState {
     @Default(<ReviewEntity>[]) List<ReviewEntity> reviews,
     @Default(HomeRequestStatus.initial) HomeRequestStatus reviewsFetchStatus,
     @Default(HomeRequestStatus.initial) HomeRequestStatus deleteReviewStatus,
-    @Default(
-      PaginationModel(
-        currentPage: 1,
-        perPage: 15,
-        total: 0,
-        lastPage: 1,
-      ),
-    )
+    @Default(PaginationModel(perPage: 15))
     PaginationModel reviewsPagination,
     @Default(false) bool isReviewsLoadingMore,
     @Default(HomeRequestStatus.initial) HomeRequestStatus contactStatus,

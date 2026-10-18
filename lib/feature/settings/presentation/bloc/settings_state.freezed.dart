@@ -49,7 +49,7 @@ $Res call({
 });
 
 
-
+$SiteSettingsEntityCopyWith<$Res>? get siteSettings;
 
 }
 /// @nodoc
@@ -72,7 +72,19 @@ as SiteSettingsEntity?,errorMessage: freezed == errorMessage ? _self.errorMessag
 as String?,
   ));
 }
+/// Create a copy of SettingsState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SiteSettingsEntityCopyWith<$Res>? get siteSettings {
+    if (_self.siteSettings == null) {
+    return null;
+  }
 
+  return $SiteSettingsEntityCopyWith<$Res>(_self.siteSettings!, (value) {
+    return _then(_self.copyWith(siteSettings: value));
+  });
+}
 }
 
 
@@ -253,7 +265,7 @@ $Res call({
 });
 
 
-
+@override $SiteSettingsEntityCopyWith<$Res>? get siteSettings;
 
 }
 /// @nodoc
@@ -277,7 +289,19 @@ as String?,
   ));
 }
 
+/// Create a copy of SettingsState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SiteSettingsEntityCopyWith<$Res>? get siteSettings {
+    if (_self.siteSettings == null) {
+    return null;
+  }
 
+  return $SiteSettingsEntityCopyWith<$Res>(_self.siteSettings!, (value) {
+    return _then(_self.copyWith(siteSettings: value));
+  });
+}
 }
 
 // dart format on

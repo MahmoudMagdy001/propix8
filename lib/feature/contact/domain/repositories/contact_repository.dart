@@ -1,9 +1,8 @@
-import 'package:dartz/dartz.dart';
-import 'package:propix8/core/error/failures.dart';
+import 'package:propix8/core/functional/result.dart';
 import 'package:propix8/feature/contact/domain/entities/contact_request_entity.dart';
 
 abstract class ContactRepository {
-  Future<Either<Failure, void>> sendContactRequest(
+  ResultUnit sendContactRequest(
     ContactRequestEntity request,
   );
 }

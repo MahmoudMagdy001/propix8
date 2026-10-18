@@ -1,19 +1,19 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:propix8/core/di/locator.dart';
-import 'package:propix8/feature/auth/viewmodels/auth_cubit.dart';
-import 'package:propix8/feature/auth/viewmodels/auth_state.dart';
+import 'package:propix8/feature/auth/presentation/bloc/auth_bloc.dart';
+import 'package:propix8/feature/auth/presentation/bloc/auth_state.dart';
 import 'package:propix8/feature/favorites/presentation/pages/favorites_view.dart';
 import 'package:propix8/feature/home/presentation/pages/home_view.dart';
 import 'package:propix8/feature/layout/back_exit_overlay_helper.dart';
 import 'package:propix8/feature/layout/layout_pop_handler.dart';
 import 'package:propix8/feature/layout/main_bottom_nav_bar.dart';
-import 'package:propix8/feature/maintenance_services/viewmodels/maintenance_services_cubit.dart';
-import 'package:propix8/feature/maintenance_services/views/maintenance_services_view.dart';
-import 'package:propix8/feature/profile/viewmodels/user_profile_cubit.dart';
-import 'package:propix8/feature/profile/views/profile_view.dart';
+import 'package:propix8/feature/maintenance_services/presentation/bloc/maintenance_services_bloc.dart';
+import 'package:propix8/feature/maintenance_services/presentation/bloc/maintenance_services_event.dart';
+import 'package:propix8/feature/maintenance_services/presentation/pages/maintenance_services_view.dart';
+import 'package:propix8/feature/profile/presentation/bloc/user_profile_bloc.dart';
+import 'package:propix8/feature/profile/presentation/bloc/user_profile_event.dart';
+import 'package:propix8/feature/profile/presentation/pages/profile_view.dart';
 
 class LayoutView extends StatefulWidget {
   const LayoutView({super.key});
@@ -60,16 +60,18 @@ class _LayoutViewState extends State<LayoutView> with BackExitOverlayHelper {
     setState(() {
       _selectedIndex = index;
       if (index == 3) {
-        unawaited(locator<UserProfileCubit>().fetchBookingCounts());
+        locator<UserProfileBloc>().add(
+          const UserProfileEvent.bookingCountsRefreshed(),
+        );
       }
       // Initialize screen if it hasn't been initialized yet
       if (_screens[index] is SizedBox) {
         switch (index) {
           case 1:
-            final servicesCubit = locator<MaintenanceServicesCubit>();
-            unawaited(servicesCubit.getMaintenanceServices());
+            final servicesBloc = locator<MaintenanceServicesBloc>()
+              ..add(const MaintenanceServicesEvent.started());
             _screens[1] = BlocProvider.value(
-              value: servicesCubit,
+              value: servicesBloc,
               child: MaintenanceServicesView(key: _servicesKey),
             );
             break;
@@ -77,22 +79,23 @@ class _LayoutViewState extends State<LayoutView> with BackExitOverlayHelper {
             _screens[2] = FavoritesView(key: _favoritesKey);
             break;
           case 3:
-            // Use singleton UserProfileCubit from locator for unified state
-            final cubit = locator<UserProfileCubit>();
-            final user = context.read<AuthCubit>().state.user;
+            final bloc = locator<UserProfileBloc>();
+            final user = context.read<AuthBloc>().state.user;
             if (user != null) {
-              cubit.setUser(user);
-            } else if (cubit.state.user == null) {
-              unawaited(cubit.loadProfile());
+              bloc.add(UserProfileEvent.userChanged(user));
+            } else if (bloc.state.user == null) {
+              bloc.add(const UserProfileEvent.profileLoaded());
             }
             _screens[3] = BlocProvider.value(
-              value: cubit,
-              child: BlocListener<AuthCubit, AuthState>(
+              value: bloc,
+              child: BlocListener<AuthBloc, AuthState>(
                 listenWhen: (previous, current) =>
                     previous.user != current.user,
                 listener: (context, state) {
                   if (state.user != null) {
-                    context.read<UserProfileCubit>().setUser(state.user!);
+                    context.read<UserProfileBloc>().add(
+                          UserProfileEvent.userChanged(state.user!),
+                        );
                   }
                 },
                 child: const ProfileView(),

@@ -1,7 +1,6 @@
 import 'dart:async';
 
-import 'package:dartz/dartz.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:propix8/core/error/failures.dart';
 import 'package:propix8/core/models/pagination_model.dart';
 import 'package:propix8/core/shared/bloc/safe_bloc.dart';

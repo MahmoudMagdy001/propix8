@@ -1,17 +1,15 @@
-class DeveloperEntity {
-  const DeveloperEntity({
-    required this.id,
-    required this.name,
-    required this.logo,
-    this.email,
-    this.phone,
-    this.address,
-  });
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  final int id;
-  final String name;
-  final String logo;
-  final String? email;
-  final String? phone;
-  final String? address;
+part 'developer_entity.freezed.dart';
+
+@freezed
+abstract class DeveloperEntity with _$DeveloperEntity {
+  const factory DeveloperEntity({
+    required int id,
+    required String name,
+    required String logo,
+    String? email,
+    String? phone,
+    String? address,
+  }) = _DeveloperEntity;
 }

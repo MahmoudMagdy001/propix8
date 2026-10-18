@@ -5,12 +5,20 @@ import 'package:propix8/feature/home/data/models/unit_model.dart';
 part 'favorite_unit_model.freezed.dart';
 
 @Freezed(toJson: false, fromJson: false)
-abstract class FavoriteUnitModel with _$FavoriteUnitModel implements FavoriteUnitEntity {
+abstract class FavoriteUnitModel with _$FavoriteUnitModel {
+  const FavoriteUnitModel._();
+
   const factory FavoriteUnitModel({
     required int id,
     required UnitModel unit,
     required DateTime createdAt,
   }) = _FavoriteUnitModel;
+
+  FavoriteUnitEntity toEntity() => FavoriteUnitEntity(
+        id: id,
+        unit: unit.toDomain(),
+        createdAt: createdAt,
+      );
 
   factory FavoriteUnitModel.fromJson(Map<String, dynamic> json) {
     final unitJson = Map<String, dynamic>.from(

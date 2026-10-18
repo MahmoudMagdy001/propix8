@@ -6,8 +6,9 @@ import 'package:propix8/feature/home/data/models/unit_model.dart';
 part 'compound_collection_model.freezed.dart';
 
 @Freezed(toJson: false, fromJson: false)
-abstract class CompoundCollectionModel with _$CompoundCollectionModel
-    implements CompoundCollectionEntity {
+abstract class CompoundCollectionModel with _$CompoundCollectionModel {
+  const CompoundCollectionModel._();
+
   const factory CompoundCollectionModel({
     required int id,
     required String name,
@@ -15,6 +16,14 @@ abstract class CompoundCollectionModel with _$CompoundCollectionModel
     required List<UnitModel> units,
     PaginationModel? pagination,
   }) = _CompoundCollectionModel;
+
+  CompoundCollectionEntity toEntity() => CompoundCollectionEntity(
+        id: id,
+        name: name,
+        description: description,
+        units: units.map((u) => u.toDomain()).toList(),
+        pagination: pagination,
+      );
 
   factory CompoundCollectionModel.fromJson(
     Map<String, dynamic> json, {

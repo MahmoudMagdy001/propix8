@@ -49,7 +49,7 @@ $Res call({
 });
 
 
-
+$CompoundCollectionEntityCopyWith<$Res>? get compound;
 
 }
 /// @nodoc
@@ -72,7 +72,19 @@ as ViewType,isLoadingMore: null == isLoadingMore ? _self.isLoadingMore : isLoadi
 as bool,
   ));
 }
+/// Create a copy of CompoundUnitsState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$CompoundCollectionEntityCopyWith<$Res>? get compound {
+    if (_self.compound == null) {
+    return null;
+  }
 
+  return $CompoundCollectionEntityCopyWith<$Res>(_self.compound!, (value) {
+    return _then(_self.copyWith(compound: value));
+  });
+}
 }
 
 
@@ -253,7 +265,7 @@ $Res call({
 });
 
 
-
+@override $CompoundCollectionEntityCopyWith<$Res>? get compound;
 
 }
 /// @nodoc
@@ -277,7 +289,19 @@ as bool,
   ));
 }
 
+/// Create a copy of CompoundUnitsState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$CompoundCollectionEntityCopyWith<$Res>? get compound {
+    if (_self.compound == null) {
+    return null;
+  }
 
+  return $CompoundCollectionEntityCopyWith<$Res>(_self.compound!, (value) {
+    return _then(_self.copyWith(compound: value));
+  });
+}
 }
 
 // dart format on

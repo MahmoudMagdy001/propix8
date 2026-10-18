@@ -49,7 +49,7 @@ $Res call({
 });
 
 
-
+$UnitDetailsEntityCopyWith<$Res>? get unit;$PaginationModelCopyWith<$Res> get reviewsPagination;
 
 }
 /// @nodoc
@@ -86,7 +86,28 @@ as bool,cancelledBookingId: freezed == cancelledBookingId ? _self.cancelledBooki
 as int?,
   ));
 }
+/// Create a copy of UnitDetailsState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UnitDetailsEntityCopyWith<$Res>? get unit {
+    if (_self.unit == null) {
+    return null;
+  }
 
+  return $UnitDetailsEntityCopyWith<$Res>(_self.unit!, (value) {
+    return _then(_self.copyWith(unit: value));
+  });
+}/// Create a copy of UnitDetailsState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PaginationModelCopyWith<$Res> get reviewsPagination {
+  
+  return $PaginationModelCopyWith<$Res>(_self.reviewsPagination, (value) {
+    return _then(_self.copyWith(reviewsPagination: value));
+  });
+}
 }
 
 
@@ -293,7 +314,7 @@ $Res call({
 });
 
 
-
+@override $UnitDetailsEntityCopyWith<$Res>? get unit;@override $PaginationModelCopyWith<$Res> get reviewsPagination;
 
 }
 /// @nodoc
@@ -331,7 +352,28 @@ as int?,
   ));
 }
 
+/// Create a copy of UnitDetailsState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UnitDetailsEntityCopyWith<$Res>? get unit {
+    if (_self.unit == null) {
+    return null;
+  }
 
+  return $UnitDetailsEntityCopyWith<$Res>(_self.unit!, (value) {
+    return _then(_self.copyWith(unit: value));
+  });
+}/// Create a copy of UnitDetailsState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PaginationModelCopyWith<$Res> get reviewsPagination {
+  
+  return $PaginationModelCopyWith<$Res>(_self.reviewsPagination, (value) {
+    return _then(_self.copyWith(reviewsPagination: value));
+  });
+}
 }
 
 // dart format on

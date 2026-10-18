@@ -49,7 +49,7 @@ $Res call({
 });
 
 
-
+$PaginationModelCopyWith<$Res>? get pagination;
 
 }
 /// @nodoc
@@ -69,7 +69,19 @@ as List<UnitModel>,pagination: freezed == pagination ? _self.pagination : pagina
 as PaginationModel?,
   ));
 }
+/// Create a copy of UnitResponseModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PaginationModelCopyWith<$Res>? get pagination {
+    if (_self.pagination == null) {
+    return null;
+  }
 
+  return $PaginationModelCopyWith<$Res>(_self.pagination!, (value) {
+    return _then(_self.copyWith(pagination: value));
+  });
+}
 }
 
 
@@ -253,7 +265,7 @@ $Res call({
 });
 
 
-
+@override $PaginationModelCopyWith<$Res>? get pagination;
 
 }
 /// @nodoc
@@ -274,7 +286,19 @@ as PaginationModel?,
   ));
 }
 
+/// Create a copy of UnitResponseModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PaginationModelCopyWith<$Res>? get pagination {
+    if (_self.pagination == null) {
+    return null;
+  }
 
+  return $PaginationModelCopyWith<$Res>(_self.pagination!, (value) {
+    return _then(_self.copyWith(pagination: value));
+  });
+}
 }
 
 // dart format on

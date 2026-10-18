@@ -1,4 +1,3 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 import 'package:propix8/feature/contact/domain/usecases/send_contact_request_usecase.dart';
 import 'package:propix8/feature/contact/presentation/bloc/contact_event.dart';

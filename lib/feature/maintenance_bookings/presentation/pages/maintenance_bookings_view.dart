@@ -1,0 +1,136 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:internet_state_manager/internet_state_manager.dart';
+import 'package:propix8/core/di/locator.dart';
+import 'package:propix8/core/utils/context_extensions.dart';
+import 'package:propix8/core/utils/mixins/connectivity_mixin.dart';
+import 'package:propix8/core/utils/mixins/scroll_pagination_mixin.dart';
+import 'package:propix8/core/utils/responsive_helper.dart';
+import 'package:propix8/core/utils/snackbar_utils.dart';
+import 'package:propix8/core/widgets/custom_back_button.dart';
+import 'package:propix8/feature/maintenance_bookings/presentation/bloc/maintenance_bookings_bloc.dart';
+import 'package:propix8/feature/maintenance_bookings/presentation/bloc/maintenance_bookings_event.dart';
+import 'package:propix8/feature/maintenance_bookings/presentation/bloc/maintenance_bookings_state.dart';
+import 'package:propix8/feature/maintenance_bookings/presentation/widgets/maintenance_bookings_empty_widget.dart';
+import 'package:propix8/feature/maintenance_bookings/presentation/widgets/maintenance_bookings_error_widget.dart';
+import 'package:propix8/feature/maintenance_bookings/presentation/widgets/maintenance_bookings_sliver_list.dart';
+import 'package:propix8/feature/maintenance_services/presentation/bloc/maintenance_services_bloc.dart';
+import 'package:propix8/feature/maintenance_services/presentation/bloc/maintenance_services_event.dart';
+
+class MaintenanceBookingsView extends StatelessWidget {
+  const MaintenanceBookingsView({super.key});
+
+  @override
+  Widget build(BuildContext context) => BlocProvider(
+    create: (context) => locator<MaintenanceBookingsBloc>()
+      ..add(const MaintenanceBookingsEvent.fetchInitial()),
+    child: const _MaintenanceBookingsViewContent(),
+  );
+}
+
+class _MaintenanceBookingsViewContent extends StatefulWidget {
+  const _MaintenanceBookingsViewContent();
+
+  @override
+  State<_MaintenanceBookingsViewContent> createState() =>
+      _MaintenanceBookingsViewContentState();
+}
+
+class _MaintenanceBookingsViewContentState
+    extends State<_MaintenanceBookingsViewContent>
+    with ScrollPaginationMixin, ConnectivityMixin {
+  @override
+  void onPageFetched() {
+    context.read<MaintenanceBookingsBloc>().add(
+          const MaintenanceBookingsEvent.loadMore(),
+        );
+  }
+
+  @override
+  void onConnectivityChanged({required bool isConnected}) {
+    if (isConnected) {
+      context.read<MaintenanceBookingsBloc>().add(
+            const MaintenanceBookingsEvent.fetchInitial(),
+          );
+    } else {
+      context.read<MaintenanceBookingsBloc>().add(
+            const MaintenanceBookingsEvent.setNetworkFailure(),
+          );
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    startConnectivityListener();
+  }
+
+  @override
+  Widget build(BuildContext context) =>
+      BlocListener<MaintenanceBookingsBloc, MaintenanceBookingsState>(
+        listenWhen: (previous, current) =>
+            previous.status != current.status &&
+            current.status == MaintenanceBookingsStatus.failure,
+        listener: (context, state) {
+          if (state.bookings.isNotEmpty &&
+              state.errorMessage != null &&
+              state.errorMessage != 'Network Error') {
+            context.showErrorSnackbar(state.errorMessage!);
+          }
+        },
+        child: Scaffold(
+          body: InternetStateManager(
+            noInternetScreen: const NoInternetScreen(),
+            onRestoreInternetConnection: () => context
+                .read<MaintenanceBookingsBloc>()
+                .add(const MaintenanceBookingsEvent.fetchInitial()),
+            child: RefreshIndicator(
+              onRefresh: () async {
+                final completer = Completer<void>();
+                context.read<MaintenanceBookingsBloc>().add(
+                      const MaintenanceBookingsEvent.fetchInitial(),
+                    );
+                completer.complete();
+                return completer.future;
+              },
+              child: CustomScrollView(
+                controller: scrollController,
+                physics: const AlwaysScrollableScrollPhysics(),
+                slivers: [
+                  SliverAppBar(
+                    leading: const CustomBackButton(),
+                    title: Text(context.l10n.maintenanceBookings),
+                    floating: true,
+                    snap: true,
+                  ),
+                  MaintenanceBookingsSliverList(
+                    onBookingDeleted: (serviceId) =>
+                        locator<MaintenanceServicesBloc>().add(
+                          MaintenanceServicesEvent.serviceUnbooked(serviceId),
+                        ),
+                  ),
+                  const MaintenanceBookingsErrorWidget(),
+                  const MaintenanceBookingsEmptyWidget(),
+                  BlocBuilder<MaintenanceBookingsBloc, MaintenanceBookingsState>(
+                    builder: (context, state) {
+                      if (state.status == MaintenanceBookingsStatus.loading &&
+                          state.bookings.isNotEmpty) {
+                        return SliverPadding(
+                          padding: EdgeInsets.symmetric(vertical: 16.h),
+                          sliver: const SliverToBoxAdapter(
+                            child: Center(child: CircularProgressIndicator()),
+                          ),
+                        );
+                      }
+                      return const SliverToBoxAdapter(child: SizedBox.shrink());
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+}

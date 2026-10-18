@@ -1,8 +1,8 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:propix8/core/error/failures.dart';
+import 'package:propix8/core/functional/result.dart';
 import 'package:propix8/core/models/pagination_model.dart';
 import 'package:propix8/core/utils/enums.dart';
 import 'package:propix8/feature/developer_details/domain/entities/developer_collection_entity.dart';
@@ -42,9 +42,7 @@ void main() {
     address: 'New Cairo',
     units: [testUnit1],
     pagination: PaginationModel(
-      currentPage: 1,
       lastPage: 2,
-      perPage: 10,
       total: 20,
     ),
   );
@@ -125,7 +123,6 @@ void main() {
       pagination: PaginationModel(
         currentPage: 2,
         lastPage: 2,
-        perPage: 10,
         total: 20,
       ),
     );
@@ -163,7 +160,6 @@ void main() {
             pagination: PaginationModel(
               currentPage: 2,
               lastPage: 2,
-              perPage: 10,
               total: 20,
             ),
           ),

@@ -1,4 +1,3 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:propix8/core/shared/bloc/safe_bloc.dart';
 import 'package:propix8/feature/settings/domain/usecases/get_locale_usecase.dart';
 import 'package:propix8/feature/settings/domain/usecases/get_site_settings_usecase.dart';

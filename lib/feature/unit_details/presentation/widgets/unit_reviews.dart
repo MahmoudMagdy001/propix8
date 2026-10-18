@@ -9,7 +9,7 @@ import 'package:propix8/core/utils/responsive_helper.dart';
 import 'package:propix8/core/utils/snackbar_utils.dart';
 import 'package:propix8/core/widgets/app_confirmation_dialog.dart';
 import 'package:propix8/core/widgets/app_modal_sheet.dart';
-import 'package:propix8/feature/auth/viewmodels/auth_cubit.dart';
+import 'package:propix8/feature/auth/presentation/bloc/auth_bloc.dart';
 import 'package:propix8/feature/home/presentation/bloc/home_state.dart';
 import 'package:propix8/feature/unit_details/domain/entities/review_entity.dart';
 import 'package:propix8/feature/unit_details/domain/entities/unit_details_entity.dart';
@@ -78,7 +78,7 @@ class UnitReviews extends StatelessWidget {
               return const SliverToBoxAdapter(child: SizedBox());
             }
 
-            final currentUserId = context.read<AuthCubit>().state.user?.id;
+            final currentUserId = context.read<AuthBloc>().state.user?.id;
 
             return SliverToBoxAdapter(
               child: Padding(

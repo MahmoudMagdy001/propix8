@@ -1,6 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:propix8/core/error/failures.dart';
 import 'package:propix8/core/models/pagination_model.dart';
@@ -22,9 +22,9 @@ void main() {
 
   const testUnit2 = UnitEntity(id: 2, title: 'Apartment in Zayed', price: 3000000.0);
 
-  const testPaginationPage1 = PaginationModel(currentPage: 1, lastPage: 2, perPage: 10, total: 20);
+  const testPaginationPage1 = PaginationModel(lastPage: 2, total: 20);
 
-  const testPaginationPage2 = PaginationModel(currentPage: 2, lastPage: 2, perPage: 10, total: 20);
+  const testPaginationPage2 = PaginationModel(currentPage: 2, lastPage: 2, total: 20);
 
   const testResponsePage1 = PaginatedResponse<UnitEntity>(data: [testUnit1], pagination: testPaginationPage1);
 
